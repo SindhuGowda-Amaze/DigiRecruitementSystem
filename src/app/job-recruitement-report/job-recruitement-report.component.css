@@ -1,0 +1,26 @@
+.export{
+    border-radius: 10px;
+    background-color: #21a4da;
+    height: 35px;
+    color: #fff;
+    width: 100%;
+    border: 1px solid #fff;
+    margin-top: 2%;
+}
+
+.card{
+  padding: 10px;
+}
+.hrline{
+   margin-top: 0px;
+}
+.count{
+    float: right;
+    padding-right: 2px;
+}
+
+.heading{
+    background-color: #21a4da;
+    color: #fff;
+    padding: 10px;
+}
