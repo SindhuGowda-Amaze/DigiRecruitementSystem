@@ -15,5 +15,6 @@ negative-padding{
   height: 90vh;
   width: 90vh;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: Scroll;
+
 }
