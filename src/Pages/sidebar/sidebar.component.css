@@ -6,11 +6,10 @@
 .background{
     background-color:black;
     font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    padding-left: 5px;
 }
-.negative-padding{
-    padding-left: 0px;
-    padding-right: 0px;
-}
+
 .side-height{
     height: 90vh;
     overflow-y: scroll;
@@ -52,6 +51,13 @@ span:hover {
     padding-left: 10px;
     color: white;
     margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    background-color: #21a4da;
+    opacity: 10px;
 }
 
 
