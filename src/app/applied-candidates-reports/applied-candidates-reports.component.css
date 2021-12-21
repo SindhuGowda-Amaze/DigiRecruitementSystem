@@ -19,14 +19,13 @@
     padding-right: 2px;
 }
 
-.heading{
-    background-color: #21a4da;
-    color: #fff;
-    padding: 10px;
-}
 table{
     border-collapse: collapse;
     width: 100%;
+}
+.heading{
+    background-color: #21a4da;
+    color: #fff;
 }
 td, th {
     border: 1px solid #ddd;
