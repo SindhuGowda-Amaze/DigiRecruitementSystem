@@ -1,12 +1,18 @@
 .logo{
-  width: 40%;
+  width: 60%;
   height: 80%;
 
-  margin-left: 30px;
+  margin-left: 20px;
 }
 .logout{
       float: right;
       margin-top: 1%;
+}
+.notify{
+  float: right;
+  margin-top: 1%;
+  height: 55%;
+ 
 }
 /* .container-fluid{
   box-shadow: 0px 2px 5px grey;

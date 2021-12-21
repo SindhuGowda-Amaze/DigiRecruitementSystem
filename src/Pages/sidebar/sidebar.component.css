@@ -4,7 +4,7 @@
     margin-top: 5px;
 }
 .background{
-    background-color: rgb(7, 106, 119);
+    background-color:black;
     font-family: 'Open Sans', sans-serif;
 }
 .negative-padding{
@@ -27,14 +27,14 @@
     background-color: white;
 }
 span:hover {
-    background-color:rgb(7, 106, 119);
+    background-color:rgb(87, 87, 87);
     text-decoration: none;
     color: #ffc83d;
     cursor: pointer;
   }
 
   .togglebtn {
-    background-color: rgb(7, 106, 119);
+    background-color: black;
     border: none;
     color: white;
     font-size: 16px;

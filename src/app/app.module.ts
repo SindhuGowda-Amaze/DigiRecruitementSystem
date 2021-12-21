@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from 'src/Pages/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JobRecruitementReportComponent } from './job-recruitement-report/job-recruitement-report.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HeaderComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    JobRecruitementReportComponent
   ],
   imports: [
     BrowserModule,
