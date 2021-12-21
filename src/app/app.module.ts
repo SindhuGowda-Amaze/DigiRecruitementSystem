@@ -15,6 +15,14 @@ import { SelectedCandidatesComponent } from './selected-candidates/selected-cand
 import { OfferedCandidatesComponent } from './offered-candidates/offered-candidates.component';
 import { JoinedCandidatesComponent } from './joined-candidates/joined-candidates.component';
 import { DroppedCandidatesComponent } from './dropped-candidates/dropped-candidates.component';
+import { AppliedCandidatesReportsComponent } from './applied-candidates-reports/applied-candidates-reports.component';
+import { ShortlistedCandidatesReportsComponent } from './shortlisted-candidates-reports/shortlisted-candidates-reports.component';
+import { ScheduledInterviewsReportsComponent } from './scheduled-interviews-reports/scheduled-interviews-reports.component';
+import { SelectedCandidatesReportsComponent } from './selected-candidates-reports/selected-candidates-reports.component';
+import { OfferedCandidatesReportsComponent } from './offered-candidates-reports/offered-candidates-reports.component';
+import { DroppedCandiadtesReportsComponent } from './dropped-candiadtes-reports/dropped-candiadtes-reports.component';
+import { JoinedCandidatesReportComponent } from './joined-candidates-report/joined-candidates-report.component';
+import { JobRequisitionFormComponent } from './job-requisition-form/job-requisition-form.component';
 
 
 @NgModule({
@@ -24,6 +32,7 @@ import { DroppedCandidatesComponent } from './dropped-candidates/dropped-candida
     SidebarComponent,
     DashboardComponent,
     JobRecruitementReportComponent,
+<<<<<<< HEAD
     JobRecruitementsComponent,
     AppliedCandidatesComponent,
     ShortListedCandidatesComponent,
@@ -32,6 +41,17 @@ import { DroppedCandidatesComponent } from './dropped-candidates/dropped-candida
     OfferedCandidatesComponent,
     JoinedCandidatesComponent,
     DroppedCandidatesComponent
+=======
+    AppliedCandidatesReportsComponent,
+    ShortlistedCandidatesReportsComponent,
+    ScheduledInterviewsReportsComponent,
+    SelectedCandidatesReportsComponent,
+    OfferedCandidatesReportsComponent,
+  
+    DroppedCandiadtesReportsComponent,
+        JoinedCandidatesReportComponent,
+        JobRequisitionFormComponent
+>>>>>>> 9831a553aa1d34db5569e6d9144aa28ec6734de9
   ],
   imports: [
     BrowserModule,
