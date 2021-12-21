@@ -1,16 +1,24 @@
-<!-- <app-header></app-header>
-<div class="row side-height">
-  <div class="col-lg-2 negative-padding">
-    <app-sidebar></app-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 negative-padding">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="col-lg-10 outlet" style="height:695px; background-color: #f2f2f2;">
-  
-    <router-outlet></router-outlet>
+</div>
+<div class="container-fluid" style="overflow: hidden;">
+
+ <div class="row head-height" >        <!--*ngIf="login==1" -->
+    <div class="col-lg-12">
+        <app-header></app-header>
+    </div>
+</div>
+  <div class="row side-height">    <!--*ngIf="login==1" -->
+    <div class="col-lg-2 negative-padding" >
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-lg-10 outlet">
+      <br>
+      <router-outlet></router-outlet>
+    </div>
   </div>
-
-  <div class="col-lg-12" style="height:10px">
-        <app-footer></app-footer>  
-    </div> 
-</div> -->
-
-<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,62 @@
+.common{
+    float: left;
+    width: 12px;
+    margin-top: 5px;
+}
+.background{
+    background-color:black;
+    font-family: 'Open Sans', sans-serif;
+}
+.negative-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.side-height{
+    height: 90vh;
+    overflow-y: scroll;
+}
+.side-anchr {
+    margin-top: 10px;
+    color: white;
+    margin-left: 5px;
+    font-size: 16px;
+}
+.HrLine {
+    border: solid 1%;
+    opacity: 1;
+    background-color: white;
+}
+span:hover {
+    background-color:rgb(87, 87, 87);
+    text-decoration: none;
+    color: #ffc83d;
+    cursor: pointer;
+  }
+
+  .togglebtn {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding-left: 5px;
+    width: 100%;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+}
+.submenu{
+    padding-left: 15px;
+    color: white;
+    margin-bottom: 20px;
+}
+.menu{
+    padding-left: 10px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
