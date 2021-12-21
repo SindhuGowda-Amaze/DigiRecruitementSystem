@@ -32,7 +32,6 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
     SidebarComponent,
     DashboardComponent,
     JobRecruitementReportComponent,
-<<<<<<< HEAD
     JobRecruitementsComponent,
     AppliedCandidatesComponent,
     ShortListedCandidatesComponent,
@@ -40,8 +39,7 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
     SelectedCandidatesComponent,
     OfferedCandidatesComponent,
     JoinedCandidatesComponent,
-    DroppedCandidatesComponent
-=======
+    DroppedCandidatesComponent,
     AppliedCandidatesReportsComponent,
     ShortlistedCandidatesReportsComponent,
     ScheduledInterviewsReportsComponent,
@@ -51,7 +49,6 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
     DroppedCandiadtesReportsComponent,
         JoinedCandidatesReportComponent,
         JobRequisitionFormComponent
->>>>>>> 9831a553aa1d34db5569e6d9144aa28ec6734de9
   ],
   imports: [
     BrowserModule,
