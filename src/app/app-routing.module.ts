@@ -11,6 +11,7 @@ import { OfferedCandidatesReportsComponent } from './offered-candidates-reports/
 import { DroppedCandiadtesReportsComponent } from './dropped-candiadtes-reports/dropped-candiadtes-reports.component';
 import { AppliedCandidatesReportsComponent } from './applied-candidates-reports/applied-candidates-reports.component';
 import { JoinedCandidatesReportComponent } from './joined-candidates-report/joined-candidates-report.component';
+import { JobRequisitionFormComponent } from './job-requisition-form/job-requisition-form.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'SelectedCandidatesReports',component: SelectedCandidatesReportsComponent},
   {path:'OfferedCandidatesReports',component: OfferedCandidatesReportsComponent},
   {path:'DroppedCandiadtesReports',component: DroppedCandiadtesReportsComponent},
-  {path:'JoinedCandidatesReport',component: JoinedCandidatesReportComponent}
+  {path:'JoinedCandidatesReport',component: JoinedCandidatesReportComponent},
+  {path:'JobRequisitionForm',component: JobRequisitionFormComponent}
 ];
 
 @NgModule({

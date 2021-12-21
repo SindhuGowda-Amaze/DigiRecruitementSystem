@@ -14,6 +14,7 @@ import { SelectedCandidatesReportsComponent } from './selected-candidates-report
 import { OfferedCandidatesReportsComponent } from './offered-candidates-reports/offered-candidates-reports.component';
 import { DroppedCandiadtesReportsComponent } from './dropped-candiadtes-reports/dropped-candiadtes-reports.component';
 import { JoinedCandidatesReportComponent } from './joined-candidates-report/joined-candidates-report.component';
+import { JobRequisitionFormComponent } from './job-requisition-form/job-requisition-form.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { JoinedCandidatesReportComponent } from './joined-candidates-report/join
     OfferedCandidatesReportsComponent,
   
     DroppedCandiadtesReportsComponent,
-        JoinedCandidatesReportComponent
+        JoinedCandidatesReportComponent,
+        JobRequisitionFormComponent
   ],
   imports: [
     BrowserModule,
