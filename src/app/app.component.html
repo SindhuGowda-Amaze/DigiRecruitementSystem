@@ -6,8 +6,10 @@
   </div>
 </div>
 <div class="container-fluid" style="overflow: hidden;">
-
+<div *ngIf="login==1">
   <app-header></app-header>
+</div>
+  
   <!-- <div class="row side-height" *ngIf="login==1">  
    <div class="col-lg-2" style="padding-left: 0px;" >
       <app-sidebar></app-sidebar>
@@ -19,7 +21,7 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="foot">
+  <div class="foot" *ngIf="login==1">
     <app-footer></app-footer>
   </div>
 </div>

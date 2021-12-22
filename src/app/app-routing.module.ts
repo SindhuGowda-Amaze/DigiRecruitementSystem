@@ -23,10 +23,12 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
 import { FooterComponent } from './footer/footer.component';
 import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  {path: "Login", component: LoginPageComponent },
   {path: "Header", component: HeaderComponent },
   {path: "Sidebar", component: SidebarComponent},
   {path:'Dashboard',component:DashboardComponent},

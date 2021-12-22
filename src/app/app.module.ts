@@ -26,6 +26,7 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
 import { FooterComponent } from './footer/footer.component';
 import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { RegistrationComponent } from './registration/registration.component';
     JobRequisitionFormComponent,
     FooterComponent,
     JobVacanciesComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
