@@ -23,6 +23,7 @@ import { OfferedCandidatesReportsComponent } from './offered-candidates-reports/
 import { DroppedCandiadtesReportsComponent } from './dropped-candiadtes-reports/dropped-candiadtes-reports.component';
 import { JoinedCandidatesReportComponent } from './joined-candidates-report/joined-candidates-report.component';
 import { JobRequisitionFormComponent } from './job-requisition-form/job-requisition-form.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
     OfferedCandidatesReportsComponent,
     DroppedCandiadtesReportsComponent,
     JoinedCandidatesReportComponent,
-    JobRequisitionFormComponent
+    JobRequisitionFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

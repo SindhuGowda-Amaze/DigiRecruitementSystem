@@ -25,12 +25,13 @@
       url('assets/DIN Medium.otf') 
       format('opentype');
   }
-  body,button,input,p{
+  body,button,p,input{
     font-family: 'DIN Bold';
     font-size: 12px;
     font-weight: bold;
     cursor: pointer; 
   }
+  
   .Dinbold{
     font-family: 'DIN Bold';
   }
