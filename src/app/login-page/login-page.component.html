@@ -1,0 +1,44 @@
+<div class="container" *ngIf="login1!=1">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 login-box">
+            <div class="col-lg-12 login-key">
+                <div class="card">
+                    <img class="LogoImg" src="/assets/Images/digiRecruitment_250_100.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12 login-title">
+                ADMIN PANEL
+            </div>
+            <div class="col-lg-12 login-form">
+                <div class="col-lg-12 login-form">
+                    <form>
+                        <div class="form-group">
+                            <select class="form-control CompanyList">
+                                <option value="">COMPANY NAME</option>
+                                <option value="">Company 1</option>
+                                <option value="">Company 2</option>
+                                <option value="">Company 3</option>
+                                <option value="">Company 4</option>
+                                <option value="">Company 5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                           <input type="text" class="form-control" placeholder="Username" name="ID">   <!--[(ngModel)]="ID" -->
+                        </div>
+                        <div class="form-group">
+                          
+                            <input type="password" class="form-control" placeholder="Password"  name="passWord" >   <!-- [(ngModel)]="passWord" -->
+                        </div>
+                        <div class="col-lg-12 loginbttm">
+                            <div class="col-lg-12 login-btm login-button">
+                                <button type="submit" class="btn btn-outline-primary"  (click)="login()">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-2"></div>
+        </div>
+    </div>
+</div>

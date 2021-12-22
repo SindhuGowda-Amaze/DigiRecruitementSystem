@@ -16,6 +16,10 @@
 }
 .container-fluid{
 box-shadow: 2px,2px,10px solid silver;
+font-family: 'DIN Bold';
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer; 
 }
 .dropdown-submenu {
 position: relative;
@@ -198,4 +202,5 @@ a:hover{
   background-color: #21a4da;
   opacity: 10px;
 }
+
 

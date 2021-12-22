@@ -11,9 +11,12 @@ negative-padding{
 }
 .outlet{
   background-color: #ececec;
-  height: 90vh;
+  height: 86vh;
   width: 90vh;
   overflow-y: auto;
-  overflow-x: Scroll;
-
+  overflow-x: hidden;
+}
+.foot{
+ padding-left: 0px;
+ padding-right: 0px;
 }

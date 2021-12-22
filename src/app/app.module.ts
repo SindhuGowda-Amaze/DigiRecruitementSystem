@@ -23,8 +23,10 @@ import { OfferedCandidatesReportsComponent } from './offered-candidates-reports/
 import { DroppedCandiadtesReportsComponent } from './dropped-candiadtes-reports/dropped-candiadtes-reports.component';
 import { JoinedCandidatesReportComponent } from './joined-candidates-report/joined-candidates-report.component';
 import { JobRequisitionFormComponent } from './job-requisition-form/job-requisition-form.component';
+import { FooterComponent } from './footer/footer.component';
 import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @NgModule({
@@ -50,8 +52,10 @@ import { RegistrationComponent } from './registration/registration.component';
     DroppedCandiadtesReportsComponent,
     JoinedCandidatesReportComponent,
     JobRequisitionFormComponent,
+    FooterComponent,
     JobVacanciesComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
