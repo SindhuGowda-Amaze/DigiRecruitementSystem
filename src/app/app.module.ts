@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import Swal from 'sweetalert2'
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -68,6 +69,7 @@ import { JobRequisitionComponent } from './job-requisition/job-requisition.compo
   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
