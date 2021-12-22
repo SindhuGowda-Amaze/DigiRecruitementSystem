@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import Swal from 'sweetalert2'
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -61,8 +63,11 @@ import { LoginPageComponent } from './login-page/login-page.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxDropzoneModule
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

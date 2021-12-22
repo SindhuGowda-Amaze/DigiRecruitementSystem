@@ -30,8 +30,17 @@ padding-left:16px;
   font-size: 15px;
   font-weight: bold;
   }
+
+  .registerbtn{
+    background-color:#2F87CC ;
+    color:white;
+  }
   .manager{
       color:green;
       font-size: 18px;
+  }
+  .modal-content{
+      height: 730px;
+      overflow-y: scroll;
   }
  
