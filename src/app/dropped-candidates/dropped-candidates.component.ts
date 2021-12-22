@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-dropped-candidates',
   templateUrl: './dropped-candidates.component.html',
@@ -11,5 +12,7 @@ export class DroppedCandidatesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
 
 }
