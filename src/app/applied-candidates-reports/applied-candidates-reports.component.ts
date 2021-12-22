@@ -11,5 +11,7 @@ export class AppliedCandidatesReportsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  refresh(){
+    location.reload();
+  }
 }

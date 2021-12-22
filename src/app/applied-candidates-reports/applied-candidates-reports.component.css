@@ -24,11 +24,14 @@ table{
     width: 100%;
 }
 .heading{
-    background-color: #21a4da;
+    background-color: #bebdbd;
     color: #fff;
 }
 td, th {
     border: 1px solid #ddd;
     text-align: left;
     padding: 8px;
+}
+td{
+    background-color: white
 }

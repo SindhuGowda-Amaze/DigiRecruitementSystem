@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row ">
         <div class="col-lg-2">
             <img src="../../assets/Images/digiRecruitment_250_100.png" class="logo" alt="logo">
@@ -8,6 +8,56 @@
             <img src="../../assets/Images/notification.png" class="notify">&nbsp; &nbsp;&nbsp;
         </div>
     </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1">
+            <img src="/assets/Images/digiRecruitment_250_100.png" class="logo" alt="logo">
+        </div>
+
+        <div class="col-lg-1">
+            <h6 class="menutext" routerLink="/Dashboard">Dashboard</h6>
+        </div>
+        <div class="col-lg-2" >
+            <h6  class=" dropdown-toggle menutext" type="button" id="dropdownMenu1" data-toggle="dropdown"
+            aria-expanded="false">Job Recruitements</h6>
+            
+            <ul class="dropdown-menu">
+                <li class="dropdown-item"><a  class="menuitem" tabindex="-1" routerLink="/JobRecruitementReport">Job Recruitement Report</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/AppliedCandidatesReports">Applied Candidates Reports</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/ShortlistedCandidatesReports">Shortlisted Candidates Reports</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/ScheduledInterviewsReports">Scheduled Interviews Reports</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/SelectedCandidatesReports">SelectedCandidatesReports</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/OfferedCandidatesReports">Offered Candidates Reports</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/joinedCandidatesReport">JoinedCandidatesReport</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/DroppedCandiadtesReports">Dropped Candiadtes Reports</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-1" >
+            <h6  class=" dropdown-toggle menutext" type="button" id="dropdownMenu1" data-toggle="dropdown"
+            aria-expanded="false">Reports</h6>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a  class="menuitem" tabindex="-1" routerLink="/JobRecruitementReport">Job Recruitement Report</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/AppliedCandidatesReports">Applied Candidates Reports</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/ShortlistedCandidatesReports">Shortlisted Candidates Reports</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/ScheduledInterviewsReports">Scheduled Interviews Reports</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/SelectedCandidatesReports">SelectedCandidatesReports</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/OfferedCandidatesReports">Offered Candidates Reports</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/JoinedCandidatesReport">Joined Candidates Reports</a></li>
+                    <li class="dropdown-item"><a class="menuitem" routerLink="/DroppedCandiadtesReports">Dropped Candiadtes Reports</a></li>
+                </ul>
+        </div>
+
+        
+       <div class="col-lg-4"></div>
+        <div class="col-lg-2" style="margin-left: 100px;">
+            <img src="/assets/Images/logout.png" class="logout" (click)="logout()">&nbsp;
+            <img src="/assets/Images/notification.png" class="notify">&nbsp; &nbsp;&nbsp;
+        </div>
+    </div>
 </div>
+
 
 

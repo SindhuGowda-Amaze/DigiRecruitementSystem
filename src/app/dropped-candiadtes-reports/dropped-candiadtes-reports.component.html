@@ -1,73 +1,100 @@
-<div class="row">
-    <div class="col-lg-10"></div>
-    <div class="col-lg-2">
-        <button class="form-control export">Export to Excel</button>
-    </div>
-</div>
-<br>
-<div class="card">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
-            <p>DROPPED CANDIDATES REPORTS</p>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <div class="col-lg-2">
+                    <button class="form-control export">Export to Excel</button>
+                </div>
+            </div>
+         
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>DROPPED CANDIDATES REPORTS</p>
+                </div>
+            </div>
+            <hr class="hrline">
+            <!-- <div class="card">
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <input type="search" class="form-control" placeholder="Search">
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-lg-3">
+                        <select class="form-control">
+                            <option value="Select Vendor">Select Vendor</option>
+                            <option value="Amaze">Amaze</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <p class="count">Count :</p>
+                    </div>
+                </div>
+                <br>
+            </div> -->
+            <br>
+            <div class="card">
+                <br>
+                <div class="row leavereq">
+                    <div class="col-md-3 FilterClass">
+                        START DATE:
+                    </div>
+                    <div class="col-md-3 FilterClass">
+                        END DATE:
+                    </div>
+                </div>
+                <br>
+                <div class="row leavereq">
+                    <div class="col-md-3">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <button class=" form-control export" (click)="refresh()">Refresh</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class=" form-control export">Download</button>
+                    </div>
+                </div>
+                <br>
+            </div><br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table-bordered">
+                        <tr class="heading">
+                            <th><span class="menu">Job Reference ID</span></th>
+                            <th><span class="menu">Staff</span></th>
+                            <th><span class="menu">Job Title</span></th>
+                            <th><span class="menu">Candidate Name</span></th>
+                            <th><span class="menu">Phone No</span></th>
+                            <th><span class="menu">Email</span></th>
+                            <th><span class="menu">Total Years of Experience</span></th>
+                            <th><span class="menu">Years of Relavant Experience</span></th>
+                            <th><span class="menu">Offere Letter</span></th>
+                            <th><span class="menu">Comments</span></th>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>2021-12-21</td>
+                            <td>Software Developer</td>
+                            <td>Sunil</td>
+                            <td>988788777</td>
+                            <td>sind123@gmail.com</td>
+                            <td>2 years</td>
+                            <td>2.5 years</td>
+                            <td>Attached</td>
+                            <td>Dropped</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
-    <hr class="hrline">
-    <div class="row">
-        <div class="col-lg-3">
-            <input type="search" class="form-control" placeholder="Search">
-        </div>
-        <div class="col-lg-3">
-           <input type="date" class="form-control">
-        </div>
-        <div class="col-lg-3">
-           <select class="form-control">
-               <option value="Select Vendor">Select Vendor</option>
-               <option value="Amaze">Amaze</option>
-           </select>
-        </div>
-        <div class="col-lg-3">
-            <p class="count">Count :</p>
-        </div>
-    </div>
-<br>
-    <div class="row">
-        <div class="col-lg-12">
-            <table class="table-bordered">
-                <tr  class="heading">
-                    <th><span class="menu">Job Reference ID</span></th>
-                    <th><span class="menu">Staff</span></th>
-                    <th><span class="menu">Job Title</span></th>
-                    <th><span class="menu">Candidate Name</span></th>
-                    <th><span class="menu">Phone No</span></th>
-                    <th><span class="menu">Email</span></th>
-                    <th><span class="menu">Total Years of Experience</span></th>
-                    <th><span class="menu">Years of Relavant Experience</span></th>
-                    <th><span class="menu">Offere Letter</span></th>
-                    <th><span class="menu">Comments</span></th>
-
-
-                </tr>
-                <tr>
-                    <td>001</td>
-                    <td>2021-12-21</td>
-                    <td>Software Developer</td>
-                    <td>Sunil</td>
-                    <td>988788777</td>
-                    <td>sind123@gmail.com</td>
-                    <td>2 years</td>
-                    <td>2.5 years</td>
-                    <td>Attached</td>
-                    <td>Dropped</td>
-                   
-                </tr>
-            </table>
-        </div>
-    </div>
-
-
-
-
-
-
-
 </div>
