@@ -1,4 +1,4 @@
-.button{
+/* .button{
     background-color: #21a4da;
     color:white;
     padding:5px;
@@ -37,4 +37,61 @@
     height:auto;
     border:none;
     border-radius: 5px;
-  }
+  } */
+
+  
+.Job{
+  color:gray;
+  padding-left: 10px;
+  font-size: 18px;
+  padding-top: 20px;
+  font-weight: 400;
+}
+.search{
+  margin-left: 10px;
+}
+
+.newFont{
+ 
+  color:black;
+  width:100%;
+  vertical-align: middle;
+}
+td{
+  background-color: white
+}
+/* .th{
+  background-color: #e4e5e6;
+  color:#404040;
+  font-family: "DIN Bold";
+} */
+.table, th, td {
+border: 1px solid lightgray;
+ border-collapse: collapse; 
+}
+.Heading{
+padding-left: 15px;
+font-size: 20px;
+color:black;
+}
+.head{
+background-color: #e4e5e6;
+color:#404040;
+font-family: "DIN Bold";
+}
+.FilterClass{
+padding-left: 15px;
+}
+.count{
+text-align: right;
+padding-right: 10px;;
+}
+
+.button{
+  padding:5px;
+  border-radius: 5px;
+  color:white;
+  background-color: #21a4da;
+  border:none;
+  width:100%;
+}

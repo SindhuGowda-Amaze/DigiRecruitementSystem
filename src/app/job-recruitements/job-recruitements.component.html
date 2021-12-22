@@ -1,121 +1,53 @@
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <div class="row">
-                <div class="col-lg-12">
-                    <a href="" class="Heading">Job Recruitement Dashboard</a>
-                    <hr class="HrLine">
-                </div>
-            </div>
-            <div class="row FilterClass">
-                <div class="col-lg-2">
-                    Filter By
-                </div>
-                <div class="col-lg-2">
-                    <input class="form-control" type="date" placeholder="Duration">
-                </div>
-                <div class="col-lg-6">
-                    <input class="form-control" type="search" placeholder="Search for date , Type or Code">
-                </div>
-            </div><br>
-            <div class="row">
-                <div class="col-lg-8 View">
-                    <ul>
-                        <li><a class="active">View</a></li>
-                        <li><a href="/">Modify</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4">
-                    <a href=""><button class="button">Add</button> </a>
-                </div>
-            </div>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <table class="table tablebordered">
-                            <thead>
-                                <tr class="newFont">
-                                    <th class="SelectData">Select</th>
-                                    <th>Vendor</th>
-                                    <th>Job Reference ID</th>
-                                    <th>Job Title</th>
-                                    <th>Skill/Technology</th>
-                                    <th>Total Years of Experience</th>
-                                    <th>Years of Relavant Experience</th>
-                                    <th>Job Description</th>
-                                    <th>Job Location</th>
-                                    <th>No of Positions</th>
-                                    <th>Hiring Manager</th>
-                                    <th>Resource Manager</th>
-                                    <th>Actions</th>
-                                <tr>
-                                <tr>
-                                    <td>
-                                        Amaze
-                                    </td>
-                                    <td>25984</td>
-                                    <td>19-Jul-2021</td>
-                                    <td>Full Stack Developer</td>
-                                    <td>Angular,Rest Api,Sql server</td>
-                                    <td>2 years</td>
-                                    <td>2.5 years</td>
-                                    <td>Researching, designing, implementing, and managing software programs.
-                                        Identifying areas for modification in existing programs
-                                        and subsequently developing these modifications. Writing and implementing
-                                        efficient code.</td>
-                                    <td>Banglore</td>
-                                    <td>2 positons</td>
-                                    <td>Bhargav</td>
-                                    <td>Rajaneesh</td>
-                                    <td><button class="Button">Apply</button></td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-1"></div>
-</div> -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="" class="Heading">Job Recruitement Dashboard</a>
+                  <p class="Heading">Job Recruitement Dashboard</p> 
                     <hr class="HrLine">
                 </div>
             </div>
-        
-            <div class="row FilterClass">
-                <div class="col-lg-2">
-                    Filter By
-                </div>
-                <div class="col-lg-3">
-                    <input class="form-control" type="date" placeholder="Duration">
-                </div>
-                <div class="col-lg-3">
-                    <input class="form-control" type="search" placeholder="Search">
-                </div>
-                <div class="col-lg-2"></div>
-                <div class="col-lg-2">
-                    <p>Count : 7</p>
-                </div>
-            </div><br>
+         
+            <div class="card">
+                <br>
+                <div class="row FilterClass">
+                    <div class="col-lg-1">
+                        Filter By
+                    </div>
+                    <div class="col-lg-3">
+                        <select name="Select" class="form-control">
+                          <option value="Select CTC">Select CTC</option>
+                          <option value="30,000-50,000">30,000-50,000</option>
+                          <option value="50,000-1,00000">50,000-1,00000</option>
+                          <option value="1,00000-2,00000">1,00000-2,00000</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-3">
+                        <select name="Select" class="form-control">
+                          <option value="Select Notice Period">Select Notice Period</option>
+                          <option value="15 Days">15 Days</option>
+                          <option value="30 Days">30 Days</option>
+                          <option value="45 Days">45 Days</option>
+                          <option value="90 Days">90 Days</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-3"></div>
+                      <div class="col-lg-2">
+                        <p class="count" >Count : 2</p>
+                      </div>
+                </div> <br>
+            </div> <br>
         
             <div class="row">
                 <div class="col-lg-12">
                     <table class="table tablebordered">
                         <thead>
                             <tr class="newFont">
-                                <th class="SelectData">Select</th>
+                             
                                 <th>Vendor</th>
                                 <th>Job Reference ID</th>
+                                <th>Date</th>
                                 <th>Job Title</th>
                                 <th>Skill/Technology</th>
                                 <th>Total Years of Experience</th>
@@ -145,7 +77,7 @@
                                 <td>2 positons</td>
                                 <td>Bhargav</td>
                                 <td>Rajaneesh</td>
-                                <td><button class="Button">Apply</button></td>
+                                <td><button class="Button" routerLink='/JobVacancies'>Apply</button></td>
                             </tr>
                             <tr>
                                 <td>
@@ -165,7 +97,7 @@
                                 <td>2 positons</td>
                                 <td>Bhargav</td>
                                 <td>Rajaneesh</td>
-                                <td><button class="Button">Apply</button></td>
+                                <td><button class="Button" routerLink='/JobVacancies'>Apply</button></td>
                             </tr>
                         </thead>
                     </table>

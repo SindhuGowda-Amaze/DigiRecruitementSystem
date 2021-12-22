@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-scheduled-interviews',
   templateUrl: './scheduled-interviews.component.html',
@@ -12,4 +13,7 @@ export class ScheduledInterviewsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+ 
 }
