@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from 'src/Pages/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -27,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
 import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 
 
 @NgModule({
@@ -55,12 +57,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
     FooterComponent,
     JobVacanciesComponent,
     RegistrationComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    JobRequisitionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgxDropzoneModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

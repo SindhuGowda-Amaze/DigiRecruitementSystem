@@ -75,10 +75,11 @@
                                 <td>6</td>
                                 <td>Candidate is Very strong in Angular Database
                                     and Rest Api But she knows only basics in xamarin</td>
-                                    <td>
-                                        <button class="offer">Offer</button> <br> <br>
-                                        <button class="Notes">Notes</button>
-                                    </td>
+                                <td>
+                                    <button class="offer" data-toggle="modal" data-target="#Offer">Offer</button> <br>
+                                    <br>
+                                    <button class="Notes" data-toggle="modal" data-target="#Notes">Notes</button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Amaze</td>
@@ -96,10 +97,11 @@
                                 <td>6</td>
                                 <td>Candidate is Very strong in Angular Database
                                     and Rest Api But she knows only basics in xamarin</td>
-                                    <td>
-                                        <button class="offer">Offer</button> <br> <br>
-                                        <button class="Notes">Notes</button>
-                                    </td>
+                                <td>
+                                    <button class="offer" data-toggle="modal" data-target="#Offer">Offer</button> <br>
+                                    <br>
+                                    <button class="Notes" data-toggle="modal" data-target="#Notes">Notes</button>
+                                </td>
                             </tr>
                         </thead>
                     </table>
@@ -107,5 +109,111 @@
             </div>
         </div>
         <div class="col-lg-1"></div>
+    </div>
+</div>
+
+<div id="Offer" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Offer</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <hr>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="Offer">OfferLetter:</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>Drag and Drop Here!!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>                  
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="Offer">Notes :</label>
+                    </div> 
+                    <div class="col-lg-5">
+                        <textarea class="form-control" placeholder="Notes"></textarea>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <button class="Save">Save</button>
+                    </div>
+                </div>          
+            </div>
+            <div class="modal-footer">
+                <hr>
+               <div class="col-lg-2">
+                   <button class="button">Close</button>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Notes" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Notes</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text">Joining Date :</label>
+                    </div>
+                    <div class="col-lg-5">
+                       <input class="form-control" type="date">
+                    </div>                  
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label  class="Text">Joining Bonus :</label>
+                    </div>
+                    <div class="col-lg-5">
+                       <input class="form-control" placeholder="Joining Bonus">
+                    </div>                  
+                </div> <br>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label  class="Text">Notice Period By then :</label>
+                    </div>
+                    <div class="col-lg-5">
+                       <input class="form-control" placeholder="Notice Period By then">
+                    </div>                  
+                </div> <br>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label  class="Text">Notes :</label>
+                    </div>
+                    <div class="col-lg-5">
+                      <textarea class="form-control" placeholder="Notes"></textarea>
+                    </div>                  
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <button class="Save">Save</button>
+                    </div>
+                </div>              
+            </div>
+            <div class="modal-footer">
+                <hr>
+               <div class="col-lg-2">
+                   <button class="button">Close</button>
+               </div>
+            </div>
+        </div>
     </div>
 </div>

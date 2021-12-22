@@ -180,7 +180,7 @@
                 <td>Sanath</td>
                 <td>null</td>
                 <td></td>
-                <td><button class="button">Schedule Interview</button></td>
+                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
               </tr>
               <tr>
                 <td>Amaze</td>
@@ -196,7 +196,7 @@
                 <td>Stefen</td>
                 <td>shortlisted</td>
                 <td></td>
-                <td><button class="button">Schedule Interview</button></td>
+                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
               </tr>       
             </thead>
           </table>
@@ -204,5 +204,65 @@
       </div>
     </div>
     <div class="col-lg-1"></div>
+  </div>
+</div>
+
+
+<div id="ScheduleInterview" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Schedule Interview</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-lg-3">
+                      <label class="Text">Staff :</label>
+                  </div>
+                  <div class="col-lg-5">
+                     <input class="form-control" type="date">
+                  </div>                  
+              </div> <br>
+              <div class="row">
+                  <div class="col-lg-3">
+                      <label  class="Text">Date :</label>
+                  </div>
+                  <div class="col-lg-5">
+                     <input class="form-control" placeholder="Joining Bonus">
+                  </div>                  
+              </div> <br>
+
+              <div class="row">
+                  <div class="col-lg-3">
+                      <label  class="Text">Time :</label>
+                  </div>
+                  <div class="col-lg-5">
+                     <input class="form-control" placeholder="Notice Period By then">
+                  </div>                  
+              </div> <br>
+
+              <div class="row">
+                  <div class="col-lg-3">
+                      <label  class="Text" style="font-weight: bold;">Notes :</label>
+                  </div>
+                  <div class="col-lg-5">
+                    <textarea class="form-control" placeholder="Notes"></textarea>
+                  </div>                  
+              </div> <br>
+              <div class="row">
+                  <div class="col-lg-5"></div>
+                  <div class="col-lg-2">
+                      <button class="Save">Schedule</button>
+                  </div>
+              </div>              
+          </div>
+          <div class="modal-footer">
+              <hr>
+             <div class="col-lg-2">
+                 <button class="Button ">Close</button>
+             </div>
+          </div>
+      </div>
   </div>
 </div>

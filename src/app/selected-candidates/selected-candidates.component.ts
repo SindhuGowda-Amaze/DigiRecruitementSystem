@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @Component({
   selector: 'app-selected-candidates',
   templateUrl: './selected-candidates.component.html',
@@ -11,5 +11,22 @@ export class SelectedCandidatesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  files: File[] = [];
+  onSelect(event: { addedFiles: any; }) {
+    debugger
+    console.log(event);
+    this.files.push(event.addedFiles[0]);
+    console.log("content", this.files);
+  }
+  onRemove(event:any)
+  {
+debugger
+console.log(event);
+this.files.splice(this.files.indexOf(event),1);
+  }
+
+
+
 
 }

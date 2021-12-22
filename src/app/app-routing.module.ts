@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 
 const routes: Routes = [
 
@@ -51,7 +52,8 @@ const routes: Routes = [
   {path:'JobRequisitionForm',component: JobRequisitionFormComponent},
   {path:'Footer',component:FooterComponent},
   {path:'JobVacancies',component:JobVacanciesComponent},
-  {path:'Registration',component:RegistrationComponent}
+  {path:'Registration',component:RegistrationComponent},
+  {path:'JobRequisition',component:JobRequisitionComponent}
 ];
 
 @NgModule({

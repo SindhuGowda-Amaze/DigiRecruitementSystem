@@ -58,12 +58,37 @@ padding-right: 10px;;
   border-radius: 5px;
   border:none;
   color:white;
-  background-color: rgb(201, 49, 49);
+  background-color: #dc3545;
+  width:100%;
 }
 .Notes{
   padding:5px;
   border-radius: 5px;
   border:none;
   color:white;
-  background-color:rgb(201, 49, 49);
+  background-color:#dc3545;
+  width:100%;
+}
+.Offer{
+  font-size: 20px;
+}
+
+.Save{
+  padding:5px;
+  border-radius: 5px;
+  border:none;
+  background-color:#007bff ;
+  float:right;
+  color:white;
+  width:100%;
+  font-size: 16px;
+}
+.button{
+  background-color: #6c757d;
+  color:white;
+  border-radius: 5px;
+  border:#e4e5e6;
+}
+.Text{
+  font-size: 18px;
 }

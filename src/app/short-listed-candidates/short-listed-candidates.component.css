@@ -91,7 +91,28 @@ padding-right: 10px;;
   padding:5px;
   border-radius: 5px;
   color:white;
-  background-color: #21a4da;
+  background-color: #007bff;
   border:none;
   width:100%;
+}
+.Save{
+  padding:5px;
+  border-radius: 5px;
+  border:none;
+  background-color:#007bff ;
+  float:right;
+  color:white;
+  width:100%;
+  font-size: 16px;
+}
+.Button{
+  background-color: #6c757d;
+  color:white;
+  border-radius: 5px;
+  border:#e4e5e6;
+  width:100%;
+  padding: 5px;
+}
+.Text{
+  font-size: 18px;
 }
