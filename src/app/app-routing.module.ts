@@ -21,6 +21,8 @@ import { AppliedCandidatesReportsComponent } from './applied-candidates-reports/
 import { JoinedCandidatesReportComponent } from './joined-candidates-report/joined-candidates-report.component';
 import { JobRequisitionFormComponent } from './job-requisition-form/job-requisition-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
 
@@ -46,6 +48,8 @@ const routes: Routes = [
   {path:'JoinedCandidatesReport',component: JoinedCandidatesReportComponent},
   {path:'JobRequisitionForm',component: JobRequisitionFormComponent},
   {path:'Footer',component:FooterComponent},
+  {path:'JobVacancies',component:JobVacanciesComponent},
+  {path:'Registration',component:RegistrationComponent}
 ];
 
 @NgModule({

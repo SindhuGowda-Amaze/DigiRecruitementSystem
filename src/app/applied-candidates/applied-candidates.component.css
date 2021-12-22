@@ -1,13 +1,4 @@
-.button{
-    background-color: #21a4da;
-    color:white;
-    padding:5px;
-    text-align: center;
-    width:100%;
-    height:auto;
-    border:none;
-    border-radius: 5px;
-}
+
 .Job{
     color:gray;
     padding-left: 10px;
@@ -18,23 +9,35 @@
 .search{
     margin-left: 10px;
 }
-.table, th, td {
-    border: 1px solid lightgray;
-     border-collapse: collapse; 
-  }
+
   .newFont{
-    background-color: #21a4da;
-    color:white;
+   
+    color:black;
     width:100%;
     vertical-align: middle;
   }
-  .Button{
-    background-color: #007bff;
-    color:white;
-    padding:5px;
-    text-align: center;
-    width:100%;
-    height:auto;
-    border:none;
-    border-radius: 5px;
-  }
+  td{
+    background-color: white
+}
+ /* .th{
+    background-color: #e4e5e6;
+    color:#404040;
+    font-family: "DIN Bold";
+} */
+.table, th, td {
+  border: 1px solid lightgray;
+   border-collapse: collapse; 
+}
+.Heading{
+  padding-left: 15px;
+  font-size: 20px;
+  color:black;
+}
+.head{
+  background-color: #e4e5e6;
+  color:#404040;
+  font-family: "DIN Bold";
+}
+.FilterClass{
+  padding-left: 15px;
+}
