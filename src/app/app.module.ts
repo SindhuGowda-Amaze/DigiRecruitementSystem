@@ -7,6 +7,14 @@ import { SidebarComponent } from 'src/Pages/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobRecruitementReportComponent } from './job-recruitement-report/job-recruitement-report.component';
+import { JobRecruitementsComponent } from './job-recruitements/job-recruitements.component';
+import { AppliedCandidatesComponent } from './applied-candidates/applied-candidates.component';
+import { ShortListedCandidatesComponent } from './short-listed-candidates/short-listed-candidates.component';
+import { ScheduledInterviewsComponent } from './scheduled-interviews/scheduled-interviews.component';
+import { SelectedCandidatesComponent } from './selected-candidates/selected-candidates.component';
+import { OfferedCandidatesComponent } from './offered-candidates/offered-candidates.component';
+import { JoinedCandidatesComponent } from './joined-candidates/joined-candidates.component';
+import { DroppedCandidatesComponent } from './dropped-candidates/dropped-candidates.component';
 import { AppliedCandidatesReportsComponent } from './applied-candidates-reports/applied-candidates-reports.component';
 import { ShortlistedCandidatesReportsComponent } from './shortlisted-candidates-reports/shortlisted-candidates-reports.component';
 import { ScheduledInterviewsReportsComponent } from './scheduled-interviews-reports/scheduled-interviews-reports.component';
@@ -24,6 +32,14 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
     SidebarComponent,
     DashboardComponent,
     JobRecruitementReportComponent,
+    JobRecruitementsComponent,
+    AppliedCandidatesComponent,
+    ShortListedCandidatesComponent,
+    ScheduledInterviewsComponent,
+    SelectedCandidatesComponent,
+    OfferedCandidatesComponent,
+    JoinedCandidatesComponent,
+    DroppedCandidatesComponent,
     AppliedCandidatesReportsComponent,
     ShortlistedCandidatesReportsComponent,
     ScheduledInterviewsReportsComponent,
