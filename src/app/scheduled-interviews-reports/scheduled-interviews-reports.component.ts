@@ -11,5 +11,7 @@ export class ScheduledInterviewsReportsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  refresh(){
+    location.reload();
+  }
 }

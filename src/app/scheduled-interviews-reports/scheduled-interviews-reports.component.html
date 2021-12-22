@@ -8,61 +8,65 @@
                     <button class="form-control export">Export to Excel</button>
                 </div>
             </div>
-            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>SCHEDULED INTERVIEWS REPORTS</p>
+                </div>
+            </div>
+            <hr class="hrline">
             <div class="card">
+               
                 <div class="row">
-                    <div class="col-lg-12">
-                        <p>SCHEDULED INTERVIEWS REPORTS</p>
+                    <div class="col-lg-1">
+                        Filter By
                     </div>
-                </div>
-                <hr class="hrline">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <input type="search" class="form-control" placeholder="Search">
+                    <div class="col-lg-2">
+                        <input class="form-control" type="date" placeholder="Duration">
                     </div>
                     <div class="col-lg-3">
-                       <input type="date" class="form-control">
+                        <input class="form-control" type="search" placeholder="Search by Vendor...">
                     </div>
-                    <div class="col-lg-3">
-                       <select class="form-control">
-                           <option value="Select Vendor">Select Vendor</option>
-                           <option value="Amaze">Amaze</option>
-                       </select>
+                    <div class="col-md-2">
+                        <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
-                    <div class="col-lg-3">
-                        <p class="count">Count :</p>
+                    <div class="col-md-2">
+                        <button class=" form-control export">Download</button>
                     </div>
-                </div>
-            <br>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <table class="table-bordered">
-                            <tr  class="heading">
-                                <th><span class="menu">Job Reference ID</span></th>
-                                <th><span class="menu">Interview Date</span></th>
-                                <th><span class="menu">Time</span></th>
-                                <th><span class="menu">Interviewer</span></th>
-                                <th><span class="menu">Job Title</span></th>
-                                <th><span class="menu">Candidate Name</span></th>
-                                <th><span class="menu">Phone No</span></th>
-                                <th><span class="menu">Email</span></th>
-                                <th><span class="menu">Total Years of Experience</span></th>
-                                <th><span class="menu">Years of Relavant Experience</span></th>                 
-                            </tr>
-                            <tr>
-                                <td>3455</td>
-                                <td>2021-12-21</td>
-                                <td>9:30</td>
-                                <td>Rohit</td>
-                                <td>Test Engineer</td>
-                                <td>Sharan</td>
-                                <td>9987787789</td>
-                                <td>shar@gmail.com</td>
-                                <td>3</td>
-                                <td>2.5</td>
-                             </tr>
-                        </table>
+                    <div class="col-lg-2">
+                        <p class="count">Count : 1</p>
                     </div>
+                </div><br>    
+           
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table-bordered">
+                        <tr  class="heading">
+                            <th><span class="menu">Job Reference ID</span></th>
+                            <th><span class="menu">Interview Date</span></th>
+                            <th><span class="menu">Time</span></th>
+                            <th><span class="menu">Interviewer</span></th>
+                            <th><span class="menu">Job Title</span></th>
+                            <th><span class="menu">Candidate Name</span></th>
+                            <th><span class="menu">Phone No</span></th>
+                            <th><span class="menu">Email</span></th>
+                            <th><span class="menu">Total Years of Experience</span></th>
+                            <th><span class="menu">Years of Relavant Experience</span></th>                 
+                        </tr>
+                        <tr>
+                            <td>3455</td>
+                            <td>2021-12-21</td>
+                            <td>9:30</td>
+                            <td>Rohit</td>
+                            <td>Test Engineer</td>
+                            <td>Sharan</td>
+                            <td>9987787789</td>
+                            <td>shar@gmail.com</td>
+                            <td>3</td>
+                            <td>2.5</td>
+                         </tr>
+                    </table>
                 </div>
             </div>
         </div>

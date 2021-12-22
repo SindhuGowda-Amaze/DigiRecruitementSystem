@@ -11,5 +11,7 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  refresh(){
+    location.reload();
+  }
 }

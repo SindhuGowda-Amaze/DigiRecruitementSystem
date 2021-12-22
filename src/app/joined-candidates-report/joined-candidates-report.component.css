@@ -4,9 +4,10 @@
     height: 35px;
     color: #fff;
     width: 100%;
-    border: 1px solid #fff;
+   border-radius: 0px;
     margin-top: 2%;
 }
+
 
 .card{
   padding: 10px;
@@ -20,9 +21,9 @@
 }
 
 .heading{
-    background-color: #21a4da;
-    color: #fff;
-    padding: 10px;
+    background-color: #e4e5e6;
+    color:#404040;
+    font-family: "DIN Bold";
 }
 table{
     border-collapse: collapse;
@@ -32,4 +33,7 @@ td, th {
     border: 1px solid #ddd;
     text-align: left;
     padding: 8px;
+}
+td{
+    background-color: white
 }

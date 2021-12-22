@@ -1,6 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    font-family: "Dinn medium";
-   
-
+/* You can add global styles to this file, and also import other style files */
+.container-fluid{
+    font-family: 'Open Sans', sans-serif;
 }
+@font-face {
+    font-family: 'DIN Regular';
+    src: 
+      
+      url('assets/D-DIN.otf') 
+      format('opentype');
+  }
+  @font-face {
+    font-family: 'DIN Bold';
+    src: 
+      
+      url('assets/D-DIN-Bold.otf') 
+      format('opentype');
+  }
+
+  @font-face {
+    font-family: 'DIN Medium';
+    src: 
+      
+      url('assets/DIN Medium.otf') 
+      format('opentype');
+  }
+  body,button,input,p{
+    font-family: 'DIN Bold';
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer; 
+  }
+  .Dinbold{
+    font-family: 'DIN Bold';
+  }
+
+
+   /* table thead tr th {
+    border: none!important;
+    min-width: 50px;
+    color: #404040 !important;
+    font-size: 12px;
+    background: #e4e5e6 !important;
+    vertical-align: middle;
+    font-family: "DIN Bold";
+}
+
+ .table td {
+  color: #494949;
+  font-size: 12px;
+  vertical-align: middle;
+  font-family: "DIN Medium";
+
+} */
+
