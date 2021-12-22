@@ -45,10 +45,9 @@ import { JobRequisitionFormComponent } from './job-requisition-form/job-requisit
     ScheduledInterviewsReportsComponent,
     SelectedCandidatesReportsComponent,
     OfferedCandidatesReportsComponent,
-  
     DroppedCandiadtesReportsComponent,
-        JoinedCandidatesReportComponent,
-        JobRequisitionFormComponent
+    JoinedCandidatesReportComponent,
+    JobRequisitionFormComponent
   ],
   imports: [
     BrowserModule,

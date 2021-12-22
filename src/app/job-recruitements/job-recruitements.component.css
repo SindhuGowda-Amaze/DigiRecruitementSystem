@@ -119,3 +119,22 @@ font-weight: bold;
 .SelectData{
   text-align: center;
 }
+.table, th, td {
+  border: 1px solid lightgray;
+   border-collapse: collapse; 
+}
+.Button{
+  text-transform: uppercase;
+font-weight: initial;
+text-shadow: initial;
+letter-spacing: 0.5px;
+background-color:#2F87CC ;
+color:white;
+border-radius: 5px;
+border:none;
+padding: 5px;
+margin-right: 15px;
+font-size: 15px;
+font-weight: bold;
+
+}
