@@ -54,14 +54,23 @@ export class RecruitmentServiceService {
   public GetCandidateRegistration() {
     return this.http.get<any[]>(this.host + "/Vendor/GetCandidateRegistration");
   }
+
+ 
+  public UpdateCandidateRegistrationAcceptReject(id:any, typeid:any, shortlist:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/UpdateCandidateRegistrationAcceptReject?ID=" + id + '&TypeID=' + typeid + '&ShortlistionNotes=' + shortlist);
+  }
+
   public GetStaffs() {
     return this.http.get<any[]>(this.host + "/Vendor/GetStaffs");
+  }
+  
+  public UpdateCandidateInterviewSchedule(data: { ID: any; StaffID: any; Date: any; TimeID: any; Notes: any; }) {
+    this.url = this.host + "/Vendor/UpdateCandidateInterviewSchedule";
+    return this.http.post(this.url, data);
   }
   public GetSlotsMasterByStaffID(startdate:any, staffid:any) {
     return this.http.get<any[]>(this.host + "/Vendor/GetSlotsMasterByStaffID?Date=" + startdate + '&StaffID=' + staffid);
   }
-  public UpdateCandidateInterviewSchedule(data:any) {
-    this.url = this.host + "/Vendor/UpdateCandidateInterviewSchedule";
-    return this.http.post(this.url, data);
-  }
+
+
 }
