@@ -16,10 +16,20 @@ export class DashboardComponent implements OnInit {
   showfront: any;
   myDate:any;
 
-  joblist: any;
   search: any;
   count: any;
+  count1: any;
+  count2: any;
+  count3: any;
+
   joblist1:any;
+  joblist2:any;
+  joblist3:any;
+  joblist4:any;
+  joblist5:any;
+  joblist6:any;
+  joblist7:any;
+  joblist8:any;
 
   constructor(public router: Router,private datePipe: DatePipe,
     private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
@@ -33,13 +43,46 @@ export class DashboardComponent implements OnInit {
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data.slice(0, 4)
-      this.count = this.joblist.length;
+      this.joblist1 = data.slice(0, 4)
+    
     })
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist1 = data;
-      this.count = this.joblist1.length;
+      this.joblist2 = data;
+      this.count = this.joblist2.length;
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist3 = data.slice(0, 4)
+      this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
+     
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist4 = data.filter(x => x.accept == 0 && x.reject == 0);
+      this.count1 = this.joblist4.length;
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist5 = data.slice(0, 3)
+      this.joblist5 = data.filter(x => x.accept == 1 && x.scheduled == 0);
+     
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist6 = data.filter(x => x.accept == 1 && x.scheduled == 0);
+      this.count2 = this.joblist6.length;
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist7 = data.slice(0, 4)
+      this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+     
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist8 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.count3 = this.joblist8.length;
     })
 
   }
