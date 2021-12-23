@@ -14,6 +14,7 @@ export class JobRecruitementsComponent implements OnInit {
   joblist: any;
   search: any;
   count: any;
+ 
   ngOnInit(): void {
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {

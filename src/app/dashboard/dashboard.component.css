@@ -85,7 +85,9 @@ body {
   .backflip {
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: -6px;
   }
   
   .backflip1 {
@@ -94,7 +96,7 @@ body {
   }
   
   .bcakbtn {
-    width: 87px;
+    width: 80px;
     height: 33px;
     border: none;
     border-radius: 5px;
@@ -102,19 +104,19 @@ body {
     background-color: #939598;
     font-weight: white;
     color: white;
-    margin-left:15px;
   }
   
   .viewall {
-    width: 87px;
+    width: 80px;
     height: 33px;
     border: none;
     border-radius: 5px;
     font-size: 12px;
     background-color: #4282be;
-    ;
     font-weight: white;
     color: white;
+    cursor: pointer;
+
   }
   
   

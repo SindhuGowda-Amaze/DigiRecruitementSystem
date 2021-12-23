@@ -6,13 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 export class RecruitmentServiceService {
-  public UploadImages(files:any) {
-    let formdata: FormData = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      formdata.append('file_upload', files[i], files[i].name);
-    }
-    return this.http.post<any>(this.host + "/Building/UploadImages/", formdata);
-  }
+ 
 
  // host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
@@ -80,6 +74,45 @@ export class RecruitmentServiceService {
   }
   public GetUserslist() {
     return this.http.get<any[]>(this.host + "/User/GetUserslist");
+  }
+ 
+    public RejectInterview(id:any, typeid:any, rinterview:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/RejectInterview?ID=" + id + '&TypeID=' + typeid + '&Interviewercomments=' + rinterview);
+  }
+  
+  public UploadImages(files:any) {
+    let formdata: FormData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formdata.append('file_upload', files[i], files[i].name);
+    }
+    return this.http.post<any>(this.host + "/Building/UploadImages/", formdata);
+  }
+  public UpdateOfferLetter(data:any) {
+    this.url = this.host + "/Vendor/UpdateOfferLetter";
+    return this.http.post(this.url, data);
+  }
+  public UpdateCandidateJoiningDate(data:any) {
+    this.url = this.host + "/Vendor/UpdateCandidateJoiningDate";
+    return this.http.post(this.url, data);
+  }
+ 
+
+
+  public sendemail(data:any) {
+    this.url = this.host + "/Vendor/sendemail";
+    return this.http.post(this.url, data);
+  }
+  public AcceptRejectOffer(id:any, typeid:any, offercomments:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/AcceptRejectOffer?ID=" + id + '&TypeID=' + typeid + '&OfferComments=' + offercomments);
+  }
+
+  public UsersHr() {
+
+    return this.http.get<any[]>(this.host + "/Vendor/UsersHr");
+  }
+  public InsertJob_Requirements(data:any) {
+    this.url = this.host + "/Vendor/InsertJob_Requirements";
+    return this.http.post(this.url, data);
   }
 
   public UpdateVendor(data:any) {

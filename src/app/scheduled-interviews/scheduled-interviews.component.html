@@ -29,43 +29,55 @@
           <table class="table tablebordered">
             <thead>
               <tr class="head">
-                <th>Vendor</th>
+                <!-- <th>Vendor</th> -->
                 <th>Job Reference ID</th>
                 <th>Interview Date</th>
-                <th>Time</th>
+                 <th>Time</th>
                 <th>Interviewer</th>
                 <th>Job Title</th>
                 <th>Candidate Name</th>
                 <th>Phone No</th>
                 <th>Email</th>
-                <th>CTC</th>
-                <th>Notice Period</th>
+                <!-- <th>CTC</th> -->
+                <!-- <th>Notice Period</th> -->
                 <th>Total Years of Experience</th>
                 <th>Relevant Experience</th>
                 <th>Resume</th>  
                 <th>Comments</th>           
                 <th>Actions</th>
-              </tr>
-              <tr>
-               <td>Amaze</td>
-               <td>80640</td>
-               <td>	17-Aug-2021</td>
-               <td>05:00 PM</td>
-               <td>Sanath S </td>
-               <td>QA Engineer</td>
-               <td>roy k</td>
-               <td>	09990007780</td>
-               <td>roy@gmail.com</td>
-               <td>	12 LPA</td>
-               <td>30 Days</td>
-               <td>3</td>
-               <td>2</td>
-               <td></td>
-               <td><textarea class="form-control">Comments</textarea></td>
-               <td><button class="selected" >Selected</button> <br> <br>
-                <button class="rejected">Rejected</button>
-              </td>
-              </tr>              
+              </tr>     
+              <tr *ngFor="let job of joblist">
+                <td>{{job.jobRefernceID}}</td>
+                <td>{{job.date}}</td>
+                <td>{{job.slotTime}}</td>
+                <td>{{job.staffname}}</td>
+                <td>{{job.jobTitle}}</td>
+                <td>{{job.candidateName}}</td>
+                <td>{{job.phoneNo}}</td>
+                <td>{{job.email}}</td>
+                <td>{{job.yearsofExp}}</td>
+                <td>{{job.relavantExp}}</td>
+                <td>
+                    <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
+                </td>
+                <td>
+                    
+                </td>
+
+                <td>
+
+                    <button class="btn btn-primary"
+                        *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
+                        (click)="Accept(job.id,job.interviewercomments)">Selected</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <button class="btn btn-danger"
+                        *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
+                        (click)="Reject(job.id,job.interviewercomments)">Rejected</button>
+
+
+                </td>
+            </tr>
+          
             </thead>
           </table>
         </div>
