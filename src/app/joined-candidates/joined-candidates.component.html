@@ -38,7 +38,7 @@
                     <table class="table tablebordered">
                         <thead>
                             <tr class="head">
-                                <th>Vendor</th>
+                                <!-- <th>Vendor</th> -->
                                 <th>Job Reference ID</th>
                                 <th>Hiring Manager</th>
                                 <th>Job Title</th>
@@ -50,79 +50,30 @@
                                 <th>Relevant Experience</th>
                                 <th>Offer Letter</th>
                                 <th>Offer Comments</th>
-
                             </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>4480</td>
-                                <td>Amulya Bijur</td>
-                                <td>Software Test Engineer</td>
-                                <td>soniya</td>
-                                <td>12/08/2021</td>
-                                <td>7990167890</td>
-                                <td>soniya@gmail.com</td>
-                                <td>5</td>
-                                <td>4</td>
-                                <td></td>
-                                <td>Null</td>
-
+                            <tr *ngFor="let job of joblist">
+                                <td>{{job.jobRefernceID}}</td>                               
+                                <!-- <td>{{job.slotTime}}</td> --> 
+                                <td>{{job.staffname}}</td>
+                                <td>{{job.jobTitle}}</td>
+                                <td>{{job.candidateName}}</td>
+                                <td>{{job.date}}
+                                <td>{{job.phoneNo}}</td>
+                                <td>{{job.email}}</td>
+                                <td>{{job.yearsofExp}}</td>
+                                <td>{{job.relavantExp}}</td>
+                                <td>
+                                    <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
+                                </td>
+                              
+                                <td>
+                                   {{job.offerComments}}
+                                </td>
+                               
                             </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Software Test Engineer</td>
-                                <td>jesica</td>
-                                <td>22/05/2021</td>
-                                <td>7990167890</td>
-                                <td>jesica@gmail.com</td>
-                                <td>5</td>
-                                <td>4</td>
-                                <td></td>
-                                <td>Null</td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Full Stack Developer</td>
-                                <td>Bhargav Reddy </td>
-                                <td>10/07/2020</td>
-                                <td>7990167890</td>
-                                <td>bargav@gmail.com</td>
-                                <td>5</td>
-                                <td>4</td>
-                                <td></td>
-                                <td>Null</td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Testing job</td>
-                                <td>Anjali</td>
-                                <td>12/12/2020</td>
-                                <td>7907969903</td>
-                                <td>anjali@amazeinc.in</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td></td>
-                                <td>Null</td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Full stack Developer</td>
-                                <td>srikanth reddy</td>
-                                <td>25/02/2020</td>
-                                <td>9441593887</td>
-                                <td>srikanth@gmail.com</td>
-                                <td>2 years</td>
-                                <td>2.3 yrs</td>
-                                <td></td>
-                                <td>Null</td>
-                            </tr>
+                          
+                           
+                          
 
                         </thead>
                     </table>

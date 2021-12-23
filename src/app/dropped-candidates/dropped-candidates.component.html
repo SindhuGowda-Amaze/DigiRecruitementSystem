@@ -35,110 +35,49 @@
                     <table class="table tablebordered">
                         <thead>
                             <tr class="head">
-                                <th>Vendor</th>
+                                <!-- <th>Vendor</th> -->
                                 <th>Job Reference ID</th>
                                 <th>Hiring Manager</th>
-                                <th>Job Title</th>
+                                 <th>Offered Date</th> 
+                                <!-- <th>Job Title</th> -->
                                 <th>Candidate Name</th>
                                 <th>Phone No</th>
                                 <th>Email</th>
-                                <th>Tentitive Date</th>
-                                <th>Offered Date</th>
-                                <th>Dropped Date</th>
+                                <!-- <th>Tentitive Date</th> -->
+                               
+                                <!-- <th>Dropped Date</th> -->
                                 <th>Total Years of Experience</th>
                                 <th>Relevant Experience</th>
                                 <th>Offer Letter</th>
-                                <th>Dropped Notes</th>
+                                <th>Comments</th>
+                                <!-- <th>Dropped Notes</th> -->
                             </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>4480</td>
-                                <td>Amulya Bijur</td>
-                                <td>Software Test Engineer</td>
-                                <td>soniya</td>
-                                <td>7990167890</td>
-                                <td>soniya@gmail.com</td>
-                                <td>10//04/2021</td>
-                                <td>10//03/2021</td>
-                                <td>05//03/2021</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td></td>
+                            <tr *ngFor="let job of joblist">
+                                <td>{{job.jobRefernceID}}</td>
+                                <td>{{job.staffname}}</td>
+                                 <td>{{job.date}}</td>                            
+                                <td>{{job.candidateName}}</td>
+                                <td>{{job.phoneNo}}</td>
+                                <td>{{job.email}}</td>
+                                <td>{{job.yearsofExp}}</td>
+                                <td>{{job.relavantExp}}</td>
                                 <td>
-                                    <textarea placeholder="Write Notes"></textarea>
+                                    <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Software Test Engineer</td>
-                                <td>jesica</td>
-                                <td>7990167890</td>
-                                <td>jesica@gmail.com</td>
-                                <td>10//04/2021</td>
-                                <td>10//03/2021</td>
-                                <td>05//03/2021</td>
-                                <td>5</td>
-                                <td>4</td>
-                                <td></td>
+                                <!-- <td>
+                                    <span *ngIf="job.offerAcceptreject=='1'">Joined</span>
+                                    <span *ngIf="job.offerAcceptreject=='2'">Dropped</span>
+                                </td> -->
                                 <td>
-                                    <textarea placeholder="Write Notes"></textarea>
+                                  {{job.offerComments}}
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Full Stack Developer</td>
-                                <td>Bhargav Reddy </td>
-                                <td>7990167890</td>
-                                <td>bargav@gmail.com</td>
-                                <td>10//04/2021</td>
-                                <td>10//03/2021</td>
-                                <td>05//03/2021</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td></td>
-                                <td>
-                                    <textarea placeholder="Write Notes"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Testing job</td>
-                                <td>Anjali</td>
-                                <td>7907969903</td>
-                                <td>anjali@amazeinc.in</td>
-                                <td>10//04/2021</td>
-                                <td>10//03/2021</td>
-                                <td>05//03/2021</td>
-                                <td>5</td>
-                                <td>2</td>
-                                <td></td>
-                                <td>
-                                    <textarea placeholder="Write Notes"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Amaze</td>
-                                <td>25984</td>
-                                <td>Amulya Bijur</td>
-                                <td>Full stack Developer</td>
-                                <td>srikanth reddy</td>
-                                <td>9441593887</td>
-                                <td>srikanth@gmail.com</td>
-                                <td>10//04/2021</td>
-                                <td>10//03/2021</td>
-                                <td>05//03/2021</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td></td>
-                                <td>
-                                    <textarea placeholder="Write Notes"></textarea>
-                                </td>
+                                <!-- <td>
+                                    <button class="btn btn-primary" *ngIf="job.offerAcceptreject=='0'"
+                                        (click)="Accept(job.id,job.offerComments)">Joined</button><br><br>
+                                    <button class="btn btn-danger" *ngIf="job.offerAcceptreject=='0'"
+                                        (click)="Reject(job.id,job.offerComments)">Dropped</button>
+        
+                                </td> -->
                             </tr>
 
                         </thead>
