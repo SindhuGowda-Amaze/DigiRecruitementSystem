@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RecruitmentServiceService } from '../recruitment-service.service';
 @Component({
   selector: 'app-dropped-candiadtes-reports',
   templateUrl: './dropped-candiadtes-reports.component.html',
@@ -7,11 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DroppedCandiadtesReportsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
-  ngOnInit(): void {
-  }
+
   refresh(){
     location.reload();
   }
-}
+
+  OfferComments: any;
+  joblist: any;
+  count: any;
+  term: any;
+  ngOnInit(): void {
+    this.GetCandidateReg()
+  }
+
+
+  public GetCandidateReg() {
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => x.offerAcceptreject == 2);
+      this.count = this.joblist.length;
+    })
+
+  }
+
+  public GetOfferLetter(offer:any) {
+    window.open(offer, "_blank")
+  }
+  }
+
+
+

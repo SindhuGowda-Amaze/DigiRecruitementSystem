@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 
@@ -19,7 +20,8 @@ export class LoginPageComponent implements OnInit {
   username: any;
   loginTypeList: any;
 
-  constructor(public RecruitmentServiceService: RecruitmentServiceService) { }
+
+  constructor(public RecruitmentServiceService: RecruitmentServiceService,private router:Router) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('temp') == '1') {
@@ -44,7 +46,7 @@ export class LoginPageComponent implements OnInit {
   // public login() {
   //   localStorage.setItem('temp', '1');
   //   localStorage.setItem('roleid', '1');
-  //   location.href = "#/Home";
+  //  routerLink = "#/Home";
   //   location.reload();
 
   // }
@@ -52,21 +54,22 @@ export class LoginPageComponent implements OnInit {
   public login() {
     
     if (this.userName == 'admin' && this.password == '1') {
-      
+      debugger
       localStorage.setItem('userName', 'admin');
       localStorage.setItem('temp', '1');
-      location.href = "#/Dashboard";
+     this.router.navigate(["/Dashboard"])  ;
       localStorage.setItem('roleid', '6');
-      location.reload();
+      // location.reload();
+      
     }
 
     if (this.userName == 'vendor' && this.password == '1') {
-      
+      debugger
       localStorage.setItem('userName', 'vendor');
       localStorage.setItem('temp', '1');
-      location.href = "#/LoginDashboard";
+      this.router.navigate(["/Dashboard"])  ;
       localStorage.setItem('roleid', '7');
-      location.reload();
+      // location.reload();
     }
     
     // else if (this.roleID == 1) {
@@ -86,7 +89,7 @@ export class LoginPageComponent implements OnInit {
     //       localStorage.setItem('password', this.result.password);
     //       localStorage.setItem('temp', '1');
     //       localStorage.setItem('roleid', '1');
-    //       location.href = "#/LoginDashboard";
+    //      routerLink = "#/LoginDashboard";
     //       location.reload();
     //     }
     //     else {
@@ -116,7 +119,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('projectName', this.result.projectName);
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '2');
-          location.href = "#/LoginDashboard";
+          this.router.navigate(["/Dashboard"])  ;
           location.reload();
         }
         else {
@@ -149,7 +152,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('UserID', this.result.id)
           localStorage.setItem('temp', '1');          
           localStorage.setItem('roleid', '3');
-          location.href = "#/LoginDashboard";
+          this.router.navigate(["/Dashboard"])  ;
           location.reload();
         }
         else {
@@ -181,7 +184,7 @@ export class LoginPageComponent implements OnInit {
           
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '4');
-          location.href = "#/LoginDashboard";
+          this.router.navigate(["/Dashboard"])  ;
           location.reload();
         }
         else {
@@ -210,7 +213,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('loginTypeId', this.result.loginTypeID);
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '5');
-          location.href = "#/LoginDashboard";
+          this.router.navigate(["/Dashboard"])  ;
           location.reload();
         }
         else {
@@ -243,7 +246,7 @@ export class LoginPageComponent implements OnInit {
           
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '1');
-          location.href = "#/HomeDashboardForAdmin";
+          this.router.navigate(["/Dashboard"])  ;
           location.reload();
         }
         else {
