@@ -101,7 +101,14 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/Vendor/AcceptRejectOffer?ID=" + id + '&TypeID=' + typeid + '&OfferComments=' + offercomments);
   }
 
+  public UsersHr() {
 
+    return this.http.get<any[]>(this.host + "/Vendor/UsersHr");
+  }
+  public InsertJob_Requirements(data:any) {
+    this.url = this.host + "/Vendor/InsertJob_Requirements";
+    return this.http.post(this.url, data);
+  }
 
 
 }

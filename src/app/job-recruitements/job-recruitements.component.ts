@@ -13,6 +13,7 @@ export class JobRecruitementsComponent implements OnInit {
   joblist: any;
   search: any;
   count: any;
+ 
   ngOnInit(): void {
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data;
