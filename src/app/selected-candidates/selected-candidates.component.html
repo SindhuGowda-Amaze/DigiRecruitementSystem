@@ -15,6 +15,9 @@
                         Filter By
                     </div>
                     <div class="col-lg-3">
+                        <input class="form-control" placeholder="Search">
+                    </div>                  
+                    <div class="col-lg-3">
                         <select name="Select" class="form-control">
                             <option value="Select CTC">Select CTC</option>
                             <option value="30,000-50,000">30,000-50,000</option>
@@ -31,7 +34,6 @@
                             <option value="90 Days">90 Days</option>
                         </select>
                     </div>
-                    <div class="col-lg-3"></div>
                     <div class="col-lg-2">
                         <p class="count">Count : 2</p>
                     </div>
@@ -123,7 +125,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-4">
-                        <label class="Offer">OfferLetter:</label>
+                        <label class="Offer">Offer Letter:</label>
                     </div>
                     <div class="col-lg-5">
                         <ngx-dropzone (change)="onSelect($event)">
