@@ -31,6 +31,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +69,8 @@ import { JobRequisitionComponent } from './job-requisition/job-requisition.compo
     AppRoutingModule,
     NgbModule,
     NgxDropzoneModule,
+    FormsModule,
+    HttpClientModule
   
   ],
   providers: [],
