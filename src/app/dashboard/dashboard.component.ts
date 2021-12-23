@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecruitmentServiceService } from '../recruitment-service.service';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
@@ -14,7 +16,13 @@ export class DashboardComponent implements OnInit {
   showfront: any;
   myDate:any;
 
-  constructor(public router: Router,private datePipe: DatePipe) { }
+  joblist: any;
+  search: any;
+  count: any;
+  joblist1:any;
+
+  constructor(public router: Router,private datePipe: DatePipe,
+    private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.myDate = new Date();
@@ -23,7 +31,20 @@ export class DashboardComponent implements OnInit {
     this.Birthday = false;
     this.NewJoinee = false;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      this.joblist = data.slice(0, 4)
+      this.count = this.joblist.length;
+    })
+
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      this.joblist1 = data;
+      this.count = this.joblist1.length;
+    })
+
   }
+
+
 
   Anniversery:any
   Birthday:any;
