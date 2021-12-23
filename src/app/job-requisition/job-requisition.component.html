@@ -25,16 +25,16 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
-                     <input class="form-control" placeholder=" Job Title">
+                     <input class="form-control" placeholder=" Job Title" [(ngModel)]="jobtitile">
                     </div>
                     <div class="col-lg-3">
-                        <textarea class="form-control" placeholder="Skill / Technolog"></textarea>
+                        <textarea class="form-control" placeholder="Skill / Technolog"  [(ngModel)]="skills"></textarea>
                       </div>
                       <div class="col-lg-3">
-                        <input class="form-control" placeholder="Total Years of Experience">
+                        <input class="form-control" placeholder="Total Years of Experience" [(ngModel)]="yearsofexp">
                       </div>
                       <div class="col-lg-3">
-                        <input class="form-control" placeholder="Years of Relavant Experience">
+                        <input class="form-control" placeholder="Years of Relavant Experience" [(ngModel)]="yearsofrelavantexp">
                       </div>
                     
                 </div> <br>
@@ -55,16 +55,19 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
-                     <input class="form-control" placeholder=" No of Positions">
+                     <input class="form-control" placeholder=" No of Positions"  [(ngModel)]="noofpositions">
                     </div>
                     <div class="col-lg-3">
-                        <textarea class="form-control" placeholder=" Company Name "></textarea>
+                        <textarea class="form-control" placeholder=" Company Name " [(ngModel)]="companyname"></textarea>
                       </div>
                       <div class="col-lg-3">
-                        <input class="form-control" placeholder=" Maximun CTC Offered">
+                        <input class="form-control" placeholder=" Maximun CTC Offered"  [(ngModel)]="package">
                       </div>
                       <div class="col-lg-3">
-                        <input class="form-control" placeholder="Hiring Manager">
+                        <select class="form-control" (change)="GetHrName($event)">
+                          <option value="">Select</option>
+                          <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+                      </select>
                       </div>
                      
                 </div>
@@ -84,16 +87,16 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-3">
-                    <input class="form-control" placeholder="Job Description">
+                    <input class="form-control" placeholder="Job Description" [(ngModel)]="jobdescription">
                   </div>
                   <div class="col-lg-3">
-                    <input class="form-control" placeholder=" Job Location">
+                    <input class="form-control" placeholder=" Job Location" [(ngModel)]="joblocation">
                   </div>
                   <div class="col-lg-3">
-                    <input class="form-control" placeholder="Other Required Condition">
+                    <input class="form-control" placeholder="Other Required Condition" [(ngModel)]="otherreqconditions">
                   </div>
                   <div class="col-lg-3">
-                    <input class="form-control" placeholder=" Resource Manager">
+                    <input class="form-control" placeholder=" Resource Manager" [(ngModel)]="resourcemanager">
                   </div>
                 </div> <br>
 
@@ -102,9 +105,8 @@
                     <div class="col-lg-5">                      
                     </div>
                     <div class="col-lg-2">
-                        <button class="save">Save</button>
-                    </div>
-                   
+                      <button type="button" class="addbtn" (click)="insertdetails()">Save</button>
+                    </div>       
                 </div>
             </div>
         </div>

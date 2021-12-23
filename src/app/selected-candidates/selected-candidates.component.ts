@@ -42,30 +42,33 @@ export class SelectedCandidatesComponent implements OnInit {
 
   offernotes: any;
 
+  Company_logo:any;
 
-  attachments = []
-  attachmentsurl: any;
-  brochures = [];
-  imagesurl: any;
-  brochures1 = [];
-  public onattachmentUpload(abcd:any) {
-    debugger;
-    // this.attachments.push(abcd.addedFiles[0]);
-    this.uploadImages();
-    abcd.length = 0;
+
+  files: File[] = [];
+  onSelect(event: { addedFiles: any; }) {
+    debugger
+    console.log(event);
+    this.files.push(event.addedFiles[0]);
+    this.uploadattachments();
+    console.log("content", this.files);
   }
-  public uploadImages() {
-    debugger;
-    this.RecruitmentServiceService.UploadImages(this.attachments).subscribe(res => {
+
+
+  onRemove(event:any)
+  {
+debugger
+console.log(event);
+this.files.splice(this.files.indexOf(event),1);
+  }
+
+  public uploadattachments() {
+    debugger
+    this.RecruitmentServiceService.UploadImages(this.files).subscribe(res => {
       debugger
-      // this.brochures1.push(res);
-      // let a = this.brochures1[0].slice(2);
-      // this.attachmentsurl = 'http://14.192.17.225' + a;
-
-      this.attachmentsurl.push('assets/Images/pdf.png')
-      Swal.fire("Added Successfully");
-
-    });
+      this.Company_logo = res;
+      alert("ATTACHMENT UPLOADED");
+    })
   }
 
 
@@ -73,7 +76,7 @@ export class SelectedCandidatesComponent implements OnInit {
   public updatedetails() {
     var entity = {
       'ID': this.candidateid,
-      'OfferLetterUrl': this.brochures1[0],
+      'OfferLetterUrl': this.Company_logo,
       'OfferNotes': this.offernotes
     }
     this.RecruitmentServiceService.UpdateOfferLetter(entity).subscribe(data => {
@@ -118,7 +121,7 @@ export class SelectedCandidatesComponent implements OnInit {
       'emailto': this.email,
       'emailsubject': "Amaze Inc Offer Letter",
       'emailbody': 'Dear ' + this.candidatename + ',' + "<br><br>" + this.offernotes,
-      'attachmenturl': this.brochures1,
+      'attachmenturl': this.Company_logo,
       'cclist': 0,
       'bcclist': 0
     }

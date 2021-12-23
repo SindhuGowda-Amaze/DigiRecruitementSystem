@@ -15,7 +15,7 @@
                         Filter By
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" placeholder="Search">
+                        <input class="form-control" placeholder="Search" [(ngModel)]="search" name="search">
                     </div>                  
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -35,7 +35,7 @@
                         </select>
                     </div>
                     <div class="col-lg-2">
-                        <p class="count">Count : 2</p>
+                        <p class="count">Count:{{count}}</p>
                     </div>
                 </div> <br>
             </div><br>
@@ -300,13 +300,15 @@
                         <!-- <ngx-dropzone style="height:50px">
                             <ngx-dropzone-label (change)="onattachmentUpload($event)" >Drag and drop file here</ngx-dropzone-label>
                         </ngx-dropzone> -->
-                        <ngx-dropzone [multiple]="false" (change)="onattachmentUpload($event)"
-                            class="dropzone_vendorinvoice">
-                            <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+                        <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
+                            <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
                         </ngx-dropzone>
                     </div>
                     <div class="col-lg-3">
-                        <img src="{{attachmentsurl}}" style="width: 40px;">
+                        <!-- <img src="{{attachmentsurl}}" style="width: 40px;"> -->
                     </div>
 
                 </div><br>

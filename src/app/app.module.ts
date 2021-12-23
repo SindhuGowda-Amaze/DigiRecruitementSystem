@@ -36,6 +36,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
+import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     RegistrationComponent,
     LoginPageComponent,
     JobRequisitionComponent,
+    VendorJobOpeningsComponent,
    
   ],
   imports: [
