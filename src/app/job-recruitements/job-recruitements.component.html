@@ -18,7 +18,7 @@
                         Filter By
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" placeholder="Search">
+                        <input class="form-control" placeholder="Search" [(ngModel)]="search" name="search">
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -38,7 +38,7 @@
                         </select>
                     </div>                 
                       <div class="col-lg-2">
-                        <p class="count" >Count:{{count}</p>
+                        <p class="count" >Count:{{count}}</p>
                       </div>
                 </div> <br>
             </div> <br>
