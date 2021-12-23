@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-10"></div>
                 <div class="col-lg-2">
                     <button class="form-control export">Export to Excel</button>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-lg-12">
                     <p>OFFERED CANDIDATES DASHBOARD</p>
@@ -30,10 +30,10 @@
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
                     <div class="col-md-2">
-                        <button class=" form-control export">Download</button>
+                        <button class=" form-control export">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
-                        <p class="count">Count : 1</p>
+                        <p class="count">Count:{{count}}</p>
                     </div>
                 </div><br> 
             </div>
@@ -42,32 +42,44 @@
                 <div class="col-lg-12">
                     <table class="table-bordered">
                         <tr  class="heading">
-                            <th><span class="menu">Job Reference ID</span></th>
-                            <th><span class="menu">Date</span></th>
-                            <th><span class="menu">Job Title</span></th>
-                            <th><span class="menu">Skill/Technology </span></th>
-                            <th><span class="menu">Total Years of Experience</span></th>
-                            <th><span class="menu">Years of Relavant Experience</span></th>
-                            <th><span class="menu">Job Description</span></th>
-                            <th><span class="menu">Job Location</span></th>
-                            <th><span class="menu">No of Positions</span></th>
-                            <th><span class="menu">Hiring Manager</span></th>
-                            <th><span class="menu">Resource Manager</span></th>
+                            <th>Job Reference ID</th>
+                            <!-- <th>Interview Date</th>
+                            <th>Time</th> -->
+                            <th>Staff</th>
+                            <th>Job Title</th>
+                            <th>Candidate Name</th>
+                            <th>Phone No</th>
+                            <th>Email</th>
+                            <th>Total Years of Experience</th>
+                            <th>Relevant Experience</th>
+                            <!-- <th>Offer Letter</th> -->
+                            <!-- <th>Status</th> -->
+                            <th>Comments</th>
+                           
         
         
                         </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>2021-12-21</td>
-                            <td>Software Developer</td>
-                            <td>Angular,Rest Api,Sql server</td>
-                            <td>2 years</td>
-                            <td>2.5 years</td>
-                            <td>Researching, designing, implementing, and managing software programs.</td>
-                            <td>Banglore</td>
-                            <td>2 positons</td>
-                            <td>Bhargav</td>
-                            <td>Rajaneesh</td>
+                        <tr *ngFor="let job of joblist|filter:term">
+                            <td>{{job.jobRefernceID}}</td>
+                            <!-- <td>{{job.date}}</td>
+                            <td>{{job.slotTime}}</td> -->
+                            <td>{{job.staffname}}</td>
+                            <td>{{job.jobTitle}}</td>
+                            <td>{{job.candidateName}}</td>
+                            <td>{{job.phoneNo}}</td>
+                            <td>{{job.email}}</td>
+                            <td>{{job.yearsofExp}}</td>
+                            <td>{{job.relavantExp}}</td>
+                            <!-- <td>
+                                <img src="assets/images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
+                            </td> -->
+                            <!-- <td>
+                                <span *ngIf="job.offerAcceptreject=='1'">Joined</span>
+                                <span *ngIf="job.offerAcceptreject=='2'">Dropped</span>
+                            </td> -->
+                            <td [(ngModel)]="job.offerComments" name="job.offerComments" placeholder="Comments">
+                            </td>
+                           
                         </tr>
                     </table>
                 </div>

@@ -29,11 +29,13 @@ import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
+import { PipesModule } from 'pipes-module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Pipe, PipeTransform } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
     JobVacanciesComponent,
     RegistrationComponent,
     LoginPageComponent,
-    JobRequisitionComponent
+    JobRequisitionComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,12 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     NgxDropzoneModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PipesModule,
+    Ng2SearchPipeModule
+    
+
+    
   
   ],
   providers: [],

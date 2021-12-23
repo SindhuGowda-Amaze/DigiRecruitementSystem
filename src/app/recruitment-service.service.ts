@@ -50,9 +50,12 @@ export class RecruitmentServiceService {
   public GetJob_Requirements() {
     return this.http.get<any[]>(this.host + "/Vendor/GetJob_Requirements");
   }
+
   public GetCandidateRegistration() {
     return this.http.get<any[]>(this.host + "/Vendor/GetCandidateRegistration");
   }
+
+ 
   public UpdateCandidateRegistrationAcceptReject(id:any, typeid:any, shortlist:any) {
     return this.http.get<any[]>(this.host + "/Vendor/UpdateCandidateRegistrationAcceptReject?ID=" + id + '&TypeID=' + typeid + '&ShortlistionNotes=' + shortlist);
   }

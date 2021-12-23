@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RecruitmentServiceService } from '../recruitment-service.service';
 @Component({
   selector: 'app-job-recruitement-report',
   templateUrl: './job-recruitement-report.component.html',
@@ -7,11 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobRecruitementReportComponent implements OnInit {
 
-  constructor() { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
-  ngOnInit(): void {
-  }
+
   refresh(){
     location.reload();
+  }
+  exportexcel(){
+    
+  }
+
+  joblist: any;
+  search: any;
+  count: any;
+
+  ngOnInit(): void {
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      this.joblist = data;
+      this.count = this.joblist.length;
+    })
   }
 }
