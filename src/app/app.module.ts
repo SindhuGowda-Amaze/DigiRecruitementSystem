@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import Swal from 'sweetalert2'
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +29,10 @@ import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
+
+
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -66,6 +69,8 @@ import { JobRequisitionComponent } from './job-requisition/job-requisition.compo
     AppRoutingModule,
     NgbModule,
     NgxDropzoneModule,
+    FormsModule,
+    HttpClientModule
   
   ],
   providers: [],

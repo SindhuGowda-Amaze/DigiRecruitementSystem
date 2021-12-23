@@ -12,4 +12,8 @@ export class ShortListedCandidatesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
+
+
+
 }
