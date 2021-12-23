@@ -120,7 +120,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '2');
           this.router.navigate(["/Dashboard"])  ;
-          location.reload();
+          // location.reload();
         }
         else {
           
@@ -153,7 +153,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('temp', '1');          
           localStorage.setItem('roleid', '3');
           this.router.navigate(["/Dashboard"])  ;
-          location.reload();
+          // location.reload();
         }
         else {
           
@@ -185,7 +185,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '4');
           this.router.navigate(["/Dashboard"])  ;
-          location.reload();
+          // location.reload();
         }
         else {
           
@@ -214,7 +214,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '5');
           this.router.navigate(["/Dashboard"])  ;
-          location.reload();
+          // location.reload();
         }
         else {
           
@@ -247,7 +247,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '1');
           this.router.navigate(["/Dashboard"])  ;
-          location.reload();
+          // location.reload();
         }
         else {
           

@@ -71,6 +71,37 @@ export class RecruitmentServiceService {
   public GetSlotsMasterByStaffID(startdate:any, staffid:any) {
     return this.http.get<any[]>(this.host + "/Vendor/GetSlotsMasterByStaffID?Date=" + startdate + '&StaffID=' + staffid);
   }
+  
+  public RejectInterview(id:any, typeid:any, rinterview:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/RejectInterview?ID=" + id + '&TypeID=' + typeid + '&Interviewercomments=' + rinterview);
+  }
+  public UploadImages(files:any) {
+    let formdata: FormData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formdata.append('file_upload', files[i], files[i].name);
+    }
+    return this.http.post<any>(this.host + "/Building/UploadImages/", formdata);
+  }
+  public UpdateOfferLetter(data:any) {
+    this.url = this.host + "/Vendor/UpdateOfferLetter";
+    return this.http.post(this.url, data);
+  }
+  public UpdateCandidateJoiningDate(data:any) {
+    this.url = this.host + "/Vendor/UpdateCandidateJoiningDate";
+    return this.http.post(this.url, data);
+  }
+ 
+
+
+  public sendemail(data:any) {
+    this.url = this.host + "/Vendor/sendemail";
+    return this.http.post(this.url, data);
+  }
+  public AcceptRejectOffer(id:any, typeid:any, offercomments:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/AcceptRejectOffer?ID=" + id + '&TypeID=' + typeid + '&OfferComments=' + offercomments);
+  }
+
+
 
 
 }

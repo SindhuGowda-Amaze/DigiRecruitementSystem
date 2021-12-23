@@ -74,7 +74,8 @@
                                 <td>{{job.noofpositions}}</td>
                                 <td>{{job.hiringManager}}</td>
                                 <td>{{job.resourceManager}}</td>
-                                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
+                                                                        
+                                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Assign Vendor</button></td>
                             </tr>                          
                        
                     </table>
@@ -91,30 +92,15 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Schedule Interview</h4>
+                <h4 class="modal-title">Assign Vendor</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label class="Text"> Date :</label>
-                    </div>
-                    <div class="col-lg-5">
-                       <input class="form-control" type="date">
-                    </div>                  
-                </div> <br>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label  class="Text">Time :</label>
-                    </div>
-                    <div class="col-lg-5">
-                       <input class="form-control" type="Time">
-                    </div>                  
-                </div> <br>
+               
   
                 <div class="row">
                   <div class="col-lg-3">
-                    <label  class="Text">Staff :</label>
+                    <label  class="Text">Vendor :</label>
                   </div>
                     <div class="col-lg-5">
                       <select name="Select" class="form-control">
@@ -134,7 +120,7 @@
                 <div class="row">
                     <div class="col-lg-5"></div>
                     <div class="col-lg-2">
-                        <button class="Save">Schedule</button>
+                        <button class="form-control Save">Assign</button>
                     </div>
                 </div>              
             </div>
