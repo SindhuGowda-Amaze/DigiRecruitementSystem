@@ -10,9 +10,10 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   company_name: any;
-  login:any
+  temp:any
   ngOnInit() {
-    this.login=localStorage.getItem('login')
+    this.temp=localStorage.getItem('temp')
+  
     this.company_name = localStorage.getItem("company_name");
   }
 
