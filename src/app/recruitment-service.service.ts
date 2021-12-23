@@ -6,10 +6,17 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 export class RecruitmentServiceService {
+  public UploadImages(files:any) {
+    let formdata: FormData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formdata.append('file_upload', files[i], files[i].name);
+    }
+    return this.http.post<any>(this.host + "/Building/UploadImages/", formdata);
+  }
 
-  host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+ // host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
-//  private host = "http://localhost:1807/";
+  private host = "http://localhost:1807/";
   //private host = localStorage.getItem('apiurl');
   private url: string = "";
   showvid: any;
@@ -71,6 +78,23 @@ export class RecruitmentServiceService {
   public GetSlotsMasterByStaffID(startdate:any, staffid:any) {
     return this.http.get<any[]>(this.host + "/Vendor/GetSlotsMasterByStaffID?Date=" + startdate + '&StaffID=' + staffid);
   }
+  public GetUserslist() {
+    return this.http.get<any[]>(this.host + "/User/GetUserslist");
+  }
 
+  public UpdateVendor(data:any) {
+    debugger
+    this.url = this.host + "/User/UpdateVendorforjob";
+    return this.http.post(this.url, data);
+  }
 
+  public GetUserslist1() {
+    return this.http.get<any[]>(this.host + "/User/GetUserslist");
+  }
+
+  public InsertCandidateRegistration(data:any) {
+    this.url = this.host + "/Vendor/InsertCandidateRegistration";
+    return this.http.post(this.url, data);
+  }
+  
 }

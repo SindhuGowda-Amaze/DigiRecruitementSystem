@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-job-recruitements',
-  templateUrl: './job-recruitements.component.html',
-  styleUrls: ['./job-recruitements.component.css']
+  selector: 'app-vendor-job-openings',
+  templateUrl: './vendor-job-openings.component.html',
+  styleUrls: ['./vendor-job-openings.component.css']
 })
-export class JobRecruitementsComponent implements OnInit {
+export class VendorJobOpeningsComponent implements OnInit {
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
   joblist: any;
@@ -33,27 +31,7 @@ export class JobRecruitementsComponent implements OnInit {
   
  GetId(id:any){
   this.ID=id
+  location.href="/JobVacancies"
  }
  ID:any;
- Vendor:any;
- Notes:any;
- 
- public UpdateVendor() {
-  debugger
-  
-    var entity = {
-     "ID":this.ID,
-     "Vendor":this.Vendor,
-     "Notes":this.Notes
-    }
-
-  
-  this.RecruitmentServiceService.UpdateVendor(entity).subscribe(data => {
-  
-      Swal.fire('Updated successfully');
-       location.reload();
-    
-  })
-}
-
 }

@@ -25,6 +25,7 @@ import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
+import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 
 const routes: Routes = [
 
@@ -53,7 +54,8 @@ const routes: Routes = [
   {path:'Footer',component:FooterComponent},
   {path:'JobVacancies',component:JobVacanciesComponent},
   {path:'Registration',component:RegistrationComponent},
-  {path:'JobRequisition',component:JobRequisitionComponent}
+  {path:'JobRequisition',component:JobRequisitionComponent},
+  {path:'VendorJobOpenings',component:VendorJobOpeningsComponent}
 ];
 
 @NgModule({

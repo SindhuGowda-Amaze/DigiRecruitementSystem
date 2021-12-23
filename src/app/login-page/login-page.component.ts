@@ -59,18 +59,48 @@ export class LoginPageComponent implements OnInit {
       localStorage.setItem('temp', '1');
      this.router.navigate(["/Dashboard"])  ;
       localStorage.setItem('roleid', '6');
-      // location.reload();
+      //  location.reload();
       
     }
-
-    if (this.userName == 'vendor' && this.password == '1') {
-      debugger
-      localStorage.setItem('userName', 'vendor');
-      localStorage.setItem('temp', '1');
-      this.router.navigate(["/Dashboard"])  ;
-      localStorage.setItem('roleid', '7');
-      // location.reload();
+    else if (this.roleID == 7) {
+      debugger;
+      this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
+        this.result = data;
+        debugger;
+        if (this.result!=undefined || this.result!=null) {
+          localStorage.setItem('vendorid', this.result.id);
+          localStorage.setItem('staffID',this.result.staffID);
+          localStorage.setItem('buildingID',this.result.buildingID);
+          localStorage.setItem('userRoleID',this.result.userRoleID);
+          localStorage.setItem('userName', this.result.loginName);
+          localStorage.setItem('name', this.result.name);
+          localStorage.setItem('phoneNo', this.result.phoneNo);
+          localStorage.setItem('userName', this.result.emailID);
+          localStorage.setItem('password', this.result.password);
+          localStorage.setItem('projectName', this.result.projectName);
+          localStorage.setItem('temp', '1');
+          localStorage.setItem('roleid', '7');
+          this.router.navigate(["/Dashboard"])  ;
+          // location.reload();
+        }
+        else {
+          
+          Swal.fire('Phonenumber or Password is invalid');
+          this.userName = "";
+          this.password = "";
+        }
+      })
     }
+
+
+    // if (this.userName == 'vendor' && this.password == '1') {
+    //   debugger
+    //   localStorage.setItem('userName', 'vendor');
+    //   localStorage.setItem('temp', '1');
+    //   this.router.navigate(["/Dashboard"])  ;
+    //   localStorage.setItem('roleid', '7');
+    //   // location.reload();
+    // }
     
     // else if (this.roleID == 1) {
       
