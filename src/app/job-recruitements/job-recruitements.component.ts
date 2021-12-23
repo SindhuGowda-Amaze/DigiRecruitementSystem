@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecruitmentServiceService } from '../recruitment-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-job-recruitements',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobRecruitementsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+  joblist: any;
+  search: any;
+  count: any;
   ngOnInit(): void {
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      this.joblist = data;
+      this.count = this.joblist.length;
+    })
+
   }
 
 }

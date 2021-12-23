@@ -153,53 +153,51 @@
           <table class="table tablebordered">
             <thead>
               <tr class="head">
-                <th>Vendor</th>
+                <!-- <th>Vendor</th> -->
                 <th>Job Reference ID</th>
                 <th>Job Title</th>
                 <th>Candidate Name</th>
                 <th>Phone No</th>
                 <th>Email</th>
-                <th>CTC</th>
-                <th>Notice Period</th>
-                <th>Total Years of Experience</th>
+                <!-- <th>CTC</th> -->
+                <!-- <th>Notice Period</th> -->
+                <th>Total Years of Experience</th> 
                 <th>Relevant Experience</th>
                 <th>Hiring Manager</th>
+                <th>City</th>
                 <th>Notes</th>
                 <th>Resume</th>             
                 <th>Actions</th>
               </tr>
-              <tr>
-                <td>Amaze</td>
-                <td>25984</td>
-                <td>QA Engineer</td>
-                <td>joe</td>
-                <td>09996669780</td>
-                <td>joe@gmail.com</td>
-                <td>3 LPA</td>
-                <td>15 days</td>
-                <td>5</td>
-                <td>4</td>
-                <td>Sanath</td>
-                <td>null</td>
-               <td><img src="/assets/Images/pdf.png" class="pdf"></td>
-                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
-              </tr>
-              <tr>
-                <td>Amaze</td>
-                <td>8064</td>
-                <td>Testing job</td>
-                <td>akhil</td>
-                <td>09990007780</td>
-                <td>akhil@gmail.com</td>
-                <td>8 LPA</td>
-                <td>3 months</td>
-                <td>2</td>
-                <td>1</td>
-                <td>Stefen</td>
-                <td>shortlisted</td>
-                <td><img src="/assets/Images/pdf.png" class="pdf"></td>
-                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
-              </tr>       
+              <tr *ngFor="let job of joblist">
+                <td>{{job.jobRefernceID}}</td>
+                <td>{{job.jobTitle}}</td>
+                <td>{{job.candidateName}}</td>
+                <td>{{job.phoneNo}}</td>
+                <td>{{job.email}}</td>
+                <td>{{job.yearsofExp}}</td>
+                <td>{{job.relavantExp}}</td>
+                <td>{{job.hiringManager}}</td>
+                <td>{{job.city}}</td>
+                <td>{{job.shortlistionNotes}}</td>
+                <td>
+                    <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
+                </td>
+                <td>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#SexampleModal"
+                        (click)="GetCandidateID(job.id)">
+                        Schedule Interview
+                    </button>
+
+                    <!-- <img src="assets/images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
+                        style="width:20px;" (click)="Accept(job.id)" />&nbsp;
+
+                    <img src="assets/images/can.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Reject"
+                        style="width:20px;" (click)="Reject(job.id)" /> -->
+                </td>
+            </tr>
+
+           
             </thead>
           </table>
         </div>
@@ -210,7 +208,8 @@
 </div>
 
 
-<div id="ScheduleInterview" class="modal fade" role="dialog">
+<!-- <div id="ScheduleInterview" class="modal fade" role="dialog">
+
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <div class="modal-header">
@@ -223,7 +222,7 @@
                       <label class="Text"> Date :</label>
                   </div>
                   <div class="col-lg-5">
-                     <input class="form-control" type="date">
+                     <input class="form-control" type="Month">
                   </div>                  
               </div> <br>
               <div class="row">
@@ -269,4 +268,75 @@
           </div>
       </div>
   </div>
+</div> -->
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:700px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Schedule Interview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Staff :</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <select class="form-control" (change)="GetStaffID($event)">
+                            <option value="">Select</option>
+                            <option *ngFor="let staff of stafflist" value="{{staff.id}}">{{staff.name}}</option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Date :</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="date" class="form-control" [(ngModel)]="date" name="date" (change)="GetDate($event)">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Time :</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <select class="form-control" (change)="GetTimeID($event)">
+                            <option value="">Select</option>
+                            <option *ngFor="let time of slotslist" value="{{time.id}}">{{time.slotTime}}</option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Notes :</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="notes" name="notes"></textarea>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-lg-5">
+
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-primary"
+                            (click)="UpdateInterviewSchedule()" data-dismiss="modal">Schedule</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
 </div>

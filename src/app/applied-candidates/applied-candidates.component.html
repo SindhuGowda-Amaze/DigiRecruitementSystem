@@ -8,15 +8,15 @@
           <hr class="HrLine">
         </div>
       </div> <br>
-    
+
       <div class="card"><br>
         <div class="row FilterClass">
           <div class="col-lg-1">
-           Filter By
+            Filter By
           </div>
           <div class="col-lg-3">
             <input class="form-control" placeholder="Search">
-          </div>        
+          </div>
           <div class="col-lg-3">
             <select name="Select" class="form-control">
               <option value="Select CTC">Select CTC</option>
@@ -35,7 +35,7 @@
             </select>
           </div>
           <div class="col-lg-2">
-            <p class="count" >Count : 2</p>
+            <p class="count">Count : 2</p>
           </div>
         </div> <br>
       </div><br>
@@ -45,72 +45,44 @@
           <table class="table tablebordered">
             <thead>
               <tr class="head">
-                <th>Vendor</th>
+                <!-- <th>Vendor</th> -->
                 <th>Job Reference ID</th>
                 <th>Job Title</th>
                 <th>Candidate Name</th>
                 <th>Phone No</th>
                 <th>Email</th>
-                <th>CTC</th>
-                <th>Notice Period</th>
+                <!-- <th>CTC</th> -->
+                <!-- <th>Notice Period</th> -->
                 <th>Total Years of Experience</th>
                 <th>Relevant Experience</th>
                 <th>City</th>
                 <th>Resume</th>
+                <th>Comments</th>
                 <th>Actions</th>
               </tr>
-              <tr>
-                <td>Amaze</td>
-                <td>25984</td>
-                <td>Full Stack Developer</td>
-                <td>ananya</td>
-                <td>08129981409</td>
-                <td>ananya@gmail.com</td>
-                <td>3 LPA</td>
-                <td>30 days</td>
-                <td>5</td>
-                <td>4</td>
-                <td>bangalore</td>
-                <td><img src="/assets/Images/pdf.png" class="pdf"></td>
+              <tr *ngFor="let job of joblist">
+                <td>{{job.jobRefernceID}}</td>
+                <td>{{job.jobTitle}}</td>
+                <td>{{job.candidateName}}</td>
+                <td>{{job.phoneNo}}</td>
+                <td>{{job.email}}</td>
+                <td>{{job.yearsofExp}}</td>
+                <td>{{job.relavantExp}}</td>
+                <td>{{job.city}}</td>
                 <td>
-                  <img class="img" src="../../assets/Images/check-mark.png">
-                  <img class="imgcancel" src="../../assets/Images/cancel (1).png">
+                  <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
+
                 </td>
-              </tr>
-              <tr>
-                <td>Amaze</td>
-                <td>80640</td>
-                <td>QA Engineer</td>
-                <td>sawthi</td>
-                <td>08129981401</td>
-                <td>sawthi@gmail.com</td>
-                <td>3 LPA</td>
-                <td>15 days</td>
-                <td>4</td>
-                <td>4</td>
-                <td>bangalore</td>
-               <td><img src="/assets/Images/pdf.png" class="pdf"></td>
-               <td>
-                <img class="img" src="../../assets/Images/check-mark.png">
-                <img class="imgcancel" src="../../assets/Images/cancel (1).png">
-              </td>
-              </tr>
-              <tr>
-                <td>Amaze</td>
-                <td>25984</td>
-                <td>Full Stack Developer </td>
-                <td>joe</td>
-                <td>7990167890 </td>
-                <td>joe@gmail.com</td>
-                <td>5 LPA</td>
-                <td>30 days</td>
-                <td>4</td>
-                <td>4</td>
-                <td>bangalore</td>
-                <td><img src="/assets/Images/pdf.png" class="pdf"></td>
                 <td>
-                  <img class="img" src="../../assets/Images/check-mark.png" (click)="selected">
-                  <img class="imgcancel" src="../../assets/Images/cancel (1).png" (click)="rejected">
+                <p *ngIf="job.accept=='0'&&job.reject=='0'" 
+                    [(ngModel)]="job.shortlistionNotes" name="job.shortlistionNotes" ></p>
+                </td>
+                <td>
+                  <img src="../../assets/Images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
+                    style="width:20px;" (click)="Accept(job.id,job.shortlistionNotes)" />&nbsp;<br>
+
+                  <img src="../../assets/Images/can.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Reject"
+                    style="width:20px;" (click)="Reject(job.id,job.shortlistionNotes)" />
                 </td>
               </tr>
             </thead>

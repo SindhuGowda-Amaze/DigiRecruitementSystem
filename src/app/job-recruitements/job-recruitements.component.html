@@ -61,43 +61,22 @@
                                 <th>Resource Manager</th>
                                 <th>Actions   </th>
                             </tr>
-                            <tr>
-                                
-                                <td>25984</td>
-                                <td>19-Jul-2021</td>
-                                <td>Full Stack Developer</td>
-                                <td>Angular,Rest Api,Sql server</td>
-                                <td>2 years</td>
-                                <td>2.5 years</td>
-                                <td>Researching, designing, implementing, and managing software programs.
-                                    Identifying areas for modification in existing programs
-                                    and subsequently developing these modifications. Writing and implementing
-                                    efficient code.</td>
-                                <td>Banglore</td>
-                                <td>2 positons</td>
-                                <td>Bhargav</td>
-                                <td>Rajaneesh</td>
-                                <td><button class="Button"  data-toggle="modal" data-target="#AssignVendor" >Assign Vendor</button></td>
-                            </tr>
-                            <tr>
-                                
-                                <td>25984</td>
-                                <td>19-Jul-2021</td>
-                                <td>Full Stack Developer</td>
-                                <td>Angular,Rest Api,Sql server</td>
-                                <td>2 years</td>
-                                <td>2.5 years</td>
-                                <td>Researching, designing, implementing, and managing software programs.
-                                    Identifying areas for modification in existing programs
-                                    and subsequently developing these modifications. Writing and implementing
-                                    efficient code.</td>
-                                <td>Banglore</td>
-                                <td>2 positons</td>
-                                <td>Bhargav</td>
-                                <td>Rajaneesh</td>
-                                <td><button class="Button" data-toggle="modal" data-target="#AssignVendor">Assign Vendor</button></td>
-                            </tr>
                         </thead>
+                            <tr *ngFor="let job of joblist">
+                                <td>{{job.jobRefernceID}}</td>
+                                <td>{{job.date}}</td>
+                                <td>{{job.jobTitle}}</td>
+                                <td>{{job.skills}}</td>
+                                <td>{{job.totalExp}}</td>
+                                <td>{{job.relaventExp}}</td>
+                                <td>{{job.jobDescription}}</td>
+                                <td>{{job.joblocation}}</td>
+                                <td>{{job.noofpositions}}</td>
+                                <td>{{job.hiringManager}}</td>
+                                <td>{{job.resourceManager}}</td>
+                                <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
+                            </tr>                          
+                       
                     </table>
                 </div>
             </div>
@@ -108,35 +87,61 @@
 
 
 
-<div id="AssignVendor" class="modal fade" role="dialog">
+<div id="ScheduleInterview" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Vendors</h4>
+                <h4 class="modal-title">Schedule Interview</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <select name="Select" class="form-control">
-                          <option value="Select Vendor">Select Vendor</option>
-                          <option value="Amaze">Amaze</option>
-                          <option value="Amaze">Amaze</option>
-                          <option value="Amaze">Amaze</option>
-                          <option value="Amaze">Amaze</option>
-                        </select>
-                    </div> 
+                        <label class="Text"> Date :</label>
+                    </div>
+                    <div class="col-lg-5">
+                       <input class="form-control" type="date">
+                    </div>                  
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label  class="Text">Time :</label>
+                    </div>
+                    <div class="col-lg-5">
+                       <input class="form-control" type="Time">
+                    </div>                  
+                </div> <br>
+  
+                <div class="row">
+                  <div class="col-lg-3">
+                    <label  class="Text">Staff :</label>
+                  </div>
+                    <div class="col-lg-5">
+                      <select name="Select" class="form-control">
+                        <option value="Select">Select </option>              
+                      </select>
+                    </div>                  
+                </div> <br>
+  
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label  class="Text" style="font-weight: bold;">Notes :</label>
+                    </div>
+                    <div class="col-lg-5">
+                      <textarea class="form-control" placeholder="Notes"></textarea>
+                    </div>                  
+                </div> <br>
                 <div class="row">
                     <div class="col-lg-5"></div>
                     <div class="col-lg-2">
-                        <button class="Save">Submit</button>
+                        <button class="Save">Schedule</button>
                     </div>
                 </div>              
             </div>
             <div class="modal-footer">
                 <hr>
                <div class="col-lg-2">
-                   <button class="Button ">Close</button>
+                   <button class="Button" >Close</button>
                </div>
             </div>
         </div>

@@ -47,4 +47,27 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/User/GetAdmin?Name=" + Name + "&Password=" + Password);
   }
 
+  public GetJob_Requirements() {
+    return this.http.get<any[]>(this.host + "/Vendor/GetJob_Requirements");
+  }
+  public GetCandidateRegistration() {
+    return this.http.get<any[]>(this.host + "/Vendor/GetCandidateRegistration");
+  }
+  public UpdateCandidateRegistrationAcceptReject(id:any, typeid:any, shortlist:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/UpdateCandidateRegistrationAcceptReject?ID=" + id + '&TypeID=' + typeid + '&ShortlistionNotes=' + shortlist);
+  }
+
+  public GetStaffs() {
+    return this.http.get<any[]>(this.host + "/Vendor/GetStaffs");
+  }
+  
+  public UpdateCandidateInterviewSchedule(data: { ID: any; StaffID: any; Date: any; TimeID: any; Notes: any; }) {
+    this.url = this.host + "/Vendor/UpdateCandidateInterviewSchedule";
+    return this.http.post(this.url, data);
+  }
+  public GetSlotsMasterByStaffID(startdate:any, staffid:any) {
+    return this.http.get<any[]>(this.host + "/Vendor/GetSlotsMasterByStaffID?Date=" + startdate + '&StaffID=' + staffid);
+  }
+
+
 }
