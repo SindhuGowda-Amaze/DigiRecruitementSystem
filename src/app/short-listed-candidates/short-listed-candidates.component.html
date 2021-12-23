@@ -123,6 +123,9 @@
            Filter By
           </div>
           <div class="col-lg-3">
+            <input class="form-control" placeholder="Search">
+          </div>
+          <div class="col-lg-3">
             <select name="Select" class="form-control">
               <option value="Select CTC">Select CTC</option>
               <option value="30,000-50,000">30,000-50,000</option>
@@ -139,7 +142,6 @@
               <option value="90 Days">90 Days</option>
             </select>
           </div>
-          <div class="col-lg-3"></div>
           <div class="col-lg-2">
             <p class="count" >Count : 2</p>
           </div>
@@ -179,7 +181,7 @@
                 <td>4</td>
                 <td>Sanath</td>
                 <td>null</td>
-                <td></td>
+               <td><img src="/assets/Images/pdf.png" class="pdf"></td>
                 <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
               </tr>
               <tr>
@@ -195,7 +197,7 @@
                 <td>1</td>
                 <td>Stefen</td>
                 <td>shortlisted</td>
-                <td></td>
+                <td><img src="/assets/Images/pdf.png" class="pdf"></td>
                 <td><button class="button" data-toggle="modal" data-target="#ScheduleInterview">Schedule Interview</button></td>
               </tr>       
             </thead>
@@ -218,7 +220,7 @@
           <div class="modal-body">
               <div class="row">
                   <div class="col-lg-3">
-                      <label class="Text">Staff :</label>
+                      <label class="Text"> Date :</label>
                   </div>
                   <div class="col-lg-5">
                      <input class="form-control" type="date">
@@ -226,19 +228,21 @@
               </div> <br>
               <div class="row">
                   <div class="col-lg-3">
-                      <label  class="Text">Date :</label>
+                      <label  class="Text">Time :</label>
                   </div>
                   <div class="col-lg-5">
-                     <input class="form-control" placeholder="Joining Bonus">
+                     <input class="form-control" type="Time">
                   </div>                  
               </div> <br>
 
               <div class="row">
-                  <div class="col-lg-3">
-                      <label  class="Text">Time :</label>
-                  </div>
+                <div class="col-lg-3">
+                  <label  class="Text">Staff :</label>
+                </div>
                   <div class="col-lg-5">
-                     <input class="form-control" placeholder="Notice Period By then">
+                    <select name="Select" class="form-control">
+                      <option value="Select">Select </option>              
+                    </select>
                   </div>                  
               </div> <br>
 
@@ -260,7 +264,7 @@
           <div class="modal-footer">
               <hr>
              <div class="col-lg-2">
-                 <button class="Button ">Close</button>
+                 <button class="Button" >Close</button>
              </div>
           </div>
       </div>

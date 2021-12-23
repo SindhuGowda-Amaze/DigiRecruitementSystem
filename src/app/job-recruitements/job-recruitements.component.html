@@ -4,7 +4,7 @@
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-10">
-                  <p class="Heading">Job Recruitement Dashboard</p> 
+                  <p class="Heading">Job Openings Dashboard</p> 
                 </div>
                 <div class="col-lg-2">
                     <button class="Add" routerLink='/JobRequisition'>Add</button>
@@ -16,6 +16,9 @@
                 <div class="row FilterClass">
                     <div class="col-lg-1">
                         Filter By
+                    </div>
+                    <div class="col-lg-3">
+                        <input class="form-control" placeholder="Search">
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -33,8 +36,7 @@
                           <option value="45 Days">45 Days</option>
                           <option value="90 Days">90 Days</option>
                         </select>
-                      </div>
-                      <div class="col-lg-3"></div>
+                    </div>                 
                       <div class="col-lg-2">
                         <p class="count" >Count : 2</p>
                       </div>
@@ -45,26 +47,22 @@
                 <div class="col-lg-12">
                     <table class="table tablebordered">
                         <thead>
-                            <tr class="newFont">
-                             
-                                <th>Vendor</th>
+                            <tr class="newFont">                              
                                 <th>Job Reference ID</th>
                                 <th>Date</th>
                                 <th>Job Title</th>
                                 <th>Skill/Technology</th>
                                 <th>Total Years of Experience</th>
-                                <th>Years of Relavant Experience</th>
+                                <th>expected Experience</th>
                                 <th>Job Description</th>
                                 <th>Job Location</th>
                                 <th>No of Positions</th>
                                 <th>Hiring Manager</th>
                                 <th>Resource Manager</th>
-                                <th>Actions</th>
+                                <th>Actions   </th>
                             </tr>
                             <tr>
-                                <td>
-                                    Amaze
-                                </td>
+                                
                                 <td>25984</td>
                                 <td>19-Jul-2021</td>
                                 <td>Full Stack Developer</td>
@@ -79,12 +77,10 @@
                                 <td>2 positons</td>
                                 <td>Bhargav</td>
                                 <td>Rajaneesh</td>
-                                <td><button class="Button" routerLink='/JobVacancies'>Apply</button></td>
+                                <td><button class="Button"  data-toggle="modal" data-target="#AssignVendor" >Assign Vendor</button></td>
                             </tr>
                             <tr>
-                                <td>
-                                    Amaze
-                                </td>
+                                
                                 <td>25984</td>
                                 <td>19-Jul-2021</td>
                                 <td>Full Stack Developer</td>
@@ -99,7 +95,7 @@
                                 <td>2 positons</td>
                                 <td>Bhargav</td>
                                 <td>Rajaneesh</td>
-                                <td><button class="Button" routerLink='/JobVacancies'>Apply</button></td>
+                                <td><button class="Button" data-toggle="modal" data-target="#AssignVendor">Assign Vendor</button></td>
                             </tr>
                         </thead>
                     </table>
@@ -111,3 +107,38 @@
 </div>
 
 
+
+<div id="AssignVendor" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Vendors</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <select name="Select" class="form-control">
+                          <option value="Select Vendor">Select Vendor</option>
+                          <option value="Amaze">Amaze</option>
+                          <option value="Amaze">Amaze</option>
+                          <option value="Amaze">Amaze</option>
+                          <option value="Amaze">Amaze</option>
+                        </select>
+                    </div> 
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <button class="Save">Submit</button>
+                    </div>
+                </div>              
+            </div>
+            <div class="modal-footer">
+                <hr>
+               <div class="col-lg-2">
+                   <button class="Button ">Close</button>
+               </div>
+            </div>
+        </div>
+    </div>
+  </div>
