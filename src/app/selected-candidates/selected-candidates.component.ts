@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxDropzoneModule } from 'ngx-dropzone';
 @Component({
   selector: 'app-selected-candidates',
   templateUrl: './selected-candidates.component.html',
@@ -25,8 +24,4 @@ debugger
 console.log(event);
 this.files.splice(this.files.indexOf(event),1);
   }
-
-
-
-
 }
