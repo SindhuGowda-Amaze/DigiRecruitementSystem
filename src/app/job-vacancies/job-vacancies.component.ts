@@ -1,17 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { RecruitmentServiceService } from '../recruitment-service.service';
+import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-job-vacancies',
   templateUrl: './job-vacancies.component.html',
   styleUrls: ['./job-vacancies.component.css']
 })
 export class JobVacanciesComponent implements OnInit {
+  Company_logo: any;
+ 
+
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      this.joblist = data;
+  })
+}
+  // files: File[] = [];
+
+  // onSelect(event: any) {
+  //   console.log(event);
+  //   this.files.push(...event.addedFiles);
+  // }
+  
+  // onRemove(event:any) {
+  //   console.log(event);
+  //   this.files.splice(this.files.indexOf(event), 1);
+  // }
+
+  attachments = []
+  attachmentsurl: any;
+  brochures = [];
+  imagesurl: any;
+  brochures1 = [];
+  jobid:any;
+  
+  public GetJobID(jobid:any) {
+    this.jobid = jobid;
+  }
+
+  currentcompany: any;
+  noticeperiod: any;
   servingnotice: any;
   relocate: any;
-
-  constructor(private RecruitmentServiceService: RecruitmentServiceService, private fb: FormBuilder) { }
   joblist: any;
   candidatename: any;
   phoneno: any;
@@ -19,54 +52,11 @@ export class JobVacanciesComponent implements OnInit {
   yearsofexp: any;
   relaventexp: any;
   city: any;
-  jobid: any;
-
-
-
-  ngOnInit(): void {
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data;
-    })
-  }
-
-
-  attachments = []
-  attachmentsurl: any;
-  brochures = [];
-  imagesurl: any;
-  brochures1 = [];
-  addedFiles = [];
-  public onattachmentUpload(abcd:any) {
-    debugger;
-    // this.attachments.push(abcd.addedFiles[0]);
-    this.uploadImages();
-    abcd.length = 0;
-  }
-  public uploadImages() {
-    debugger;
-    this.RecruitmentServiceService.UploadImages(this.attachments).subscribe(res => {
-      debugger
-      // this.brochures1.push(res);
-      // let a = this.brochures1[0].slice(2);
-      // this.attachmentsurl = 'http://14.192.17.225' + a;
-      debugger
-      this.attachmentsurl='assets/images/pdf.png';
-      Swal.fire("Added Successfully");
-
-    });
-  }
-
-  public GetJobID(jobid:any) {
-    this.jobid = jobid;
-  }
-
-  currentcompany: any;
-  noticeperiod: any;
-  // servingnotice: boolean;
-  // relocate: boolean;
+ 
 
 
   public insertdetails() {
+    debugger
     var entity = {
       'JobID': this.jobid,
       'CandidateName': this.candidatename,
@@ -87,6 +77,30 @@ export class JobVacanciesComponent implements OnInit {
       }
     })
   }
+
+  files: File[] = [];
+  onSelect(event: { addedFiles: any; }) {
+    debugger
+    console.log(event);
+    this.files.push(event.addedFiles[0]);
+    this.uploadattachments();
+    console.log("content", this.files);
+  }
+
+
+  onRemove(event:any)
+  {
+debugger
+console.log(event);
+this.files.splice(this.files.indexOf(event),1);
+  }
+
+  public uploadattachments() {
+    debugger
+    this.RecruitmentServiceService.AttachmentsUpload(this.files).subscribe(res => {
+      debugger
+      this.Company_logo = res;
+      alert("ATTACHMENT UPLOADED");
+    })
+  }
 }
-
-
