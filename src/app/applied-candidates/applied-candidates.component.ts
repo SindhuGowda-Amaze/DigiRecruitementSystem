@@ -16,6 +16,8 @@ export class AppliedCandidatesComponent implements OnInit {
   dummjoblist: any;
   term: any;
   jobid: any;
+  search:any;
+  
   ngOnInit(): void {
     this.GetCandidateReg()
   }

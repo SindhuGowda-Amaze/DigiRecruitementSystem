@@ -38,7 +38,7 @@
                         </select>
                     </div>                 
                       <div class="col-lg-2">
-                        <p class="count" >Count:{{count}}</p>
+                        <p class="count">Count:{{count}}</p>
                       </div>
                 </div> <br>
             </div> <br>
@@ -62,7 +62,7 @@
                                 <th>Actions   </th>
                             </tr>
                         </thead>
-                            <tr   *ngFor="let job of joblist">
+                            <tr   *ngFor="let job of joblist|filter:search">
                                 <td *ngIf="job.vendor==null">{{job.jobRefernceID}}</td>
                                 <td *ngIf="job.vendor==null">{{job.date}}</td>
                                 <td *ngIf="job.vendor==null">{{job.jobTitle}}</td>
@@ -74,9 +74,8 @@
                                 <td *ngIf="job.vendor==null">{{job.noofpositions}}</td>
                                 <td *ngIf="job.vendor==null">{{job.hiringManager}}</td>
                                 <td *ngIf="job.vendor==null">{{job.resourceManager}}</td>
-                                <td *ngIf="job.vendor==null"><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">AssignVendor</button></td>
-                            </tr>                          
-                       
+                                <td *ngIf="job.vendor==null"><button class="button form-control Add" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">AssignVendor</button></td>
+                            </tr>                                                 
                     </table>
                 </div>
             </div>
@@ -101,7 +100,7 @@
                   </div>
                     <div class="col-lg-5">
                       <select name="Select" class="form-control" name="Vendor" id="Vendor"  [(ngModel)]="Vendor"> 
-                        <option value="Select">Select </option> 
+                        <option value="Select" (click)="Getvendorid()">Select </option> 
                         <option value="Select"  *ngFor="let User of Userlist" value={{User.name}}>{{User.name}} </option>                                     
                       </select>
                     </div>                  

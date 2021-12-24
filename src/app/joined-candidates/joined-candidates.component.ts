@@ -15,6 +15,7 @@ export class JoinedCandidatesComponent implements OnInit {
   joblist: any;
   count: any;
   term: any;
+  search:any;
   ngOnInit(): void {
     this.GetCandidateReg()
   }

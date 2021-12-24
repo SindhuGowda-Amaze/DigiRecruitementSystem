@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   showback: any;
   showfront: any;
-  myDate:any;
+  myDate: any;
 
   search: any;
   count: any;
@@ -22,17 +22,18 @@ export class DashboardComponent implements OnInit {
   count2: any;
   count3: any;
 
-  joblist1:any;
-  joblist2:any;
-  joblist3:any;
-  joblist4:any;
-  joblist5:any;
-  joblist6:any;
-  joblist7:any;
-  joblist8:any;
+  joblist1: any;
+  joblist2: any;
+  joblist3: any;
+  joblist4: any;
+  joblist5: any;
+  joblist6: any;
+  joblist7: any;
+  joblist8: any;
+  roleid: any;
 
-  constructor(public router: Router,private datePipe: DatePipe,
-    private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+  constructor(public router: Router, private datePipe: DatePipe,
+    private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.myDate = new Date();
@@ -41,10 +42,11 @@ export class DashboardComponent implements OnInit {
     this.Birthday = false;
     this.NewJoinee = false;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    this.roleid = localStorage.getItem('roleid');
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist1 = data.slice(0, 4)
-    
+
     })
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
@@ -53,9 +55,10 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist3 = data.slice(0, 4)
       this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
-     
+      this.joblist3 = data.slice(0, 4)
+
+
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
@@ -66,7 +69,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist5 = data.slice(0, 3)
       this.joblist5 = data.filter(x => x.accept == 1 && x.scheduled == 0);
-     
+
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
@@ -77,7 +80,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist7 = data.slice(0, 4)
       this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
-     
+
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
@@ -89,12 +92,12 @@ export class DashboardComponent implements OnInit {
 
 
 
-  Anniversery:any
-  Birthday:any;
-  NewJoinee:any;
+  Anniversery: any
+  Birthday: any;
+  NewJoinee: any;
 
 
-  public changebirthday(){
+  public changebirthday() {
     debugger;
     this.Anniversery = false;
     this.Birthday = true;
@@ -102,7 +105,7 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  public changeAnniversary(){
+  public changeAnniversary() {
     debugger;
     this.Anniversery = true;
     this.Birthday = false;
@@ -111,7 +114,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  public changenewjoinee(){
+  public changenewjoinee() {
     debugger;
     this.Anniversery = false;
     this.Birthday = false;
