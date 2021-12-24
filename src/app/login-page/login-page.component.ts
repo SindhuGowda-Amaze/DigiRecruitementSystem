@@ -21,24 +21,24 @@ export class LoginPageComponent implements OnInit {
   loginTypeList: any;
 
 
-  constructor(public RecruitmentServiceService: RecruitmentServiceService,private router:Router) { }
+  constructor(public RecruitmentServiceService: RecruitmentServiceService, private router: Router) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('temp') == '1') {
       localStorage.clear();
       location.reload();
-     
+
     }
     this.GetLoginTypeMaster();
   }
   GetLoginTypeMaster() {
-    
+
     this.RecruitmentServiceService.GetLoginTypeMaster().subscribe(data => {
-      
+
       this.loginTypeList = data;
     })
   }
-  public getRoleID(even:any) {
+  public getRoleID(even: any) {
     debugger
     this.roleID = even.target.value;
   }
@@ -52,35 +52,36 @@ export class LoginPageComponent implements OnInit {
   // }
 
   public login() {
-    
+
     if (this.userName == 'admin' && this.password == '1') {
       debugger
       localStorage.setItem('userName', 'admin');
       localStorage.setItem('temp', '1');
-     this.router.navigate(["/Dashboard"])  ;
+      this.router.navigate(["/Dashboard"]);
       localStorage.setItem('roleid', '6');
       //  location.reload();
-      
+
     }
     else if (this.roleID == 7) {
       debugger;
       this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
         this.result = data;
+        // this.result = data.filter(x => x.loginTypeID == 7);
         debugger;
-        if (this.result!=undefined || this.result!=null) {
+        if (this.result != undefined || this.result != null) {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '7');
           localStorage.setItem('vendorid', this.result.id);
-          localStorage.setItem('staffID',this.result.staffID);
-          localStorage.setItem('buildingID',this.result.buildingID);
-          localStorage.setItem('userRoleID',this.result.userRoleID);
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
           localStorage.setItem('userName', this.result.loginName);
           localStorage.setItem('name', this.result.name);
           localStorage.setItem('phoneNo', this.result.phoneNo);
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
-      
+
           this.router.navigate(["/Dashboard"]);
           // location.reload();
           // 
@@ -93,6 +94,39 @@ export class LoginPageComponent implements OnInit {
       })
     }
 
+    //for staff login
+    else if (this.roleID == 8) {
+      debugger
+      this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
+        debugger
+        this.result = data.filter(x => x.loginTypeID == 8);
+
+        if (this.result != undefined || this.result != undefined) {
+          localStorage.setItem('temp', '1');
+          localStorage.setItem('roleid', '8');
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
+          localStorage.setItem('userName', this.result.loginName);
+          localStorage.setItem('name', this.result.name);
+          localStorage.setItem('phoneNo', this.result.phoneNo);
+          localStorage.setItem('userName', this.result.emailID);
+          localStorage.setItem('loginTypeID', this.result.loginTypeID);
+          localStorage.setItem('password', this.result.password);
+
+          this.router.navigate(["/Dashboard"]);
+          // location.reload();
+        }
+        else {
+
+          Swal.fire('Phonenumber or Password is invalid');
+          this.userName = "";
+          this.password = "";
+        }
+      })
+    }
+
+
 
     // if (this.userName == 'vendor' && this.password == '1') {
     //   debugger
@@ -102,12 +136,12 @@ export class LoginPageComponent implements OnInit {
     //   localStorage.setItem('roleid', '7');
     //   // location.reload();
     // }
-    
+
     // else if (this.roleID == 1) {
-      
+
     //   this.RecruitmentServiceService.GetUsersdetailsForReceptionistLogin(this.userName, this.password).subscribe(data => {
     //     this.result = data;
-        
+
     //     if ((this.result!=undefined || this.result!=null)) {
     //       localStorage.setItem('managerID', this.result.id);
     //       localStorage.setItem('staffID',this.result.staffID);
@@ -124,7 +158,7 @@ export class LoginPageComponent implements OnInit {
     //       location.reload();
     //     }
     //     else {
-          
+
     //       Swal.fire('Phonenumber or Password is invalid');
     //       this.userName = "";
     //       this.password = "";
@@ -136,27 +170,28 @@ export class LoginPageComponent implements OnInit {
       debugger;
       this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
         this.result = data;
+        // this.result = data.filter(x => x.loginTypeID == 2);
         debugger;
-        if (this.result!=undefined || this.result!=null) {
+        if (this.result != undefined || this.result != null) {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '2');
           localStorage.setItem('hrID', this.result.id);
-          localStorage.setItem('staffID',this.result.staffID);
-          localStorage.setItem('buildingID',this.result.buildingID);
-          localStorage.setItem('userRoleID',this.result.userRoleID);
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
           localStorage.setItem('userName', this.result.loginName);
           localStorage.setItem('name', this.result.name);
           localStorage.setItem('phoneNo', this.result.phoneNo);
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
-    
-          location.reload();
-          this.router.navigate(["/Dashboard"])  ;
-         
+
+          // location.reload();
+          this.router.navigate(["/Dashboard"]);
+
         }
         else {
-          
+
           Swal.fire('Phonenumber or Password is invalid');
           this.userName = "";
           this.password = "";
@@ -169,27 +204,27 @@ export class LoginPageComponent implements OnInit {
       this.RecruitmentServiceService.GetUsersdetailsMob(this.userName, this.password).subscribe(data => {
         this.result = data;
         debugger
-        if (this.result!=undefined || this.result!=null) {
+        if (this.result != undefined || this.result != null) {
           localStorage.setItem('staffID', this.result.id);
           localStorage.setItem('staffssID', this.result.id);
-          localStorage.setItem('name',this.result.name)
+          localStorage.setItem('name', this.result.name)
           localStorage.setItem('userName', this.result.loginName);
           localStorage.setItem('phoneNo', this.result.phoneNo);
           //localStorage.setItem('name', this.result.name);
-          localStorage.setItem('supervisor', this.result.supervisor);         
+          localStorage.setItem('supervisor', this.result.supervisor);
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('BuildingID', this.result.building);
           localStorage.setItem('userRoleID', this.result.roleType);
           localStorage.setItem('projectName', this.result.projectName);
           localStorage.setItem('UserID', this.result.id)
-          localStorage.setItem('temp', '1');          
+          localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '3');
-          this.router.navigate(["/Dashboard"])  ;
+          this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
         else {
-          
+
           Swal.fire('Phonenumber or Password is invalid');
           this.userName = "";
           this.password = "";
@@ -202,11 +237,11 @@ export class LoginPageComponent implements OnInit {
       this.RecruitmentServiceService.GetUsersdetailsForManagerLogin(this.userName, this.password).subscribe(data => {
         this.result = data;
         debugger;
-        if (this.result!=undefined || this.result!=null) {
+        if (this.result != undefined || this.result != null) {
           localStorage.setItem('managerID', this.result.id);
-          localStorage.setItem('staffID',this.result.staffID);
-          localStorage.setItem('buildingID',this.result.buildingID);
-          localStorage.setItem('userRoleID',this.result.userRoleID);
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
           localStorage.setItem('userName', this.result.loginName);
           localStorage.setItem('name', this.result.name);
           localStorage.setItem('phoneNo', this.result.phoneNo);
@@ -214,14 +249,14 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('loginTypeId', this.result.loginTypeID);
           localStorage.setItem('projectName', this.result.projectName);
-          
+
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '4');
-          this.router.navigate(["/Dashboard"])  ;
+          this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
         else {
-          
+
           Swal.fire('Phonenumber or Password is invalid');
           this.userName = "";
           this.password = "";
@@ -230,14 +265,14 @@ export class LoginPageComponent implements OnInit {
     }
 
     else if (this.roleID == 5) {
-      
+
       this.RecruitmentServiceService.GetUsersdetailsForFinanceLogin(this.userName, this.password).subscribe(data => {
         this.result = data;
-        if (this.result!=undefined || this.result!=null) {
+        if (this.result != undefined || this.result != null) {
           localStorage.setItem('managerID', this.result.id);
-          localStorage.setItem('staffID',this.result.staffID);
-          localStorage.setItem('buildingID',this.result.buildingID);
-          localStorage.setItem('userRoleID',this.result.userRoleID);
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
           localStorage.setItem('userName', this.result.loginName);
           localStorage.setItem('name', this.result.name);
           localStorage.setItem('phoneNo', this.result.phoneNo);
@@ -246,11 +281,11 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('loginTypeId', this.result.loginTypeID);
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '5');
-          this.router.navigate(["/Dashboard"])  ;
+          this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
         else {
-          
+
           Swal.fire('Phonenumber or Password is invalid');
           this.userName = "";
           this.password = "";
@@ -263,33 +298,33 @@ export class LoginPageComponent implements OnInit {
       this.RecruitmentServiceService.GetAdmin(this.userName, this.password).subscribe(data => {
         debugger
         this.result = data;
-        
-        if (this.result!=undefined || this.result!=undefined) {
+
+        if (this.result != undefined || this.result != undefined) {
           localStorage.setItem('userID', this.result.id);
           localStorage.setItem('managerID', this.result.id);
-          localStorage.setItem('staffID',this.result.staffID);
-          localStorage.setItem('buildingID',this.result.buildingID);
-          localStorage.setItem('userRoleID',this.result.userRoleID);
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
           localStorage.setItem('userName', this.result.loginName);
           localStorage.setItem('name', this.result.name);
           localStorage.setItem('phoneNo', this.result.phoneNo);
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('loginTypeID', this.result.loginTypeID);
           localStorage.setItem('password', this.result.password);
-          
+
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '1');
-          this.router.navigate(["/Dashboard"])  ;
+          this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
         else {
-          
+
           Swal.fire('Phonenumber or Password is invalid');
           this.userName = "";
           this.password = "";
         }
       })
     }
- 
+
   }
 }

@@ -14,11 +14,12 @@ export class VendorJobOpeningsComponent implements OnInit {
   count: any;
   vendorid: any;
   term:any;
+  
   ngOnInit(): void {
     this.GetUserslist();
     this.vendorid = localStorage.getItem('vendorid');
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data.filter(x => x.vendor == this.vendorid);
+      this.joblist = data.filter(x => x.vendorId == this.vendorid);
       this.count = this.joblist.length;
     })
 
@@ -34,7 +35,7 @@ export class VendorJobOpeningsComponent implements OnInit {
 
   GetId(id: any) {
     this.ID = id
-    location.href = "/JobVacancies"
+    location.href = "/JobVacancies/" + this.ID
   }
   ID: any;
 }

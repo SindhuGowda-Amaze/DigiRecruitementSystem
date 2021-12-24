@@ -99,9 +99,9 @@
                     <label  class="Text">Vendor :</label>
                   </div>
                     <div class="col-lg-5">
-                      <select name="Select" class="form-control" name="Vendor" id="Vendor"  [(ngModel)]="Vendor"> 
-                        <option value="Select" >Select </option> 
-                        <option value="Select"  *ngFor="let User of Userlist" value={{User.name}}>{{User.name}} </option>                                     
+                      <select class="form-control" (change)="Getvendorid($event)"> 
+                        <option value="">Select </option> 
+                        <option  *ngFor="let User of Userlist" value={{User.id}}>{{User.name}} </option>                                     
                       </select>
                     </div>                  
                 </div> <br>
