@@ -62,8 +62,8 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      // this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
       this.joblist3 = data.slice(0, 4)
-      this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
      
     })
 
@@ -73,8 +73,8 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist5 = data.slice(0, 3)
       this.joblist5 = data.filter(x => x.accept == 1 && x.scheduled == 0);
+      this.joblist5 = data.slice(0, 3)
      
     })
 
@@ -84,8 +84,8 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist7 = data.slice(0, 4)
       this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.joblist7 = data.slice(0, 4)
      
     })
 
@@ -95,8 +95,8 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist9 = data.slice(0, 4)
       this.joblist9 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      this.joblist9 = data.slice(0, 4)
      
     })
 
@@ -106,8 +106,8 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist11 = data.slice(0, 4)
       this.joblist11 = data.filter(x => x.offerAcceptreject == 1);
+      this.joblist11 = data.slice(0, 4)
      
     })
 
@@ -117,8 +117,8 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist13 = data.slice(0, 4)
       this.joblist13 = data.filter(x => x.offerAcceptreject == 2);
+      this.joblist13 = data.slice(0, 4)
      
     })
 
