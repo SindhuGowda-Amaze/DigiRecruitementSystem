@@ -12,6 +12,7 @@ export class VendorJobOpeningsComponent implements OnInit {
   joblist: any;
   search: any;
   count: any;
+  term: any;
   ngOnInit(): void {
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
@@ -29,9 +30,10 @@ export class VendorJobOpeningsComponent implements OnInit {
   })
  }
   
- GetId(id:any){
-  this.ID=id
-  location.href="/JobVacancies"
+ GetId(job:any){
+  this.ID=job.id
+  // location.href="/JobVacancies/"+job.id;
+   location.href="/JobVacancies"
  }
  ID:any;
 }
