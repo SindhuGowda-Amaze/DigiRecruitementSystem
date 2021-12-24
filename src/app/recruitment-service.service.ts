@@ -129,5 +129,17 @@ export class RecruitmentServiceService {
     this.url = this.host + "/Vendor/InsertCandidateRegistration";
     return this.http.post(this.url, data);
   }
+
+  public AttachmentsUpload(files: any) {
+    debugger
+    let formdata: FormData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formdata.append('file_upload', files[i], files[i].name);
+    }
+    debugger
+    let APIURL = this.host + "Master/UploadImages/";
+    return this.http.post(APIURL, formdata);
+
+  }
   
 }
