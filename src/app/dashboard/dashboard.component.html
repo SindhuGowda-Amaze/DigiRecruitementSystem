@@ -109,16 +109,16 @@
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
-                        <div class="front">
+                        <div class="front" *ngIf="roleid==7||roleid==2">
                             <br>
-                            <div class="row title_outer1">
+                            <div class="row title_outer1" > 
                                 <div class="col-lg-1">
                                 </div>
                                 <div class="col-lg-1">
                                     <i class="fa fa-calendar calend" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-lg-9">
-                                    <h1 class="cardlabel" style="color: #555;font-size: 25px;margin-top: 0px;">Open Positions</h1>
+                                    <h1 class="cardlabel"  style="color: #555;font-size: 25px;margin-top: 0px;">Open Positions</h1>
                                 </div>
                             </div><br><br>
                             <div class="row">
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="col-lg-4"></div>
                             </div><br><br><br><br>
-                            <button class="clickbutton1">VIEW DETAILS</button>
+                            <button class="clickbutton1" >VIEW DETAILS</button>
                         </div>
                     </div>
                 </div>

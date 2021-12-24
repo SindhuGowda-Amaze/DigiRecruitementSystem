@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   showback: any;
   showfront: any;
-  myDate:any;
+  myDate: any;
 
   search: any;
   count: any;
@@ -25,14 +25,15 @@ export class DashboardComponent implements OnInit {
   count5: any;
   count6: any;
 
-  joblist1:any;
-  joblist2:any;
-  joblist3:any;
-  joblist4:any;
-  joblist5:any;
-  joblist6:any;
-  joblist7:any;
-  joblist8:any;
+  joblist1: any;
+  joblist2: any;
+  joblist3: any;
+  joblist4: any;
+  joblist5: any;
+  joblist6: any;
+  joblist7: any;
+  joblist8: any;
+  roleid: any;
   joblist9:any;
   joblist10:any;
   joblist11:any;
@@ -40,8 +41,8 @@ export class DashboardComponent implements OnInit {
   joblist13:any;
   joblist14:any;
 
-  constructor(public router: Router,private datePipe: DatePipe,
-    private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+  constructor(public router: Router, private datePipe: DatePipe,
+    private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.myDate = new Date();
@@ -50,11 +51,12 @@ export class DashboardComponent implements OnInit {
     this.Birthday = false;
     this.NewJoinee = false;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    this.roleid = localStorage.getItem('roleid');
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
       this.joblist1 = data.slice(0, 4)
-    
+
     })
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
@@ -162,12 +164,12 @@ export class DashboardComponent implements OnInit {
 
 
 
-  Anniversery:any
-  Birthday:any;
-  NewJoinee:any;
+  Anniversery: any
+  Birthday: any;
+  NewJoinee: any;
 
 
-  public changebirthday(){
+  public changebirthday() {
     debugger;
     this.Anniversery = false;
     this.Birthday = true;
@@ -175,7 +177,7 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  public changeAnniversary(){
+  public changeAnniversary() {
     debugger;
     this.Anniversery = true;
     this.Birthday = false;
@@ -184,7 +186,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  public changenewjoinee(){
+  public changenewjoinee() {
     debugger;
     this.Anniversery = false;
     this.Birthday = false;

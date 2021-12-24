@@ -28,13 +28,15 @@
                 <option value="2">Recruiter</option>               
                 <option value="6">Admin</option>
                 <option value="7">Vendor</option>
+                <option value="8">Staff</option>
+                <option value="9">Hiring Manager</option>
             </select>
             <br>
             <input type="text" class="form-control" [(ngModel)]="userName"   style="width:77%;margin-left: 66px;" placeholder="Username" name="username" >
             <br>
             <input type="password" class="form-control" [(ngModel)]="password"  style="width:77%;margin-left: 66px;"  placeholder="Password" name="password">
             <br>
-            <button type="button" class="loginbtn" (click)="login()">Login</button>
+            <button type="submit" class="loginbtn" (click)="login()">Login</button>
         </div>
         <div class="col-lg-7"></div>
     </div> 

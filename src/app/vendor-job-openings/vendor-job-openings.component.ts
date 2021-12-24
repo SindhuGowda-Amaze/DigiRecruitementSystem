@@ -8,30 +8,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VendorJobOpeningsComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
   joblist: any;
   search: any;
   count: any;
+  vendorid: any;
   ngOnInit(): void {
     this.GetUserslist();
+    this.vendorid = localStorage.getItem('vendorid');
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data;
+      this.joblist = data.filter(x => x.vendor == this.vendorid);
       this.count = this.joblist.length;
     })
 
 
   }
-  Userlist:any;
- public GetUserslist(){
-  this.RecruitmentServiceService.GetUserslist().subscribe(data => {
-    this.Userlist = data.filter(x=>x.userRoleID==7);
-    this.count = this.joblist.length;
-  })
- }
-  
- GetId(id:any){
-  this.ID=id
-  location.href="/JobVacancies"
- }
- ID:any;
+  Userlist: any;
+  public GetUserslist() {
+    this.RecruitmentServiceService.GetUserslist().subscribe(data => {
+      this.Userlist = data.filter(x => x.userRoleID == 7);
+      this.count = this.joblist.length;
+    })
+  }
+
+  GetId(id: any) {
+    this.ID = id
+    location.href = "/JobVacancies"
+  }
+  ID: any;
 }

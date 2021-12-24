@@ -41,6 +41,8 @@ export class JobVacanciesComponent implements OnInit {
     this.jobid = jobid;
   }
 
+  
+
   currentcompany: any;
   noticeperiod: any;
   servingnotice: any;
@@ -52,6 +54,7 @@ export class JobVacanciesComponent implements OnInit {
   yearsofexp: any;
   relaventexp: any;
   city: any;
+  ctc:any;
  
 
 
@@ -68,6 +71,7 @@ export class JobVacanciesComponent implements OnInit {
       'ResumeUrl': this.brochures1[0],
       'CurrentCompany': this.currentcompany,
       'NoticePeriod': this.noticeperiod,
+      'ctc': this.ctc,
       'ServingNotice': this.servingnotice,
       'Relocate': this.relocate
     }

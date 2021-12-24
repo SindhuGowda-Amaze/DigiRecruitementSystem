@@ -24,7 +24,7 @@
                         <input class="form-control" type="date" placeholder="Duration">
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" type="search" placeholder="Search by Vendor...">
+                        <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="term" name="term">
                     </div>
                     <div class="col-md-2">
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
@@ -33,7 +33,7 @@
                         <button class=" form-control export">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
-                        <p class="count">Count : 1</p>
+                        <p class="count">Count:{{count}}</p>
                     </div>
                 </div><br>          
             </div>

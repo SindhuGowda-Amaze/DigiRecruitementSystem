@@ -4,7 +4,7 @@
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-10">
-                  <p class="Heading">Vendor Job Openings Dashboard</p> 
+                  <p>Vendor Job Openings Dashboard</p> 
                 </div>
             </div><hr class="HrLine">
          
@@ -15,7 +15,7 @@
                         Filter By
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" placeholder="Search">
+                        <input class="form-control" placeholder="Search.."  [(ngModel)]="term" name="term">
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -35,7 +35,7 @@
                         </select>
                     </div>                 
                       <div class="col-lg-2">
-                        <p class="count" >Count : 2</p>
+                        <p class="count" >Count:{{count}}</p>
                       </div>
                 </div> <br>
             </div> <br>
@@ -45,33 +45,33 @@
                     <table class="table tablebordered">
                         <thead>
                             <tr class="newFont">                              
-                                <th>Job Reference ID</th>
-                                <th>Date</th>
-                                <th>Job Title</th>
-                                <th>Skill/Technology</th>
-                                <th>Total Years of Experience</th>
-                                <th>expected Experience</th>
-                                <th>Job Description</th>
-                                <th>Job Location</th>
-                                <th>No of Positions</th>
-                                <th>Hiring Manager</th>
-                                <th>Resource Manager</th>
-                                <th>Actions   </th>
+                                <th class="heading">Job Reference ID</th>
+                                <th class="heading">Date</th>
+                                <th class="heading">Job Title</th>
+                                <th class="heading">Skill/Technology</th>
+                                <th class="heading">Total Years of Experience</th>
+                                <th class="heading">expected Experience</th>
+                                <th class="heading">Job Description</th>
+                                <th class="heading">Job Location</th>
+                                <th class="heading">No of Positions</th>
+                                <th class="heading">Hiring Manager</th>
+                                <th class="heading">Resource Manager</th>
+                                <th class="heading">Actions   </th>
                             </tr>
                         </thead>
-                            <tr   *ngFor="let job of joblist">
-                                <td *ngIf="job.vendor==null">{{job.jobRefernceID}}</td>
-                                <td *ngIf="job.vendor==null">{{job.date}}</td>
-                                <td *ngIf="job.vendor==null">{{job.jobTitle}}</td>
-                                <td *ngIf="job.vendor==null">{{job.skills}}</td>
-                                <td *ngIf="job.vendor==null">{{job.totalExp}}</td>
-                                <td *ngIf="job.vendor==null">{{job.relaventExp}}</td>
-                                <td *ngIf="job.vendor==null">{{job.jobDescription}}</td>
-                                <td *ngIf="job.vendor==null">{{job.joblocation}}</td>
-                                <td *ngIf="job.vendor==null">{{job.noofpositions}}</td>
-                                <td *ngIf="job.vendor==null">{{job.hiringManager}}</td>
-                                <td *ngIf="job.vendor==null">{{job.resourceManager}}</td>
-                                <td *ngIf="job.vendor==null"><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">Apply</button></td>
+                            <tr   *ngFor="let job of joblist|filter:term">
+                                <td >{{job.jobRefernceID}}</td>                                  <!--*ngIf="job.vendor==null" -->
+                                <td >{{job.date}}</td>
+                                <td >{{job.jobTitle}}</td>
+                                <td >{{job.skills}}</td>
+                                <td >{{job.totalExp}}</td>
+                                <td >{{job.relaventExp}}</td>
+                                <td >{{job.jobDescription}}</td>
+                                <td>{{job.joblocation}}</td>
+                                <td >{{job.noofpositions}}</td>
+                                <td >{{job.hiringManager}}</td>
+                                <td >{{job.resourceManager}}</td>
+                                <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">Apply</button></td>
                             </tr>                          
                        
                     </table>

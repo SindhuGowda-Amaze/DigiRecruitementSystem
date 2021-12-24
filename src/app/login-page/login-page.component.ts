@@ -68,6 +68,8 @@ export class LoginPageComponent implements OnInit {
         this.result = data;
         debugger;
         if (this.result!=undefined || this.result!=null) {
+          localStorage.setItem('temp', '1');
+          localStorage.setItem('roleid', '7');
           localStorage.setItem('vendorid', this.result.id);
           localStorage.setItem('staffID',this.result.staffID);
           localStorage.setItem('buildingID',this.result.buildingID);
@@ -78,13 +80,12 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
-          localStorage.setItem('temp', '1');
-          localStorage.setItem('roleid', '7');
-          this.router.navigate(["/Dashboard"])  ;
+      
+          this.router.navigate(["/Dashboard"]);
           // location.reload();
+          // 
         }
         else {
-          
           Swal.fire('Phonenumber or Password is invalid');
           this.userName = "";
           this.password = "";
@@ -137,6 +138,8 @@ export class LoginPageComponent implements OnInit {
         this.result = data;
         debugger;
         if (this.result!=undefined || this.result!=null) {
+          localStorage.setItem('temp', '1');
+          localStorage.setItem('roleid', '2');
           localStorage.setItem('hrID', this.result.id);
           localStorage.setItem('staffID',this.result.staffID);
           localStorage.setItem('buildingID',this.result.buildingID);
@@ -147,10 +150,10 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
-          localStorage.setItem('temp', '1');
-          localStorage.setItem('roleid', '2');
+    
+          location.reload();
           this.router.navigate(["/Dashboard"])  ;
-          // location.reload();
+         
         }
         else {
           
