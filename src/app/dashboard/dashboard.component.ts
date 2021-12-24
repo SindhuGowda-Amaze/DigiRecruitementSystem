@@ -21,6 +21,9 @@ export class DashboardComponent implements OnInit {
   count1: any;
   count2: any;
   count3: any;
+  count4: any;
+  count5: any;
+  count6: any;
 
   joblist1: any;
   joblist2: any;
@@ -31,6 +34,12 @@ export class DashboardComponent implements OnInit {
   joblist7: any;
   joblist8: any;
   roleid: any;
+  joblist9:any;
+  joblist10:any;
+  joblist11:any;
+  joblist12:any;
+  joblist13:any;
+  joblist14:any;
 
   constructor(public router: Router, private datePipe: DatePipe,
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
@@ -56,9 +65,7 @@ export class DashboardComponent implements OnInit {
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
-      this.joblist3 = data.slice(0, 4)
-
-
+      this.joblist3 = data.slice(0, 4)    
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
@@ -67,9 +74,10 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist5 = data.slice(0, 3)
       this.joblist5 = data.filter(x => x.accept == 1 && x.scheduled == 0);
 
+      this.joblist5 = data.slice(0, 3)
+     
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
@@ -78,15 +86,53 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist7 = data.slice(0, 4)
       this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
 
+      this.joblist7 = data.slice(0, 4)
+     
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist8 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
       this.count3 = this.joblist8.length;
     })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist9 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      this.joblist9 = data.slice(0, 4)
+     
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist10 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      this.count4 = this.joblist10.length;
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist11 = data.filter(x => x.offerAcceptreject == 1);
+      this.joblist11 = data.slice(0, 4)
+     
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist12 = data.filter(x => x.offerAcceptreject == 1);
+      this.count5 = this.joblist12.length;
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist13 = data.filter(x => x.offerAcceptreject == 2);
+      this.joblist13 = data.slice(0, 4)
+     
+    })
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist14 = data.filter(x => x.offerAcceptreject == 2);
+      this.count6 = this.joblist14.length;
+    })
+
+
+
+
 
   }
 

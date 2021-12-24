@@ -1,0 +1,27 @@
+.card{
+    padding: 10px;
+}
+.count{
+    float: right;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+td{
+    background-color: white
+}
+.heading{
+    background-color: #e4e5e6;
+    color:#404040;
+    font-family: "DIN Bold";
+}
+.button{
+    background-color: #21a4da;
+    color: #fff;
+}
