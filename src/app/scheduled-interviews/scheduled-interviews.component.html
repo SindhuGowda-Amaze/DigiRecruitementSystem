@@ -60,12 +60,9 @@
                 <td>
                     <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
                 </td>
-                <td>
-                    
+                <td>                   
                 </td>
-
                 <td>
-
                     <button class="btn btn-primary"
                         *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
                         (click)="Accept(job.id,job.interviewercomments)">Selected</button> &nbsp;
@@ -73,11 +70,8 @@
                     <button class="btn btn-danger"
                         *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
                         (click)="Reject(job.id,job.interviewercomments)">Rejected</button>
-
-
                 </td>
-            </tr>
-          
+            </tr>          
             </thead>
           </table>
         </div>

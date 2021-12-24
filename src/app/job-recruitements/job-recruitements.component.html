@@ -100,7 +100,7 @@
                   </div>
                     <div class="col-lg-5">
                       <select name="Select" class="form-control" name="Vendor" id="Vendor"  [(ngModel)]="Vendor"> 
-                        <option value="Select" (click)="Getvendorid()">Select </option> 
+                        <option value="Select" >Select </option> 
                         <option value="Select"  *ngFor="let User of Userlist" value={{User.name}}>{{User.name}} </option>                                     
                       </select>
                     </div>                  
@@ -124,7 +124,7 @@
             <div class="modal-footer">
                 <hr>
                <div class="col-lg-2">
-                   <button class="Button" >Close</button>
+                   <button class="Button">Close</button>
                </div>
             </div>
         </div>

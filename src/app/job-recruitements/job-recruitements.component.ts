@@ -46,7 +46,7 @@ export class JobRecruitementsComponent implements OnInit {
     var entity = {
       "ID": this.ID,
       "Vendor": this.Vendor,
-      "Notes": this.Notes
+      "Notes": this.Notes,
     }
     this.RecruitmentServiceService.UpdateVendor(entity).subscribe(data => {
 
@@ -55,8 +55,6 @@ export class JobRecruitementsComponent implements OnInit {
 
     })
   }
-  Getvendorid(){
-    
-  }
+ 
 
 }

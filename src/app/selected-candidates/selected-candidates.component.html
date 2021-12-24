@@ -62,7 +62,7 @@
                                 <!-- <th>Interviewer Feedback</th> -->
                                 <th>Actions</th>
                             </tr>
-                            <tr *ngFor="let job of joblist|filter:search">
+                            <tr *ngFor="let job of joblist|filter:search    ">
                                 <td>{{job.jobRefernceID}}</td>
                                 <td>{{job.date}}</td>
                                 <td>{{job.slotTime}}</td>
@@ -214,7 +214,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <label>Joining Date : </label>
+                        <label class="Letter">Joining Date : </label>
                     </div>
                     <div class="col-lg-6">
                         <input type="date" [(ngModel)]="date" name="date" class="form-control">
@@ -223,7 +223,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label>Joining Bonus :</label>
+                        <label class="Letter">Joining Bonus :</label>
                     </div>
                     <div class="col-lg-6">
                         <!-- <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="joiningbonus" name="offernotes"></textarea> -->
@@ -235,7 +235,7 @@
 
                 <div class="row">
                     <div class="col-lg-3">
-                        <label>Notice Period By then :</label>
+                        <label class="Letter">Notice Period By then :</label>
                     </div>
                     <div class="col-lg-6">
                         <!-- <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="joiningbonus" name="offernotes"></textarea> -->
@@ -246,7 +246,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label>Notes :</label>
+                        <label class="Letter">Notes :</label>
                     </div>
                     <div class="col-lg-6">
                         <!-- <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="joiningbonus" name="offernotes"></textarea> -->
@@ -264,9 +264,7 @@
                         <button type="button" class="btn btn-primary" (click)="updatejoiningdate()"
                             data-dismiss="modal">Save</button>
                     </div>
-
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -293,7 +291,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <label>Offer Letter : </label>
+                        <label class="Letter">Offer Letter : </label>
                     </div>
                     <div class="col-lg-6">
                         <!-- -->
@@ -314,13 +312,21 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label>Notes :</label>
+                        <label class="Letter">Notes :</label>
                     </div>
                     <div class="col-lg-6">
                         <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="offernotes"
                             name="offernotes"></textarea>
-                    </div>
+                    </div>                  
                 </div><br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Letter">Date</label>
+                    </div>
+                    <div class="col-lg-6">
+                       <input type="Date" class="form-control"> 
+                    </div>
+                </div> <br>
                 <div class="row">
                     <div class="col-lg-5">
                     </div>
@@ -329,7 +335,6 @@
                             data-dismiss="modal">Save</button>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

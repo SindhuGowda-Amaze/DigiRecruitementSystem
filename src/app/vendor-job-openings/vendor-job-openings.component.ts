@@ -13,6 +13,7 @@ export class VendorJobOpeningsComponent implements OnInit {
   search: any;
   count: any;
   vendorid: any;
+  term:any;
   ngOnInit(): void {
     this.GetUserslist();
     this.vendorid = localStorage.getItem('vendorid');
