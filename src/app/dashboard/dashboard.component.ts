@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      // this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
+      this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
       this.joblist3 = data.slice(0, 4)
      
     })
