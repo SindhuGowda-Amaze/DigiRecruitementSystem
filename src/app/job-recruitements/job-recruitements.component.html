@@ -94,9 +94,7 @@
                 <h4 class="modal-title">Assign Vendor</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">
-               
-  
+            <div class="modal-body">  
                 <div class="row">
                   <div class="col-lg-3">
                     <label  class="Text">Vendor :</label>
@@ -104,9 +102,7 @@
                     <div class="col-lg-5">
                       <select name="Select" class="form-control" name="Vendor" id="Vendor"  [(ngModel)]="Vendor"> 
                         <option value="Select">Select </option> 
-                        <option value="Select"  *ngFor="let User of Userlist" value={{User.name}}>{{User.name}} </option> 
-
-                                     
+                        <option value="Select"  *ngFor="let User of Userlist" value={{User.name}}>{{User.name}} </option>                                     
                       </select>
                     </div>                  
                 </div> <br>

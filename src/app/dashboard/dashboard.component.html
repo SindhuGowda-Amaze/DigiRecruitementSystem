@@ -154,7 +154,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/AppliedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/ShortListedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -252,7 +252,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/SelectedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -293,7 +293,7 @@
                         (click)="flip1($event)">
                         <div class="back">
                             <br>
-                            <div class="row" *ngFor="let job of joblist1">
+                            <div class="row" *ngFor="let job of joblist9">
                                 <div class="col-lg-2">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"
                                         style="font-size: 43px;color:maroon; margin-top: 5px;
@@ -301,16 +301,16 @@
                                 </div>
                                 <div class="col-lg-1"></div>
                                 <div class="col-lg-7" >
-                                    <label class="name">{{job.jobTitle}}<br>
-                                        <div class="din-Medium1">{{job.date}}</div>
-                                        <div class="din-Medium1">{{job.joblocation}}</div>
+                                    <label class="name">{{job.candidateName}}<br>
+                                        <div class="din-Medium1">{{job.jobTitle}}</div>
+                                        <div class="din-Medium1">{{job.email}}</div>
                                     </label>
                                 </div>
                             </div>
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/OfferedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -329,7 +329,7 @@
                             <div class="row">
                                 <div class="col-lg-4"></div>
                                 <div class="col-lg-4" style="text-align: center;">
-                                    <h6 class="Number">{{count1}}</h6>
+                                    <h6 class="Number">{{count4}}</h6>
                                 </div>
                                 <div class="col-lg-4"></div>
                             </div><br><br><br><br>
@@ -342,7 +342,7 @@
                         (click)="flip1($event)">
                         <div class="back">
                             <br>
-                            <div class="row" *ngFor="let job of joblist1">
+                            <div class="row" *ngFor="let job of joblist11">
                                 <div class="col-lg-2">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"
                                         style="font-size: 43px;color:maroon; margin-top: 5px;
@@ -350,16 +350,16 @@
                                 </div>
                                 <div class="col-lg-1"></div>
                                 <div class="col-lg-7" >
-                                    <label class="name">{{job.jobTitle}}<br>
-                                        <div class="din-Medium1">{{job.date}}</div>
-                                        <div class="din-Medium1">{{job.joblocation}}</div>
+                                    <label class="name">{{job.candidateName}}<br>
+                                        <div class="din-Medium1">{{job.jobTitle}}</div>
+                                        <div class="din-Medium1">{{job.email}}</div>
                                     </label>
                                 </div>
                             </div>
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/JoinedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -378,7 +378,7 @@
                             <div class="row">
                                 <div class="col-lg-4"></div>
                                 <div class="col-lg-4" style="text-align: center;">
-                                    <h6 class="Number">{{count1}}</h6>
+                                    <h6 class="Number">{{count5}}</h6>
                                 </div>
                                 <div class="col-lg-4"></div>
                             </div><br><br><br><br>
@@ -391,7 +391,7 @@
                         (click)="flip1($event)">
                         <div class="back">
                             <br>
-                            <div class="row" *ngFor="let job of joblist1">
+                            <div class="row" *ngFor="let job of joblist13">
                                 <div class="col-lg-2">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"
                                         style="font-size: 43px;color:maroon; margin-top: 5px;
@@ -399,16 +399,16 @@
                                 </div>
                                 <div class="col-lg-1"></div>
                                 <div class="col-lg-7" >
-                                    <label class="name">{{job.jobTitle}}<br>
-                                        <div class="din-Medium1">{{job.date}}</div>
-                                        <div class="din-Medium1">{{job.joblocation}}</div>
+                                    <label class="name">{{job.candidateName}}<br>
+                                        <div class="din-Medium1">{{job.phoneNo}}</div>
+                                        <div class="din-Medium1">{{job.email}}</div>
                                     </label>
                                 </div>
                             </div>
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/DroppedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -427,7 +427,7 @@
                             <div class="row">
                                 <div class="col-lg-4"></div>
                                 <div class="col-lg-4" style="text-align: center;">
-                                    <h6 class="Number">{{count1}}</h6>
+                                    <h6 class="Number">{{count6}}</h6>
                                 </div>
                                 <div class="col-lg-4"></div>
                             </div><br><br><br><br>
