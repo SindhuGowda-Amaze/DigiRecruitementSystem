@@ -105,11 +105,13 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="/JobRecruitements"><button class="viewall"   *ngIf="roleid!='7'" (click)="Regularization()">VIEW ALL</button></a>
+
+                                <a href="/VendorJobOpenings"><button class="viewall" *ngIf="roleid=='7'" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
-                        <div class="front" *ngIf="roleid==7||roleid==2">
+                        <div class="front">
                             <br>
                             <div class="row title_outer1" > 
                                 <div class="col-lg-1">

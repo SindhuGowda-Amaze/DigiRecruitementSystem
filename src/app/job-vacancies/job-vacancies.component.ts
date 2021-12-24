@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-job-vacancies',
   templateUrl: './job-vacancies.component.html',
@@ -9,14 +10,21 @@ import Swal from 'sweetalert2';
 })
 export class JobVacanciesComponent implements OnInit {
   Company_logo: any;
- 
+  ID:any;
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data;
-  })
+
+    this.ActivatedRoute.params.subscribe(params => {
+      this.ID = params['id'];
+      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        this.joblist = data.filter(x=>x.id==this.ID);
+    })
+    }
+    )
+
+
 }
   // files: File[] = [];
 
