@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
 
     }
     this.GetLoginTypeMaster();
-  }
+  } 
   GetLoginTypeMaster() {
 
     this.RecruitmentServiceService.GetLoginTypeMaster().subscribe(data => {
@@ -57,11 +57,14 @@ export class LoginPageComponent implements OnInit {
       debugger
       localStorage.setItem('userName', 'admin');
       localStorage.setItem('temp', '1');
-      this.router.navigate(["/Dashboard"]);
+      // this.router.navigate(["/Dashboard"]);
+      location.href="/Dashboard"
       localStorage.setItem('roleid', '6');
       //  location.reload();
 
     }
+
+    //for vendor login
     else if (this.roleID == 7) {
       debugger;
       this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
@@ -82,9 +85,10 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
 
-          this.router.navigate(["/Dashboard"]);
-          // location.reload();
-          // 
+          // this.router.navigate(["/Dashboard"]);
+          location.href="/Dashboard"
+          //  location.reload();
+          
         }
         else {
           Swal.fire('Phonenumber or Password is invalid');
@@ -99,11 +103,43 @@ export class LoginPageComponent implements OnInit {
       debugger
       this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
         debugger
-        this.result = data.filter(x => x.loginTypeID == 8);
+        // this.result = data.filter(x => x.loginTypeID == 8);
+        this.result = data;
 
         if (this.result != undefined || this.result != undefined) {
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '8');
+          localStorage.setItem('staffId', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
+          localStorage.setItem('userName', this.result.loginName);
+          localStorage.setItem('name', this.result.name);
+          localStorage.setItem('phoneNo', this.result.phoneNo);
+          localStorage.setItem('userName', this.result.emailID);
+          localStorage.setItem('loginTypeID', this.result.loginTypeID);
+          localStorage.setItem('password', this.result.password);
+          location.href="/ScheduledInterviews"
+          // this.router.navigate(["/ScheduledInterviews"]);
+          // location.reload();
+        }
+        else {
+
+          Swal.fire('Phonenumber or Password is invalid');
+          this.userName = "";
+          this.password = "";
+        }
+      })
+    }
+
+//for hiring manager login
+    else if (this.roleID == 9) {
+      debugger
+      this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
+        debugger
+        this.result = data;
+        if (this.result != undefined || this.result != undefined) {
+          localStorage.setItem('temp', '1');
+          localStorage.setItem('roleid', '9');
           localStorage.setItem('staffID', this.result.staffID);
           localStorage.setItem('buildingID', this.result.buildingID);
           localStorage.setItem('userRoleID', this.result.userRoleID);
@@ -113,8 +149,8 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('loginTypeID', this.result.loginTypeID);
           localStorage.setItem('password', this.result.password);
-
-          this.router.navigate(["/Dashboard"]);
+          location.href="/Dashboard"
+          // this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
         else {
@@ -166,6 +202,7 @@ export class LoginPageComponent implements OnInit {
     //   })
     // }
 
+    //recruiter login
     else if (this.roleID == 2) {
       debugger;
       this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
@@ -187,7 +224,8 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('projectName', this.result.projectName);
 
           // location.reload();
-          this.router.navigate(["/Dashboard"]);
+          // this.router.navigate(["/Dashboard"]);
+          location.href="/Dashboard"
 
         }
         else {

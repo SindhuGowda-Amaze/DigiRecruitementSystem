@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class JobRecruitementsComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute,public router: Router,) { }
   joblist: any;
   search: any;
   count: any;
@@ -66,4 +66,9 @@ export class JobRecruitementsComponent implements OnInit {
 
   }
 
+
+  public Regularization() {
+    debugger
+    this.router.navigate(['/AttendanceView']);
+  }
 }
