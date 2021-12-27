@@ -39,6 +39,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 import { ClientformComponent } from './clientform/clientform.component';
 import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
+import { RecruiterFormComponent } from './recruiter-form/recruiter-form.component';
+import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.component';
+import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
+import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +75,10 @@ import { ClientdashboardComponent } from './clientdashboard/clientdashboard.comp
     VendorJobOpeningsComponent,
     ClientformComponent,
     ClientdashboardComponent,
+    RecruiterFormComponent,
+    RecruiterStaffComponent,
+    RecruiterStaffDashboardComponent,
+    RecruiterDashboardComponent,
    
   ],
   imports: [
