@@ -50,6 +50,7 @@
                             <tr class="newFont">                              
                                 <th>Job Reference ID</th>
                                 <th>Date</th>
+                                <th>Client Name</th>
                                 <th>Job Title</th>
                                 <th>Skill/Technology</th>
                                 <th>Total Years of Experience</th>
@@ -65,6 +66,7 @@
                             <tr   *ngFor="let job of joblist|filter:search">
                                 <td *ngIf="job.vendor==null">{{job.jobRefernceID}}</td>
                                 <td *ngIf="job.vendor==null">{{job.date}}</td>
+                                <td> Mind Tree</td>
                                 <td *ngIf="job.vendor==null">{{job.jobTitle}}</td>
                                 <td *ngIf="job.vendor==null">{{job.skills}}</td>
                                 <td *ngIf="job.vendor==null">{{job.totalExp}}</td>

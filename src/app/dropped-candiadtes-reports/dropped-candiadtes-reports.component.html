@@ -60,6 +60,7 @@
                 <table class="table-bordered">
                     <tr class="heading">
                         <th><span class="menu">Job Reference ID</span></th>
+                        <th>Client Name</th>
                         <th><span class="menu">Staff</span></th>
                         <th><span class="menu">Job Title</span></th>
                         <th><span class="menu">Candidate Name</span></th>
@@ -72,6 +73,7 @@
                     </tr>
                     <tr *ngFor="let job of joblist|filter:term">
                         <td>{{job.jobRefernceID}}</td>
+                        <td>Mind Tree</td>
                         <!-- <td>{{job.date}}</td>
                         <td>{{job.slotTime}}</td> -->
                         <td>{{job.staffname}}</td>

@@ -64,6 +64,7 @@
                         <tr class="heading">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th><span class="menu">Job Title</span></th>
+                            <th>Client Name</th>
                             <th><span class="menu">Candidate Name</span></th>
                             <th><span class="menu">Phone No</span></th>
                             <th><span class="menu">Email </span></th>
@@ -76,6 +77,7 @@
                         <tr *ngFor="let job of joblist|filter:term">
                             <td>{{job.jobRefernceID}}</td>
                             <td>{{job.jobTitle}}</td>
+                            <td>Mind Tree</td>
                             <td>{{job.candidateName}}</td>
                             <td>{{job.phoneNo}}</td>
                             <td>{{job.email}}</td>
