@@ -17,27 +17,27 @@
         </div>
 
         <div class="col-lg-1">
-            <h6 class="menutext" routerLink="/Dashboard">Dashboard</h6>
+            <h6 class="menutext" *ngIf="roleid!=8" routerLink="/Dashboard">Dashboard</h6>
         </div>
         <div class="col-lg-1">
-            <h6  class=" dropdown-toggle menutext" type="button" id="dropdownMenu1" data-toggle="dropdown"
+            <h6  class=" dropdown-toggle menutext" *ngIf="roleid!=8" type="button" id="dropdownMenu1" data-toggle="dropdown"
             aria-expanded="false">Job Recruitements</h6>
-            
             <ul class="dropdown-menu">
-                <li class="dropdown-item"><a  class="menuitem" tabindex="-1" routerLink="/JobRecruitements">Job Recruitement </a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/AppliedCandidates">AppliedCandidates</a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/ShortListedCandidates">Shortlisted Candidates </a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/ScheduledInterviews">Scheduled Interviews </a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/SelectedCandidates">SelectedCandidates</a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/OfferedCandidates">Offered Candidates </a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/JoinedCandidates">Joined Candidates</a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/DroppedCandidates">Dropped Candiadtes </a></li>
+               <li class="dropdown-item"><a  class="menuitem" tabindex="-1"  *ngIf="roleid!='7'" routerLink="/JobRecruitements">Job Recruitement </a></li>
+               <li class="dropdown-item"><a  class="menuitem" tabindex="-1"  *ngIf="roleid=='7'" routerLink="/VendorJobOpenings">Job Recruitement </a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==2||roleid==7" routerLink="/AppliedCandidates">AppliedCandidates</a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==2||roleid==7"routerLink="/ShortListedCandidates">Shortlisted Candidates </a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==8"routerLink="/ScheduledInterviews">Scheduled Interviews </a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==2||roleid==7"routerLink="/SelectedCandidates">SelectedCandidates</a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==2||roleid==7"routerLink="/OfferedCandidates">Offered Candidates </a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==2||roleid==7"routerLink="/JoinedCandidates">Joined Candidates</a></li>
+                <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==2||roleid==7"routerLink="/DroppedCandidates">Dropped Candiadtes </a></li>
             </ul>
         </div>
 
         <div class="col-lg-1" style="margin-left: 61px;">
             <h6  class=" dropdown-toggle menutext" type="button" id="dropdownMenu1" data-toggle="dropdown"
-            aria-expanded="false">Reports</h6>
+            aria-expanded="false"   *ngIf="roleid!=8">Reports</h6>
                 <ul class="dropdown-menu">
                     <li class="dropdown-item"><a  class="menuitem" tabindex="-1" routerLink="/JobRecruitementReport">Job Recruitement Report</a></li>
                     <li class="dropdown-item"><a class="menuitem" routerLink="/AppliedCandidatesReports">Applied Candidates Reports</a></li>
@@ -50,8 +50,10 @@
                 </ul>
         </div>
 
-        
-       <div class="col-lg-5"></div>
+        <div class="col-lg-1">
+            <h6 class="menutext" *ngIf="roleid!=8" routerLink="/ClientDashBoard">Client</h6>
+        </div>
+       <div class="col-lg-4"></div>
         <div class="col-lg-1" style="margin-left: 100px;">
             <img src="/assets/Images/logout.png" class="logout" (click)="logout()">&nbsp;
             <img src="/assets/Images/notification.png" class="notify">&nbsp; &nbsp;&nbsp;

@@ -32,6 +32,7 @@
                 <!-- <th>Vendor</th> -->
                 <th>Job Reference ID</th>
                 <th>Interview Date</th>
+                <th>Client Name</th>
                  <th>Time</th>
                 <th>Interviewer</th>
                 <th>Job Title</th>
@@ -49,6 +50,7 @@
               <tr *ngFor="let job of joblist|filter:search">
                 <td>{{job.jobRefernceID}}</td>
                 <td>{{job.date}}</td>
+                <td>Mind Tree</td>
                 <td>{{job.slotTime}}</td>
                 <td>{{job.staffname}}</td>
                 <td>{{job.jobTitle}}</td>

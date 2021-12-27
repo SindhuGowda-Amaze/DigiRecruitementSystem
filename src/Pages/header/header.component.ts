@@ -11,9 +11,10 @@ export class HeaderComponent implements OnInit {
 
   company_name: any;
   temp:any
+  roleid:any;
   ngOnInit() {
     this.temp=localStorage.getItem('temp')
-  
+    this.roleid = localStorage.getItem('roleid');
     this.company_name = localStorage.getItem("company_name");
   }
 
@@ -23,4 +24,5 @@ export class HeaderComponent implements OnInit {
     location.href = "/Login";
     //location.reload();
   }
+
 }
