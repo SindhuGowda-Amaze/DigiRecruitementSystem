@@ -4,13 +4,14 @@
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-10">
-                  <p class="Heading">Job Openings Dashboard</p> 
+                    <p class="Heading">Job Openings Dashboard</p>
                 </div>
                 <div class="col-lg-2">
                     <button class="Add" routerLink='/JobRequisition'>Add</button>
                 </div>
-            </div><hr class="HrLine">
-         
+            </div>
+            <hr class="HrLine">
+
             <div class="card">
                 <br>
                 <div class="row FilterClass">
@@ -22,34 +23,35 @@
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
-                          <option value="Select CTC">Select CTC</option>
-                          <option value="30,000-50,000">30,000-50,000</option>
-                          <option value="50,000-1,00000">50,000-1,00000</option>
-                          <option value="1,00000-2,00000">1,00000-2,00000</option>
+                            <option value="Select CTC">Select CTC</option>
+                            <option value="30,000-50,000">30,000-50,000</option>
+                            <option value="50,000-1,00000">50,000-1,00000</option>
+                            <option value="1,00000-2,00000">1,00000-2,00000</option>
                         </select>
-                      </div>
-                      <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-3">
                         <select name="Select" class="form-control">
-                          <option value="Select Notice Period">Select Notice Period</option>
-                          <option value="15 Days">15 Days</option>
-                          <option value="30 Days">30 Days</option>
-                          <option value="45 Days">45 Days</option>
-                          <option value="90 Days">90 Days</option>
+                            <option value="Select Notice Period">Select Notice Period</option>
+                            <option value="15 Days">15 Days</option>
+                            <option value="30 Days">30 Days</option>
+                            <option value="45 Days">45 Days</option>
+                            <option value="90 Days">90 Days</option>
                         </select>
-                    </div>                 
-                      <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-2">
                         <p class="count">Count:{{count}}</p>
-                      </div>
+                    </div>
                 </div> <br>
             </div> <br>
-        
+
             <div class="row">
                 <div class="col-lg-12">
                     <table class="table tablebordered">
                         <thead>
-                            <tr class="newFont">                              
+                            <tr class="newFont">
                                 <th>Job Reference ID</th>
                                 <th>Date</th>
+                                <th>Client Name</th>
                                 <th>Job Title</th>
                                 <th>Skill/Technology</th>
                                 <th>Total Years of Experience</th>
@@ -59,23 +61,25 @@
                                 <th>No of Positions</th>
                                 <th>Hiring Manager</th>
                                 <th>Resource Manager</th>
-                                <th>Actions   </th>
+                                <th>Actions </th>
                             </tr>
                         </thead>
-                            <tr   *ngFor="let job of joblist|filter:search">
-                                <td *ngIf="job.vendor==null">{{job.jobRefernceID}}</td>
-                                <td *ngIf="job.vendor==null">{{job.date}}</td>
-                                <td *ngIf="job.vendor==null">{{job.jobTitle}}</td>
-                                <td *ngIf="job.vendor==null">{{job.skills}}</td>
-                                <td *ngIf="job.vendor==null">{{job.totalExp}}</td>
-                                <td *ngIf="job.vendor==null">{{job.relaventExp}}</td>
-                                <td *ngIf="job.vendor==null">{{job.jobDescription}}</td>
-                                <td *ngIf="job.vendor==null">{{job.joblocation}}</td>
-                                <td *ngIf="job.vendor==null">{{job.noofpositions}}</td>
-                                <td *ngIf="job.vendor==null">{{job.hiringManager}}</td>
-                                <td *ngIf="job.vendor==null">{{job.resourceManager}}</td>
-                                <td *ngIf="job.vendor==null"><button class="button form-control Add" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">AssignVendor</button></td>
-                            </tr>                                                 
+                        <tr *ngFor="let job of joblist|filter:search">
+                            <td *ngIf="job.vendor==null">{{job.jobRefernceID}}</td>
+                            <td *ngIf="job.vendor==null">{{job.date}}</td>
+                            <td>MindTree</td>
+                            <td *ngIf="job.vendor==null">{{job.jobTitle}}</td>
+                            <td *ngIf="job.vendor==null">{{job.skills}}</td>
+                            <td *ngIf="job.vendor==null">{{job.totalExp}}</td>
+                            <td *ngIf="job.vendor==null">{{job.relaventExp}}</td>
+                            <td *ngIf="job.vendor==null">{{job.jobDescription}}</td>
+                            <td *ngIf="job.vendor==null">{{job.joblocation}}</td>
+                            <td *ngIf="job.vendor==null">{{job.noofpositions}}</td>
+                            <td *ngIf="job.vendor==null">{{job.hiringManager}}</td>
+                            <td *ngIf="job.vendor==null">{{job.resourceManager}}</td>
+                            <td *ngIf="job.vendor==null"><button class="button form-control Add" data-toggle="modal"
+                                    (click)="GetId(job.id)" data-target="#ScheduleInterview">AssignVendor</button></td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -93,40 +97,41 @@
                 <h4 class="modal-title">Assign Vendor</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">  
-                <div class="row">
-                  <div class="col-lg-3">
-                    <label  class="Text">Vendor :</label>
-                  </div>
-                    <div class="col-lg-5">
-                      <select class="form-control" (change)="Getvendorid($event)"> 
-                        <option value="">Select </option> 
-                        <option  *ngFor="let User of Userlist" value={{User.id}}>{{User.name}} </option>                                     
-                      </select>
-                    </div>                  
-                </div> <br>
-  
+            <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <label  class="Text" style="font-weight: bold;">Notes :</label>
+                        <label class="Text">Vendor :</label>
                     </div>
                     <div class="col-lg-5">
-                      <textarea class="form-control"  name="Notes" id="Notes" [(ngModel)]="Notes"  placeholder="Notes"></textarea>
-                    </div>                  
+                        <select class="form-control" (change)="Getvendorid($event)">
+                            <option value="">Select </option>
+                            <option *ngFor="let User of Userlist" value={{User.id}}>{{User.name}} </option>
+                        </select>
+                    </div>
+                </div> <br>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text" style="font-weight: bold;">Notes :</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <textarea class="form-control" name="Notes" id="Notes" [(ngModel)]="Notes"
+                            placeholder="Notes"></textarea>
+                    </div>
                 </div> <br>
                 <div class="row">
                     <div class="col-lg-5"></div>
                     <div class="col-lg-2">
                         <button class="form-control Save" (click)="UpdateVendor()">Assign</button>
                     </div>
-                </div>              
+                </div>
             </div>
             <div class="modal-footer">
                 <hr>
-               <div class="col-lg-2">
-                   <button class="Button">Close</button>
-               </div>
+                <div class="col-lg-2">
+                    <button class="Button">Close</button>
+                </div>
             </div>
         </div>
     </div>
-  </div>
+</div>

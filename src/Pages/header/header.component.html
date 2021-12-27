@@ -22,9 +22,9 @@
         <div class="col-lg-1">
             <h6  class=" dropdown-toggle menutext" type="button" id="dropdownMenu1" data-toggle="dropdown"
             aria-expanded="false">Job Recruitements</h6>
-            
             <ul class="dropdown-menu">
-                <li class="dropdown-item"><a  class="menuitem" tabindex="-1" routerLink="/JobRecruitements">Job Recruitement </a></li>
+               <li class="dropdown-item"><a  class="menuitem" tabindex="-1"  *ngIf="roleid!='7'" routerLink="/JobRecruitements">Job Recruitement </a></li>
+               <li class="dropdown-item"><a  class="menuitem" tabindex="-1"  *ngIf="roleid=='7'" routerLink="/VendorJobOpenings">Job Recruitement </a></li>
                 <li class="dropdown-item"><a class="menuitem" routerLink="/AppliedCandidates">AppliedCandidates</a></li>
                 <li class="dropdown-item"><a class="menuitem" routerLink="/ShortListedCandidates">Shortlisted Candidates </a></li>
                 <li class="dropdown-item"><a class="menuitem" routerLink="/ScheduledInterviews">Scheduled Interviews </a></li>
