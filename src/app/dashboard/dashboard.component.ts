@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
   joblist12:any;
   joblist13:any;
   joblist14:any;
+  vendorid: any;
 
   constructor(public router: Router, private datePipe: DatePipe,
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
@@ -52,6 +53,7 @@ export class DashboardComponent implements OnInit {
     this.NewJoinee = false;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     this.roleid = localStorage.getItem('roleid');
+    this.vendorid = localStorage.getItem('vendorid');
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
@@ -62,9 +64,23 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      this.joblist1 = data.filter(x => x.vendorId == this.vendorid);
+     debugger
+      if(this.roleid==7){
+        this.count = this.joblist1.length;
+        this.joblist1 = this.joblist1.slice(0, 3);
+      }
+    })
+
+
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
       this.joblist2 = data.filter(x => x.vendor == null);
-      this.count = this.joblist2.length;
+      if(this.roleid==2)
+      {
+        this.count = this.joblist2.length;
+      }
+      
       debugger
     })
 
@@ -80,8 +96,21 @@ export class DashboardComponent implements OnInit {
       debugger
       this.joblist4 = data.filter(x => x.accept == 0 && x.reject == 0);
       this.count1 = this.joblist4.length;
+      
       debugger
     })
+
+    // this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+    //   debugger
+    //   this.joblist4 = data.filter(x => x.vendorId == this.vendorid);
+    //   debugger
+    //   if(this.roleid==7){ 
+    //     this.count1 = this.joblist4.length;
+    //     this.joblist1 = this.joblist1.slice(0, 3);
+    //   }
+    // })
+
+
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger

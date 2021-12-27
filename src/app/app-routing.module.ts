@@ -31,7 +31,7 @@ import { ClientformComponent } from './clientform/clientform.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  {path: '', redirectTo: 'Login', pathMatch: 'full' },
   {path: "Login", component: LoginPageComponent },
   {path: "Header", component: HeaderComponent },
   {path: "Sidebar", component: SidebarComponent},
@@ -61,7 +61,6 @@ const routes: Routes = [
   {path:'VendorJobOpenings',component:VendorJobOpeningsComponent},
   { path: 'ClientDashBoard', component: ClientdashboardComponent },
   { path: 'ClientForm', component: ClientformComponent },
-
 ];
 
 @NgModule({
