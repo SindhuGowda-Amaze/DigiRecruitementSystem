@@ -37,6 +37,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
+import { ClientformComponent } from './clientform/clientform.component';
+import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-ope
     LoginPageComponent,
     JobRequisitionComponent,
     VendorJobOpeningsComponent,
+    ClientformComponent,
+    ClientdashboardComponent,
    
   ],
   imports: [
