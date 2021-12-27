@@ -22,6 +22,17 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/Vendor/GetLoginTypeMaster");
   }
 
+  public GetClientMaster() {
+
+    return this.http.get<any[]>(this.host + "/Master/GetClientMaster");
+  }
+
+
+  public InsertClientMaster(data:any) {
+    this.url = this.host + "/Master/InsertClientMaster";
+    return this.http.post(this.url, data);
+  }
+
 
   public GetUsersdetailsForHRLogin(Name:any, Password:any) {
 

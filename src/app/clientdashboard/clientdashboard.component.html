@@ -38,35 +38,23 @@
                         <table class="table">
                             <thead>
                                 <tr class="newFont">
+                                    <th>Client Logo</th>
                                     <th>Client Name</th>
-                                    <th> Client Phone No.</th>
-                                    <th>Email  </th>
-                                    <th>Contact Person Name</th>
-                                    <th>Contact Person Phone No.</th>
+                                    <th>Client Phone No.</th>
+                                    <th>Email</th>
+                                    <th>Address <th> 
                                     <th>Actions</th>
+                                 
                                 <tr>
+                               
                             </thead>
                             <tbody>
-                                <!-- <tr class="newFont" *ngFor="let SSSdata of SSSdatalist">
-                                    <td class="SelectData"><input type="checkbox"></td>
-                                    <td>{{SSSdata.min_Range}}</td>
-                                    <td>{{SSSdata.max_Range}}</td>
-                                    <td>{{SSSdata.monthly_Salary_Creadited}}</td>
-                                    <td>{{SSSdata.sS_ER}}</td>
-                                    <td>{{SSSdata.sS_EE}}</td>
-                                    <td>{{SSSdata.sS_Total}}</td>
-                                    <td>{{SSSdata.mpF_ER}}</td>
-                                    <td>{{SSSdata.mpF_EE}}</td>
-                                    <td>{{SSSdata.eC_ER}}</td>
-                                    <td>{{SSSdata.total_Contribution}}</td>
-                                    <td><img class="imgcancel" src="/assets/cancel (1).png" (click)="delete(SSSdata.id)"></td>
-                                </tr> -->
-                                <tr>
-                                    <td>Mind Tree</td>
-                                    <td>9900878776</td>
-                                    <td>info.mindtree@gmail.com</td>
-                                    <td>Harry</td>
-                                    <td>8890765565</td>
+                                <tr *ngFor="let ClientMasterData of ClientMasterlist">
+                                    <td style="width: 176px;"><img src="{{ClientMasterData.logo}}" style="width:65%;"></td>
+                                    <td>{{ClientMasterData.name}}</td>
+                                    <td>{{ClientMasterData.phoneNo}}</td>
+                                    <td>{{ClientMasterData.email}}</td>
+                                    <td>{{ClientMasterData.address}}</td>
                                     <td><button class="Edit">Edit</button><br><br>
                                     <button class="Edit">Delete</button></td>
                                 </tr>
