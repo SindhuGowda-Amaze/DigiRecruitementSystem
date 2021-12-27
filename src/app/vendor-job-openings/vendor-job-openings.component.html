@@ -15,7 +15,7 @@
                         Filter By
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" placeholder="Search.."  [(ngModel)]="term" name="term">
+                        <input class="form-control" placeholder="Search.."  [(ngModel)]="search" name="search">
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -59,7 +59,7 @@
                                 <th class="heading">Actions   </th>
                             </tr>
                         </thead>
-                            <tr   *ngFor="let job of joblist|filter:term">
+                            <tr   *ngFor="let job of joblist|filter:search">
                                 <td >{{job.jobRefernceID}}</td>                                  <!--*ngIf="job.vendor==null" -->
                                 <td >{{job.date}}</td>
                                 <td >{{job.jobTitle}}</td>

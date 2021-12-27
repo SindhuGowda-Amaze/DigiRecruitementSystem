@@ -55,7 +55,7 @@ const routes: Routes = [
   {path:'JobRequisitionForm',component: JobRequisitionFormComponent},
   {path:'Footer',component:FooterComponent},
   {path:'JobVacancies',component:JobVacanciesComponent},
-  // {path:'JobVacancies/:id',component:JobVacanciesComponent},
+   {path:'JobVacancies/:id',component:JobVacanciesComponent},
   {path:'Registration',component:RegistrationComponent},
   {path:'JobRequisition',component:JobRequisitionComponent},
   {path:'VendorJobOpenings',component:VendorJobOpeningsComponent},

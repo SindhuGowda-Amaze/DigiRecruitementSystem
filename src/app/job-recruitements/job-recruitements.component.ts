@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class JobRecruitementsComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute,public router: Router,) { }
   joblist: any;
   search: any;
   count: any;
@@ -39,6 +39,7 @@ export class JobRecruitementsComponent implements OnInit {
   ID: any;
   Vendor: any;
   Notes: any;
+  vendorid: any;
 
   public UpdateVendor() {
     debugger
@@ -46,7 +47,8 @@ export class JobRecruitementsComponent implements OnInit {
     var entity = {
       "ID": this.ID,
       "Vendor": this.Vendor,
-      "Notes": this.Notes
+      "Notes": this.Notes,
+      "VendorId": this.vendorid
     }
     this.RecruitmentServiceService.UpdateVendor(entity).subscribe(data => {
 
@@ -55,8 +57,18 @@ export class JobRecruitementsComponent implements OnInit {
 
     })
   }
-  Getvendorid(){
-    
+  Getvendorid(even: any) {
+    debugger
+    this.vendorid = even.target.value;
+    debugger
+    var list = this.Userlist.filter((x: { id: any; })=>x.id==this.vendorid);
+    this.Vendor=list[0].name
+
   }
 
+
+  public Regularization() {
+    debugger
+    this.router.navigate(['/AttendanceView']);
+  }
 }
