@@ -17,12 +17,14 @@ export class AppliedCandidatesComponent implements OnInit {
   term: any;
   jobid: any;
   search:any;
-  
+  roleid: any;
   ngOnInit(): void {
     this.GetCandidateReg()
+    this.roleid = localStorage.getItem('roleid');
   }
 
   public GetCandidateReg() {
+  
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
       this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
@@ -77,6 +79,7 @@ export class AppliedCandidatesComponent implements OnInit {
   }
 
   public GetOfferLetter(offer:any) {
+    
     window.open(offer, "_blank")
   }
 
