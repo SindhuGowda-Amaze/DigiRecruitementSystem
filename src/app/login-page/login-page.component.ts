@@ -62,6 +62,7 @@ export class LoginPageComponent implements OnInit {
       localStorage.setItem('roleid', '6');
       //  location.reload();
 
+      
     }
 
     //for vendor login
