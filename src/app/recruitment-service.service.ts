@@ -8,9 +8,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class RecruitmentServiceService {
  
 
- //host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+ host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
-  private host = "http://localhost:1807/";
+  //private host = "http://localhost:1807/";
   // private host = localStorage.getItem('apiurl');
   private url: string = "";
   showvid: any;
@@ -28,23 +28,8 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/Master/GetClientMaster");
   }
 
-  public GetClientStaff() {
 
-    return this.http.get<any[]>(this.host + "/Master/GetClientStaff");
-  }
-
-
-  public InsertClientMaster(data:any) {
-    this.url = this.host + "/Master/InsertClientMaster";
-    return this.http.post(this.url, data);
-  }
-
-  public InsertClientStaff(data:any) {
-    this.url = this.host + "/Master/InsertClientStaff";
-    return this.http.post(this.url, data);
-  }
-
-
+  
   public GetUsersdetailsForHRLogin(Name:any, Password:any) {
 
     return this.http.get<any[]>(this.host + "/User/GetUsersdetailsForHRLogin?Name=" + Name + "&Password=" + Password);
@@ -118,7 +103,9 @@ export class RecruitmentServiceService {
     return this.http.post(this.url, data);
   }
 
-
+  public GetRecruiterStaff() {
+    return this.http.get<any[]>(this.host + "/User/GetRecruiterStaff");
+  }
  
 
 
@@ -180,36 +167,14 @@ export class RecruitmentServiceService {
     this.url = this.host + "/User/InsertRecruiterStaff";
     return this.http.post(this.url, data);
   }
-
-  public GetRecruiterStaff() {
-
-    return this.http.get<any[]>(this.host + "/User/GetRecruiterStaff");
-  }
-
-  public GetSourcingMaster() {
-
-    return this.http.get<any[]>(this.host + "/Master/GetSourcingMaster");
-  }
   
   public GetVendor_Dasboard() {
     debugger
     return this.http.get<any[]>(this.host + "/Master/GetVendor_Dasboard");
   }
-  public GetVendor_Staff() {
-    debugger
-    return this.http.get<any[]>(this.host + "/Master/GetVendor_Staff");
-  }
-  public InsertVendor_Staff(data:any) {
-    this.url = this.host + "/Master/InsertVendor_Staff";
-    return this.http.post(this.url, data);
-  }
+
 
   
-  public DeleteVendor_Staff(ID : any) {
-    debugger 
-    return this.http.get<any[]>(this.host+ "/Master/DeleteVendor_Staff?ID=" +ID);
-  }
-
   public InsertVendor_Dasboard(data:any) {
     this.url = this.host + "/Master/InsertVendor_Dasboard";
     return this.http.post(this.url, data);
@@ -217,114 +182,9 @@ export class RecruitmentServiceService {
 
   public UpdateVendor_Dasboard(data:any) {
     debugger
-    this.url = this.host + "/Master/UpdateVendor_Dasboard";
+    this.url = this.host + "/User/UpdateVendor_Dasboard";
     return this.http.post(this.url, data);
   }
-
-  
-  public UpdateVendor_Staff(data:any) {
-    debugger
-    this.url = this.host + "/Master/UpdateVendor_Staff";
-    return this.http.post(this.url, data);
-  }
-
-  public DeleteVendor_Dasboard(ID : any) {
-    debugger 
-    return this.http.get<any[]>(this.host+ "/Master/DeleteVendor_Dasboard?ID=" +ID);
-  }
-
-
-
-
-  public GetSourcigStaff() {
-    debugger
-    return this.http.get<any[]>(this.host + "/Master/GetSourcigStaff");
-  }
-  
-  public InsertSourcigStaff(data:any) {
-    this.url = this.host + "/Master/InsertSourcigStaff";
-    return this.http.post(this.url, data);
-  }
-
-  public InsertSourcigMaster(data:any) {
-    this.url = this.host + "/Master/InsertSourcingMaster";
-    return this.http.post(this.url, data);
-  }
-
- 
- 
-
-
-  public DeleteRecruiterStaff(id : any) {
-    debugger
-    let APIURL = this.host + "/User/DeleteRecruiterStaff?ID="+id;
-    return this.http.get<any[]>(APIURL);
-  }
-
-  public DeleteSourcigStaff(id : any) {
-    debugger
-    let APIURL = this.host + "/Master/DeleteSourcigStaff?ID="+id;
-    return this.http.get<any[]>(APIURL);
-  }
-
-  public DeleteRecruiterMaster(id : any) {
-    debugger
-    let APIURL = this.host + "/User/DeleteRecruiterMaster?ID="+id;
-    return this.http.get<any[]>(APIURL);
-  }
-
-  public DeleteSourcingMaster(id : any) {
-    debugger
-    let APIURL = this.host + "/Master/DeleteSourcingMaster?ID="+id;
-    return this.http.get<any[]>(APIURL);
-  }
-  
-
-  public UpdateRecruiterStaff(data:any) {
-    debugger
-    this.url = this.host + "/User/UpdateRecruiterStaff";
-    return this.http.post(this.url, data);
-  }
-
-  public UpdateRecruiterMaster(data:any) {
-    debugger
-    this.url = this.host + "/User/UpdateRecruiterMaster";
-    return this.http.post(this.url, data);
-  }
-
-  public UpdateSourcingMaster(data:any) {
-    debugger
-    this.url = this.host + "/Master/UpdateSourcingMaster";
-    return this.http.post(this.url, data);
-  }
-
-  public UpdateSourcingStaff(data:any) {
-    debugger
-    this.url = this.host + "/Master/UpdateSourcingStaff";
-    return this.http.post(this.url, data);
-  }
-  public DeleteClientMaster(ID:any) {
-    debugger
-    return this.http.get<any[]>(this.host + "/Master/DeleteClientMaster?ID="+ID)
-  }
-
-  public DeleteClientStaff(ID:any) {
-    debugger
-    return this.http.get<any[]>(this.host + "/Master/DeleteClientStaff?ID="+ID)
-  }
-
-  public UpdateClientMaster(data:any) {
-    debugger
-    this.url = this.host + "/Master/UpdateClientMaster";
-    return this.http.post(this.url, data);
-  }
-
-  public UpdateClientStaff(data:any) {
-    debugger
-    this.url = this.host + "/Master/UpdateClientStaff";
-    return this.http.post(this.url, data);
-  }
-  
 
 
 }
