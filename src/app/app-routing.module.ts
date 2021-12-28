@@ -28,6 +28,8 @@ import { JobRequisitionComponent } from './job-requisition/job-requisition.compo
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
 import { ClientformComponent } from './clientform/clientform.component';
+import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
+import { VendorFormComponent } from './vendor-form/vendor-form.component';
 
 const routes: Routes = [
 
@@ -61,6 +63,8 @@ const routes: Routes = [
   {path:'VendorJobOpenings',component:VendorJobOpeningsComponent},
   { path: 'ClientDashBoard', component: ClientdashboardComponent },
   { path: 'ClientForm', component: ClientformComponent },
+  {path:'VendorDashboard',component:VendorDashboardComponent},
+  {path:'VendorForm',component: VendorFormComponent}
 ];
 
 @NgModule({

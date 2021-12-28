@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="Heading">VENDOR DASHBOARD</p>
+                    <hr class="HrLine">
+                </div>
+            </div> <br>
+            <div class="card"><br>
+                <div class="row FilterClass">
+                    <div class="col-lg-1">
+                        Filter By
+                    </div>
+                    <div class="col-lg-3 ">
+                        <input class="form-control" placeholder="Search">
+                    </div>
+                    <!-- <div class="col-lg-3">
+                        <select name="Select" class="form-control">
+                            <option value="Select Notice Period FilterClass">Select Notice Period</option>
+                            <option value="15 Days">15 Days</option>
+                            <option value="30 Days">30 Days</option>
+                            <option value="45 Days">45 Days</option>
+                            <option value="90 Days">90 Days</option>
+                        </select>
+                    </div> -->
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-2">
+                     <p class="count">Count:2</p> 
+                    </div>
+                </div> <br>
+            </div><br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table tablebordered">
+                        <thead>
+                            <tr class="head">
+                                <th>Vendor Logo</th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Email_Id</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+                            </tr>
+                            <tr *ngFor="let vendor of vendordetails">
+                                <td>{{vendor.vendor_Logo}}</td>
+                                <td>{{vendor.vendor_Name}}</td>
+                                <td>{{vendor.phone_Number}}</td>
+                                <td>{{vendor.email_ID}}</td>
+                                <td>{{vendor.address}}</td>   
+                                <td><button class="button1">Edit</button> <br> <br>
+                                    <button class="button2">Delete</button>
+                                </td>                          
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
