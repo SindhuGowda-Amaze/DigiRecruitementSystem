@@ -4,25 +4,25 @@ import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-clientdashboard',
-  templateUrl: './clientdashboard.component.html',
-  styleUrls: ['./clientdashboard.component.css']
+  selector: 'app-client-staff-dashboard',
+  templateUrl: './client-staff-dashboard.component.html',
+  styleUrls: ['./client-staff-dashboard.component.css']
 })
-export class ClientdashboardComponent implements OnInit {
+export class ClientStaffDashboardComponent implements OnInit {
 
   constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-   this.GetClientMaster()
+   this.GetClientStaff()
   }
 
-  ClientMasterlist:any
+  ClientStaffList:any
 
-  public GetClientMaster() {
+  public GetClientStaff() {
     debugger
-    this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
       debugger
-      this.ClientMasterlist=data ;
+      this.ClientStaffList=data ;
      })
   }
 
@@ -31,11 +31,12 @@ export class ClientdashboardComponent implements OnInit {
     location.href="/ClientStaffForm/"+ details;
     }
 
+ 
   delete(details: any){
     var json={
       "ID":details.id
     }
-    this.RecruitmentServiceService.DeleteClientMaster(details.id).subscribe(
+    this.RecruitmentServiceService.DeleteClientStaff(details.id).subscribe(
       data => {
         debugger        
      Swal.fire('Deleted Successfully')

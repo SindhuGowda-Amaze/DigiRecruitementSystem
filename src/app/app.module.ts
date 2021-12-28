@@ -31,20 +31,22 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 import { PipesModule } from 'pipes-module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 import { ClientformComponent } from './clientform/clientform.component';
 import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
+import { ClientStaffDashboardComponent } from './client-staff-dashboard/client-staff-dashboard.component';
+import { ClientStaffFormComponent } from './client-staff-form/client-staff-form.component';
 import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
 import { VendorFormComponent } from './vendor-form/vendor-form.component';
 import { RecruiterFormComponent } from './recruiter-form/recruiter-form.component';
 import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.component';
 import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
 import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
+import { VendorStaffDashboardComponent } from './vendor-staff-dashboard/vendor-staff-dashboard.component';
+import { VendorStaffFormComponent } from './vendor-staff-form/vendor-staff-form.component';
 import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashboard.component';
 import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
@@ -81,12 +83,16 @@ import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff
     VendorJobOpeningsComponent,
     ClientformComponent,
     ClientdashboardComponent,
+    ClientStaffDashboardComponent,
+    ClientStaffFormComponent,
     VendorDashboardComponent,
     VendorFormComponent,
     RecruiterFormComponent,
     RecruiterStaffComponent,
     RecruiterStaffDashboardComponent,
     RecruiterDashboardComponent,
+    VendorStaffDashboardComponent,
+    VendorStaffFormComponent,
     SourcingDashboardComponent,
     SourcingFormComponent,
     SourcingStaffDashboardComponent,

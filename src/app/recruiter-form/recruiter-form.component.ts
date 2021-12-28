@@ -78,7 +78,6 @@ export class RecruiterFormComponent implements OnInit {
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
-
     }
     this.RecruitmentServiceService.InsertRecruiterMaster(entity).subscribe(data => {
       if (data != 0) {

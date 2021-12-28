@@ -56,14 +56,13 @@ this.files.splice(this.files.indexOf(event),1);
     "Phone_Number":this.phone_Number,
     "Email_ID":this.email_ID,
     "Address":this.address
-
     };
     this.RecruitmentServiceService.InsertVendor_Dasboard(json).subscribe(
       data => {
         debugger
         let id = data;
-    alert("Successfully saved!!")
-      location.href="/Department"
+       alert("Successfully saved!!")
+      location.href="/VendorForm"
       })
   }
 
@@ -73,10 +72,11 @@ this.files.splice(this.files.indexOf(event),1);
     debugger
     this.result = data;
 		this.result=this.result.filter((x: { id: any; })=>x.id==Number(this.id));
-		this.vendor_Name=this.result[0].name;
-		this.phone_Number=this.result[0].code;
-    this.email_ID=this.result[0].remarks;
-    this.address=this.result[0].remarks;
+    this.vendor_Logo=this.result[0].vendor_Logo;
+		this.vendor_Name=this.result[0].vendor_Name;
+		this.phone_Number=this.result[0].phone_Number;
+    this.email_ID=this.result[0].email_ID;
+    this.address=this.result[0].address;
 
       }
     )
@@ -97,7 +97,7 @@ this.files.splice(this.files.indexOf(event),1);
         debugger
         let result = data;
         Swal.fire("Update Sucessfully");
-      // location.href="/Department";
+      location.href="/VendorDashboard";
       })
     }
 

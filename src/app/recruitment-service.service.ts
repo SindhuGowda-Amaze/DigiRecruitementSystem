@@ -28,9 +28,19 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/Master/GetClientMaster");
   }
 
+  public GetClientStaff() {
+
+    return this.http.get<any[]>(this.host + "/Master/GetClientStaff");
+  }
+
 
   public InsertClientMaster(data:any) {
     this.url = this.host + "/Master/InsertClientMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public InsertClientStaff(data:any) {
+    this.url = this.host + "/Master/InsertClientStaff";
     return this.http.post(this.url, data);
   }
 
@@ -185,6 +195,22 @@ export class RecruitmentServiceService {
     debugger
     return this.http.get<any[]>(this.host + "/Master/GetVendor_Dasboard");
   }
+  public GetVendor_Staff() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetVendor_Staff");
+  }
+  public InsertVendor_Staff(data:any) {
+    this.url = this.host + "/Master/InsertVendor_Staff";
+    return this.http.post(this.url, data);
+  }
+
+  
+  public DeleteVendor_Staff(ID : any) {
+    debugger 
+    return this.http.get<any[]>(this.host+ "Master/DeleteVendor_Staff?ID=" +ID);
+  }
+
+
 
 
   
@@ -266,5 +292,28 @@ export class RecruitmentServiceService {
     this.url = this.host + "/Master/UpdateSourcingStaff";
     return this.http.post(this.url, data);
   }
+  public DeleteClientMaster(ID:any) {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/DeleteClientMaster?ID="+ID)
+  }
+
+  public DeleteClientStaff(ID:any) {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/DeleteClientStaff?ID="+ID)
+  }
+
+  public UpdateClientMaster(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateClientMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateClientStaff(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateClientStaff";
+    return this.http.post(this.url, data);
+  }
+  
+
 
 }

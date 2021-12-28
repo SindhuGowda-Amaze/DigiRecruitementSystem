@@ -4,30 +4,40 @@ import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-clientform',
-  templateUrl: './clientform.component.html',
-  styleUrls: ['./clientform.component.css']
+  selector: 'app-client-staff-form',
+  templateUrl: './client-staff-form.component.html',
+  styleUrls: ['./client-staff-form.component.css']
 })
-export class ClientformComponent implements OnInit {
+export class ClientStaffFormComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
     this.GetClientMaster();
         this.ActivatedRoute.params.subscribe(params=>{
       debugger
      this.id=params["id"];
      if(this.id!=null&&this.id!=undefined){
-       this.GetClientMaster();
+       this.GetClientStaff1();
      }
     })
   }
-
-
-  GetClientMaster()
+  id:any;
+  // Company_logo:any;
+  Name: any;
+  PhoneNo: any;
+  Email: any;
+  Address: any;
+  Signature: any;
+  Staff: any;
+  StaffList: any;
+  count: any;
+  result:any;
+  clientName:any;
+  email:any;
+  GetClientStaff1()
   {
-  this.RecruitmentServiceService.GetClientMaster().subscribe(
+  this.RecruitmentServiceService.GetClientStaff().subscribe(
     data => {
       debugger
       this.result = data;
@@ -35,25 +45,12 @@ export class ClientformComponent implements OnInit {
       this.Staff=this.result[0].clientID;
       
       
-      this.Company_logo=this.result[0].company_logo;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].phoneNo;
       this.Email=this.result[0].email;
-      this.Address=this.result[0].address;
+      this.Address=this.result[0].address
     })
   }
-
-
-  id:any;
-  Company_logo:any;
-  Name: any;
-  PhoneNo: any;
-  Email: any;
-  Address: any;
-  Staff: any;
-  result: any;
-  
-
 
 
   files: File[] = [];
@@ -65,22 +62,32 @@ export class ClientformComponent implements OnInit {
     console.log("content", this.files);
   }
 
+  public GetClientMaster() {
+    debugger
+    this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
+      debugger
+      this.StaffList=data ;
+     })
+  }
+
+
   save(){
     var json = {
-   
-   "Logo": this.Company_logo,
+
+   "ClientID": this.Staff,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
    "Address": this.Address,
+   "Signature": this.Signature,
 
  };
 
- this.RecruitmentServiceService.InsertClientMaster(json).subscribe(
+ this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
    data => {
    debugger
    let result = data;
-   location.href="/ClientForm/"
+   location.href="/ClientStaffDashBoard/"
  })
 
  alert("Mentioned PhoneNo is "+this.PhoneNo)
@@ -98,22 +105,25 @@ this.files.splice(this.files.indexOf(event),1);
     debugger
     this.RecruitmentServiceService.UploadImages(this.files).subscribe(res => {
       debugger
-      this.Company_logo = res;
-      alert("ATTACHMENT UPLOADED");
+      this.Signature = res;
+      alert("Signature Uploaded...!");
     })
   }
 
-  Update(){
+
+
+Update(){
     debugger
      var json = {
-      "Logo": this.Company_logo,
-   "Name": this.Name,
-   "PhoneNo": this.PhoneNo,
-   "Email": this.Email,
-   "Address": this.Address, 
+      "ClientID": this.Staff,
+      "Name": this.Name,
+      "PhoneNo": this.PhoneNo,
+      "Email": this.Email,
+      "Address": this.Address,
+      "Signature": this.Signature,  
       };
     
-      this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(
+      this.RecruitmentServiceService.UpdateClientStaff(json).subscribe(
         data => {
         debugger
         let result = data;
@@ -121,5 +131,4 @@ this.files.splice(this.files.indexOf(event),1);
       // location.href="/Department";
       })
     }
-
 }
