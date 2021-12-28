@@ -28,7 +28,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <a href="/ClientForm"><button class="button">Add</button> </a>
+                    <a routerLink="/ClientForm"><button class="button">Add</button> </a>
                 </div>
             </div>
 
@@ -44,9 +44,7 @@
                                     <th>Email</th>
                                     <th>Address <th> 
                                     <th>Actions</th>
-                                 
                                 <tr>
-                               
                             </thead>
                             <tbody>
                                 <tr *ngFor="let ClientMasterData of ClientMasterlist">
@@ -55,6 +53,7 @@
                                     <td>{{ClientMasterData.phoneNo}}</td>
                                     <td>{{ClientMasterData.email}}</td>
                                     <td>{{ClientMasterData.address}}</td>
+                                    <td></td>
                                     <td><button class="Edit">Edit</button><br><br>
                                     <button class="Edit">Delete</button></td>
                                 </tr>

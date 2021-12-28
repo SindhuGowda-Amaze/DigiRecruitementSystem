@@ -37,6 +37,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 import { ClientformComponent } from './clientform/clientform.component';
 import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
+import { ClientStaffDashboardComponent } from './client-staff-dashboard/client-staff-dashboard.component';
+import { ClientStaffFormComponent } from './client-staff-form/client-staff-form.component';
 import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
 import { VendorFormComponent } from './vendor-form/vendor-form.component';
 import { RecruiterFormComponent } from './recruiter-form/recruiter-form.component';
@@ -45,6 +47,10 @@ import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/re
 import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
 import { VendorStaffDashboardComponent } from './vendor-staff-dashboard/vendor-staff-dashboard.component';
 import { VendorStaffFormComponent } from './vendor-staff-form/vendor-staff-form.component';
+import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashboard.component';
+import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
+import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
+import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +83,8 @@ import { VendorStaffFormComponent } from './vendor-staff-form/vendor-staff-form.
     VendorJobOpeningsComponent,
     ClientformComponent,
     ClientdashboardComponent,
+    ClientStaffDashboardComponent,
+    ClientStaffFormComponent,
     VendorDashboardComponent,
     VendorFormComponent,
     RecruiterFormComponent,
@@ -85,6 +93,10 @@ import { VendorStaffFormComponent } from './vendor-staff-form/vendor-staff-form.
     RecruiterDashboardComponent,
     VendorStaffDashboardComponent,
     VendorStaffFormComponent,
+    SourcingDashboardComponent,
+    SourcingFormComponent,
+    SourcingStaffDashboardComponent,
+    SourcingStaffFormComponent,
    
   ],
   imports: [

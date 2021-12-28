@@ -28,6 +28,8 @@ import { JobRequisitionComponent } from './job-requisition/job-requisition.compo
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
 import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
 import { ClientformComponent } from './clientform/clientform.component';
+import { ClientStaffDashboardComponent } from './client-staff-dashboard/client-staff-dashboard.component';
+import { ClientStaffFormComponent } from './client-staff-form/client-staff-form.component';
 import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
 import { VendorFormComponent } from './vendor-form/vendor-form.component';
 import { RecruiterFormComponent } from './recruiter-form/recruiter-form.component';
@@ -36,6 +38,10 @@ import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.compo
 import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
 import { VendorStaffDashboardComponent } from './vendor-staff-dashboard/vendor-staff-dashboard.component';
 import { VendorStaffFormComponent } from './vendor-staff-form/vendor-staff-form.component';
+import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashboard.component';
+import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
+import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
+import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 
 const routes: Routes = [
 
@@ -69,6 +75,8 @@ const routes: Routes = [
   {path:'VendorJobOpenings',component:VendorJobOpeningsComponent},
   { path: 'ClientDashBoard', component: ClientdashboardComponent },
   { path: 'ClientForm', component: ClientformComponent },
+  { path: 'ClientStaffDashBoard', component: ClientStaffDashboardComponent },
+  { path: 'ClientStaffForm', component: ClientStaffFormComponent },
   {path:'VendorDashboard',component:VendorDashboardComponent},
   {path:'VendorForm',component: VendorFormComponent},
   { path: 'RecruiterForm', component: RecruiterFormComponent },
@@ -79,6 +87,11 @@ const routes: Routes = [
   // {path:'VendorStaffDashboard/:id',component:VendorStaffDashboardComponent},
   {path:'VendorStaffForm',component:VendorStaffFormComponent},
   {path:'VendorStaffForm/:id',component:VendorStaffFormComponent}
+  
+  { path: 'SourcingDashboard', component: SourcingDashboardComponent },
+  { path: 'SourcingForm', component: SourcingFormComponent },
+  { path: 'SourcingStaffForm', component: SourcingStaffFormComponent },
+  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent }
  
 ];
 
