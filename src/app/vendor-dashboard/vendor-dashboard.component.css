@@ -49,7 +49,7 @@
     padding:5px;
     border-radius: 5px;
     color:white;
-    background-color: #21a4da;
+    background-color: #2F87CC;
     border:none;
     width:100%;
   }
@@ -58,9 +58,49 @@
     padding:5px;
     border-radius: 5px;
     color:white;
-    background-color: #21a4da;
+    background-color: #2F87CC;
     border:none;
     width:100%;
 
   }
   
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    text-decoration: 3px solid rgb(72, 83, 238) underline;
+    color:   rgb(72, 83, 238)
+  }
+  .button{
+    text-transform: uppercase;
+  font-weight: initial;
+  text-shadow: initial;
+  letter-spacing: 0.5px;
+  background-color:#2F87CC ;
+  color:white;
+  border-radius: 5px;
+  border:none;
+  padding: 5px;
+  width:40%;
+  float: right;
+  margin-right: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  }

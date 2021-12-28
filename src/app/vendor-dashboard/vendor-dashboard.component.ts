@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { RecruitmentServiceService } from '../recruitment-service.service';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-vendor-dashboard',
@@ -25,7 +26,24 @@ export class VendorDashboardComponent implements OnInit {
       this.vendordetails = data;
      
     })
-
   }
+  edit(id: any){
+    debugger
+   location.href="/VendorForm/"+ id;
+  }
+
+
+  public Ondelete(id:any) {
+    this.RecruitmentServiceService.DeleteVendor_Dasboard(id).subscribe(
+      data => {
+        debugger
+        this. GetVendor_Dasboard();
+        swal.fire('Deleted');
+      }
+    )
+    
+  }
+
+
 
 }

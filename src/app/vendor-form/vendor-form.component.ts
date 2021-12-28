@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-vendor-form',
   templateUrl: './vendor-form.component.html',
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorFormComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   vendor_Logo:any;
   vendor_Name:any;
@@ -18,8 +19,18 @@ export class VendorFormComponent implements OnInit {
   result:any;
   id:any;
   ngOnInit(): void {
+    this.ActivatedRoute.params.subscribe(params=>{
+      debugger
+     this.id=params["id"];
+     if(this.id!=null&&this.id!=undefined){
+       this.GetVendor_Dasboard();      
+     }
+    })
+    
   }
 
+
+  Company_logo:any;
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
     debugger
@@ -28,21 +39,17 @@ export class VendorFormComponent implements OnInit {
     this.uploadattachments();
     console.log("content", this.files);
   }
-
-
   onRemove(event:any)
   {
 debugger
 console.log(event);
 this.files.splice(this.files.indexOf(event),1);
   }
-
-
   public uploadattachments() {
     debugger
-    this.RecruitmentServiceService.AttachmentsUpload(this.files).subscribe(res => {
+    this.RecruitmentServiceService.UploadImages(this.files).subscribe(res => {
       debugger
-      this.vendor_Logo = res;
+      this.Company_logo = res;
       alert("ATTACHMENT UPLOADED");
     })
   }
@@ -51,7 +58,7 @@ this.files.splice(this.files.indexOf(event),1);
   Save(){
     debugger 
    var json = { 
-    "Vendor_Logo":this.vendor_Logo,
+    "Vendor_Logo":this.Company_logo,
     "Vendor_Name":this.vendor_Name,
     "Phone_Number":this.phone_Number,
     "Email_ID":this.email_ID,
@@ -65,6 +72,8 @@ this.files.splice(this.files.indexOf(event),1);
       location.href="/VendorForm"
       })
   }
+
+
 
   GetVendor_Dasboard() {
     this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(
@@ -85,7 +94,8 @@ this.files.splice(this.files.indexOf(event),1);
   Update(){
     debugger
      var json = {
-       "Vendor_Logo":this.vendor_Logo,
+       "ID":this.id,
+       "Vendor_Logo":this.Company_logo,
       "Vendor_Name":this.vendor_Name,
       "Phone_Number":this.phone_Number,
       "Email_ID":this.email_ID,

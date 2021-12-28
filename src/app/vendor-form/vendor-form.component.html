@@ -4,61 +4,25 @@
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="Heading">Vendor Details</p>
+                    <p class="Heading">Vendor Form</p>
                 </div>
             </div>
-            <hr class="HrLine">
-
-            <div class="card">
-                <br>
-                <div class="row FilterClass">
-                    <div class="col-lg-1">
-                        Filter By
-                    </div>
-                    <div class="col-lg-3">
-                        <input class="form-control" placeholder="Search">
-                    </div>
-                    <!-- <div class="col-lg-3">
-                        <select name="Select" class="form-control">
-                            <option value="Select CTC">Select CTC</option>
-                            <option value="30,000-50,000">30,000-50,000</option>
-                            <option value="50,000-1,00000">50,000-1,00000</option>
-                            <option value="1,00000-2,00000">1,00000-2,00000</option>
-                        </select>
-                    </div> -->
-                    <!-- <div class="col-lg-3">
-                        <select name="Select" class="form-control">
-                            <option value="Select Vendor">Select Vendor</option>
-                            <option value="Amaze">15 Days</option>
-                            <option value="Dxc">30 Days</option>
-                            <option value="">45 Days</option>
-                            <option value="90 Days">90 Days</option>
-                        </select>
-                    </div> -->
-                    <div class="col-lg-2">
-                        <p class="count">Count:</p>
-                    </div>
-                </div> <br>
-            </div> <br>
-
-
-
             <div class="card">
                 <div class="row leavereq">
                     <div class="col-lg-2">
-                        <p class="newFont">Vendor_Logo </p>
+                        <p class="newFont">Vendor_Logo <span style="color: red;">*</span> </p>
                     </div>
                     <div class="col-lg-2">
-                        <p class="newFont">Vendor_Name </p>
+                        <p class="newFont">Vendor_Name  <span style="color: red;">*</span></p>
                     </div>
                     <div class="col-lg-2">
-                        <p class="newFont">Phone_Number </p>
+                        <p class="newFont">Phone_Number  <span style="color: red;">*</span></p>
                     </div>
                     <div class="col-lg-2">
-                        <p class="newFont">Email_ID </p>
+                        <p class="newFont">Email_ID  <span style="color: red;">*</span></p>
                     </div>
                     <div class="col-lg-2">
-                        <p class="newFont">Address </p>
+                        <p class="newFont">Address <span style="color: red;">*</span> </p>
                     </div>
                 </div>
               <div class="row leavereq">
@@ -84,14 +48,15 @@
                     </div>               
             </div> <br>  <br>
             <div class="row">
-                <div class="col-lg-7"></div>
-                <div class="col-lg-2">
-                     <button class="form-control button1" (click)="Save()" *ngif="id==null || id==undefined">Save</button> <br> 
-                     <button class="form-control button1" (click)="Update()" *ngif="id!==null || id!==undefined">Update</button> <br>       
+                <div class="col-lg-9"></div>
+                <div class="col-lg-1">
+                     <button class="form-control button1"  *ngIf="id==null || id==undefined" (click)="Save()">Save</button>    
+                     <button class="form-control button1"  *ngIf="id!=null || id!=undefined" (click)="Update()">Update</button>   
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <button class="form-control button1">Cancel</button>
                 </div>
+                <div class="col-lg-1"></div>
             </div><br>
         </div> <br>     
     </div>
