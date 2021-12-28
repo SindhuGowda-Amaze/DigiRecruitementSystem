@@ -49,7 +49,7 @@ const routes: Routes = [
   {path: "Login", component: LoginPageComponent },
   {path: "Header", component: HeaderComponent },
   {path: "Sidebar", component: SidebarComponent},
-  {path:'Dashboard',component:DashboardComponent},
+  {path:'Dashboard',component:DashboardComponent, canActivate: [AuthGuard]},
   {path:'JobRecruitementReport',component:JobRecruitementReportComponent},
   {path:'JobRecruitements',component:JobRecruitementsComponent},
  {path:'AppliedCandidates',component:AppliedCandidatesComponent},
@@ -73,11 +73,11 @@ const routes: Routes = [
   {path:'Registration',component:RegistrationComponent},
   {path:'JobRequisition',component:JobRequisitionComponent},
   {path:'VendorJobOpenings',component:VendorJobOpeningsComponent},
-  { path: 'ClientDashBoard', component: ClientdashboardComponent },
-  { path: 'ClientForm', component: ClientformComponent },
-  { path: 'ClientForm/:id', component: ClientformComponent },
-  { path: 'ClientStaffDashBoard', component: ClientStaffDashboardComponent },
-  { path: 'ClientStaffForm', component: ClientStaffFormComponent },
+  { path: 'ClientDashBoard', component: ClientdashboardComponent ,canActivate: [AuthGuard]},
+  { path: 'ClientForm', component: ClientformComponent ,canActivate: [AuthGuard]},
+  { path: 'ClientForm/:id', component: ClientformComponent ,canActivate: [AuthGuard]},
+  { path: 'ClientStaffDashBoard', component: ClientStaffDashboardComponent ,canActivate: [AuthGuard]},
+  { path: 'ClientStaffForm', component: ClientStaffFormComponent ,canActivate: [AuthGuard]},
 
   {path:'VendorDashboard',component:VendorDashboardComponent,canActivate: [AuthGuard]},
   {path:'VendorForm',component: VendorFormComponent},
@@ -101,7 +101,7 @@ const routes: Routes = [
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
  
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
-  { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent },
+  { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
