@@ -47,9 +47,8 @@
                     <div class="col-md-2">
                         <select name="Select" class="form-control"  [(ngModel)]="vendor_Name">
                             <option value="Select Vendor">Select Vendor</option>
-                            <option value="Amaze">Amaze</option>
-                            <option value="Dxc">Dxc</option>
-                            <option value="MindTree">MindTree</option>
+                            <option  *ngFor="let vendor of vendordetails" value="{{vendor.id}}" >{{vendor.vendor_Name}}</option>
+                          
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -71,12 +70,13 @@
                                 <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                             </ngx-dropzone-preview>
                         </ngx-dropzone>
-                    </div>
-                </div> <br>
+                    </div> 
+                </div> <br> <br>
                 <div class="row leavereq">
                     <div class="col-lg-7"></div>
                     <div class="col-lg-2">
-                        <button class="form-control button1" (click)="Save()">Save</button> <br>
+                        <button class="form-control button1"  *ngIf="id==null || id==undefined"  (click)="Save()">Save</button>
+                        <button class="form-control button1"  *ngIf="id!=null || id!=undefined" (click)="Update()">Update</button> 
                     </div>
                     <div class="col-lg-2">
                         <button class="form-control button1">Cancel</button>

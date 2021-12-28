@@ -207,13 +207,9 @@ export class RecruitmentServiceService {
   
   public DeleteVendor_Staff(ID : any) {
     debugger 
-    return this.http.get<any[]>(this.host+ "Master/DeleteVendor_Staff?ID=" +ID);
+    return this.http.get<any[]>(this.host+ "/Master/DeleteVendor_Staff?ID=" +ID);
   }
 
-
-
-
-  
   public InsertVendor_Dasboard(data:any) {
     this.url = this.host + "/Master/InsertVendor_Dasboard";
     return this.http.post(this.url, data);
@@ -221,9 +217,25 @@ export class RecruitmentServiceService {
 
   public UpdateVendor_Dasboard(data:any) {
     debugger
-    this.url = this.host + "/User/UpdateVendor_Dasboard";
+    this.url = this.host + "/Master/UpdateVendor_Dasboard";
     return this.http.post(this.url, data);
   }
+
+  
+  public UpdateVendor_Staff(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateVendor_Staff";
+    return this.http.post(this.url, data);
+  }
+
+  public DeleteVendor_Dasboard(ID : any) {
+    debugger 
+    return this.http.get<any[]>(this.host+ "/Master/DeleteVendor_Dasboard?ID=" +ID);
+  }
+
+
+
+
 
 
 }
