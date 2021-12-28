@@ -26,4 +26,21 @@ export class ClientdashboardComponent implements OnInit {
      })
   }
 
+  edit(details: any){
+    debugger
+    location.href="/ClientStaffForm/"+ details;
+    }
+
+  delete(details: any){
+    var json={
+      "ID":details.id
+    }
+    this.RecruitmentServiceService.DeleteClientMaster(details.id).subscribe(
+      data => {
+        debugger        
+     Swal.fire('Deleted Successfully')
+     location.reload();
+    })
+  }
+
 }

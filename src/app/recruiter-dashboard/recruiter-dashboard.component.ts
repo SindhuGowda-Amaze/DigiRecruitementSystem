@@ -7,26 +7,35 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
   styleUrls: ['./recruiter-dashboard.component.css']
 })
 export class RecruiterDashboardComponent implements OnInit {
-  recuiter:any;
+  recuiter: any;
   recruiterlist: any;
   count: any;
-  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
-    this.GetRecruiterMaster(); 
+    this.GetRecruiterMaster();
   }
 
 
   public GetRecruiterMaster() {
     this.RecruitmentServiceService.GetRecruiterMaster().subscribe(
       data => {
-      this.recruiterlist = data
-      this.count = this.recruiterlist.length;
-    })
+        this.recruiterlist = data
+        this.count = this.recruiterlist.length;
+      })
 
   }
 
-  delete(id:any){
+  delete(id: any) {
+    this.RecruitmentServiceService.DeleteRecruiterMaster(id).subscribe(
+      data => {
+        debugger
+        Swal.fire('Deleted');
+        this.GetRecruiterMaster();
+      })
+  }
 
+  Update(id:any) {
+    location.href = "/RecruiterForm/" +id;
   }
 }

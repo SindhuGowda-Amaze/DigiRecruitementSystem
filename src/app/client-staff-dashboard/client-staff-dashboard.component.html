@@ -38,25 +38,28 @@
                         <table class="table">
                             <thead>
                                 <tr class="newFont">
-                                    <!-- <th>Client Logo</th> -->
+                                    <th>Client Name</th>
                                     <th>Client Staff Name</th>
-                                    <th>Client Staff Phone No.</th>
                                     <th>Email</th>
+                                    <th>Client Staff Phone No.</th>
                                     <th>Address <th> 
                                     <th>Signature <th> 
-                                    <th>Actions</th>
+                                    <th>Actions</th>    
                                 <tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let ClientStaffData of ClientStaffList">
+                                    <td>{{ClientStaffData.clientName}}</td>
                                     <!-- <td style="width: 176px;"><img src="{{ClientStaffData.logo}}" style="width:65%;"></td> -->
                                     <td>{{ClientStaffData.name}}</td>
                                     <td>{{ClientStaffData.phoneNo}}</td>
                                     <td>{{ClientStaffData.email}}</td>
                                     <td>{{ClientStaffData.address}}</td>
-                                    <td><img src="{{ClientStaffData.signature}}" style="width:30%;"></td>
-                                    <td><button class="Edit">Edit</button><br><br>
-                                    <button class="Edit">Delete</button></td>
+                                    <td></td>
+                                    <td><img src="{{ClientStaffData.signature}}" style="width:25%;"></td>
+                                    <td></td>
+                                    <td><button class="Edit" (click)="edit(ClientStaffData.id)">Edit</button><br><br>
+                                    <button class="Edit" (click)="delete(ClientStaffData)">Delete</button></td>
                                 </tr>
                             </tbody>
                         </table>

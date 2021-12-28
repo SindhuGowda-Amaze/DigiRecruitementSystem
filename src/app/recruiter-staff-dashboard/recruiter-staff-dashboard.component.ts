@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 @Component({
   selector: 'app-recruiter-staff-dashboard',
@@ -8,6 +9,7 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
 export class RecruiterStaffDashboardComponent implements OnInit {
   stafflist: any;
   count: any;
+  
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
 
@@ -24,6 +26,17 @@ export class RecruiterStaffDashboardComponent implements OnInit {
   }
 
   delete(id:any){
+    this.RecruitmentServiceService.DeleteRecruiterStaff(id).subscribe(
+      data => {
+        debugger
+        Swal.fire('Deleted');
+        this.GetRecruiterStaff();
+  })
+}
 
-  }
+  
+
+Update(staff:any) {
+  location.href = "/RecruiterStaff/" + staff.id
+}
 }
