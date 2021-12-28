@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import Swal from 'sweetalert2';
-
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-client-staff-form',
   templateUrl: './client-staff-form.component.html',
@@ -10,18 +9,27 @@ import Swal from 'sweetalert2';
 })
 export class ClientStaffFormComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.GetClientMaster();
-    //     this.ActivatedRoute.params.subscribe(params=>{
-    //   debugger
-    //  this.id=params["id"];
-    //  if(this.id!=null&&this.id!=undefined){
-    //    this.GetClientStaff1();
-    //  }
-    // })
+    this.GetClientStaff();
+        this.ActivatedRoute.params.subscribe(params=>{
+      debugger
+     this.id=params["id"];
+     if(this.id!=null&&this.id!=undefined){
+       this.GetClientStaff1();
+     }
+    })
   }
+  ClientStaffList:any;
+  public GetClientStaff() {
+    debugger
+    this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
+      debugger
+      this.StaffList=data ;
+     })
+  }
+
   id:any;
   // Company_logo:any;
   Name: any;
@@ -34,23 +42,22 @@ export class ClientStaffFormComponent implements OnInit {
   count: any;
   result:any;
   clientName:any;
-  email:any;
-  // GetClientStaff1()
-  // {
-  // this.RecruitmentServiceService.GetClientStaff().subscribe(
-  //   data => {
-  //     debugger
-  //     this.result = data;
-  //     this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
-  //     this.Staff=this.result[0].clientID;
-      
-      
-  //     this.Name=this.result[0].name;
-  //     this.PhoneNo=this.result[0].phoneNo;
-  //     this.Email=this.result[0].email;
-  //     this.Address=this.result[0].address
-  //   })
-  // }
+  email:any
+  GetClientStaff1()
+  {
+  this.RecruitmentServiceService.GetClientStaff().subscribe(
+    data => {
+      debugger
+      this.result = data;
+      this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
+      this.clientName=this.result[0].clientName;
+      this.Name=this.result[0].name;
+      this.PhoneNo=this.result[0].email;
+      this.Email=this.result[0].phoneNo;
+      this.Address = this.result[0].address;
+      this.Staff=this.result[0].clientID;
+    })
+  }
 
 
   files: File[] = [];
@@ -61,15 +68,6 @@ export class ClientStaffFormComponent implements OnInit {
     this.uploadattachments();
     console.log("content", this.files);
   }
-
-  public GetClientMaster() {
-    debugger
-    this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
-      debugger
-      this.StaffList=data ;
-     })
-  }
-
 
   save(){
     var json = {
