@@ -42,7 +42,7 @@ import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashbo
 import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
 import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
-
+import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
 
   {path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -79,7 +79,7 @@ const routes: Routes = [
   { path: 'ClientStaffDashBoard', component: ClientStaffDashboardComponent },
   { path: 'ClientStaffForm', component: ClientStaffFormComponent },
 
-  {path:'VendorDashboard',component:VendorDashboardComponent},
+  {path:'VendorDashboard',component:VendorDashboardComponent,canActivate: [AuthGuard]},
   {path:'VendorForm',component: VendorFormComponent},
   { path: 'RecruiterForm', component: RecruiterFormComponent },
   { path: 'RecruiterForm/:id', component: RecruiterFormComponent },
