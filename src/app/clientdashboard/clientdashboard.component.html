@@ -54,8 +54,8 @@
                                     <td>{{ClientMasterData.email}}</td>
                                     <td>{{ClientMasterData.address}}</td>
                                     <td></td>
-                                    <td><button class="Edit">Edit</button><br><br>
-                                    <button class="Edit">Delete</button></td>
+                                    <td><button class="Edit" (click)="edit(ClientMasterData.id)">Edit</button><br><br>
+                                    <button class="Edit" (click)="delete(ClientMasterData)">Delete</button></td>
                                 </tr>
                             </tbody>
                         </table>

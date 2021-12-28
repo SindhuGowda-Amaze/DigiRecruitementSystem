@@ -209,5 +209,28 @@ export class RecruitmentServiceService {
     return this.http.post(this.url, data);
   }
 
+  public DeleteClientMaster(ID:any) {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/DeleteClientMaster?ID="+ID)
+  }
+
+  public DeleteClientStaff(ID:any) {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/DeleteClientStaff?ID="+ID)
+  }
+
+  public UpdateClientMaster(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateClientMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateClientStaff(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateClientStaff";
+    return this.http.post(this.url, data);
+  }
+  
+
 
 }

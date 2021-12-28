@@ -73,8 +73,10 @@ const routes: Routes = [
   {path:'VendorJobOpenings',component:VendorJobOpeningsComponent},
   { path: 'ClientDashBoard', component: ClientdashboardComponent },
   { path: 'ClientForm', component: ClientformComponent },
+  { path: 'ClientForm/:id', component: ClientformComponent },
   { path: 'ClientStaffDashBoard', component: ClientStaffDashboardComponent },
   { path: 'ClientStaffForm', component: ClientStaffFormComponent },
+
   {path:'VendorDashboard',component:VendorDashboardComponent},
   {path:'VendorForm',component: VendorFormComponent},
   { path: 'RecruiterForm', component: RecruiterFormComponent },
@@ -85,8 +87,8 @@ const routes: Routes = [
   { path: 'SourcingDashboard', component: SourcingDashboardComponent },
   { path: 'SourcingForm', component: SourcingFormComponent },
   { path: 'SourcingStaffForm', component: SourcingStaffFormComponent },
-  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent }
- 
+  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
+  { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent },
 ];
 
 @NgModule({

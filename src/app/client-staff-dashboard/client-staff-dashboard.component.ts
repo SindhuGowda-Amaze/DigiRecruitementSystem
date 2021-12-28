@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-client-staff-dashboard',
@@ -23,6 +24,24 @@ export class ClientStaffDashboardComponent implements OnInit {
       debugger
       this.ClientStaffList=data ;
      })
+  }
+
+  edit(details: any){
+    debugger
+    location.href="/ClientStaffForm/"+ details;
+    }
+
+ 
+  delete(details: any){
+    var json={
+      "ID":details.id
+    }
+    this.RecruitmentServiceService.DeleteClientStaff(details.id).subscribe(
+      data => {
+        debugger        
+     Swal.fire('Deleted Successfully')
+     location.reload();
+    })
   }
 
 }
