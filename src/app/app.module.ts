@@ -51,6 +51,7 @@ import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashbo
 import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff
     
   
   ],
-  providers: [],
+
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
   
 })

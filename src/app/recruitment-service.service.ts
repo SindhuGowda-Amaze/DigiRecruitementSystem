@@ -322,7 +322,5 @@ export class RecruitmentServiceService {
     this.url = this.host + "/Master/UpdateClientStaff";
     return this.http.post(this.url, data);
   }
-  
-
 
 }
