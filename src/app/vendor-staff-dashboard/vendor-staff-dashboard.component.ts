@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-vendor-staff-dashboard',
   templateUrl: './vendor-staff-dashboard.component.html',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorStaffDashboardComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService ) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
   vendor_Name:any;
   staff_Name:any;
   email_Id:any;
@@ -40,9 +41,9 @@ export class VendorStaffDashboardComponent implements OnInit {
     )
   }
 
-  edit(staffdetails: any) {
+  edit(id: any) {
     debugger
-    location.href = "/VendorStaffForm" + staffdetails.id;
+    location.href = "/VendorStaffForm/" + id;
   }
 
 

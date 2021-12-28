@@ -90,11 +90,13 @@ const routes: Routes = [
 
   {path:'VendorStaffDashboard',component:VendorStaffDashboardComponent},
   {path:'VendorStaffForm',component:VendorStaffFormComponent},
-  {path:'VendorStaffForm/:id',component:VendorStaffFormComponent},  
+  {path:'VendorStaffForm/:id',component:VendorStaffFormComponent},
   { path: 'SourcingDashboard', component: SourcingDashboardComponent },
   { path: 'SourcingForm', component: SourcingFormComponent },
   { path: 'SourcingForm/:id', component: SourcingFormComponent },
   { path: 'SourcingStaffForm', component: SourcingStaffFormComponent },
+  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
+  {path:'VendorForm/:id',component: VendorFormComponent},
   { path: 'SourcingStaffForm/:id', component: SourcingStaffFormComponent },
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
  
