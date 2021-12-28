@@ -186,5 +186,25 @@ export class RecruitmentServiceService {
     return this.http.post(this.url, data);
   }
 
+  public DeleteVendor_Dasboard(id: any) {
+    debugger
+    let APIURL = this.host + "Master/DeleteVendor_Dasboard?ID=" + id;
+    return this.http.get<any[]>(APIURL);
+  }
+  
+  public DeleteVendor_Staff(id: any) {
+    debugger
+    let APIURL = this.host + "Master/DeleteVendor_Staff?ID=" + id;
+    return this.http.get<any[]>(APIURL);
+  }
+  public GetVendor_Staff() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetVendor_Staff");
+  }
+
+  public InsertVendor_Staff(data:any) {
+    this.url = this.host + "/Master/InsertVendor_Staff";
+    return this.http.post(this.url, data);
+  }
 
 }
