@@ -44,6 +44,13 @@ export class DigiRecruitmentServiceService {
 
     return this.http.get<any[]>(this.host + "/User/GetAdmin?Name=" + Name + "&Password=" + Password);
   }
+  
+  public GetVendor_Dasboard() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetVendor_Dasboard");
+  }
+
+
 
 
 }

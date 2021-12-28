@@ -15,6 +15,7 @@ export class RecruitmentServiceService {
   private url: string = "";
   showvid: any;
   URL: any;
+  data:any;
   constructor(private http: HttpClient) { }
 
   public GetLoginTypeMaster() {
@@ -150,7 +151,7 @@ export class RecruitmentServiceService {
       formdata.append('file_upload', files[i], files[i].name);
     }
     debugger
-    let APIURL = this.host + "Master/UploadImages/";
+    let APIURL = this.host + "/Master/UploadImages/";
     return this.http.post(APIURL, formdata);
 
   }
@@ -180,4 +181,23 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/Master/GetSourcingMaster");
   }
   
+  public GetVendor_Dasboard() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetVendor_Dasboard");
+  }
+
+
+  
+  public InsertVendor_Dasboard(data:any) {
+    this.url = this.host + "/Master/InsertVendor_Dasboard";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateVendor_Dasboard(data:any) {
+    debugger
+    this.url = this.host + "/User/UpdateVendor_Dasboard";
+    return this.http.post(this.url, data);
+  }
+
+
 }
