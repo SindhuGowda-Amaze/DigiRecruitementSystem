@@ -8,9 +8,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class RecruitmentServiceService {
  
 
- host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+ //host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
-  //private host = "http://localhost:1807/";
+  private host = "http://localhost:1807/";
   // private host = localStorage.getItem('apiurl');
   private url: string = "";
   showvid: any;
@@ -199,5 +199,72 @@ export class RecruitmentServiceService {
     return this.http.post(this.url, data);
   }
 
+  public GetSourcigStaff() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetSourcigStaff");
+  }
+  
+  public InsertSourcigStaff(data:any) {
+    this.url = this.host + "/Master/InsertSourcigStaff";
+    return this.http.post(this.url, data);
+  }
+
+  public InsertSourcigMaster(data:any) {
+    this.url = this.host + "/Master/InsertSourcingMaster";
+    return this.http.post(this.url, data);
+  }
+
+ 
+ 
+
+
+  public DeleteRecruiterStaff(id : any) {
+    debugger
+    let APIURL = this.host + "/User/DeleteRecruiterStaff?ID="+id;
+    return this.http.get<any[]>(APIURL);
+  }
+
+  public DeleteSourcigStaff(id : any) {
+    debugger
+    let APIURL = this.host + "/Master/DeleteSourcigStaff?ID="+id;
+    return this.http.get<any[]>(APIURL);
+  }
+
+  public DeleteRecruiterMaster(id : any) {
+    debugger
+    let APIURL = this.host + "/User/DeleteRecruiterMaster?ID="+id;
+    return this.http.get<any[]>(APIURL);
+  }
+
+  public DeleteSourcingMaster(id : any) {
+    debugger
+    let APIURL = this.host + "/Master/DeleteSourcingMaster?ID="+id;
+    return this.http.get<any[]>(APIURL);
+  }
+  
+
+  public UpdateRecruiterStaff(data:any) {
+    debugger
+    this.url = this.host + "/User/UpdateRecruiterStaff";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateRecruiterMaster(data:any) {
+    debugger
+    this.url = this.host + "/User/UpdateRecruiterMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateSourcingMaster(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateSourcingMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateSourcingStaff(data:any) {
+    debugger
+    this.url = this.host + "/Master/UpdateSourcingStaff";
+    return this.http.post(this.url, data);
+  }
 
 }

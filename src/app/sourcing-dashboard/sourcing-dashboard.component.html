@@ -56,7 +56,7 @@
                                     <td>{{recuiter.phoneNo}}</td>
                                     <td>{{recuiter.email}}</td>
                                     <td>{{recuiter.address}}</td>
-                                    <td><button class="Edit">Edit</button><br><br>
+                                    <td><button class="Edit" (click)="Update(recuiter.id)">Edit</button><br><br>
                                         <button class="Edit" (click)="delete(recuiter.id)">Delete</button></td>
                                     <!-- <td><img class="imgcancel" src="/assets/cancel (1).png" ></td> -->
                                 </tr>

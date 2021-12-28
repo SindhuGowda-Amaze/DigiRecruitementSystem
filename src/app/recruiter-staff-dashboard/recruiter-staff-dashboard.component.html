@@ -57,7 +57,7 @@
                                     <td>{{staff.email}}</td>
                                     <td>{{staff.address}}</td>
                                     <td><img src="{{staff.signature}}" class="logo"></td>
-                                    <td><button class="Edit">Edit</button><br><br>
+                                    <td><button class="Edit" (click)="Update(staff)">Edit</button><br><br>
                                         <button class="Edit" (click)="delete(staff.id)">Delete</button></td>
                                     <!-- <td><img class="imgcancel" src="/assets/cancel (1).png" ></td> -->
                                 </tr>
