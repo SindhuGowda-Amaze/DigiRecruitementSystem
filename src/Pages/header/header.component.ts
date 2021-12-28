@@ -13,16 +13,16 @@ export class HeaderComponent implements OnInit {
   temp:any
   roleid:any;
   ngOnInit() {
-    this.temp=localStorage.getItem('temp')
-    this.roleid = localStorage.getItem('roleid');
-    this.company_name = localStorage.getItem("company_name");
+    this.temp=sessionStorage.getItem('temp')
+    this.roleid = sessionStorage.getItem('roleid');
+    this.company_name = sessionStorage.getItem("company_name");
   }
 
   logout() {
     sessionStorage.clear();
-    localStorage.clear();
     location.href = "/Login";
+
+    // localStorage.clear();
     //location.reload();
   }
-
 }

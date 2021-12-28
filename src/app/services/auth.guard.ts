@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private router: Router) { }
   canActivate(
   ): boolean | Promise<boolean> {
-    this.session = localStorage.getItem('temp');
+    this.session = sessionStorage.getItem('temp');
     debugger
     //var isAuthenticated = this.session;
     if (this.session != "1" || this.session == undefined) {
