@@ -34,6 +34,8 @@ import { RecruiterFormComponent } from './recruiter-form/recruiter-form.componen
 import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
 import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.component';
 import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
+import { VendorStaffDashboardComponent } from './vendor-staff-dashboard/vendor-staff-dashboard.component';
+import { VendorStaffFormComponent } from './vendor-staff-form/vendor-staff-form.component';
 
 const routes: Routes = [
 
@@ -73,6 +75,11 @@ const routes: Routes = [
   { path: 'RecruiterDashboard', component: RecruiterDashboardComponent },
   { path: 'RecruiterStaff', component: RecruiterStaffComponent },
   { path: 'RecruiterStaffDashboard', component: RecruiterStaffDashboardComponent },
+  {path:'VendorStaffDashboard',component:VendorStaffDashboardComponent},
+  // {path:'VendorStaffDashboard/:id',component:VendorStaffDashboardComponent},
+  {path:'VendorStaffForm',component:VendorStaffFormComponent},
+  {path:'VendorStaffForm/:id',component:VendorStaffFormComponent}
+ 
 ];
 
 @NgModule({

@@ -177,6 +177,22 @@ export class RecruitmentServiceService {
     debugger
     return this.http.get<any[]>(this.host + "/Master/GetVendor_Dasboard");
   }
+  public GetVendor_Staff() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetVendor_Staff");
+  }
+  public InsertVendor_Staff(data:any) {
+    this.url = this.host + "/Master/InsertVendor_Staff";
+    return this.http.post(this.url, data);
+  }
+
+  
+  public DeleteVendor_Staff(ID : any) {
+    debugger 
+    return this.http.get<any[]>(this.host+ "Master/DeleteVendor_Staff?ID=" +ID);
+  }
+
+
 
 
   

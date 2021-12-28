@@ -4,7 +4,7 @@
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="Heading">Vendor Details</p>
+                    <p class="Heading" >Staff Details</p>
                 </div>
             </div>
             <hr class="HrLine">
@@ -46,10 +46,10 @@
             <div class="card">
                 <div class="row leavereq">
                     <div class="col-lg-2">
-                        <p class="newFont">Vendor_Logo </p>
+                        <p class="newFont">Vendor Name </p>
                     </div>
                     <div class="col-lg-2">
-                        <p class="newFont">Vendor_Name </p>
+                        <p class="newFont">Staff Name </p>
                     </div>
                     <div class="col-lg-2">
                         <p class="newFont">Phone_Number </p>
@@ -58,10 +58,33 @@
                         <p class="newFont">Email_ID </p>
                     </div>
                     <div class="col-lg-2">
-                        <p class="newFont">Address </p>
+                        <p class="newFont">Staff Code </p>
                     </div>
-                </div>
-              <div class="row leavereq">
+                    <div class="col-md-2">
+                        <p class="newFont">Signature </p>
+                    </div>
+                </div> <br>
+                <div class="row leavereq ">
+                    <div class="col-md-2">
+                        <select name="Select" class="form-control">
+                            <option value="Select Vendor">Select Vendor</option>
+                            <option value="Amaze">Amaze</option>
+                            <option value="Dxc">Dxc</option>
+                            <option value="MindTree">MindTree</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Staff Name" [(ngModel)]="staff_Name">
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Phone_Number" [(ngModel)]="phone_Number">
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Email_ID" [(ngModel)]="email_Id">
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Staff Code" [(ngModel)]="staff_Code">
+                    </div>
                     <div class="col-md-2">
                         <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
                             <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
@@ -70,30 +93,18 @@
                             </ngx-dropzone-preview>
                         </ngx-dropzone>
                     </div>
-                    <div class="col-md-2">
-                        <input class="form-control inputfield" placeholder="Vendor_Name"  [(ngModel)]="vendor_Name"  >
+                </div> <br>
+                <div class="row leavereq">
+                    <div class="col-lg-7"></div>
+                    <div class="col-lg-2">
+                        <button class="form-control button1" (clicl)="Save">Save</button> <br>
+                        <!-- <button class="form-control button1" (click)="Update()" *ngif="id!==null || id!==undefined">Update</button> <br>        -->
                     </div>
-                    <div class="col-md-2">
-                        <input class="form-control inputfield" placeholder="Phone_Number" [(ngModel)]="phone_Number">
+                    <div class="col-lg-2">
+                        <button class="form-control button1">Cancel</button>
                     </div>
-                    <div class="col-md-2">
-                        <input class="form-control inputfield" placeholder="Email_ID" [(ngModel)]="email_ID" >
-                    </div>
-                    <div class="col-md-2">
-                        <textarea class="form-control inputfield" placeholder="Address" [(ngModel)]="address"></textarea>
-                    </div>               
-            </div> <br>  <br>
-            <div class="row">
-                <div class="col-lg-7"></div>
-                <div class="col-lg-2">
-                     <button class="form-control button1" (click)="Save()" *ngif="id==null || id==undefined">Save</button> <br> 
-                     <button class="form-control button1" (click)="Update()" *ngif="id!==null || id!==undefined">Update</button> <br>       
-                </div>
-                <div class="col-lg-2">
-                    <button class="form-control button1">Cancel</button>
-                </div>
-            </div><br>
-        </div> <br>     
+                </div><br>
+            </div> <br>
+        </div>
+        <div class="col-lg-1"></div>
     </div>
-    <div class="col-lg-1"></div>
-</div>
