@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import Swal from 'sweetalert2';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-client-staff-form',
@@ -10,17 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ClientStaffFormComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
 
   ngOnInit(): void {
     this.GetClientMaster();
-        this.ActivatedRoute.params.subscribe(params=>{
-      debugger
-     this.id=params["id"];
-     if(this.id!=null&&this.id!=undefined){
-       this.GetClientStaff1();
-     }
-    })
+    //     this.ActivatedRoute.params.subscribe(params=>{
+    //   debugger
+    //  this.id=params["id"];
+    //  if(this.id!=null&&this.id!=undefined){
+    //    this.GetClientStaff1();
+    //  }
+    // })
   }
   id:any;
   // Company_logo:any;
@@ -35,22 +35,22 @@ export class ClientStaffFormComponent implements OnInit {
   result:any;
   clientName:any;
   email:any;
-  GetClientStaff1()
-  {
-  this.RecruitmentServiceService.GetClientStaff().subscribe(
-    data => {
-      debugger
-      this.result = data;
-      this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
-      this.Staff=this.result[0].clientID;
+  // GetClientStaff1()
+  // {
+  // this.RecruitmentServiceService.GetClientStaff().subscribe(
+  //   data => {
+  //     debugger
+  //     this.result = data;
+  //     this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
+  //     this.Staff=this.result[0].clientID;
       
       
-      this.Name=this.result[0].name;
-      this.PhoneNo=this.result[0].phoneNo;
-      this.Email=this.result[0].email;
-      this.Address=this.result[0].address
-    })
-  }
+  //     this.Name=this.result[0].name;
+  //     this.PhoneNo=this.result[0].phoneNo;
+  //     this.Email=this.result[0].email;
+  //     this.Address=this.result[0].address
+  //   })
+  // }
 
 
   files: File[] = [];
