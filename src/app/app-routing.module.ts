@@ -80,17 +80,16 @@ const routes: Routes = [
   { path: 'ClientStaffForm', component: ClientStaffFormComponent ,canActivate: [AuthGuard]},
 
   {path:'VendorDashboard',component:VendorDashboardComponent,canActivate: [AuthGuard]},
-  {path:'VendorForm',component: VendorFormComponent},
+  {path:'VendorForm',component: VendorFormComponent,canActivate: [AuthGuard]},
   { path: 'RecruiterForm', component: RecruiterFormComponent },
   { path: 'RecruiterForm/:id', component: RecruiterFormComponent },
   { path: 'RecruiterDashboard', component: RecruiterDashboardComponent },
   { path: 'RecruiterStaff', component: RecruiterStaffComponent },
   { path: 'RecruiterStaff/:id', component: RecruiterStaffComponent },
   { path: 'RecruiterStaffDashboard', component: RecruiterStaffDashboardComponent },
-
-  {path:'VendorStaffDashboard',component:VendorStaffDashboardComponent},
-  {path:'VendorStaffForm',component:VendorStaffFormComponent},
-  {path:'VendorStaffForm/:id',component:VendorStaffFormComponent},
+  {path:'VendorStaffDashboard',component:VendorStaffDashboardComponent,canActivate: [AuthGuard]},
+  {path:'VendorStaffForm',component:VendorStaffFormComponent,canActivate: [AuthGuard]},
+  {path:'VendorStaffForm/:id',component:VendorStaffFormComponent,},
   { path: 'SourcingDashboard', component: SourcingDashboardComponent },
   { path: 'SourcingForm', component: SourcingFormComponent },
   { path: 'SourcingForm/:id', component: SourcingFormComponent },
@@ -98,8 +97,7 @@ const routes: Routes = [
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
   {path:'VendorForm/:id',component: VendorFormComponent},
   { path: 'SourcingStaffForm/:id', component: SourcingStaffFormComponent },
-  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
- 
+  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent }, 
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent },
   { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent, canActivate: [AuthGuard]},
 ];
