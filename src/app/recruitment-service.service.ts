@@ -27,9 +27,19 @@ export class RecruitmentServiceService {
     return this.http.get<any[]>(this.host + "/Master/GetClientMaster");
   }
 
+  public GetClientStaff() {
+
+    return this.http.get<any[]>(this.host + "/Master/GetClientStaff");
+  }
+
 
   public InsertClientMaster(data:any) {
     this.url = this.host + "/Master/InsertClientMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public InsertClientStaff(data:any) {
+    this.url = this.host + "/Master/InsertClientStaff";
     return this.http.post(this.url, data);
   }
 
