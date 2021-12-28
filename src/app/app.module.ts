@@ -41,6 +41,10 @@ import { ClientformComponent } from './clientform/clientform.component';
 import { ClientdashboardComponent } from './clientdashboard/clientdashboard.component';
 import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
 import { VendorFormComponent } from './vendor-form/vendor-form.component';
+import { RecruiterFormComponent } from './recruiter-form/recruiter-form.component';
+import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.component';
+import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
+import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +79,10 @@ import { VendorFormComponent } from './vendor-form/vendor-form.component';
     ClientdashboardComponent,
     VendorDashboardComponent,
     VendorFormComponent,
+    RecruiterFormComponent,
+    RecruiterStaffComponent,
+    RecruiterStaffDashboardComponent,
+    RecruiterDashboardComponent,
    
   ],
   imports: [
