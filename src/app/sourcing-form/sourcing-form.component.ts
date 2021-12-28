@@ -14,7 +14,7 @@ export class SourcingFormComponent implements OnInit {
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.GetSourcingMaster();
+    //this.GetSourcingMaster();
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
       if (this.ID != undefined && this.ID != null) {
