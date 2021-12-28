@@ -10,11 +10,12 @@ export class RecruitmentServiceService {
 
  host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
-  // private host = "http://localhost:1807/";
+  //private host = "http://localhost:1807/";
   // private host = localStorage.getItem('apiurl');
   private url: string = "";
   showvid: any;
   URL: any;
+  data:any;
   constructor(private http: HttpClient) { }
 
   public GetLoginTypeMaster() {
@@ -116,6 +117,8 @@ export class RecruitmentServiceService {
     this.url = this.host + "/Vendor/UpdateCandidateJoiningDate";
     return this.http.post(this.url, data);
   }
+
+
  
 
 
@@ -158,9 +161,53 @@ export class RecruitmentServiceService {
       formdata.append('file_upload', files[i], files[i].name);
     }
     debugger
-    let APIURL = this.host + "Master/UploadImages/";
+    let APIURL = this.host + "/Master/UploadImages/";
     return this.http.post(APIURL, formdata);
 
   }
+
+  public InsertRecruiterMaster(data:any) {
+    this.url = this.host + "/User/InsertRecruiterMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public GetRecruiterMaster() {
+
+    return this.http.get<any[]>(this.host + "/User/GetRecruiterMaster");
+  }
+
+  public InsertRecruiterStaff(data:any) {
+    this.url = this.host + "/User/InsertRecruiterStaff";
+    return this.http.post(this.url, data);
+  }
+
+  public GetRecruiterStaff() {
+
+    return this.http.get<any[]>(this.host + "/User/GetRecruiterStaff");
+  }
+
+  public GetSourcingMaster() {
+
+    return this.http.get<any[]>(this.host + "/Master/GetSourcingMaster");
+  }
   
+  public GetVendor_Dasboard() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/GetVendor_Dasboard");
+  }
+
+
+  
+  public InsertVendor_Dasboard(data:any) {
+    this.url = this.host + "/Master/InsertVendor_Dasboard";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateVendor_Dasboard(data:any) {
+    debugger
+    this.url = this.host + "/User/UpdateVendor_Dasboard";
+    return this.http.post(this.url, data);
+  }
+
+
 }

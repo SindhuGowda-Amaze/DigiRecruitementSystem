@@ -30,6 +30,16 @@ import { ClientdashboardComponent } from './clientdashboard/clientdashboard.comp
 import { ClientformComponent } from './clientform/clientform.component';
 import { ClientStaffDashboardComponent } from './client-staff-dashboard/client-staff-dashboard.component';
 import { ClientStaffFormComponent } from './client-staff-form/client-staff-form.component';
+import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
+import { VendorFormComponent } from './vendor-form/vendor-form.component';
+import { RecruiterFormComponent } from './recruiter-form/recruiter-form.component';
+import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
+import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.component';
+import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
+import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashboard.component';
+import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
+import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
+import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 
 const routes: Routes = [
 
@@ -65,6 +75,18 @@ const routes: Routes = [
   { path: 'ClientForm', component: ClientformComponent },
   { path: 'ClientStaffDashBoard', component: ClientStaffDashboardComponent },
   { path: 'ClientStaffForm', component: ClientStaffFormComponent },
+  {path:'VendorDashboard',component:VendorDashboardComponent},
+  {path:'VendorForm',component: VendorFormComponent},
+  { path: 'RecruiterForm', component: RecruiterFormComponent },
+  { path: 'RecruiterDashboard', component: RecruiterDashboardComponent },
+  { path: 'RecruiterStaff', component: RecruiterStaffComponent },
+  { path: 'RecruiterStaffDashboard', component: RecruiterStaffDashboardComponent },
+  
+  { path: 'SourcingDashboard', component: SourcingDashboardComponent },
+  { path: 'SourcingForm', component: SourcingFormComponent },
+  { path: 'SourcingStaffForm', component: SourcingStaffFormComponent },
+  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent }
+ 
 ];
 
 @NgModule({
