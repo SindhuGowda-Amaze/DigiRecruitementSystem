@@ -107,10 +107,10 @@ this.files.splice(this.files.indexOf(event),1);
     debugger
      var json = {
       "Logo": this.Company_logo,
-   "Name": this.Name,
-   "PhoneNo": this.PhoneNo,
-   "Email": this.Email,
-   "Address": this.Address, 
+      "Name": this.Name,
+      "PhoneNo": this.PhoneNo,
+      "Email": this.Email,
+      "Address": this.Address, 
       };
     
       this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(
