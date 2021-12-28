@@ -64,6 +64,33 @@ export class LoginPageComponent implements OnInit {
 
       
     }
+    else if (this.roleID == 6){
+      this.RecruitmentServiceService.GetRecruiterMaster().subscribe(data => {
+        let temp: any = data.filter(x => (x.email == this.userName) && x.password == this.password);
+        this.result = temp[0];
+        debugger;
+        // this.loader = true;
+        if (this.result != undefined || this.result != null) {
+          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('userid', this.result.id);
+          sessionStorage.setItem('temp', '1');
+          sessionStorage.setItem('role', 'recruiter');
+          sessionStorage.setItem('roleid', '6');
+          location.href = "/Dashboard";
+       
+
+        }
+        else {
+          Swal.fire('Phonenumber or Password is invalid');
+          this.userName = "";
+          this.password = "";
+        }
+       
+    }) 
+     
+    }
+      
+
 
     //for vendor login
     else if (this.roleID == 7) {
