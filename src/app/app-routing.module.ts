@@ -32,6 +32,10 @@ import { RecruiterFormComponent } from './recruiter-form/recruiter-form.componen
 import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
 import { RecruiterStaffComponent } from './recruiter-staff/recruiter-staff.component';
 import { RecruiterStaffDashboardComponent } from './recruiter-staff-dashboard/recruiter-staff-dashboard.component';
+import { SourcingDashboardComponent } from './sourcing-dashboard/sourcing-dashboard.component';
+import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
+import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
+import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 
 const routes: Routes = [
 
@@ -69,6 +73,12 @@ const routes: Routes = [
   { path: 'RecruiterDashboard', component: RecruiterDashboardComponent },
   { path: 'RecruiterStaff', component: RecruiterStaffComponent },
   { path: 'RecruiterStaffDashboard', component: RecruiterStaffDashboardComponent },
+  
+  { path: 'SourcingDashboard', component: SourcingDashboardComponent },
+  { path: 'SourcingForm', component: SourcingFormComponent },
+  { path: 'SourcingStaffForm', component: SourcingStaffFormComponent },
+  { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent }
+ 
 ];
 
 @NgModule({

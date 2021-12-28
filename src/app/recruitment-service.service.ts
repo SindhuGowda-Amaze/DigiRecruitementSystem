@@ -107,9 +107,7 @@ export class RecruitmentServiceService {
     return this.http.post(this.url, data);
   }
 
-  public GetRecruiterStaff() {
-    return this.http.get<any[]>(this.host + "/User/GetRecruiterStaff");
-  }
+
  
 
 
@@ -170,6 +168,16 @@ export class RecruitmentServiceService {
   public InsertRecruiterStaff(data:any) {
     this.url = this.host + "/User/InsertRecruiterStaff";
     return this.http.post(this.url, data);
+  }
+
+  public GetRecruiterStaff() {
+
+    return this.http.get<any[]>(this.host + "/User/GetRecruiterStaff");
+  }
+
+  public GetSourcingMaster() {
+
+    return this.http.get<any[]>(this.host + "/Master/GetSourcingMaster");
   }
   
 }
