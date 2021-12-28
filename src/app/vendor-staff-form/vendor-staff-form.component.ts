@@ -20,7 +20,7 @@ export class VendorStaffFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  Company_logo:any;
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
     debugger
@@ -35,25 +35,23 @@ debugger
 console.log(event);
 this.files.splice(this.files.indexOf(event),1);
   }
-
- public uploadattachments() {
+  public uploadattachments() {
     debugger
-    this.RecruitmentServiceService.AttachmentsUpload(this.files).subscribe(res => {
+    this.RecruitmentServiceService.UploadImages(this.files).subscribe(res => {
       debugger
-      this.signature = res;
+      this.Company_logo = res;
       alert("ATTACHMENT UPLOADED");
     })
   }
-
   Save(){
-    debugger 
+    debugger;
    var json = { 
      "Vendor_Name":this.vendor_Name,
-    "Staff_Name":this. staff_Name,
+    "Staff_Name":this.staff_Name,
     "Phone_Number":this.phone_Number,
     "Email_Id":this.email_Id,
     "Staff_Code":this.staff_Code,
-    "Signature":this.signature
+    "Signature":this.Company_logo
     };
     this.RecruitmentServiceService.InsertVendor_Staff(json).subscribe(
       data => {
