@@ -82,12 +82,15 @@
                     <div class="col-md-2">
                         <textarea class="form-control inputfield" placeholder="Address" [(ngModel)]="address"></textarea>
                     </div>               
-            </div>    
+            </div> <br>  <br>
             <div class="row">
-                <div class="col-lg-5"></div>
+                <div class="col-lg-7"></div>
                 <div class="col-lg-2">
-                     <button class="form-control button1" (click)="Save()" >Save</button> <br>
-        
+                     <button class="form-control button1" (click)="Save()" *ngif="id==null || id==undefined">Save</button> <br> 
+                     <button class="form-control button1" (click)="Update()" *ngif="id!==null || id!==undefined">Update</button> <br>       
+                </div>
+                <div class="col-lg-2">
+                    <button class="form-control button1">Cancel</button>
                 </div>
             </div><br>
         </div> <br>     

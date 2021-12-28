@@ -21,8 +21,6 @@ export class RecruiterFormComponent implements OnInit {
     this.uploadattachments();
     console.log("content", this.files);
   }
-
-
   onRemove(event:any)
   {
 debugger
@@ -52,7 +50,6 @@ Address:any;
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
-
     }
     this.RecruitmentServiceService.InsertRecruiterMaster(entity).subscribe(data => {
       if (data != 0) {

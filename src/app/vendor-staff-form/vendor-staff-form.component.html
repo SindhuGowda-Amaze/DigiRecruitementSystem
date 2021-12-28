@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-10">
+                    <p class="Heading" >Staff Details</p>
+                </div>
+            </div>
+            <hr class="HrLine">
+            <div class="card">
+                <br>
+                <div class="row FilterClass">
+                    <div class="col-lg-1">
+                        Filter By
+                    </div>
+                    <div class="col-lg-3">
+                        <input class="form-control" placeholder="Search">
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="count">Count:</p>
+                    </div>
+                </div> <br>
+            </div> <br>
+            <div class="card">
+                <div class="row leavereq">
+                    <div class="col-lg-2">
+                        <p class="newFont">Vendor Name </p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="newFont">Staff Name </p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="newFont">Phone_Number </p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="newFont">Email_ID </p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="newFont">Staff Code </p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="newFont">Signature </p>
+                    </div>
+                </div> <br>
+                <div class="row leavereq ">
+                    <div class="col-md-2">
+                        <select name="Select" class="form-control"  [(ngModel)]="vendor_Name">
+                            <option value="Select Vendor">Select Vendor</option>
+                            <option value="Amaze">Amaze</option>
+                            <option value="Dxc">Dxc</option>
+                            <option value="MindTree">MindTree</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Staff Name" [(ngModel)]="staff_Name">
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Phone_Number" [(ngModel)]="phone_Number">
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Email_ID" [(ngModel)]="email_Id">
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control inputfield" placeholder="Staff Code" [(ngModel)]="staff_Code">
+                    </div>
+                    <div class="col-md-2">
+                        <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
+                            <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                </div> <br>
+                <div class="row leavereq">
+                    <div class="col-lg-7"></div>
+                    <div class="col-lg-2">
+                        <button class="form-control button1" (click)="Save()">Save</button> <br>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="form-control button1">Cancel</button>
+                    </div>
+                </div><br>
+            </div> <br>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
