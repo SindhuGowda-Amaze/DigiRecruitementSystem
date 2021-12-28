@@ -67,7 +67,7 @@ export class ClientformComponent implements OnInit {
 
   save(){
     var json = {
-   
+
    "Logo": this.Company_logo,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
@@ -89,9 +89,9 @@ export class ClientformComponent implements OnInit {
 
   onRemove(event:any)
   {
-debugger
-console.log(event);
-this.files.splice(this.files.indexOf(event),1);
+   debugger
+   console.log(event);
+   this.files.splice(this.files.indexOf(event),1);
   }
 
   public uploadattachments() {
