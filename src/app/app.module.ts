@@ -53,6 +53,7 @@ import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sour
 import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
 import { AuthGuard } from './services/auth.guard';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SourcingFormComponent,
     SourcingStaffDashboardComponent,
     SourcingStaffFormComponent,
+    AdminDashboardComponent,
    
   ],
   imports: [

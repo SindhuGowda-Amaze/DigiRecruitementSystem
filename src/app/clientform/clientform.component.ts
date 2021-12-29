@@ -9,10 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./clientform.component.css']
 })
 export class ClientformComponent implements OnInit {
+  count: any;
+  recruiterlist: any;
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     
     this.GetClientMaster();
         this.ActivatedRoute.params.subscribe(params=>{
@@ -24,6 +27,8 @@ export class ClientformComponent implements OnInit {
     })
   }
 
+  
+
 
   GetClientMaster()
   {
@@ -32,11 +37,9 @@ export class ClientformComponent implements OnInit {
       debugger
       this.result = data;
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
-      this.Staff=this.result[0].clientID;
       
       
       this.Company_logo=this.result[0].company_logo;
-      this.Role=this.result[0].role;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].phoneNo;
       this.Email=this.result[0].email;
@@ -47,15 +50,15 @@ export class ClientformComponent implements OnInit {
 
 
   id:any;
+  ID:any;
   Company_logo:any;
   Name: any;
   PhoneNo: any;
   Email: any;
   Address: any;
-  Role: any;
   Signature: any;
-  Staff: any;
   result: any;
+
   
 
 
@@ -69,11 +72,11 @@ export class ClientformComponent implements OnInit {
     console.log("content", this.files);
   }
 
-  save(){
+  public insertdetails(){
+    debugger
     var json = {
 
    "Logo": this.Company_logo,
-   "Role": this.Role,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
@@ -86,7 +89,7 @@ export class ClientformComponent implements OnInit {
    data => {
    debugger
    let result = data;
-   location.href="/ClientForm/"
+   location.href="/ClientDashBoard/"
  })
 
  alert("Mentioned PhoneNo is "+this.PhoneNo)
@@ -109,11 +112,10 @@ export class ClientformComponent implements OnInit {
     })
   }
 
-  Update(){
+  public Update() {
     debugger
      var json = {
       "Logo": this.Company_logo,
-      "Role": this.Role, 
       "Name": this.Name,
       "PhoneNo": this.PhoneNo,
       "Email": this.Email,

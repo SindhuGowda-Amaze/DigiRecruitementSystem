@@ -16,6 +16,7 @@ export class JobRecruitementsComponent implements OnInit {
   count: any;
 
   ngOnInit(): void {
+    this.GetRecruiterStaff();
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data.filter(x => x.vendor == null);
@@ -27,8 +28,8 @@ export class JobRecruitementsComponent implements OnInit {
   }
   Userlist: any;
   public GetUserslist() {
-    this.RecruitmentServiceService.GetUserslist().subscribe(data => {
-      this.Userlist = data.filter(x => x.userRoleID == 7);
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
+      this.Userlist = data;
 
     })
   }
@@ -48,7 +49,7 @@ export class JobRecruitementsComponent implements OnInit {
       "ID": this.ID,
       "Vendor": this.Vendor,
       "Notes": this.Notes,
-      "VendorId": this.vendorid
+      "VendorId": 1
     }
     this.RecruitmentServiceService.UpdateVendor(entity).subscribe(data => {
 
@@ -71,4 +72,34 @@ export class JobRecruitementsComponent implements OnInit {
     debugger
     this.router.navigate(['/AttendanceView']);
   }
+
+  Recruiter:any;
+
+  public UpdateRecruiter() {
+    debugger
+
+    var entity = {
+      "ID": this.ID,
+      "Recruiter": this.Recruiter,
+      "Notes": this.Notes,
+     
+    }
+    this.RecruitmentServiceService.AssignRecruiter(entity).subscribe(data => {
+
+      Swal.fire('Updated successfully');
+      location.reload();
+
+    })
+  }
+  stafflist:any;
+  public GetRecruiterStaff() {
+    this.RecruitmentServiceService.GetRecruiterStaff().subscribe(
+      data => {
+      this.stafflist = data
+   
+    })
+
+  }
+
+
 }

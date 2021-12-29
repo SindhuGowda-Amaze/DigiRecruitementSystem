@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
   joblist13:any;
   joblist14:any;
   vendorid: any;
-
+  joblist:any;
   constructor(public router: Router, private datePipe: DatePipe,
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
@@ -63,13 +63,14 @@ export class DashboardComponent implements OnInit {
 
     })
 
+
+    
+
+   
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist1 = data.filter(x => x.vendorId == this.vendorid);
+      this.joblist = data.filter(x => x.vendor == null);
      debugger
-      if(this.roleid==7){
-        this.count = this.joblist1.length;
-        this.joblist1 = this.joblist1.slice(0, 3);
-      }
+     this.count = this.joblist.length;
     })
 
 

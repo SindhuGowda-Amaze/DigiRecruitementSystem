@@ -79,7 +79,12 @@
                         </div>
                     </div> 
                     <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" [(ngModel)]="Role">
+                        <div class="dropdown">
+                            <select class="form-control" name="Role" Id="Role" [(ngModel)]="Role">
+                                <option value="">Select </option>
+                                <option *ngFor="let Client of ClientList" value={{Client.id}}>{{Client.short}} </option>
+                            </select>
+                        </div>
                     </div>
                     <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Name">

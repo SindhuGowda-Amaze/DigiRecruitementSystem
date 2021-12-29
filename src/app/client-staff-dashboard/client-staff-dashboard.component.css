@@ -48,6 +48,14 @@ ul {
     font-weight: bold;
 }
 
+.Count{
+    color: #212529;
+    font-size: 20px !important;
+    font-family: 'DIN Bold';
+    font-weight: bold;
+    margin-left: -25px;
+}
+
 .button{
   text-transform: uppercase;
 font-weight: initial;
@@ -98,9 +106,15 @@ font-weight: bold;
   .table{
     background-color: #dee2e6;
   }
+  .table th {
+    background-color: #e4e5e6 !important;
+  }
+
   .HrLine{
     margin-left: 15px;
     margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 0px;
   }
 
   .img{
@@ -138,6 +152,62 @@ font-weight: bold;
     background-color: #2F87CC;
     color: white;
   }
+<<<<<<< HEAD
   .Text{
     font-size: 16px;
   }
+=======
+  
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 27px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+>>>>>>> 5a0905b7fb89808ba6aa16b80f72711460783ae1
