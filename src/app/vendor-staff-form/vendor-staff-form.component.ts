@@ -83,7 +83,6 @@ export class VendorStaffFormComponent implements OnInit {
       "Staff_Name": this.staff_Name,
       "Phone_Number": this.phone_Number,
       "Email_Id": this.email_Id,
-
       "Signature": this.Company_logo,
       "Role": this.role_Id
     };
@@ -124,7 +123,6 @@ export class VendorStaffFormComponent implements OnInit {
       "Staff_Name": this.staff_Name,
       "Phone_Number": this.phone_Number,
       "Email_Id": this.email_Id,
-
       "Signature": this.Company_logo,
       "Role": this.role_Id
     };

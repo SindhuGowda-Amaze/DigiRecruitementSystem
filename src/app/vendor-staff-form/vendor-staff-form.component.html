@@ -68,7 +68,7 @@
                     <div class="col-md-2">
                         <input class="form-control inputfield" placeholder="Email ID" [(ngModel)]="email_Id">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" >
                         <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
                             <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
                             <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
