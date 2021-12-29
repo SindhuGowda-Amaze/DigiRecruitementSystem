@@ -39,7 +39,7 @@
             </ul>
         </div>
 
-        <div class="col-lg-1">
+        <div class="col-lg-1" *ngIf="roleid!=1" >
             <h6 class=" dropdown-toggle menutext" *ngIf="roleid!=8" type="button" id="dropdownMenu1"
                 data-toggle="dropdown" aria-expanded="false">Job Recruitements</h6>
             <ul class="dropdown-menu">
@@ -62,7 +62,7 @@
             </ul>
         </div>
 
-        <div class="col-lg-1" style="margin-left: 61px;">
+        <div class="col-lg-1" style="margin-left: 61px;" *ngIf="roleid!=1">
             <h6 class=" dropdown-toggle menutext" type="button" id="dropdownMenu1" data-toggle="dropdown"
                 aria-expanded="false" *ngIf="roleid!=8">Reports</h6>
             <ul class="dropdown-menu">
