@@ -13,7 +13,7 @@ export class VendorStaffFormComponent implements OnInit {
   signature: any;
   staff_Name: any;
   phone_Number: any;
-  email_Id: any;
+  Email_ID: any;
   staff_Code: any;
   role_Id: any;
   vendor_Name: any;
@@ -69,7 +69,7 @@ export class VendorStaffFormComponent implements OnInit {
         this.result = this.result.filter((x: { id: any; }) => x.id == Number(this.id));
         this.vendor_Name = this.result[0].vendor_Name;
         this.staff_Name = this.result[0].staff_Name;
-        this.email_Id = this.result[0].email_Id;
+        this.Email_ID = this.result[0].Email_ID;
         this.phone_Number = this.result[0].phone_Number;
         this.Company_logo = this.result[0].signature;
         this.role_Id = this.result[0].role;
@@ -82,7 +82,7 @@ export class VendorStaffFormComponent implements OnInit {
       "VendorId": this.vendor_Name,
       "Staff_Name": this.staff_Name,
       "Phone_Number": this.phone_Number,
-      "Email_Id": this.email_Id,
+      "Email_ID": this.Email_ID,
 
       "Signature": this.Company_logo,
       "Role": this.role_Id
@@ -123,7 +123,7 @@ export class VendorStaffFormComponent implements OnInit {
       "VendorID": this.vendor_Name,
       "Staff_Name": this.staff_Name,
       "Phone_Number": this.phone_Number,
-      "Email_Id": this.email_Id,
+      "Email_ID": this.Email_ID,
 
       "Signature": this.Company_logo,
       "Role": this.role_Id
