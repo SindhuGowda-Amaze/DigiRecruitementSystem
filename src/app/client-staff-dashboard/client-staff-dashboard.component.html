@@ -43,9 +43,9 @@
                                 <tr class="newFont">
                                     <th>Client Name</th>
                                     <th>Role </th>
-                                    <th>Client Staff Name</th>
+                                    <th>Staff Name</th>
                                     <th>Email</th>
-                                    <th>Client Staff Phone No.</th>
+                                    <th>Staff Phone No.</th>
                                     <th>Address <th> 
                                     <th>Signature <th> 
                                     <th>Actions</th>    
@@ -67,10 +67,8 @@
                                     <td></td>
                                     <td><button class="Edit" (click)="edit(ClientStaffData.id)">Edit</button><br><br>
                                     <button class="Edit" (click)="delete(ClientStaffData)">Delete</button><br><br>
-                                    <label class="switch">
-                                        <input type="checkbox" >
-                                        <span class="slider round"></span>
-                                      </label></td>
+                                  <img src="assets/Images/activate.png" style="width:20%"  *ngIf="ClientStaffData.enable_Disable==0 || ClientStaffData.enable_Disable==null " (click)="DisableStaff(ClientStaffData.id)" > <br/>
+                                  <img src="assets/Images/deactivate.png"  *ngIf="ClientStaffData.enable_Disable==1" (click)="DisableStaff1(ClientStaffData.id)" style="width:20%"  > 
                                 </tr>
                             </tbody>
                         </table>

@@ -43,6 +43,7 @@ import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
 import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 import { AuthGuard } from './services/auth.guard';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -102,6 +103,7 @@ const routes: Routes = [
 
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent, canActivate: [AuthGuard] },
   { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent, canActivate: [AuthGuard] },
+  { path: 'AdminDashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
