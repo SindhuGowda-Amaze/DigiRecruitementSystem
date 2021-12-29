@@ -17,12 +17,14 @@ export class ClientStaffDashboardComponent implements OnInit {
   }
 
   ClientStaffList:any
+  count:any;
 
   public GetClientStaff() {
     debugger
     this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
       debugger
       this.ClientStaffList=data ;
+      this.count = this.ClientStaffList.length;
      })
   }
 

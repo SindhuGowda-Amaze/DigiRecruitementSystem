@@ -18,25 +18,27 @@
   td{
     background-color: white
   }
-  /* .th{
+  /* /* .th{
     background-color: #e4e5e6;
     color:#404040;
     font-family: "DIN Bold";
   } */
-  .table, th, td {
+  /* .table, th, td {
   border: 1px solid lightgray;
    border-collapse: collapse; 
 
-  }
+  } */
   .Heading{
   padding-left: 15px;
   font-size: 20px;
   color:black;
   }
   .head{
-  background-color: #e4e5e6;
+  background-color: #dee2e6;
   color:#404040;
   font-family: "DIN Bold";
+  font-size: 15px;
+ padding:5px;
   }
   .FilterClass{
   padding-left: 15px;
@@ -45,6 +47,9 @@
   text-align: right;
   padding-right: 10px;;
   }
+  .table{
+    border-radius: 5px;
+  }
   
   .button1{
     padding:5px;
@@ -52,7 +57,8 @@
     color:white;
     background-color: #2F87CC;
     border:none;
-    width:100%;
+    width:50%;
+
   }
 
   .button2{
@@ -61,7 +67,9 @@
     color:white;
     background-color: #2F87CC;
     border:none;
-    width:100%;
+    width:50%;
+   
+   
 
   }
   
@@ -107,4 +115,10 @@
   }
   .image{
     width:200%;
+  }
+  .FilterClass{
+    padding-left: 15px;
+  }  
+  .Text{
+    font-size: 18px;
   }

@@ -98,6 +98,9 @@ font-weight: bold;
     vertical-align: middle;
     background-color: white;
   }
+  table{
+    background-color:#dee2e6 ;
+  }
 
   .HrLine{
     margin-left: 15px;
@@ -136,8 +139,11 @@ font-weight: bold;
 
   .Edit{
     width: 50px;
-    border-radius: 7px;
+    border-radius: 5px;
     background-color: #2F87CC;
     color: white;
+   
   }
-  
+  .Text{
+    font-size: 16px;
+  }

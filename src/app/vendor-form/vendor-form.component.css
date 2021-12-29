@@ -39,11 +39,11 @@
    }
   
   
-  .table, th, td {
+  /* .table, th, td {
     border: 1px solid lightgray;
      border-collapse: collapse; 
    
-  }
+  } */
 
   .Save{
     padding:7px;
