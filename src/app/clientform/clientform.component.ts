@@ -50,6 +50,7 @@ export class ClientformComponent implements OnInit {
   PhoneNo: any;
   Email: any;
   Address: any;
+  Role: any;
   Staff: any;
   result: any;
   
@@ -73,6 +74,7 @@ export class ClientformComponent implements OnInit {
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
    "Address": this.Address,
+   "Role": this.Role,
 
  };
 
@@ -111,6 +113,7 @@ export class ClientformComponent implements OnInit {
       "PhoneNo": this.PhoneNo,
       "Email": this.Email,
       "Address": this.Address, 
+      "Role": this.Role, 
       };
     
       this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(

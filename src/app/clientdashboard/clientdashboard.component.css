@@ -41,10 +41,15 @@ ul {
 
 .Heading{
   padding-left: 15px;
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
-  text-decoration-line: underline;
+  /* font-size: 15px; */
+  /* font-weight: bold; */
+  /* color: black; */
+  /* text-decoration-line: underline; */
+
+    color: #212529;
+    font-size: 20px !important;
+    font-family: 'DIN Bold';
+    font-weight: bold;
 }
 
 .button{
@@ -122,6 +127,7 @@ font-weight: bold;
   .newFont{
     font-size: 15px;
     font-weight: bold;
+    color: #494949;
   }
   
   .SelectData{
