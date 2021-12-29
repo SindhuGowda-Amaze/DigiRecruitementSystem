@@ -20,7 +20,7 @@ export class ClientStaffDashboardComponent implements OnInit {
   }
 
   ClientStaffList:any
-  count:any;
+
 
   public GetClientStaff() {
     debugger
