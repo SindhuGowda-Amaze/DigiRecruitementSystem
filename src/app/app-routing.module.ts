@@ -44,10 +44,12 @@ import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
   { path: "Login", component: LoginPageComponent },
+  { path: "Spinner", component: SpinnerComponent },
   { path: "Header", component: HeaderComponent, canActivate: [AuthGuard] },
   { path: "Sidebar", component: SidebarComponent, canActivate: [AuthGuard] },
   { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard] },

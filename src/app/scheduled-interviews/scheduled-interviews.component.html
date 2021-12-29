@@ -65,9 +65,9 @@
                 <td>                   
                 </td>
                 <td>
-                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Selected</button> <br><br>
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="getid(job.id)">Selected</button> <br><br>
                   <button class="btn btn-primary" style="background-color:#dc3545; border:none" 
-                  data-toggle="modal" data-target="#exampleModal1">Rejected</button>
+                  data-toggle="modal" data-target="#Reject" (click)="getid(job.id)" >Rejected</button>
                    
              
                     <!-- <button class="btn btn-primary"
@@ -104,7 +104,7 @@
                         <label>Notes</label>
                     </div>
                     <div class="col-lg-6">
-                      <textarea class="form-control" placeholder="Notes"></textarea>
+                      <textarea class="form-control" placeholder="Notes" [(ngModel)]="rinterview" ></textarea>
                         <!-- <select class="form-control" (change)="GetStaffID($event)">
                             <option value="">Select</option>
                             <option *ngFor="let staff of stafflist" value="{{staff.id}}">{{staff.name}}</option>
@@ -114,7 +114,7 @@
                 <div class="row">
                   <div class="col-lg-4"></div>
                   <div class="col-lg-2">
-                    <button class="btn btn-primary" style="background-color:#007bff; border:none">Selected</button>
+                    <button class="btn btn-primary" style="background-color:#007bff; border:none" (click)="Acceptcandidate()">Selected</button>
                   </div>
                 </div> <br>
                 
@@ -125,9 +125,10 @@
         </div>
     </div>
 </div>
+</div>
 
 
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="Reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:700px">
@@ -153,7 +154,7 @@
                 <div class="row">
                   <div class="col-lg-4"></div>
                   <div class="col-lg-2">
-                    <button class="btn btn-primary" style="background-color:#dc3545; border:none">Rejeted</button>
+                    <button class="btn btn-primary" style="background-color:#dc3545; border:none" (click)="Rejecttcandidate()">Rejeted</button>
                   </div>
                 </div> <br>
                 
@@ -163,4 +164,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
