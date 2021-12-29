@@ -20,7 +20,7 @@ export class ClientdashboardComponent implements OnInit {
   }
 
   ClientMasterlist:any
-  count:any;
+
 
   public GetClientMaster() {
     debugger

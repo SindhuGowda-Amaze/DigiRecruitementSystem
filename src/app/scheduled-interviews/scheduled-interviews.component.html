@@ -65,13 +65,18 @@
                 <td>                   
                 </td>
                 <td>
-                    <button class="btn btn-primary"
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Selected</button> <br><br>
+                  <button class="btn btn-primary" style="background-color:#dc3545; border:none" 
+                  data-toggle="modal" data-target="#exampleModal1">Rejected</button>
+                   
+             
+                    <!-- <button class="btn btn-primary"
                         *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
                         (click)="Accept(job.id,job.interviewercomments)">Selected</button> &nbsp;
                      <br>
                     <button class="btn btn-danger"
                         *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
-                        (click)="Reject(job.id,job.interviewercomments)">Rejected</button>
+                        (click)="Reject(job.id,job.interviewercomments)">Rejected</button> -->
                 </td>
             </tr>          
             </thead>
@@ -83,5 +88,79 @@
   </div>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:700px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Schedule Interview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Notes</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <textarea class="form-control" placeholder="Notes"></textarea>
+                        <!-- <select class="form-control" (change)="GetStaffID($event)">
+                            <option value="">Select</option>
+                            <option *ngFor="let staff of stafflist" value="{{staff.id}}">{{staff.name}}</option>
+                        </select> -->
+                    </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-lg-4"></div>
+                  <div class="col-lg-2">
+                    <button class="btn btn-primary" style="background-color:#007bff; border:none">Selected</button>
+                  </div>
+                </div> <br>
+                
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:700px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Schedule Interview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Notes</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <textarea class="form-control" placeholder="Notes"></textarea>
+                        <!-- <select class="form-control" (change)="GetStaffID($event)">
+                            <option value="">Select</option>
+                            <option *ngFor="let staff of stafflist" value="{{staff.id}}">{{staff.name}}</option>
+                        </select> -->
+                    </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-lg-4"></div>
+                  <div class="col-lg-2">
+                    <button class="btn btn-primary" style="background-color:#dc3545; border:none">Rejeted</button>
+                  </div>
+                </div> <br>
+                
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
