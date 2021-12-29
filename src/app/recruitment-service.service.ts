@@ -327,4 +327,12 @@ export class RecruitmentServiceService {
     debugger
     return this.http.get<any[]>(this.host + "/MasterDemo/GetRoleType?UserTypeID=1");
   }
+
+
+  public EnableClientStaff(data:any) {
+    debugger
+    this.url = this.host + "/Master/EnableClientStaff";
+    return this.http.post(this.url, data);
+  }
+
 }

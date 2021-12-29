@@ -44,4 +44,23 @@ export class ClientStaffDashboardComponent implements OnInit {
     })
   }
 
+  public DisableStaff(id: any) {
+
+    var eb = {
+
+      'ID': id,
+
+      'Enable_Disable': 1
+
+    }
+
+    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
+      data => {
+        debugger
+        Swal.fire('Updated successfully.');
+        location.reload();
+      },
+    )
+  }
+
 }
