@@ -93,28 +93,27 @@ export class ClientStaffFormComponent implements OnInit {
     console.log("content", this.files);
   }
 
-  save(){
-    var json = {
+ 
 
-   "ClientID": this.Staff,
-   "Role_Id": this.Role,
-   "Name": this.Name,
-   "PhoneNo": this.PhoneNo,
-   "Email": this.Email,
-   "Address": this.Address,
-   "Signature": this.Signature,
-
- };
-
- this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
-   data => {
-   debugger
-   let result = data;
-   location.href="/ClientStaffDashBoard/"
- })
-
- alert("Mentioned PhoneNo is "+this.PhoneNo)
- }
+ Save() {
+  debugger
+  var json = {
+    "ClientID": this.Staff,
+    "Role_Id": this.Role,
+    "Name": this.Name,
+    "PhoneNo": this.PhoneNo,
+    "Email": this.Email,
+    "Address": this.Address,
+    "Signature": this.Signature,
+  };
+  this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
+    data => {
+      debugger
+      let id = data;
+      alert("Successfully Submitted...!!")
+      location.href = "/ClientStaffDashBoard"
+    })
+}
 
 
   onRemove(event:any)
@@ -135,9 +134,9 @@ this.files.splice(this.files.indexOf(event),1);
 
 
 
-Update(){
+  Update() {
     debugger
-     var json = {
+    var json = {
       "ClientID": this.Staff,
       "Role": this.Role,
       "Name": this.Name,
@@ -145,14 +144,16 @@ Update(){
       "Email": this.Email,
       "Address": this.Address,
       "Signature": this.Signature,  
-      };
-    
-      this.RecruitmentServiceService.UpdateClientStaff(json).subscribe(
-        data => {
+    };
+
+    this.RecruitmentServiceService.UpdateClientStaff(json).subscribe(
+      data => {
         debugger
         let result = data;
-        Swal.fire("Updated Sucessfully...!");
-      // location.href="/Department";
+        Swal.fire("Updated Sucessfully...");
+        location.href = "/ClientStaffDashBoard";
       })
-    }
+  }
+
+
 }

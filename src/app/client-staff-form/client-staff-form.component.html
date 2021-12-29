@@ -138,8 +138,10 @@
                         <button class="form-control CancelBTN">Cancel</button>
                     </div>
                     <div class="col-lg-1">
-                        <button class="form-control SubmitBTN" (click)="save()" >Submit</button>
-                        <!-- <button class="form-control SubmitBTN"  (click)="Update()">Edit</button> -->
+                        <button type="button" class="form-control SubmitBTN" *ngIf="id==null || id==undefined"
+                            (click)="Save()">Save</button>
+                        <button type="button" class="form-control SubmitBTN" *ngIf="id!=null || id!=undefined"
+                            (click)="Update()">Update</button>
                     </div>
                 </div>
                 <br>
