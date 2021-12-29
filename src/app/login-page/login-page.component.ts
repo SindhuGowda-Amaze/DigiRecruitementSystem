@@ -55,11 +55,11 @@ export class LoginPageComponent implements OnInit {
 
     if (this.userName == 'admin' && this.password == '1') {
       debugger
-      localStorage.setItem('userName', 'admin');
-      localStorage.setItem('temp', '1');
+      sessionStorage.setItem('userName', 'admin');
+      sessionStorage.setItem('temp', '1');
       // this.router.navigate(["/Dashboard"]);
       location.href="/Dashboard"
-      localStorage.setItem('roleid', '6');
+      sessionStorage.setItem('roleid', '1');
       //  location.reload();
 
       
@@ -89,6 +89,59 @@ export class LoginPageComponent implements OnInit {
     }) 
      
     }
+
+    else if (this.roleID == 5){
+      this.RecruitmentServiceService.GetSourcingMaster().subscribe(data => {
+        let temp: any = data.filter(x => (x.email == this.userName) && x.password == this.password);
+        this.result = temp[0];
+        debugger;
+        // this.loader = true;
+        if (this.result != undefined || this.result != null) {
+          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('userid', this.result.id);
+          sessionStorage.setItem('temp', '1');
+          sessionStorage.setItem('role', 'Source');
+          sessionStorage.setItem('roleid', '3');
+          location.href = "/Dashboard";
+       
+
+        }
+        else {
+          Swal.fire('Phonenumber or Password is invalid');
+          this.userName = "";
+          this.password = "";
+        }
+       
+    }) 
+     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
 
 
