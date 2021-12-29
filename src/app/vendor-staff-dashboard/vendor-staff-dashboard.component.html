@@ -12,11 +12,8 @@
             </div>  <hr class="HrLine">
             <div class="card"><br>
                 <div class="row FilterClass">
-                    <div class="col-lg-1">
-                        Filter By
-                    </div>
                     <div class="col-lg-3 ">
-                        <input class="form-control" placeholder="Search">
+                        <input class="form-control" placeholder="Search" >
                     </div>
                     <!-- <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -41,19 +38,17 @@
                                 <th>Role </th>
                                 <th>Staff Name</th>
                                 <th>Phone Number</th>
-                                <th>Email Id</th>
-                                <th>Staff Code</th>
-                                <th>Signature</th>
+                                <th>Email Id</th>                              
+                                <th style="width:160px;">Signature</th>
                                 <th>Actions</th>
                             </tr>
                             <tr *ngFor="let vendor of staffdetails">
                                 <td>{{vendor.vendor_Name}}</td>
-                                <td>{{vendor.role_Id}}</td>
+                                <td>{{vendor.short}}</td>
                                 <td>{{vendor.staff_Name}}</td>
-                                <td>{{vendor.email_Id}}</td>
-                                <td>{{vendor.phone_Number}}</td>                              
-                                <td>{{vendor.staff_Code}}</td>
-                                <td><img src="{{vendor.signature}}"> </td>   
+                                <td>{{vendor.phone_Number}}</td>  
+                                <td>{{vendor.email_Id}}</td>                                                                                       
+                                <td><img style="width:100% ; text-align:center;" src="{{vendor.signature}}"> </td>   
                                 <td><button class="button1" (click)="edit(vendor.id)">Edit</button> <br> <br>
                                     <button class="button2" (click)="Ondelete(vendor.id)">Delete</button>
                                 </td>                          

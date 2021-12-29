@@ -17,7 +17,7 @@
                     <input class="form-control" type="date" placeholder="Duration">
                 </div> -->
                 <div class="col-lg-6">
-                    <input class="form-control" type="search" placeholder="Search for Role , Name or Email" >
+                    <input class="form-control" type="search" placeholder="Search for Role , Name or Email"[(ngModel)]="search" >
                 </div>
             </div><br>
             <div class="row">
@@ -51,7 +51,7 @@
                                 <tr>
                             </thead>
                             <tbody>
-                                <tr class="newFont" *ngFor="let staff of stafflist">
+                                <tr class="newFont" *ngFor="let staff of stafflist| filter:search">
                                     <!-- <td>{{staff.recruiter}}</td> -->
                                     <td>{{staff.role}}</td>
                                     <td>{{staff.name}}</td>
