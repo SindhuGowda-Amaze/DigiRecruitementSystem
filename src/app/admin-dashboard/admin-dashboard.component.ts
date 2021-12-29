@@ -27,7 +27,9 @@ export class AdminDashboardComponent implements OnInit {
     CompanyStaffList:any;
     CompanyStaffList1:any;
     count3:any;
-
+    vendorstafflist:any;
+    vendorstafflist1:any;
+    count4:any;
   ngOnInit(): void {
     this.RecruitmentServiceService.GetClientMaster().subscribe(data => {
       debugger
@@ -64,6 +66,14 @@ export class AdminDashboardComponent implements OnInit {
      
     })
 
+    this.RecruitmentServiceService.GetVendor_Staff().subscribe(data => {
+      debugger
+      this.vendorstafflist = data;
+      this.vendorstafflist1 = this.vendorstafflist.slice(0, 4);
+      this.count4 = this.vendorstafflist.length
+      debugger
+    })
+
     
     
   }
@@ -76,6 +86,28 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigate(['/ClientDashBoard']);
   }
 
+  public Regularization1() {
+    debugger
+    this.router.navigate(['/ClientStaffDashBoard']);
+  }
+
+  public Regularization2() {
+    debugger
+    this.router.navigate(['/VendorStaffDashboard']);
+    
+  }
+
+  public Regularization3() {
+    debugger
+    this.router.navigate(['/VendorDashboard']);
+  }
+
+  public Regularization4() {
+    debugger
+    this.router.navigate(['/RecruiterStaffDashboard']);
+  }
+
+  
 
   public flip(event: { currentTarget: any; }) {
     debugger
