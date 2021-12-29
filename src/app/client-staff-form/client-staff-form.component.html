@@ -23,6 +23,9 @@
                     <div class="col-md-2">
                         <label>Client Name<span style="color: red;">*</span></label>
                     </div>
+                    <div class="col-md-2">
+                        <label>Role<span style="color: red;">*</span></label>
+                    </div>
                     <div class="col-md-2" >
                         <label>Client Staff Name<span style="color: red;">*</span></label>
                     </div>
@@ -35,9 +38,7 @@
                     <div class="col-md-2">
                         <label>Address<span style="color: red;">*</span></label>
                     </div>
-                    <div class="col-md-2">
-                        <label>Role<span style="color: red;">*</span></label>
-                    </div>
+                    
                     <!-- <div class="col-md-2">
                         <label>Signature<span style="color: red;">*</span></label>
                     </div> -->
@@ -48,15 +49,7 @@
                 </div>
                 <div class="row leavereq">
                     <!-- <div class="col-md-2">
-                        <div class="dropdown">
-                            <select class="form-control inputfield" >
-                                <option value="Select">Select Min. Range</option>
-                                <option value="1">Min. Range 1 to 50</option>
-                                <option value="1">Min. Range 51 to 100</option>
-                                <option value="1">Min. Range 101 to 151</option>
-                                <option value="1">Min. Range 151 to 200</option>
-                            </select>
-                        </div>
+                        <label>Signature<span style="color: red;">*</span></label>
                     </div> -->
                     <!-- <div class="col-md-2">
                         <div class="dropdown">
@@ -86,6 +79,9 @@
                         </div>
                     </div> 
                     <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Role">
+                    </div>
+                    <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Name">
                     </div>
                     <div class="col-md-2">
@@ -97,9 +93,7 @@
                     <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Address">
                     </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" [(ngModel)]="Role">
-                    </div>
+                    
                     <!-- <div class="col-md-2">
                         <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
                             <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
@@ -111,10 +105,10 @@
                 </div>
                 <br>
                 <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <label>MPF-ER<span style="color: red;">*</span></label>
-                    </div>
                     <div class="col-md-2">
+                        <label>Signature</label>
+                    </div>
+                    <!-- <div class="col-md-2">
                         <label>MPF-EE<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
@@ -125,35 +119,35 @@
                     </div> -->
                 </div>
                 <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
+                        <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
+                            <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
                     </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield">
+                    <div class="col-md-8">
                     </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div> -->
+                    <div class="col-lg-1">
+                        <button class="form-control CancelBTN">Cancel</button>
+                    </div>
+                    <div class="col-lg-1">
+                        <button class="form-control SubmitBTN" (click)="save()" >Submit</button>
+                        <!-- <button class="form-control SubmitBTN"  (click)="Update()">Edit</button> -->
+                    </div>
                 </div>
                 <br>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-10"></div>
                     <div class="col-lg-1">
                         <button class="form-control CancelBTN">Cancel</button>
                     </div>
                     <div class="col-lg-1">
-                        <!-- <button class="form-control SubmitBTN">Submit</button> -->
-                        <!-- <button type="button" class="form-control SubmitBTN" 
-                            (click)="save()">Save</button> -->
-                        <!-- <button type="button" class="form-control SubmitBTN" >Save</button> -->
-                        <!-- <button type="button" class="form-control SubmitBTN" >Update</button> -->
-                        <button class="form-control SubmitBTN"  *ngif="id==null || id==undefined" (click)="save()" >Submit</button>
-                        <button class="form-control SubmitBTN" *ngif="id!==null || id!==undefined" (click)="Update()">Edit</button>
+                        <button class="form-control SubmitBTN" (click)="save()" >Submit</button>
+                        <button class="form-control SubmitBTN"  (click)="Update()">Edit</button>
                     </div>
-                </div>
+                </div> -->
             </div><br>
         </div>
         <div class="col-lg-1"></div>
