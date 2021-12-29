@@ -42,17 +42,17 @@
                                 <th>Staff Name</th>
                                 <th>Phone Number</th>
                                 <th>Email Id</th>
-                                <th>Staff Code</th>
-                                <th>Signature</th>
+                               
+                                <th style=" width: 160px;">Signature</th>
                                 <th>Actions</th>
                             </tr>
                             <tr *ngFor="let vendor of staffdetails">
                                 <td>{{vendor.vendor_Name}}</td>
-                                <td>{{vendor.role_Id}}</td>
+                                <td>{{vendor.short}}</td>
                                 <td>{{vendor.staff_Name}}</td>
                                 <td>{{vendor.email_Id}}</td>
                                 <td>{{vendor.phone_Number}}</td>                              
-                                <td>{{vendor.staff_Code}}</td>
+                               
                                 <td><img src="{{vendor.signature}}"> </td>   
                                 <td><button class="button1" (click)="edit(vendor.id)">Edit</button> <br> <br>
                                     <button class="button2" (click)="Ondelete(vendor.id)">Delete</button>

@@ -24,6 +24,9 @@ export class VendorStaffFormComponent implements OnInit {
   Actions: any;
   id: any;
   ngOnInit(): void {
+    this.role_Id="";
+    this.vendor_Name="";
+    this.GetRoleType();
     this.GetVendor_Dasboard();
     this.ActivatedRoute.params.subscribe(params => {
       debugger
@@ -100,6 +103,18 @@ export class VendorStaffFormComponent implements OnInit {
     })
 
   }
+  roleList:any;
+  public GetRoleType() {
+    debugger
+    this.RecruitmentServiceService.GetRoleType().subscribe(
+      data => {
+      this.roleList = data
+    
+    })
+
+  }
+
+
 
   Update() {
     debugger
