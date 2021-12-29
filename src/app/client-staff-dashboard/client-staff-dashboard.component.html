@@ -57,9 +57,15 @@
                                     <td>{{ClientStaffData.address}}</td>
                                     <td></td>
                                     <td><img src="{{ClientStaffData.signature}}" style="width:25%;"></td>
+
+                                  
                                     <td></td>
                                     <td><button class="Edit" (click)="edit(ClientStaffData.id)">Edit</button><br><br>
-                                    <button class="Edit" (click)="delete(ClientStaffData)">Delete</button></td>
+                                    <button class="Edit" (click)="delete(ClientStaffData)">Delete</button><br><br>
+                                    <label class="switch">
+                                        <input type="checkbox" >
+                                        <span class="slider round"></span>
+                                      </label></td>
                                 </tr>
                             </tbody>
                         </table>
