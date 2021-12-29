@@ -9,7 +9,7 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
 export class RecruiterStaffDashboardComponent implements OnInit {
   stafflist: any;
   count: any;
-  
+  search:any;
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
 
