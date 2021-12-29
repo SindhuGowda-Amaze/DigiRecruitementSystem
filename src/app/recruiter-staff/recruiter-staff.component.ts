@@ -17,17 +17,18 @@ export class RecruiterStaffComponent implements OnInit {
   Address: any;
   RecruiterID: any;
   ID:any;
+  roleList: any;
+  roleid:any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetRecruiterMaster();
-   // this.GetRecruiterStaff();
+    this.GetRoleType();
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
       if (this.ID != undefined && this.ID!=null) {
-        this.GetRecruiterStaff();
-        
+        this.GetRecruiterStaff(); 
       }
     })
   }
@@ -48,6 +49,18 @@ export class RecruiterStaffComponent implements OnInit {
       })
 
   }
+
+  
+  public GetRoleType() {
+    debugger
+    this.RecruitmentServiceService.GetRoleType().subscribe(
+      data => {
+      this.roleList = data
+      this.count = this.recruiterlist.length;
+    })
+
+  }
+
 
 
 
@@ -95,7 +108,8 @@ this.files.splice(this.files.indexOf(event),1);
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
-      "Signature":this.Signature
+      "Signature":this.Signature,
+      "Role_Id":this.roleid
 
     }
     this.RecruitmentServiceService.InsertRecruiterStaff(entity).subscribe(data => {
@@ -116,7 +130,8 @@ this.files.splice(this.files.indexOf(event),1);
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
-      "Signature":this.Signature
+      "Signature":this.Signature,
+      "Role_Id":this.roleid
 
     }
     this.RecruitmentServiceService.UpdateRecruiterStaff(entity).subscribe(data => {
@@ -126,5 +141,10 @@ this.files.splice(this.files.indexOf(event),1);
         location.href = "/RecruiterStaffDashboard";
       }
     })
+  }
+
+  cancel(){
+    location.reload();
+    location.href="/RecruiterStaffDashboard"
   }
 }

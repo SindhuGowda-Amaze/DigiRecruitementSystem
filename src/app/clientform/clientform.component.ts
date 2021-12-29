@@ -9,10 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./clientform.component.css']
 })
 export class ClientformComponent implements OnInit {
+  count: any;
+  recruiterlist: any;
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     
     this.GetClientMaster();
         this.ActivatedRoute.params.subscribe(params=>{
@@ -24,6 +27,8 @@ export class ClientformComponent implements OnInit {
     })
   }
 
+  
+
 
   GetClientMaster()
   {
@@ -32,7 +37,6 @@ export class ClientformComponent implements OnInit {
       debugger
       this.result = data;
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
-      this.Staff=this.result[0].clientID;
       
       
       this.Company_logo=this.result[0].company_logo;
@@ -40,6 +44,7 @@ export class ClientformComponent implements OnInit {
       this.PhoneNo=this.result[0].phoneNo;
       this.Email=this.result[0].email;
       this.Address=this.result[0].address;
+      this.Signature=this.result[0].signature;
     })
   }
 
@@ -50,8 +55,9 @@ export class ClientformComponent implements OnInit {
   PhoneNo: any;
   Email: any;
   Address: any;
-  Staff: any;
+  Signature: any;
   result: any;
+
   
 
 
@@ -73,6 +79,7 @@ export class ClientformComponent implements OnInit {
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
    "Address": this.Address,
+   "Signature": this.Signature,
 
  };
 
@@ -111,6 +118,7 @@ export class ClientformComponent implements OnInit {
       "PhoneNo": this.PhoneNo,
       "Email": this.Email,
       "Address": this.Address, 
+      "Signature": this.Signature, 
       };
     
       this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(

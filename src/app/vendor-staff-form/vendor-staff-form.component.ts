@@ -10,31 +10,35 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./vendor-staff-form.component.css']
 })
 export class VendorStaffFormComponent implements OnInit {
-  signature:any;
-  staff_Name:any;
-  phone_Number:any;
-  email_Id:any;
-  staff_Code:any;
-  vendor_Name:any;
+  signature: any;
+  staff_Name: any;
+  phone_Number: any;
+  Email_ID: any;
+  staff_Code: any;
+  role_Id: any;
+  vendor_Name: any;
 
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
-  result:any;
-  Actions:any;
-  id:any;
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
+  result: any;
+  Actions: any;
+  id: any;
   ngOnInit(): void {
+    this.role_Id="";
+    this.vendor_Name="";
+    this.GetRoleType();
     this.GetVendor_Dasboard();
-    this.ActivatedRoute.params.subscribe(params=>{
+    this.ActivatedRoute.params.subscribe(params => {
       debugger
-     this.id=params["id"];
-     if(this.id!=null&&this.id!=undefined){
-      this.GetVendor_Staff(); 
-         
-     }
+      this.id = params["id"];
+      if (this.id != null && this.id != undefined) {
+        this.GetVendor_Staff();
+
+      }
     })
-    
+
   }
-  Company_logo:any;
+  Company_logo: any;
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
     debugger
@@ -43,11 +47,10 @@ export class VendorStaffFormComponent implements OnInit {
     this.uploadattachments();
     console.log("content", this.files);
   }
-  onRemove(event:any)
-  {
-debugger
-console.log(event);
-this.files.splice(this.files.indexOf(event),1);
+  onRemove(event: any) {
+    debugger
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
   }
   public uploadattachments() {
     debugger
@@ -58,44 +61,55 @@ this.files.splice(this.files.indexOf(event),1);
     })
   }
 
-  GetVendor_Staff()
-  {
-  this.RecruitmentServiceService.GetVendor_Staff().subscribe(
-    data => {
-      debugger
-      this.result = data;
-      this.result=this.result.filter((x: { id: any; })=>x.id==Number(this.id));
-      this.vendor_Name=this.result[0].vendor_Name;
-      this.staff_Name=this.result[0].staff_Name;
-      this.email_Id=this.result[0].email_Id;
-      this.phone_Number=this.result[0].phone_Number;
-      this.staff_Code=this.result[0].staff_Code;
-      this.Actions=this.result[0].Actions;
-    })
-  }  
-  Save(){
+  GetVendor_Staff() {
+    this.RecruitmentServiceService.GetVendor_Staff().subscribe(
+      data => {
+        debugger
+        this.result = data;
+        this.result = this.result.filter((x: { id: any; }) => x.id == Number(this.id));
+        this.vendor_Name = this.result[0].vendor_Name;
+        this.staff_Name = this.result[0].staff_Name;
+        this.Email_ID = this.result[0].Email_ID;
+        this.phone_Number = this.result[0].phone_Number;
+        this.Company_logo = this.result[0].signature;
+        this.role_Id = this.result[0].role;
+
+      })
+  }
+  Save() {
     debugger;
-   var json = { 
-    "Vendor_Name":this.vendor_Name,
-    "Staff_Name":this.staff_Name,
-    "Phone_Number":this.phone_Number,
-    "Email_Id":this.email_Id,
-    "Staff_Code":this.staff_Code,
-    "Signature":this.Company_logo
+    var json = {
+      "VendorId": this.vendor_Name,
+      "Staff_Name": this.staff_Name,
+      "Phone_Number": this.phone_Number,
+      "Email_ID": this.Email_ID,
+
+      "Signature": this.Company_logo,
+      "Role": this.role_Id
     };
     this.RecruitmentServiceService.InsertVendor_Staff(json).subscribe(
       data => {
         debugger
         let id = data;
-       alert("Successfully saved!!")
-      location.href="/VendorStaffForm"
+        alert("Successfully saved!!")
+        location.href = "/VendorStaffForm"
       })
   }
-   vendordetails:any;
-   public GetVendor_Dasboard() {
-   this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
-    this.vendordetails = data;
-     
+  vendordetails: any;
+  public GetVendor_Dasboard() {
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
+      this.vendordetails = data;
+
+    })
+
+  }
+  roleList:any;
+  public GetRoleType() {
+    debugger
+    this.RecruitmentServiceService.GetRoleType().subscribe(
+      data => {
+      this.roleList = data
+    
     })
 
   }
@@ -103,13 +117,14 @@ this.files.splice(this.files.indexOf(event),1);
   Update() {
     debugger
     var json = {
-      "ID":this.id,
-      "Vendor_Name":this.vendor_Name,
-      "Staff_Name":this.staff_Name,
-      "Phone_Number":this.phone_Number,
-      "Email_Id":this.email_Id,
-      "Staff_Code":this.staff_Code,
-      "Signature":this.Company_logo
+      "ID": this.id,
+      "VendorID": this.vendor_Name,
+      "Staff_Name": this.staff_Name,
+      "Phone_Number": this.phone_Number,
+      "Email_ID": this.Email_ID,
+
+      "Signature": this.Company_logo,
+      "Role": this.role_Id
     };
     this.RecruitmentServiceService.UpdateVendor_Staff(json).subscribe(
       data => {

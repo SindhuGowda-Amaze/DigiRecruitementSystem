@@ -12,6 +12,9 @@ export class ClientStaffFormComponent implements OnInit {
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.GetRoleType();
+
     this.GetClientStaff();
         this.ActivatedRoute.params.subscribe(params=>{
       debugger
@@ -21,6 +24,19 @@ export class ClientStaffFormComponent implements OnInit {
      }
     })
   }
+
+  public GetRoleType() {
+    debugger
+    this.RecruitmentServiceService.GetRoleType().subscribe(
+      data => {
+      this.ClientList = data
+      this.count = this.recruiterlist.length;
+    })
+
+  }
+
+
+
   ClientStaffList:any;
   public GetClientStaff() {
     debugger
@@ -36,13 +52,19 @@ export class ClientStaffFormComponent implements OnInit {
   PhoneNo: any;
   Email: any;
   Address: any;
+  Role: any;
   Signature: any;
   Staff: any;
   StaffList: any;
   count: any;
   result:any;
   clientName:any;
-  email:any
+  email:any;
+  ClientList:any;
+  recruiterlist:any;
+
+
+
   GetClientStaff1()
   {
   this.RecruitmentServiceService.GetClientStaff().subscribe(
@@ -51,10 +73,12 @@ export class ClientStaffFormComponent implements OnInit {
       this.result = data;
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
       this.clientName=this.result[0].clientName;
+      this.Role=this.result[0].role;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].email;
       this.Email=this.result[0].phoneNo;
       this.Address = this.result[0].address;
+      this.Signature = this.result[0].signature;
       this.Staff=this.result[0].clientID;
     })
   }
@@ -73,6 +97,7 @@ export class ClientStaffFormComponent implements OnInit {
     var json = {
 
    "ClientID": this.Staff,
+   "Role": this.Role,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
@@ -114,6 +139,7 @@ Update(){
     debugger
      var json = {
       "ClientID": this.Staff,
+      "Role": this.Role,
       "Name": this.Name,
       "PhoneNo": this.PhoneNo,
       "Email": this.Email,

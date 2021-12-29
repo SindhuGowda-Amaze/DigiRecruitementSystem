@@ -11,26 +11,26 @@
             </div>
             <div class="row FilterClass">
                 <div class="col-lg-2">
-                    Filter By
+                    Search
                 </div>
-                <div class="col-lg-2">
+                <!-- <div class="col-lg-2">
                     <input class="form-control" type="date" placeholder="Duration">
-                </div>
+                </div> -->
                 <div class="col-lg-6">
-                    <input class="form-control" type="search" placeholder="Search for date , Type or Code">
+                    <input class="form-control" type="search" placeholder="Search Client">
                 </div>
             </div><br>
             <div class="row">
                 <div class="col-lg-8 View">
                     <ul>
-                        <li><a class="active">View</a></li>
-                        <li><a>Modify</a></li>
+                        <!-- <li><a class="active">View</a></li>
+                        <li><a>Modify</a></li> -->
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <a routerLink="/ClientStaffForm"><button class="button">Add</button> </a>
                 </div>
-            </div>
+            </div><br>
 
             <div class="container-fluid">
                 <div class="row">
@@ -39,6 +39,7 @@
                             <thead>
                                 <tr class="newFont">
                                     <th>Client Name</th>
+                                    <th>Role </th>
                                     <th>Client Staff Name</th>
                                     <th>Email</th>
                                     <th>Client Staff Phone No.</th>
@@ -51,15 +52,22 @@
                                 <tr *ngFor="let ClientStaffData of ClientStaffList">
                                     <td>{{ClientStaffData.clientName}}</td>
                                     <!-- <td style="width: 176px;"><img src="{{ClientStaffData.logo}}" style="width:65%;"></td> -->
+                                    <td>{{ClientStaffData.role}}</td>
                                     <td>{{ClientStaffData.name}}</td>
                                     <td>{{ClientStaffData.phoneNo}}</td>
                                     <td>{{ClientStaffData.email}}</td>
                                     <td>{{ClientStaffData.address}}</td>
                                     <td></td>
                                     <td><img src="{{ClientStaffData.signature}}" style="width:25%;"></td>
+
+                                  
                                     <td></td>
                                     <td><button class="Edit" (click)="edit(ClientStaffData.id)">Edit</button><br><br>
-                                    <button class="Edit" (click)="delete(ClientStaffData)">Delete</button></td>
+                                    <button class="Edit" (click)="delete(ClientStaffData)">Delete</button><br><br>
+                                    <label class="switch">
+                                        <input type="checkbox" >
+                                        <span class="slider round"></span>
+                                      </label></td>
                                 </tr>
                             </tbody>
                         </table>
