@@ -36,10 +36,12 @@ export class ClientformComponent implements OnInit {
       
       
       this.Company_logo=this.result[0].company_logo;
+      this.Role=this.result[0].role;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].phoneNo;
       this.Email=this.result[0].email;
       this.Address=this.result[0].address;
+      this.Signature=this.result[0].signature;
     })
   }
 
@@ -51,6 +53,7 @@ export class ClientformComponent implements OnInit {
   Email: any;
   Address: any;
   Role: any;
+  Signature: any;
   Staff: any;
   result: any;
   
@@ -70,11 +73,12 @@ export class ClientformComponent implements OnInit {
     var json = {
 
    "Logo": this.Company_logo,
+   "Role": this.Role,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
    "Address": this.Address,
-   "Role": this.Role,
+   "Signature": this.Signature,
 
  };
 
@@ -109,11 +113,12 @@ export class ClientformComponent implements OnInit {
     debugger
      var json = {
       "Logo": this.Company_logo,
+      "Role": this.Role, 
       "Name": this.Name,
       "PhoneNo": this.PhoneNo,
       "Email": this.Email,
       "Address": this.Address, 
-      "Role": this.Role, 
+      "Signature": this.Signature, 
       };
     
       this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(
