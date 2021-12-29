@@ -144,8 +144,8 @@
                             (click)="save()">Save</button> -->
                         <!-- <button type="button" class="form-control SubmitBTN" >Save</button> -->
                         <!-- <button type="button" class="form-control SubmitBTN" >Update</button> -->
-                        <button class="form-control SubmitBTN" *ngif="id==null || id==undefined" (click)="save()" >Submit</button>
-                        <button class="form-control SubmitBTN" *ngif="id!=null || id!=undefined"  (click)="Update()">Edit</button>
+                        <button class="form-control SubmitBTN"  *ngif="id==null || id==undefined" (click)="save()" >Submit</button>
+                        <button class="form-control SubmitBTN" *ngif="id!==null || id!==undefined" (click)="Update()">Edit</button>
                     </div>
                 </div>
             </div><br>
