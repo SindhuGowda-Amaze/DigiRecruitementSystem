@@ -13,15 +13,15 @@
                 <div class="col-lg-10"></div>
             </div>
             <br>
-            <div class="row LocDashboard">
+            <!-- <div class="row LocDashboard">
                 <div class="col-lg-12">
                     <label>Client Staff Details</label>
                 </div>
-            </div>
+            </div> -->
             <div class="card BOXCARD">
                 <div class="row leavereq">
                     <div class="col-md-2">
-                        <label>Staff<span style="color: red;">*</span></label>
+                        <label>Client Name<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2" >
                         <label>Client Staff Name<span style="color: red;">*</span></label>
@@ -36,8 +36,11 @@
                         <label>Address<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
-                        <label>Signature<span style="color: red;">*</span></label>
+                        <label>Role<span style="color: red;">*</span></label>
                     </div>
+                    <!-- <div class="col-md-2">
+                        <label>Signature<span style="color: red;">*</span></label>
+                    </div> -->
                     
                     <!-- <div class="col-md-2">
                         <label>SS Total<span style="color: red;">*</span></label>
@@ -95,13 +98,16 @@
                         <input type="text" class="form-control inputfield" [(ngModel)]="Address">
                     </div>
                     <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Role">
+                    </div>
+                    <!-- <div class="col-md-2">
                         <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
                             <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
                             <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                                 <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                             </ngx-dropzone-preview>
                         </ngx-dropzone>
-                    </div>
+                    </div> -->
                 </div>
                 <br>
                 <div class="row leavereq">
