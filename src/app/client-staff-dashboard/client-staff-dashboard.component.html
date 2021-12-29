@@ -39,6 +39,7 @@
                             <thead>
                                 <tr class="newFont">
                                     <th>Client Name</th>
+                                    <th>Role </th>
                                     <th>Client Staff Name</th>
                                     <th>Email</th>
                                     <th>Client Staff Phone No.</th>
@@ -51,6 +52,7 @@
                                 <tr *ngFor="let ClientStaffData of ClientStaffList">
                                     <td>{{ClientStaffData.clientName}}</td>
                                     <!-- <td style="width: 176px;"><img src="{{ClientStaffData.logo}}" style="width:65%;"></td> -->
+                                    <td>{{ClientStaffData.role}}</td>
                                     <td>{{ClientStaffData.name}}</td>
                                     <td>{{ClientStaffData.phoneNo}}</td>
                                     <td>{{ClientStaffData.email}}</td>

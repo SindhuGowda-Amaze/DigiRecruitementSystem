@@ -23,9 +23,9 @@
                     <div class="col-md-2">
                         <label>Client Logo<span style="color: red;">*</span></label>
                     </div>
-                    <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <label>Role<span style="color: red;">*</span></label>
-                    </div>
+                    </div> -->
                     <div class="col-md-2">
                         <label>Client Name<span style="color: red;">*</span></label>
                     </div>
@@ -77,9 +77,17 @@
                             </ngx-dropzone-preview>
                         </ngx-dropzone>
                     </div>
-                    <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Role">
-                    </div>
+                    </div> -->
+                    <!-- <div class="col-md-2">
+                        <div class="dropdown">
+                            <select class="form-control" name="Role" Id="Role" [(ngModel)]="Role">
+                                <option value="">Select </option>
+                                <option *ngFor="let Client of ClientList" value={{Client.id}}>{{Client.short}} </option>
+                            </select>
+                        </div>
+                    </div>  -->
                     <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Name">
                     </div>
