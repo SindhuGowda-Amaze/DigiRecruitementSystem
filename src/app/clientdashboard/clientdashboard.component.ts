@@ -10,6 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class ClientdashboardComponent implements OnInit {
 
+  count: any;
+  search:any;
+
   constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -17,18 +20,20 @@ export class ClientdashboardComponent implements OnInit {
   }
 
   ClientMasterlist:any
+  count:any;
 
   public GetClientMaster() {
     debugger
     this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
       debugger
       this.ClientMasterlist=data ;
+      this.count = this.ClientMasterlist.length;
      })
   }
 
   edit(details: any){
     debugger
-    location.href="/ClientStaffForm/"+ details;
+    location.href="/ClientForm/"+ details;
     }
 
   delete(details: any){

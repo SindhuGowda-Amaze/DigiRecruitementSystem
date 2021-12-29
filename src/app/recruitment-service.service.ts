@@ -8,9 +8,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class RecruitmentServiceService {
  
 
-  //host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+  host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
-private host = "http://localhost:1807/";
+//private host = "http://localhost:1807/";
+  // private host = "http://localhost:1807/";
   // private host = localStorage.getItem('apiurl');
   private url: string = "";
   showvid: any;
@@ -328,6 +329,14 @@ private host = "http://localhost:1807/";
     return this.http.get<any[]>(this.host + "/MasterDemo/GetRoleType?UserTypeID=1");
   }
 
+  
+  public AssignRecruiter(data:any) {
+    debugger
+    this.url = this.host + "/Master/AssignRecruiter";
+    return this.http.post(this.url, data);
+  }
+
+  
 
   public EnableClientStaff(data:any) {
     debugger

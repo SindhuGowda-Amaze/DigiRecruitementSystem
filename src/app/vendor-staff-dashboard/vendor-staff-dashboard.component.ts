@@ -19,7 +19,8 @@ export class VendorStaffDashboardComponent implements OnInit {
   signature:any;
   role_Id:any;
   staffdetails:any;
-
+  count:any;
+search:any;
   ngOnInit(): void {
   this.GetVendor_Staff(); 
   }
@@ -28,6 +29,7 @@ export class VendorStaffDashboardComponent implements OnInit {
   public GetVendor_Staff() {
     this.RecruitmentServiceService.GetVendor_Staff().subscribe(data => {
       this.staffdetails = data;
+      this.count=this.staffdetails.length;
      
     })
   }

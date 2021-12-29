@@ -30,7 +30,7 @@ export class ClientStaffFormComponent implements OnInit {
     this.RecruitmentServiceService.GetRoleType().subscribe(
       data => {
       this.ClientList = data
-      this.count = this.recruiterlist.length;
+      this.count = this.ClientList.length;
     })
 
   }
@@ -73,10 +73,10 @@ export class ClientStaffFormComponent implements OnInit {
       this.result = data;
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
       this.clientName=this.result[0].clientName;
-      this.Role=this.result[0].role;
+      this.Role=this.result[0].role_Id;
       this.Name=this.result[0].name;
-      this.PhoneNo=this.result[0].email;
-      this.Email=this.result[0].phoneNo;
+      this.PhoneNo=this.result[0].phoneNo;
+      this.Email=this.result[0].email;
       this.Address = this.result[0].address;
       this.Signature = this.result[0].signature;
       this.Staff=this.result[0].clientID;
@@ -97,7 +97,7 @@ export class ClientStaffFormComponent implements OnInit {
     var json = {
 
    "ClientID": this.Staff,
-   "Role": this.Role,
+   "Role_Id": this.Role,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
    "Email": this.Email,
