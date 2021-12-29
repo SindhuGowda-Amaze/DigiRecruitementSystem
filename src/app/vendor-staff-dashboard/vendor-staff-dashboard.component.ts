@@ -48,7 +48,43 @@ export class VendorStaffDashboardComponent implements OnInit {
   }
 
 
+  public DisableStaff(id: any) {
 
+    var eb = {
+  
+      'ID': id,
+  
+      'Enable_Disable': 1
+  
+    }
+  
+    this.RecruitmentServiceService.EnableVendorStaff(eb).subscribe(
+      data => {
+        debugger
+        Swal.fire('Updated successfully.');
+        location.reload();
+      },
+    )
+  }
+  
+  public DisableStaff1(id: any) {
+  
+    var eb = {
+  
+      'ID': id,
+  
+      'Enable_Disable': 0
+  
+    }
+  
+    this.RecruitmentServiceService.EnableVendorStaff(eb).subscribe(
+      data => {
+        debugger
+        Swal.fire('Updated successfully.');
+        location.reload();
+      },
+    )
+  }
 
 
 

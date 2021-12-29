@@ -22,7 +22,6 @@ export class RecruiterStaffDashboardComponent implements OnInit {
       this.stafflist = data
       this.count = this.stafflist.length;
     })
-
   }
 
   delete(id:any){
@@ -38,5 +37,43 @@ export class RecruiterStaffDashboardComponent implements OnInit {
 
 Update(staff:any) {
   location.href = "/RecruiterStaff/" + staff.id
+}
+
+public DisableStaff(id: any) {
+
+  var eb = {
+
+    'ID': id,
+
+    'Enable_Disable': 1
+
+  }
+
+  this.RecruitmentServiceService.EnableCompanyStaff(eb).subscribe(
+    data => {
+      debugger
+      Swal.fire('Updated successfully.');
+      location.reload();
+    },
+  )
+}
+
+public DisableStaff1(id: any) {
+
+  var eb = {
+
+    'ID': id,
+
+    'Enable_Disable': 0
+
+  }
+
+  this.RecruitmentServiceService.EnableCompanyStaff(eb).subscribe(
+    data => {
+      debugger
+      Swal.fire('Updated successfully.');
+      location.reload();
+    },
+  )
 }
 }

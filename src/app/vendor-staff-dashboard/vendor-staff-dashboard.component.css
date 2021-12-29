@@ -45,24 +45,6 @@
   padding-right: 10px;;
   }
   
-  .button1{
-    padding:5px;
-    border-radius: 5px;
-    color:white;
-    background-color: #21a4da;
-    border:none;
-    width:100%;
-  }
-
-  .button2{
-    padding:5px;
-    border-radius: 5px;
-    color:white;
-    background-color: #21a4da;
-    border:none;
-    width:100%;
-
-  }
   .button{
     padding:5px;
     border-radius: 5px;
@@ -70,5 +52,12 @@
     background-color: #21a4da;
     border:none;
     width:100%;
+  }
+
+  .Edit{
+    width: 50px;
+    border-radius: 7px;
+    background-color: #2F87CC;
+    color: white;
   }
   

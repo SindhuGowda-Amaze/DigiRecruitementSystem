@@ -60,7 +60,16 @@
                                     <td>{{staff.address}}</td>
                                     <td><img src="{{staff.signature}}" class="logo"></td>
                                     <td><button class="Edit" (click)="Update(staff)">Edit</button><br><br>
-                                        <button class="Edit" (click)="delete(staff.id)">Delete</button></td>
+                                        <button class="Edit" (click)="delete(staff.id)">Delete</button><br><br>
+
+                                        <img src="assets/Images/activate.png" style="width:15%"
+                                        *ngIf="staff.enable_Disable==0 || staff.enable_Disable==null "
+                                        (click)="DisableStaff(staff.id)"> <br />
+
+                                    <img src="assets/Images/deactivate.png"
+                                        *ngIf="staff.enable_Disable==1"
+                                        (click)="DisableStaff1(staff.id)" style="width:15%">
+                                         </td>
                                     <!-- <td><img class="imgcancel" src="/assets/cancel (1).png" ></td> -->
                                 </tr>
                             </tbody>
