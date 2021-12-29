@@ -50,6 +50,7 @@ export class ClientformComponent implements OnInit {
 
 
   id:any;
+  ID:any;
   Company_logo:any;
   Name: any;
   PhoneNo: any;
@@ -71,7 +72,8 @@ export class ClientformComponent implements OnInit {
     console.log("content", this.files);
   }
 
-  save(){
+  public insertdetails(){
+    debugger
     var json = {
 
    "Logo": this.Company_logo,
@@ -87,7 +89,7 @@ export class ClientformComponent implements OnInit {
    data => {
    debugger
    let result = data;
-   location.href="/ClientForm/"
+   location.href="/ClientDashBoard/"
  })
 
  alert("Mentioned PhoneNo is "+this.PhoneNo)
@@ -110,7 +112,7 @@ export class ClientformComponent implements OnInit {
     })
   }
 
-  Update(){
+  public Update() {
     debugger
      var json = {
       "Logo": this.Company_logo,

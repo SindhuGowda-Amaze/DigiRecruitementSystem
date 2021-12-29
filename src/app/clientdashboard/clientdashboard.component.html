@@ -17,7 +17,7 @@
                     <input class="form-control" type="date" placeholder="Duration">
                 </div> -->
                 <div class="col-lg-6">
-                    <input class="form-control" type="search" placeholder="Search">
+                    <input class="form-control" type="search" placeholder="Search for Client Name"[(ngModel)]="search" >
                 </div>
             </div><br>
             <div class="row">
@@ -47,7 +47,7 @@
                                 <tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let ClientMasterData of ClientMasterlist">
+                                <tr *ngFor="let ClientMasterData of ClientMasterlist | filter:search">
                                     <td style="width: 176px;"><img src="{{ClientMasterData.logo}}" style="width:65%;"></td>
                                     <td>{{ClientMasterData.name}}</td>
                                     <td>{{ClientMasterData.phoneNo}}</td>

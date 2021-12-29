@@ -10,6 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class ClientStaffDashboardComponent implements OnInit {
 
+  count: any;
+  search:any;
+
   constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,6 +26,7 @@ export class ClientStaffDashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
       debugger
       this.ClientStaffList=data ;
+      this.count = this.ClientStaffList.length;
      })
   }
 
