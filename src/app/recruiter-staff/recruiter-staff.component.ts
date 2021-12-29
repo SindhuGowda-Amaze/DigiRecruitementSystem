@@ -108,7 +108,8 @@ this.files.splice(this.files.indexOf(event),1);
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
-      "Signature":this.Signature
+      "Signature":this.Signature,
+      "Role_Id":this.roleid
 
     }
     this.RecruitmentServiceService.InsertRecruiterStaff(entity).subscribe(data => {
@@ -129,7 +130,8 @@ this.files.splice(this.files.indexOf(event),1);
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
-      "Signature":this.Signature
+      "Signature":this.Signature,
+      "Role_Id":this.roleid
 
     }
     this.RecruitmentServiceService.UpdateRecruiterStaff(entity).subscribe(data => {
@@ -139,5 +141,10 @@ this.files.splice(this.files.indexOf(event),1);
         location.href = "/RecruiterStaffDashboard";
       }
     })
+  }
+
+  cancel(){
+    location.reload();
+    location.href="/RecruiterStaffDashboard"
   }
 }
