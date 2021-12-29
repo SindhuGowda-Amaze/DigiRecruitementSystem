@@ -114,8 +114,6 @@ export class VendorStaffFormComponent implements OnInit {
 
   }
 
-
-
   Update() {
     debugger
     var json = {
