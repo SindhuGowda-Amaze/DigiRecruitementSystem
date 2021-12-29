@@ -10,7 +10,7 @@ export class RecruitmentServiceService {
 
  host = "https://23.101.22.93/DigiOfficeBSINTAPI";
   //DigiOfficeBSINTAPI
- // private host = "http://localhost:1807/";
+  // private host = "http://localhost:1807/";
   // private host = localStorage.getItem('apiurl');
   private url: string = "";
   showvid: any;
@@ -336,4 +336,11 @@ export class RecruitmentServiceService {
   }
 
   
+
+  public EnableClientStaff(data:any) {
+    debugger
+    this.url = this.host + "/Master/EnableClientStaff";
+    return this.http.post(this.url, data);
+  }
+
 }

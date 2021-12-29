@@ -99,6 +99,10 @@ font-weight: bold;
     background-color: white;
   }
 
+  .table th {
+    background-color: #e4e5e6 !important;
+  }
+
   .HrLine{
     margin-left: 15px;
     margin-right: 15px;
@@ -140,4 +144,5 @@ font-weight: bold;
     background-color: #2F87CC;
     color: white;
   }
+  
   

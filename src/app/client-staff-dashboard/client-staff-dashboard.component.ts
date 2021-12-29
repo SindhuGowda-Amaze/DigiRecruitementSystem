@@ -10,6 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class ClientStaffDashboardComponent implements OnInit {
 
+  count: any;
+  search:any;
+
   constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,6 +26,7 @@ export class ClientStaffDashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
       debugger
       this.ClientStaffList=data ;
+      this.count = this.ClientStaffList.length;
      })
   }
 
@@ -42,6 +46,44 @@ export class ClientStaffDashboardComponent implements OnInit {
      Swal.fire('Deleted Successfully')
      location.reload();
     })
+  }
+
+  public DisableStaff(id: any) {
+
+    var eb = {
+
+      'ID': id,
+
+      'Enable_Disable': 1
+
+    }
+
+    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
+      data => {
+        debugger
+        Swal.fire('Updated successfully.');
+        location.reload();
+      },
+    )
+  }
+
+  public DisableStaff1(id: any) {
+
+    var eb = {
+
+      'ID': id,
+
+      'Enable_Disable': 0
+
+    }
+
+    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
+      data => {
+        debugger
+        Swal.fire('Updated successfully.');
+        location.reload();
+      },
+    )
   }
 
 }
