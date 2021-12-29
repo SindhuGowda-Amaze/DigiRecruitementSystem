@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     this.temp=sessionStorage.getItem('temp')
     this.roleid = sessionStorage.getItem('roleid');
     this.company_name = sessionStorage.getItem("company_name");
+    
   }
 
   logout() {

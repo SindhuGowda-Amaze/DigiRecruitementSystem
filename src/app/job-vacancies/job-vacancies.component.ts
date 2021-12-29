@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-job-vacancies',
@@ -11,11 +12,11 @@ import Swal from 'sweetalert2';
 export class JobVacanciesComponent implements OnInit {
   Company_logo: any;
   ID:any;
-
+  Source:any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.Source=localStorage.getItem('role')
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
@@ -81,7 +82,8 @@ export class JobVacanciesComponent implements OnInit {
       'NoticePeriod': this.noticeperiod,
       'ctc': this.ctc,
       'ServingNotice': this.servingnotice,
-      'Relocate': this.relocate
+      'Relocate': this.relocate,
+      'Source': this.Source
     }
     this.RecruitmentServiceService.InsertCandidateRegistration(entity).subscribe(data => {
       if (data != 0) {

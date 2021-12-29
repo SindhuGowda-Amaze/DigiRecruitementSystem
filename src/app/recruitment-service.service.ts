@@ -327,4 +327,13 @@ export class RecruitmentServiceService {
     debugger
     return this.http.get<any[]>(this.host + "/MasterDemo/GetRoleType?UserTypeID=1");
   }
+
+  
+  public AssignRecruiter(data:any) {
+    debugger
+    this.url = this.host + "/Master/AssignRecruiter";
+    return this.http.post(this.url, data);
+  }
+
+  
 }

@@ -68,7 +68,7 @@ export class ShortListedCandidatesComponent implements OnInit {
 
 
   public GetStaffType() {
-    this.RecruitmentServiceService.GetStaffs().subscribe(data => {
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.stafflist = data;
     })
 
