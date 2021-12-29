@@ -24,6 +24,9 @@
                         <label>Client Logo<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
+                        <label>Role<span style="color: red;">*</span></label>
+                    </div>
+                    <div class="col-md-2">
                         <label>Client Name<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
@@ -35,9 +38,9 @@
                     <div class="col-md-2">
                         <label>Address<span style="color: red;">*</span></label>
                     </div>
-                    <div class="col-md-2">
-                        <label>Role<span style="color: red;">*</span></label>
-                    </div>
+                    <!-- <div class="col-md-2">
+                        <label>Signature</label>
+                    </div> -->
 
                     <!-- <div class="col-md-2">
                         <label>SS Total<span style="color: red;">*</span></label>
@@ -75,6 +78,9 @@
                         </ngx-dropzone>
                     </div>
                     <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Role">
+                    </div>
+                    <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Name">
                     </div>
                     <div class="col-md-2">
@@ -86,9 +92,9 @@
                     <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Address">
                     </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" [(ngModel)]="Role">
-                    </div>
+                    <!-- <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Signature">
+                    </div> -->
                 </div>
                 <br>
                 <div class="row leavereq">
