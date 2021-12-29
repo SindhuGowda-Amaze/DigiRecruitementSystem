@@ -79,7 +79,7 @@ export class VendorStaffFormComponent implements OnInit {
   Save() {
     debugger;
     var json = {
-      "VendorID": this.vendor_Name,
+      "VendorId": this.vendor_Name,
       "Staff_Name": this.staff_Name,
       "Phone_Number": this.phone_Number,
       "Email_Id": this.email_Id,
