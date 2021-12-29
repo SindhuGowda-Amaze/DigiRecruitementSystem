@@ -12,17 +12,20 @@ export class ClientdashboardComponent implements OnInit {
 
   count: any;
   search:any;
-
+  loader:any;
   constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
    this.GetClientMaster()
+   this.loader=true;
   }
 
   ClientMasterlist:any
 
+
   public GetClientMaster() {
     debugger
+  
     this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
       debugger
       this.ClientMasterlist=data ;

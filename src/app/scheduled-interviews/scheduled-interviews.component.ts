@@ -20,7 +20,7 @@ export class ScheduledInterviewsComponent implements OnInit {
   staffid: any;
 
   ngOnInit(): void {
-    this.staffid = localStorage.getItem('staffssID');
+    this.staffid = localStorage.getItem('userid');
     this.GetCandidateReg()
     // this.insertdetails()
   }
@@ -44,8 +44,10 @@ export class ScheduledInterviewsComponent implements OnInit {
 
   }
 
-
-
+  id:any;
+public getid(id:any){
+this.id = id
+}
 
   public Accept(id:any, rinterview:any) {
     Swal.fire({
@@ -79,6 +81,8 @@ export class ScheduledInterviewsComponent implements OnInit {
   }
 
 
+
+
   public Reject(id:any, interview:any) {
     Swal.fire({
       title: 'Are you sure?',
@@ -108,6 +112,34 @@ export class ScheduledInterviewsComponent implements OnInit {
       }
     })
   }
+  rinterview:any;
+public Acceptcandidate(){
+
+
+  this.RecriutmentServiceService.RejectInterview(this.id, 1, this.rinterview).subscribe(data => {
+    Swal.fire(
+      'Shortlisted!',
+      'Candidate has been Accepted',
+      'success'
+    )
+    this.GetCandidateReg()
+  })
+}
+
+
+
+public Rejecttcandidate(){
+
+
+  this.RecriutmentServiceService.RejectInterview(this.id, 2, this.rinterview).subscribe(data => {
+    Swal.fire(
+      'Rejected!',
+      'Candidate has been Rejected',
+      'success'
+    )
+    this.GetCandidateReg()
+  })
+}
 
   public GetOfferLetter(offer:any) {
     window.open(offer, "_blank")

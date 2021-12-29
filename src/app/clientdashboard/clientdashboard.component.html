@@ -1,4 +1,5 @@
 <br>
+<app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1"></div>
@@ -21,6 +22,9 @@
                 </div> -->
                 <div class="col-lg-6">
                     <input class="form-control" type="search" placeholder="Search for Client Name"[(ngModel)]="search" >
+                </div>
+                <div class="col-lg-4">
+                    <p class="Text" style="float:right; padding-right:50px;">Count:{{count}}</p>
                 </div>
             </div><br>
             <div class="row">

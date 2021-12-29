@@ -37,15 +37,11 @@ ul {
 }
 .table{
   border-radius: 5px;
+  background-color: #dee2e6;
 }
 
 .Heading{
   padding-left: 15px;
-  /* font-size: 15px; */
-  /* font-weight: bold; */
-  /* color: black; */
-  /* text-decoration-line: underline; */
-
     color: #212529;
     font-size: 20px !important;
     font-family: 'DIN Bold';
@@ -107,6 +103,9 @@ font-weight: bold;
     background-color: white;
   }
 
+  .table{
+    background-color: #dee2e6;
+  }
   .table th {
     background-color: #e4e5e6 !important;
   }
@@ -154,6 +153,9 @@ font-weight: bold;
     border-radius: 7px;
     background-color: #2F87CC;
     color: white;
+  }
+  .Text{
+    font-size: 16px;
   }
   
 

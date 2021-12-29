@@ -52,7 +52,9 @@ import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
 import { AuthGuard } from './services/auth.guard';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     SourcingStaffDashboardComponent,
     SourcingStaffFormComponent,
     AdminDashboardComponent,
+    SpinnerComponent,
    
   ],
   imports: [
@@ -110,7 +113,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     FormsModule,
     HttpClientModule,
     PipesModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxSpinnerModule
     
 
     
