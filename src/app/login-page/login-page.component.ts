@@ -58,7 +58,7 @@ export class LoginPageComponent implements OnInit {
       sessionStorage.setItem('userName', 'admin');
       sessionStorage.setItem('temp', '1');
       // this.router.navigate(["/Dashboard"]);
-      location.href="/Dashboard"
+      location.href="/AdminDashboard"
       sessionStorage.setItem('roleid', '1');
       //  location.reload();
 
@@ -117,7 +117,7 @@ export class LoginPageComponent implements OnInit {
     }
 
 
-
+    
 
 
 
@@ -143,9 +143,9 @@ export class LoginPageComponent implements OnInit {
 
 
       
-    else if (this.roleID == 3){
-      this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
-        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password);
+    else if (this.roleID == 4){
+      this.RecruitmentServiceService.GetClientMaster().subscribe(data => {
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -153,8 +153,8 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('UserName', this.result.name);
           sessionStorage.setItem('userid', this.result.id);
           sessionStorage.setItem('temp', '1');
-          sessionStorage.setItem('role', 'vendor');
-          sessionStorage.setItem('roleid', '3');
+          sessionStorage.setItem('role', 'Client');
+          sessionStorage.setItem('roleid', '4');
           location.href = "/Dashboard";
        
 
@@ -172,7 +172,31 @@ export class LoginPageComponent implements OnInit {
 
 
 
+    else if (this.roleID == 5){
+      this.RecruitmentServiceService.GetSourcingMaster().subscribe(data => {
+        let temp: any = data.filter(x => (x.email == this.userName) && x.password == this.password);
+        this.result = temp[0];
+        debugger;
+        // this.loader = true;
+        if (this.result != undefined || this.result != null) {
+          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('userid', this.result.id);
+          sessionStorage.setItem('temp', '1');
+          sessionStorage.setItem('role', 'Source');
+          sessionStorage.setItem('roleid', '3');
+          location.href = "/Dashboard";
+       
 
+        }
+        else {
+          Swal.fire('Phonenumber or Password is invalid');
+          this.userName = "";
+          this.password = "";
+        }
+       
+    }) 
+     
+    }
 
 
 

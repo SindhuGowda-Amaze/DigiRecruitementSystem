@@ -52,6 +52,7 @@ import { SourcingFormComponent } from './sourcing-form/sourcing-form.component';
 import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sourcing-staff-dashboard.component';
 import { SourcingStaffFormComponent } from './sourcing-staff-form/sourcing-staff-form.component';
 import { AuthGuard } from './services/auth.guard';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { AuthGuard } from './services/auth.guard';
     SourcingFormComponent,
     SourcingStaffDashboardComponent,
     SourcingStaffFormComponent,
+    AdminDashboardComponent,
    
   ],
   imports: [
