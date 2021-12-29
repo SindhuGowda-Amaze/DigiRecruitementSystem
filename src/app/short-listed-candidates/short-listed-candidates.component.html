@@ -155,7 +155,7 @@
               <tr class="head">
                 <!-- <th>Vendor</th> -->
                 <th>Job Reference ID</th>
-                <th>Client Name</th>
+                <th>Source</th>
                 <th>Job Title</th>
                 <th>Candidate Name</th>
                 <th>Phone No</th>
@@ -172,7 +172,7 @@
               </tr>
               <tr *ngFor="let job of joblist|filter:search">
                 <td>{{job.jobRefernceID}}</td>
-                <td> Mind Tree</td>
+                <td> {{job.source}}</td>
                 <td>{{job.jobTitle}}</td>
                 <td>{{job.candidateName}}</td>
                 <td>{{job.phoneNo}}</td>

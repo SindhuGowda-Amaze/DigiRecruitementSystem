@@ -3,9 +3,12 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                     <p class="Heading">Vendor Staff Dashboard</p>                 
-                </div>              
+                </div>   
+                <div class="col-lg-2">
+                    <p class="Text" style="float:right; padding-right:50px;">Count:{{count}}</p>
+                </div>           
             </div>  <hr class="HrLine"> 
           
                 <div class="row FilterClass">
@@ -15,9 +18,7 @@
                     <div class="col-lg-6">
                         <input class="form-control" placeholder="search" [(ngModel)]="search" name="search"  >
                     </div>
-                    <div class="col-lg-4">
-                        <p class="Text" style="float:right; padding-right:50px;">Count:{{count}}</p>
-                    </div>
+                  
                 </div> 
 
                 <div class="row">
@@ -46,7 +47,7 @@
                                 <td>{{vendor.staff_Name}}</td>
                                 <td>{{vendor.phone_Number}}</td>  
                                 <td>{{vendor.email_Id}}</td>                                                                                       
-                                <td><img style="width:200% ; padding-left:20px; text-align:center;" src="{{vendor.signature}}"> </td>   
+                                <td><img style="width:80% ; text-align:center;" src="{{vendor.signature}}"> </td>   
                                 <td><button class="button1" (click)="edit(vendor.id)">Edit</button> <br> <br>
                                     <button class="button2" (click)="Ondelete(vendor.id)">Delete</button>
                                 </td>                          

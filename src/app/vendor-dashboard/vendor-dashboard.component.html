@@ -10,8 +10,11 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                     <p class="Heading">Vendor Dashboard</p>
+                </div>
+                <div class="col-lg-2">
+                    <p class="Text" style="float:right; padding-right:50px;">Count:{{count}}</p>
                 </div>
             </div>
             <hr class="HrLine">
@@ -23,9 +26,7 @@
                 <div class="col-lg-6">
                     <input class="form-control" placeholder="search" [(ngModel)]="search" name="search">
                 </div>
-                <div class="col-lg-4">
-                    <p class="Text" style="float:right; padding-right:50px;">Count:{{count}}</p>
-                </div>
+              
                 <div class="col-lg-1"></div>
             </div><br>
             <div class="row">
@@ -42,7 +43,7 @@
                         <table class="table ">
                             <thead>
                                 <tr class="head">
-                                    <th style="width: 160px;">Vendor Logo</th>
+                                    <th>Vendor Logo</th>
                                     <th>Name</th>
                                     <th>Phone Number</th>
                                     <th>Email Id</th>
@@ -50,7 +51,7 @@
                                     <th>Actions</th>
                                 </tr>
                                 <tr *ngFor="let vendor of vendordetails|filter:search">
-                                    <td><img class="image" src="{{vendor.vendor_Logo}}"></td>
+                                    <td><img style="width: 100px;" src="{{vendor.vendor_Logo}}"></td>
                                     <td>{{vendor.vendor_Name}}</td>
                                     <td>{{vendor.phone_Number}}</td>
                                     <td>{{vendor.email_ID}}</td>
