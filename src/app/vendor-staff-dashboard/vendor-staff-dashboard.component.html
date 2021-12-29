@@ -27,9 +27,9 @@
                             <option value="90 Days">90 Days</option>
                         </select>
                     </div> -->
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                      <p class="count">Count:2</p> 
-                    </div>
+                    </div> -->
                 </div> <br>
             </div><br>
             <div class="row">
@@ -38,18 +38,20 @@
                         <thead>
                             <tr class="head">
                                 <th>Vendor Name</th>
+                                <th>Role </th>
                                 <th>Staff Name</th>
                                 <th>Phone Number</th>
-                                <th>Email_Id</th>
+                                <th>Email Id</th>
                                 <th>Staff Code</th>
                                 <th>Signature</th>
                                 <th>Actions</th>
                             </tr>
                             <tr *ngFor="let vendor of staffdetails">
                                 <td>{{vendor.vendor_Name}}</td>
+                                <td>{{vendor.role_Id}}</td>
                                 <td>{{vendor.staff_Name}}</td>
                                 <td>{{vendor.email_Id}}</td>
-                                <td>{{vendor.phone_Number}}</td>
+                                <td>{{vendor.phone_Number}}</td>                              
                                 <td>{{vendor.staff_Code}}</td>
                                 <td><img src="{{vendor.signature}}"> </td>   
                                 <td><button class="button1" (click)="edit(vendor.id)">Edit</button> <br> <br>
