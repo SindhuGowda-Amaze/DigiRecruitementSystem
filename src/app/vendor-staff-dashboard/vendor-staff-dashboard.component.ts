@@ -17,6 +17,7 @@ export class VendorStaffDashboardComponent implements OnInit {
   phone_Number:any;
   staff_Code:any;
   signature:any;
+  role_Id:any;
   staffdetails:any;
 
   ngOnInit(): void {
