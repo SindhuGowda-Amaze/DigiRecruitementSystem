@@ -29,6 +29,7 @@ export class ClientdashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
       debugger
       this.ClientMasterlist=data ;
+      this.loader=false;
       this.count = this.ClientMasterlist.length;
      })
   }
