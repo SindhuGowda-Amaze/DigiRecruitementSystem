@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-lg-2">
-                    <p class="FormHeadText">Recruiter Staff Form </p>
+                    <p class="FormHeadText">Company Staff</p>
                 </div>
             </div>
             <div class="row">
@@ -15,9 +15,8 @@
             <br>
             <div class="card BOXCARD">
                 <div class="row leavereq">
-            
                     <div class="col-md-2">
-                        <label>Recruiter<span style="color: red;">*</span></label>
+                        <label>Comapany<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
                         <label>Name<span style="color: red;">*</span></label>
@@ -36,7 +35,7 @@
                         <label>Address<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
-                        <label>Signature<span style="color: red;">*</span></label>
+                        <label>Signature</label>
                     </div>
                   
                 </div>
@@ -49,7 +48,6 @@
                             </select>
                         </div>
                     </div> 
-                
                     <div class="col-md-2">
                         <input type="text" class="form-control inputfield" name="Name" id="Name" [(ngModel)]="Name">
                     </div>
@@ -75,32 +73,19 @@
                 </div>
                 <br>
                 <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <label>MPF-ER<span style="color: red;">*</span></label>
-                    </div>
                     <div class="col-md-2">
-                        <label>MPF-EE<span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-md-2">
-                        <label>EC-ER<span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-md-2">
-                        <label>Total Contribution<span style="color: red;">*</span></label>
-                    </div> -->
+                        <label>Role<span style="color: red;">*</span></label>
+                    </div>               
                 </div>
                 <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield">
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div> -->
+                        <div class="dropdown">
+                            <select class="form-control" name="roleid" id="roleid" [(ngModel)]="roleid">
+                                <option value="">Select </option>
+                                <option *ngFor="let User of roleList" value={{User.id}}>{{User.short}} </option>
+                            </select>
+                        </div>
+                    </div>            
                 </div>
                 <br>
                 <div class="row">

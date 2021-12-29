@@ -322,5 +322,9 @@ export class RecruitmentServiceService {
     this.url = this.host + "/Master/UpdateClientStaff";
     return this.http.post(this.url, data);
   }
-
+  
+  public GetRoleType() {
+    debugger
+    return this.http.get<any[]>(this.host + "/MasterDemo/GetRoleType?UserTypeID=1");
+  }
 }

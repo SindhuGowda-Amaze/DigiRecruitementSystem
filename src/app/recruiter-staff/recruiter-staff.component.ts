@@ -17,17 +17,18 @@ export class RecruiterStaffComponent implements OnInit {
   Address: any;
   RecruiterID: any;
   ID:any;
+  roleList: any;
+  roleid:any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetRecruiterMaster();
-   // this.GetRecruiterStaff();
+    this.GetRoleType();
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
       if (this.ID != undefined && this.ID!=null) {
-        this.GetRecruiterStaff();
-        
+        this.GetRecruiterStaff(); 
       }
     })
   }
@@ -48,6 +49,18 @@ export class RecruiterStaffComponent implements OnInit {
       })
 
   }
+
+  
+  public GetRoleType() {
+    debugger
+    this.RecruitmentServiceService.GetRoleType().subscribe(
+      data => {
+      this.roleList = data
+      this.count = this.recruiterlist.length;
+    })
+
+  }
+
 
 
 
