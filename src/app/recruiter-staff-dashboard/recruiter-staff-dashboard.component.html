@@ -10,21 +10,21 @@
                 </div>
             </div>
             <div class="row FilterClass">
-                <div class="col-lg-2">
+                <!-- <div class="col-lg-2">
                     Filter By
-                </div>
-                <div class="col-lg-2">
+                </div> -->
+                <!-- <div class="col-lg-2">
                     <input class="form-control" type="date" placeholder="Duration">
-                </div>
+                </div> -->
                 <div class="col-lg-6">
-                    <input class="form-control" type="search" placeholder="Search for date , Type or Code">
+                    <input class="form-control" type="search" placeholder="Search for Role , Name or Email" >
                 </div>
             </div><br>
             <div class="row">
                 <div class="col-lg-8 View">
                     <ul>
                         <li><a class="active">View</a></li>
-                        <li><a>Modify</a></li>
+                        <!-- <li><a>Modify</a></li> -->
                     </ul>
                 </div>
                 <div class="col-lg-4">
@@ -38,7 +38,8 @@
                         <table class="table">
                             <thead>
                                 <tr class="newFont">
-                                    <th>Recruiter Name</th>
+                                    <th>Role</th>
+                                    <!-- <th>Company Name</th> -->
                                     <th>Name</th>
                                     <th>Phone No.</th>
                                     <th>Email</th>
@@ -51,7 +52,8 @@
                             </thead>
                             <tbody>
                                 <tr class="newFont" *ngFor="let staff of stafflist">
-                                    <td>{{staff.recruiter}}</td>
+                                    <!-- <td>{{staff.recruiter}}</td> -->
+                                    <td>{{staff.role}}</td>
                                     <td>{{staff.name}}</td>
                                     <td>{{staff.phoneNo}}</td>
                                     <td>{{staff.email}}</td>
