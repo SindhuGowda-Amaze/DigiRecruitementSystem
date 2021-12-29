@@ -20,8 +20,7 @@ export class ClientStaffDashboardComponent implements OnInit {
   }
 
   ClientStaffList:any
-
-
+  
   public GetClientStaff() {
     debugger
     this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
