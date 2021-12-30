@@ -37,8 +37,8 @@ export class JobRequisitionComponent implements OnInit {
 
   public editorValue: string = '';
   ngOnInit(): void {
-    this.editor = new Editor();
-    this.RecruitmentServiceService.UsersHr().subscribe(data => {
+
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
   }
@@ -46,6 +46,16 @@ export class JobRequisitionComponent implements OnInit {
   public GetHrName(even:any) {
     this.hiringmanager = even.target.value;
   }
+
+  // public GetClientStaff() {
+  //   debugger
+  //   this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
+  //     debugger
+  //     this.hrlist=data ;
+    
+  //    })
+  // }
+
 
 
   public insertdetails() {
@@ -66,7 +76,7 @@ export class JobRequisitionComponent implements OnInit {
     this.RecruitmentServiceService.InsertJob_Requirements(entity).subscribe(data => {
       if (data != 0) {
         swal.fire("Saved Successfully");
-        location.href = "/JobRecruitements";
+        location.href = "#/JobRecruitements";
       }
 
     })

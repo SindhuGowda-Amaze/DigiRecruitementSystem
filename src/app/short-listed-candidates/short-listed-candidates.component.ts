@@ -26,7 +26,6 @@ export class ShortListedCandidatesComponent implements OnInit {
     this.loader=true;
     this.GetCandidateReg();
     this.GetStaffType();
-   
     this.roleid = sessionStorage.getItem('roleid');
   }
 

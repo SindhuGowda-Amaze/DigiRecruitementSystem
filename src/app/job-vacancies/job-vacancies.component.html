@@ -178,7 +178,7 @@
                         <div class="col-lg-4">
                             <img src="{{attachmentsurl}}" style="width: 42px;">
                         </div> -->
-                            <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
+                            <ngx-dropzone (change)="onSelect($event)" style="height: 60px;" accept="application/pdf" >
                                 <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
                                 <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
                                     (removed)="onRemove(f)">
@@ -195,6 +195,7 @@
                         </div>
                         <div class="col-lg-5"></div>
                     </div><br>
+                   
                 </div>
             </div>
             <div class="modal-footer">

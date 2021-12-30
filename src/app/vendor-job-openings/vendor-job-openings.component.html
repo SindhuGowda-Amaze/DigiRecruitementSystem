@@ -74,7 +74,12 @@
                                 <td></td>
                                 <td >{{job.hiringManager}}</td>
                                 <td >{{job.resourceManager}}</td>
-                                <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">Apply</button></td>
+                                <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" >Apply</button>
+                                   <br/>
+                                    <button *ngIf="job.vendor==null" class="button form-control Add1" data-toggle="modal"
+                                    (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
+                                </td>
+                            
                             </tr>                          
                        
                     </table>
@@ -87,3 +92,48 @@
 
 
 
+<div id="Assign" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Assign Vendor</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text">Vendor :</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <select class="form-control" [(ngModel)]="Vendor">
+                            <option value="">Select </option>
+                            <option *ngFor="let User of Userlist" value={{User.id}}>{{User.vendor_Name}} </option>
+                        </select>
+                    </div>
+                </div> <br>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text" style="font-weight: bold;">Notes :</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <textarea class="form-control" name="Notes" id="Notes" [(ngModel)]="Notes"
+                            placeholder="Notes"></textarea>
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <button class="form-control Save" (click)="UpdateVendor()">Assign</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <hr>
+                <div class="col-lg-2">
+                    <button class="Button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
