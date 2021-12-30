@@ -18,16 +18,17 @@ export class VendorJobOpeningsComponent implements OnInit {
   term:any;
   userid:any;
   roleid:any;
+  notes:any;
   ngOnInit(): void {
     debugger;
     this.userid=sessionStorage.getItem('userid')
-    
     this.vendorid = sessionStorage.getItem('vendorid');
     this.roleid = sessionStorage.getItem("roleid")
+    this.notes = sessionStorage.getItem('notes');
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.vendor == this.userid);
+        this.joblist = data;
         this.count = this.joblist.length;
       })
   
