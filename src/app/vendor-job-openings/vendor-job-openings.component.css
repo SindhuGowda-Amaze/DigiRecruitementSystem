@@ -25,3 +25,15 @@ td{
     background-color: #21a4da;
     color: #fff;
 }
+
+.Add1{
+    padding:7px;
+    border-radius: 5px;
+    border:none;
+    background-color: #21a4da;;
+    color:white; 
+    width:100%;
+    font-size: 16px;
+    height:61px;
+  }
+  

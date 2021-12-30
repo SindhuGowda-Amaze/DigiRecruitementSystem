@@ -106,7 +106,11 @@
   </div>
 </div>
  -->
+
+
+ <app-spinner *ngIf="loader"></app-spinner>
  <div class="container-fluid">
+<div class="container-fluid">
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
@@ -116,14 +120,14 @@
           <hr class="HrLine">
         </div>
       </div> <br>
-    
+
       <div class="card"><br>
         <div class="row FilterClass">
           <div class="col-lg-1">
-           Filter By
+            Filter By
           </div>
           <div class="col-lg-3">
-            <input class="form-control" placeholder="Search"  [(ngModel)]="search">
+            <input class="form-control" placeholder="Search" [(ngModel)]="search">
           </div>
           <div class="col-lg-3">
             <select name="Select" class="form-control">
@@ -134,16 +138,16 @@
             </select>
           </div>
           <div class="col-lg-3">
-            <select name="Select" class="form-control">
+            <!-- <select name="Select" class="form-control">
               <option value="Select Notice Period">Select Notice Period</option>
               <option value="15 Days">15 Days</option>
               <option value="30 Days">30 Days</option>
               <option value="45 Days">45 Days</option>
               <option value="90 Days">90 Days</option>
-            </select>
+            </select> -->
           </div>
           <div class="col-lg-2">
-            <p class="count" >Count:{{count}}</p>
+            <p class="count">Count:{{count}}</p>
           </div>
         </div> <br>
       </div><br>
@@ -162,13 +166,13 @@
                 <th>Email</th>
                 <!-- <th>CTC</th> -->
                 <!-- <th>Notice Period</th> -->
-                <th>Total Years of Experience</th> 
+                <th>Total Years of Experience</th>
                 <th>Relevant Experience</th>
                 <th>Hiring Manager</th>
                 <th>City</th>
                 <th>Notes</th>
                 <th>Resume</th>             
-                <th>Actions</th>
+                <th  *ngIf="roleid!='4' && roleid=='6'" >Actions</th>
               </tr>
               <tr *ngFor="let job of joblist|filter:search">
                 <td>{{job.jobRefernceID}}</td>
@@ -183,23 +187,21 @@
                 <td>{{job.city}}</td>
                 <td>{{job.shortlistionNotes}}</td>
                 <td>
-                    <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
+                  <img src="/assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
                 </td>
-                <td>
+                <td  *ngIf="roleid!='4' && roleid=='6'">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                         (click)="GetCandidateID(job.id)">
                         Schedule Interview
                     </button>
 
-                    <!-- <img src="assets/images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
+                  <!-- <img src="assets/images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
                         style="width:20px;" (click)="Accept(job.id)" />&nbsp;
 
                     <img src="assets/images/can.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Reject"
                         style="width:20px;" (click)="Reject(job.id)" /> -->
                 </td>
-            </tr>
-
-           
+              </tr>
             </thead>
           </table>
         </div>
@@ -275,70 +277,70 @@
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" style="width:700px">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Schedule Interview</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label>Staff :</label>
-                    </div>
-                    <div class="col-lg-6">
-                        <select class="form-control" (change)="GetStaffID($event)">
-                            <option value="">Select</option>
-                            <option *ngFor="let staff of stafflist" value="{{staff.id}}">{{staff.name}}</option>
-                        </select>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label>Date :</label>
-                    </div>
-                    <div class="col-lg-6">
-                        <input type="date" class="form-control" [(ngModel)]="date" name="date" (change)="GetDate($event)">
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label>Time :</label>
-                    </div>
-                    <div class="col-lg-6">
-                        <select class="form-control" (change)="GetTimeID($event)">
-                            <option value="">Select</option>
-                            <option *ngFor="let time of slotslist" value="{{time.id}}">{{time.slotTime}}</option>
-                        </select>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label>Notes :</label>
-                    </div>
-                    <div class="col-lg-6">
-                        <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="notes" name="notes"></textarea>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-5">
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width:700px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Schedule Interview</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Staff :</label>
+          </div>
+          <div class="col-lg-6">
+            <select class="form-control" (change)="GetStaffID($event)">
+              <option value="">Select</option>
+              <option *ngFor="let staff of stafflist" value="{{staff.id}}">{{staff.name}}</option>
+            </select>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Date :</label>
+          </div>
+          <div class="col-lg-6">
+            <input type="date" class="form-control" [(ngModel)]="date" name="date" (change)="GetDate($event)">
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Time :</label>
+          </div>
+          <div class="col-lg-6">
+            <select class="form-control" (change)="GetTimeID($event)">
+              <option value="">Select</option>
+              <option *ngFor="let time of slotslist" value="{{time.id}}">{{time.slotTime}}</option>
+            </select>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Notes :</label>
+          </div>
+          <div class="col-lg-6">
+            <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="notes" name="notes"></textarea>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-lg-5">
 
-                    </div>
-                    <div class="col-lg-2">
-                        <button type="button" class="btn btn-primary"
-                            (click)="UpdateInterviewSchedule()" data-dismiss="modal">Schedule</button>
-                    </div>
+          </div>
+          <div class="col-lg-2">
+            <button type="button" class="btn btn-primary" (click)="UpdateInterviewSchedule()"
+              data-dismiss="modal">Schedule</button>
+          </div>
 
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
         </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
     </div>
+  </div>
 </div>

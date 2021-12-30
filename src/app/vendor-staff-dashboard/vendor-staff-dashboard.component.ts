@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import Swal from 'sweetalert2';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vendor-staff-dashboard',
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorStaffDashboardComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
   vendor_Name:any;
   staff_Name:any;
   email_Id:any;
@@ -20,15 +20,18 @@ export class VendorStaffDashboardComponent implements OnInit {
   role_Id:any;
   staffdetails:any;
   count:any;
+  loader:any;
 search:any;
   ngOnInit(): void {
   this.GetVendor_Staff(); 
+  this.loader=true;
   }
 
   
   public GetVendor_Staff() {
     this.RecruitmentServiceService.GetVendor_Staff().subscribe(data => {
       this.staffdetails = data;
+      this.loader=false;
       this.count=this.staffdetails.length;
      
     })

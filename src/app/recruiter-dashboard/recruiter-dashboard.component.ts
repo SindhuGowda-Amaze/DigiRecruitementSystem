@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RecruitmentServiceService } from '../recruitment-service.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-recruiter-dashboard',
   templateUrl: './recruiter-dashboard.component.html',
@@ -10,17 +11,21 @@ export class RecruiterDashboardComponent implements OnInit {
   recuiter: any;
   recruiterlist: any;
   count: any;
-  constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
+  loader:any;
+  constructor(private RecruitmentServiceService: RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetRecruiterMaster();
+    this.loader=true;
+    
   }
 
 
   public GetRecruiterMaster() {
     this.RecruitmentServiceService.GetRecruiterMaster().subscribe(
       data => {
-        this.recruiterlist = data
+        this.recruiterlist = data;
+        this.loader=false;
         this.count = this.recruiterlist.length;
       })
 

@@ -55,6 +55,8 @@ import { AuthGuard } from './services/auth.guard';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { NgxEditorModule } from 'ngx-editor';
+
 
 @NgModule({
   declarations: [
@@ -114,7 +116,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HttpClientModule,
     PipesModule,
     Ng2SearchPipeModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxEditorModule
+ 
     
 
     

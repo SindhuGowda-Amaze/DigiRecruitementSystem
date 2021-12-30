@@ -14,12 +14,16 @@ export class JobRecruitementsComponent implements OnInit {
   joblist: any;
   search: any;
   count: any;
+Date: any;
+  loader:any;
 
   ngOnInit(): void {
+    this.loader=true;
     this.GetRecruiterStaff();
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data.filter(x => x.vendor == null);
+      this.loader=false;
       debugger
       this.count = this.joblist.length;
     })
@@ -41,7 +45,7 @@ export class JobRecruitementsComponent implements OnInit {
   Vendor: any;
   Notes: any;
   vendorid: any;
-
+  userid: any;
   public UpdateVendor() {
     debugger
 
@@ -95,11 +99,27 @@ export class JobRecruitementsComponent implements OnInit {
   public GetRecruiterStaff() {
     this.RecruitmentServiceService.GetRecruiterStaff().subscribe(
       data => {
-      this.stafflist = data
-   
+      this.stafflist = data 
     })
-
   }
 
+  public GetDate(event:any) {
+    if(this.Date==0){
+      debugger
+      this.RecruitmentServiceService.GetUserslist().subscribe(data => {
+        this.joblist = data.filter(x => x.recruiter == this.userid);
+        this.count = this.joblist.length;
+      })
+    }
+    else{
+      debugger
+      this.RecruitmentServiceService.GetUserslist().subscribe(data => {
+        this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
+      
+        this.count = this.joblist.length;
+      })
+    }
+    
+  }
 
 }

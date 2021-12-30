@@ -16,13 +16,16 @@ export class JoinedCandidatesComponent implements OnInit {
   count: any;
   term: any;
   search:any;
+  loader:any;
   ngOnInit(): void {
-    this.GetCandidateReg()
+    this.loader=true;
+    this.GetCandidateReg();
   }
 
   public GetCandidateReg() {
     this.RecruitServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offerAcceptreject == 1);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

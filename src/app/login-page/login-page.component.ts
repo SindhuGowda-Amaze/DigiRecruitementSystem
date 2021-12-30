@@ -58,9 +58,9 @@ export class LoginPageComponent implements OnInit {
       sessionStorage.setItem('userName', 'admin');
       sessionStorage.setItem('temp', '1');
       // this.router.navigate(["/Dashboard"]);
-      location.href="/AdminDashboard"
+      location.href="#/AdminDashboard"
       sessionStorage.setItem('roleid', '1');
-      //  location.reload();
+      location.reload();
 
       
     }
@@ -76,7 +76,8 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'recruiter');
           sessionStorage.setItem('roleid', '6');
-          location.href = "/Dashboard";
+          location.href = "#/Dashboard";
+          location.reload();
        
 
         }
@@ -104,7 +105,8 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'Client');
           sessionStorage.setItem('roleid', '4');
-          location.href = "/Dashboard";
+          location.href = "#/Dashboard";
+          location.reload();
        
 
         }
@@ -133,7 +135,8 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'Vendor');
           sessionStorage.setItem('roleid', '3');
-          location.href = "/Dashboard";
+          location.href = "#/Dashboard";
+          location.reload();
        
 
         }
@@ -385,7 +388,9 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'ClientStaff');
           sessionStorage.setItem('roleid', '5');
-          location.href = "/ScheduledInterviews";
+          location.href = "#/ScheduledInterviews";
+          location.reload();
+        
        
 
         }
