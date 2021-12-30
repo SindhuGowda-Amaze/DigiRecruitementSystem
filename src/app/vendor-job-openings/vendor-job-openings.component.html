@@ -55,9 +55,9 @@
                                 <th class="heading">Job Description</th>
                                 <th class="heading">Job Location</th>
                                 <th class="heading">No of Positions</th>
-                                <th class="heading">CTC Budget</th>
+                                <th class="heading">Current CTC </th>
                                 <th class="heading">Hiring Manager</th>
-                                <th class="heading">Resource Manager</th>
+                                <!-- <th class="heading">Resource Manager</th> -->
                                 <th class="heading">Actions   </th>
                             </tr>
                         </thead>
@@ -71,9 +71,9 @@
                                 <td >{{job.jobDescription}}</td>
                                 <td>{{job.joblocation}}</td>
                                 <td >{{job.noofpositions}}</td>
-                                <td></td>
+                                <td>{{job.package}}</td>
                                 <td >{{job.hiringManager}}</td>
-                                <td >{{job.resourceManager}}</td>
+                                <!-- <td >{{job.resourceManager}}</td> -->
                                 <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" data-target="#ScheduleInterview">Apply</button></td>
                             </tr>                          
                        
