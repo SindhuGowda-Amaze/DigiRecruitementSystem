@@ -20,7 +20,7 @@ export class AppliedCandidatesComponent implements OnInit {
   roleid: any;
   ngOnInit(): void {
     this.GetCandidateReg()
-    this.roleid = localStorage.getItem('roleid');
+    this.roleid = sessionStorage.getItem('roleid');
   }
 
   public GetCandidateReg() {

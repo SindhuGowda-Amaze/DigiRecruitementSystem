@@ -18,11 +18,13 @@ export class ShortListedCandidatesComponent implements OnInit {
   count: any;
   DropJobList: any;
   dummjoblist:any;
+  roleid: any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetCandidateReg();
     this.GetStaffType();
+    this.roleid = sessionStorage.getItem('roleid');
   }
 
   

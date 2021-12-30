@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./vendor-job-openings.component.css']
 })
 export class VendorJobOpeningsComponent implements OnInit {
+  Date: any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
   joblist: any;
@@ -50,4 +51,25 @@ export class VendorJobOpeningsComponent implements OnInit {
     location.href = "/JobVacancies/" + this.ID
   }
   ID: any;
+
+
+
+  public GetDate(event:any) {
+    if(this.Date==0){
+      debugger
+      this.RecruitmentServiceService.GetUserslist().subscribe(data => {
+        this.joblist = data.filter(x => x.recruiter == this.userid);
+        this.count = this.joblist.length;
+      })
+    }
+    else{
+      debugger
+      this.RecruitmentServiceService.GetUserslist().subscribe(data => {
+        this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
+      
+        this.count = this.joblist.length;
+      })
+    }
+    
+  }
 }
