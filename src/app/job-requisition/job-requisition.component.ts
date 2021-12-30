@@ -63,7 +63,19 @@ export class JobRequisitionComponent implements OnInit {
 
 
   public insertdetails() {
-    if(this.jobtitile==null || this.jobtitile==undefined || this.jobtitile ==0 || this.skills==null || this.skills==undefined || this.skills==0 ){
+    if(this.jobtitile==null || this.jobtitile==undefined || this.jobtitile ==0 || 
+      this.skills==null || this.skills==undefined || this.skills==0 ||
+      this.yearsofexp==null || this.yearsofexp==undefined || this.yearsofexp==0 ||
+      this.yearsofrelavantexp==null || this.yearsofrelavantexp==undefined || this.yearsofrelavantexp==0 ||
+      this.jobdescription==null || this.jobdescription==undefined || this.jobdescription==0 ||
+      this.joblocation==null || this.joblocation==undefined || this.joblocation==0 ||
+      this.noofpositions==null || this.noofpositions==undefined || this.noofpositions==0 ||
+      this.companyname==null || this.companyname==undefined || this.companyname==0 ||
+      this.package==null || this.package==undefined || this.package==0 ||
+      this.hiringmanager==null || this.hiringmanager==undefined || this.hiringmanager==0 ||
+      this.otherreqconditions==null || this.otherreqconditions==undefined || this.otherreqconditions==0 ||
+      this.resourcemanager==null || this.resourcemanager==undefined || this.resourcemanager==0 )
+      {
       Swal.fire('Please Fill the Mandatory Fields')
     }
 else{
