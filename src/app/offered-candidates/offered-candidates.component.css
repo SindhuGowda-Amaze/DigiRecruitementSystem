@@ -40,9 +40,13 @@ font-family: "DIN Bold";
 .FilterClass{
 padding-left: 15px;
 }
-.count{
-text-align: right;
-padding-right: 10px;;
+.Count{
+  color: #212529;
+  font-size: 20px !important;
+  font-family: 'DIN Bold';
+  font-weight: bold;
+  float: right;
+  padding-right: 10px;;
 }
 
 .button{
