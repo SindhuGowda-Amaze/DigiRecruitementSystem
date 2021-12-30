@@ -41,10 +41,16 @@
 .FilterClass{
   padding-left: 15px;
 }
-.count{
-  text-align: right;
+
+.Count{
+  color: #212529;
+  font-size: 20px !important;
+  font-family: 'DIN Bold';
+  font-weight: bold;
+  float: right;
   padding-right: 10px;;
 }
+
 .pdf{
   width: 25%;
   height: auto;

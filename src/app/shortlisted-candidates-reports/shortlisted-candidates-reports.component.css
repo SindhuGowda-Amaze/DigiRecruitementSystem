@@ -15,10 +15,14 @@
 .hrline{
    margin-top: 0px;
 }
-.count{
+.Count{
+    color: #212529;
+    font-size: 20px !important;
+    font-family: 'DIN Bold';
+    font-weight: bold;
     float: right;
-    padding-right: 2px;
-}
+    padding-right: 10px;;
+  }
 
 .heading{
     background-color: #e4e5e6;
