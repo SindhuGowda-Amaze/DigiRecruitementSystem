@@ -135,6 +135,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'Vendor');
           sessionStorage.setItem('roleid', '3');
+          sessionStorage.setItem('notes', this.result.notes);
           location.href = "#/Dashboard";
           location.reload();
        
@@ -383,7 +384,7 @@ export class LoginPageComponent implements OnInit {
         debugger;
         // this.loader = true;
         if (this.result != undefined || this.result != null) {
-          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('UserName', this.result.vendor_Name);
           sessionStorage.setItem('userid', this.result.id);
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'ClientStaff');
