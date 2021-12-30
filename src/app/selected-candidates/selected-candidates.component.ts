@@ -130,5 +130,26 @@ this.files.splice(this.files.indexOf(event),1);
     this.RecruitmentServiceService.sendemail(entity).subscribe(data => {
     })
   }
+
+  Date:any;
+  userid:any;
+  public GetDate(event:any) {
+    if(this.Date==0){
+      debugger
+      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        this.joblist = data.filter(x => x.recruiter == this.userid);
+        this.count = this.joblist.length;
+      })
+    }
+    else{
+      debugger
+      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
+      
+        this.count = this.joblist.length;
+      })
+    }
+    
+  }
  
 }
