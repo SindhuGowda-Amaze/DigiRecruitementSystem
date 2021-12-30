@@ -18,9 +18,12 @@ export class ShortListedCandidatesComponent implements OnInit {
   count: any;
   DropJobList: any;
   dummjoblist:any;
+  loader:any;
+  roleid: any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
-  roleid:any;
+
   ngOnInit(): void {
+    this.loader=true;
     this.GetCandidateReg();
     this.GetStaffType();
     this.roleid = sessionStorage.getItem('roleid');
@@ -40,6 +43,7 @@ export class ShortListedCandidatesComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
       this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

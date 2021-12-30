@@ -20,10 +20,11 @@ export class OfferedCandidatesComponent implements OnInit {
   term: any;
   search:any;
   roleid:any;
-
+  loader:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
+    this.loader=true;
   }
 
 
@@ -31,6 +32,7 @@ export class OfferedCandidatesComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

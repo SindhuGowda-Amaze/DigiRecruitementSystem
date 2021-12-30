@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-applied-candidates-reports',
   templateUrl: './applied-candidates-reports.component.html',
@@ -7,13 +8,15 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
 })
 export class AppliedCandidatesReportsComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
   joblist: any;
   count: any;
   DropJobList: any;
   dummjoblist: any;
   term: any;
+  loader:any;
   ngOnInit(): void {
+    this.loader=true;
     this.GetCandidateReg()
   }
   refresh(){
@@ -24,6 +27,7 @@ export class AppliedCandidatesReportsComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
       this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

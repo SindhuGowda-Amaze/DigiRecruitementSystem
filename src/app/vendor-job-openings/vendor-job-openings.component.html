@@ -18,22 +18,23 @@
                         <input class="form-control" placeholder="Search.."  [(ngModel)]="search" name="search">
                     </div>
                     <div class="col-lg-3">
+                        <input type="date" class="form-control" (change)="GetDate($event)" name="Date" value="Date"  [(ngModel)]="Date">
+                        <!-- <select name="Select" class="form-control">
+                          <option value="Select Notice Period">Select Notice Period</option>
+                          <option value="15 Days">15 Days</option>
+                          <option value="30 Days">30 Days</option>
+                          <option value="45 Days">45 Days</option>
+                          <option value="90 Days">90 Days</option>
+                        </select> -->
+                    </div> 
+                    <div class="col-lg-3">
                         <select name="Select" class="form-control">
                           <option value="Select CTC">Select CTC</option>
                           <option value="30,000-50,000">30,000-50,000</option>
                           <option value="50,000-1,00000">50,000-1,00000</option>
                           <option value="1,00000-2,00000">1,00000-2,00000</option>
                         </select>
-                      </div>
-                      <div class="col-lg-3">
-                        <select name="Select" class="form-control">
-                          <option value="Select Notice Period">Select Notice Period</option>
-                          <option value="15 Days">15 Days</option>
-                          <option value="30 Days">30 Days</option>
-                          <option value="45 Days">45 Days</option>
-                          <option value="90 Days">90 Days</option>
-                        </select>
-                    </div>                 
+                      </div>                
                       <div class="col-lg-2">
                         <p class="count" >Count:{{count}}</p>
                       </div>
@@ -54,6 +55,7 @@
                                 <th class="heading">Job Description</th>
                                 <th class="heading">Job Location</th>
                                 <th class="heading">No of Positions</th>
+                                <th class="heading">CTC Budget</th>
                                 <th class="heading">Hiring Manager</th>
                                 <th class="heading">Resource Manager</th>
                                 <th class="heading">Actions   </th>
@@ -69,6 +71,7 @@
                                 <td >{{job.jobDescription}}</td>
                                 <td>{{job.joblocation}}</td>
                                 <td >{{job.noofpositions}}</td>
+                                <td></td>
                                 <td >{{job.hiringManager}}</td>
                                 <td >{{job.resourceManager}}</td>
                                 <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" >Apply</button>

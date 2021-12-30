@@ -10,9 +10,11 @@ export class SelectedCandidatesReportsComponent implements OnInit {
   count: any;
   search: any;
   date: any;
+  loader:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
+   this.loader=true;
     this.GetCandidateReg()
   }
   refresh(){
@@ -21,6 +23,7 @@ export class SelectedCandidatesReportsComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 
