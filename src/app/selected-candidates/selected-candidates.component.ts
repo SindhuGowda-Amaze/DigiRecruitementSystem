@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./selected-candidates.component.css']
 })
 export class SelectedCandidatesComponent implements OnInit {
+  roleid:any
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
@@ -21,6 +22,7 @@ export class SelectedCandidatesComponent implements OnInit {
   ngOnInit(): void {
     this.GetCandidateReg();
     this.loader=true;
+    this.roleid = sessionStorage.getItem('roleid');
   }
 
   public GetCandidateReg() {

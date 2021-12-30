@@ -49,9 +49,18 @@
                                 <td>{{vendor.staff_Name}}</td>
                                 <td>{{vendor.phone_Number}}</td>  
                                 <td>{{vendor.email_Id}}</td>                                                                                       
-                                <td><img style="width:80% ; text-align:center;" src="{{vendor.signature}}"> </td>   
-                                <td><button class="button1" (click)="edit(vendor.id)">Edit</button> <br> <br>
-                                    <button class="button2" (click)="Ondelete(vendor.id)">Delete</button>
+                                <td><img style="width:100% ; text-align:center;" src="{{vendor.signature}}"> </td>   
+                                <td><button class="Edit" (click)="edit(vendor.id)">Edit</button> <br> <br>
+                                    <button class="Edit" (click)="Ondelete(vendor.id)">Delete</button><br><br>
+                                    
+                                    <img src="assets/Images/activate.png" style="width:15%"
+                                    *ngIf="vendor.enable_Disable==0 || vendor.enable_Disable==null "
+                                    (click)="DisableStaff(vendor.id)"> <br />
+
+                                <img src="assets/Images/deactivate.png"
+                                    *ngIf="vendor.enable_Disable==1"
+                                    (click)="DisableStaff1(vendor.id)" style="width:15%">
+                               
                                 </td>                          
                             </tr> 
                         </thead>

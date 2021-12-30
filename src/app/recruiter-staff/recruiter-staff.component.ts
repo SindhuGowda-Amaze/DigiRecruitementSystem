@@ -103,13 +103,13 @@ this.files.splice(this.files.indexOf(event),1);
   public insertdetails() {
     debugger
     var entity = {
-    'RecruiterID':this.RecruiterID,
+    'RecruiterID':1,
       'Name': this.Name,
       'PhoneNo': this.PhoneNo,
       'Email': this.Email,
       'Address': this.Address,
       "Signature":this.Signature,
-      "Role_Id":this.roleid
+      "RoleId":this.roleid
 
     }
     this.RecruitmentServiceService.InsertRecruiterStaff(entity).subscribe(data => {
@@ -131,7 +131,7 @@ this.files.splice(this.files.indexOf(event),1);
       'Email': this.Email,
       'Address': this.Address,
       "Signature":this.Signature,
-      "Role_Id":this.roleid
+      "RoleId":this.roleid
 
     }
     this.RecruitmentServiceService.UpdateRecruiterStaff(entity).subscribe(data => {

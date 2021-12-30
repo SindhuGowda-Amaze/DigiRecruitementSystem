@@ -19,16 +19,36 @@ export class AppliedCandidatesComponent implements OnInit {
   search:any;
   roleid: any;
   loader:any;
+  userid:any;
+
+
   ngOnInit(): void {
     this.loader=true;
+    this.userid=sessionStorage.getItem('userid')
+
+    // this.roleid = sessionStorage.getItem("roleid")
+    // if(this.roleid=='3'){
+    //   debugger;
+    //   this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    //     this.joblist = data.filter(x => x.vendor == this.userid);
+    //     this.count = this.joblist.length;
+    //   })
+  
+    // }
+    // else {
+    //   this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    //     this.joblist = data.filter(x => x.recruiter == this.userid);
+    //     this.count = this.joblist.length;
+    //   })
+    // }
     this.GetCandidateReg()
-    this.roleid = localStorage.getItem('roleid');
+    this.roleid = sessionStorage.getItem('roleid');
   }
 
   public GetCandidateReg() {
   
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
+      this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
       this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
       this.loader=false;
       this.count = this.joblist.length;

@@ -61,6 +61,7 @@
                                 <!-- <th>Notice Period</th> -->
                                 <th>Total Years of Experience</th>
                                 <th>Relevant Experience</th>
+                                <th>Interviewer Comments</th>
                                 <!-- <th>Interviewer Feedback</th> -->
                                 <th>Actions</th>
                             </tr>
@@ -75,7 +76,8 @@
                                 <td>{{job.phoneNo}}</td>
                                 <td>{{job.email}}</td>
                                 <td>{{job.yearsofExp}}</td>
-                                <td>{{job.relavantExp}}</td>    
+                                <td>{{job.relavantExp}}</td>   
+                                <td>{{job.interviewercomments}}</td>    
                                 <td>
                                     <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
                                         data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
