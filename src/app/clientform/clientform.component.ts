@@ -39,6 +39,7 @@ export class ClientformComponent implements OnInit {
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
       
       
+      this.ID=this.result[0].iD;
       this.Company_logo=this.result[0].company_logo;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].phoneNo;
@@ -74,6 +75,7 @@ export class ClientformComponent implements OnInit {
     debugger
     var json = {
 
+   "ID": this.ID,
    "Logo": this.Company_logo,
    "Name": this.Name,
    "PhoneNo": this.PhoneNo,
@@ -111,41 +113,79 @@ export class ClientformComponent implements OnInit {
 
 
 
-  Save() {
+  // Save() {
+  //   debugger
+  //   var json = {
+  //     "Logo": this.Company_logo,
+  //     "Name": this.Name,
+  //     "PhoneNo": this.PhoneNo,
+  //     "Email": this.Email,
+  //     "Address": this.Address,
+  //   };
+  //   this.RecruitmentServiceService.InsertClientMaster(json).subscribe(
+  //     data => {
+  //       debugger
+  //       let id = data;
+  //       alert("Successfully Submitted...!!")
+  //       location.href = "/ClientDashBoard"
+  //     })
+  // }
+
+
+  public Save() {
     debugger
-    var json = {
-      "Logo": this.Company_logo,
-      "Name": this.Name,
-      "PhoneNo": this.PhoneNo,
-      "Email": this.Email,
-      "Address": this.Address,
-    };
-    this.RecruitmentServiceService.InsertClientMaster(json).subscribe(
-      data => {
-        debugger
-        let id = data;
-        alert("Successfully Submitted...!!")
-        location.href = "/ClientDashBoard"
-      })
+    var entity = {
+      'Logo': this.Company_logo,
+      'Name': this.Name,
+      'PhoneNo': this.PhoneNo,
+      'Email': this.Email,
+      'Address': this.Address,
+    }
+    this.RecruitmentServiceService.InsertClientMaster(entity).subscribe(data => {
+      if (data != 0) {
+        Swal.fire("Successfully Submitted...!!");
+      }
+      location.href = "/ClientDashBoard"
+    })
   }
 
-  Update() {
-    debugger
-    var json = {
-      "Logo": this.Company_logo,
-      "Name": this.Name,
-      "PhoneNo": this.PhoneNo,
-      "Email": this.Email,
-      "Address": this.Address,
-    };
 
-    this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(
-      data => {
-        debugger
-        let result = data;
-        Swal.fire("Updated Sucessfully...");
-        location.href = "/ClientDashBoard";
-      })
+
+
+  public Update() {
+    debugger;
+    var entity = {
+        'ID': this.ID,
+        'Logo': this.Company_logo,
+        'Name': this.Name,
+        'PhoneNo': this.PhoneNo,
+        'EmailID': this.Email,
+        'Address': this.Address, 
+    }
+    this.RecruitmentServiceService.UpdateClientMaster(entity).subscribe(data => {
+      Swal.fire("Updated Sucessfully...");
+      location.href = "/ClientDashBoard";
+
+    })
   }
+
+  // Update() {
+  //   debugger
+  //   var json = {
+  //     "Logo": this.Company_logo,
+  //     "Name": this.Name,
+  //     "PhoneNo": this.PhoneNo,
+  //     "Email": this.Email,
+  //     "Address": this.Address,
+  //   };
+
+  //   this.RecruitmentServiceService.UpdateClientMaster(json).subscribe(
+  //     data => {
+  //       debugger
+  //       let result = data;
+  //       Swal.fire("Updated Sucessfully...");
+  //       location.href = "/ClientDashBoard";
+  //     })
+  // }
 
 }

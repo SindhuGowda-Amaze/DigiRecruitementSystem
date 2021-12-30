@@ -19,11 +19,11 @@ export class OfferedCandidatesComponent implements OnInit {
   count: any;
   term: any;
   search:any;
+  roleid:any;
   loader:any;
-
-
   ngOnInit(): void {
-    this.GetCandidateReg();
+    this.GetCandidateReg()
+    this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
   }
 

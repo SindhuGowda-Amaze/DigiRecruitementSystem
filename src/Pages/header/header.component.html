@@ -39,6 +39,22 @@
             </ul>
         </div>
 
+        <div class="col-lg-1" *ngIf="roleid==5" >
+            <h6 class=" dropdown-toggle menutext" *ngIf="roleid!=8" type="button" id="dropdownMenu3"
+                data-toggle="dropdown" aria-expanded="false">Scheduled Interviews</h6>
+          
+                <ul class="dropdown-menu">
+              
+                <li class="dropdown-item"><a class="menuitem" 
+                        routerLink="/ScheduledInterviews">Scheduled Interviews </a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/SelectedCandidates">SelectedCandidates</a>
+                </li>
+                </ul>
+               
+          
+        </div>
+
+
         <div class="col-lg-1" *ngIf="roleid!=1 && roleid!=5" >
             <h6 class=" dropdown-toggle menutext" *ngIf="roleid!=8" type="button" id="dropdownMenu1"
                 data-toggle="dropdown" aria-expanded="false">Job Recruitements</h6>

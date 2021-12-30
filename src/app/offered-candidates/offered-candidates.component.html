@@ -50,7 +50,7 @@
                                 <th>Relevant Experience</th>
                                 <th>Offer Letter</th>
                                 <!-- <th>Offer Comments</th> -->
-                                <th>Actions</th>
+                                <th  *ngIf="roleid=='4' && roleid!='6'">Actions</th>
                             </tr>
                             <tr>
                                 <tr *ngFor="let job of joblist|filter:search">
@@ -67,6 +67,7 @@
                                     <td>{{job.relavantExp}}</td>
                                     <td>
                                         <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
+                                        <!-- <input type="file" id="test" name="test" accept=".pdf" (click)="GetOfferLetter(job.offerLetter)"> -->
                                     </td>
                                     <!-- <td>
                                         <span *ngIf="job.offerAcceptreject=='1'">Joined</span>
@@ -75,7 +76,7 @@
                                     <!-- <td>
                                         <textarea class="form-control" row="4" [(ngModel)]="job.offerComments" name="job.offerComments" placeholder="Comments"></textarea>
                                     </td> -->
-                                    <td>
+                                    <td  *ngIf="roleid=='4' && roleid!='6'">
                                         <button class="btn btn-primary" *ngIf="job.offerAcceptreject=='0'"
                                             (click)="Accept(job.id,job.offerComments)">Joined</button><br><br>
                                         <button class="btn btn-danger" *ngIf="job.offerAcceptreject=='0'"

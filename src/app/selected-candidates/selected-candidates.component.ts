@@ -20,9 +20,9 @@ export class SelectedCandidatesComponent implements OnInit {
   date: any;
   loader:any;
   ngOnInit(): void {
-    this.GetCandidateReg();
-    this.loader=true;
+    this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
+    this.loader=true;
   }
 
   public GetCandidateReg() {
