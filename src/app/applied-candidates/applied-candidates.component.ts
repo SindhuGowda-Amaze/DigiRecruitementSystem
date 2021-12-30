@@ -18,7 +18,26 @@ export class AppliedCandidatesComponent implements OnInit {
   jobid: any;
   search:any;
   roleid: any;
+  userid:any;
   ngOnInit(): void {
+    this.userid=sessionStorage.getItem('userid')
+    
+    
+    // this.roleid = sessionStorage.getItem("roleid")
+    // if(this.roleid=='3'){
+    //   debugger;
+    //   this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    //     this.joblist = data.filter(x => x.vendor == this.userid);
+    //     this.count = this.joblist.length;
+    //   })
+  
+    // }
+    // else {
+    //   this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    //     this.joblist = data.filter(x => x.recruiter == this.userid);
+    //     this.count = this.joblist.length;
+    //   })
+    // }
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
   }
@@ -26,7 +45,7 @@ export class AppliedCandidatesComponent implements OnInit {
   public GetCandidateReg() {
   
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
+      this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
       this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
       this.count = this.joblist.length;
     })
