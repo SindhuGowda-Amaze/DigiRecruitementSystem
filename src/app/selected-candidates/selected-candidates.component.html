@@ -18,7 +18,7 @@
                         <input class="form-control" placeholder="Search" [(ngModel)]="search" name="search">
                     </div>                  
                     <div class="col-lg-3">
-                        <select name="Select" class="form-control">
+                        <select name="Select" class="form-control" >
                             <option value="Select CTC">Select CTC</option>
                             <option value="30,000-50,000">30,000-50,000</option>
                             <option value="50,000-1,00000">50,000-1,00000</option>
@@ -62,7 +62,7 @@
                                 <th>Relevant Experience</th>
                                 <th>Interviewer Comments</th>
                                 <!-- <th>Interviewer Feedback</th> -->
-                                <th>Actions</th>
+                                <th  *ngIf="roleid!='4' && roleid=='6'">Actions</th>
                             </tr>
                             <tr *ngFor="let job of joblist|filter:search    ">
                                 <td>{{job.jobRefernceID}}</td>
@@ -77,7 +77,7 @@
                                 <td>{{job.yearsofExp}}</td>
                                 <td>{{job.relavantExp}}</td>   
                                 <td>{{job.interviewercomments}}</td>    
-                                <td>
+                                <td  *ngIf="roleid!='4' && roleid=='6'">
                                     <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
                                         data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
         

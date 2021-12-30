@@ -19,10 +19,11 @@ export class ShortListedCandidatesComponent implements OnInit {
   DropJobList: any;
   dummjoblist:any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
-
+  roleid:any;
   ngOnInit(): void {
     this.GetCandidateReg();
     this.GetStaffType();
+    this.roleid = sessionStorage.getItem('roleid');
   }
 
   

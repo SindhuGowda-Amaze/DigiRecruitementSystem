@@ -60,8 +60,8 @@
                                 <th>Job Location</th>
                                 <th>No of Positions</th>
                                 <th>Hiring Manager</th>
-                                <th>Resource Manager</th>
-                                <th>Actions </th>
+                                <!-- <th>Resource Manager</th> -->
+                                <!-- <th>Actions </th> -->
                             </tr>
                         </thead>
                         <tr *ngFor="let job of joblist|filter:search">
@@ -76,12 +76,12 @@
                             <td *ngIf="job.vendor==null">{{job.joblocation}}</td>
                             <td *ngIf="job.vendor==null">{{job.noofpositions}}</td>
                             <td *ngIf="job.vendor==null">{{job.hiringManager}}</td>
-                            <td *ngIf="job.vendor==null">{{job.resourceManager}}</td>
-                            <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
+                            <!-- <td *ngIf="job.vendor==null">{{job.resourceManager}}</td> -->
+                            <!-- <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview">Assign Vendor</button> <br/>
                                     <button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview1">Assign Recruiter</button></td>
-                           
+                            -->
                         </tr>
                     </table>
                 </div>

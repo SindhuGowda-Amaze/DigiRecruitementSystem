@@ -17,8 +17,10 @@ export class SelectedCandidatesComponent implements OnInit {
   count: any;
   search: any;
   date: any;
+  roleid:any;
   ngOnInit(): void {
     this.GetCandidateReg()
+    this.roleid = sessionStorage.getItem('roleid');
   }
 
   public GetCandidateReg() {

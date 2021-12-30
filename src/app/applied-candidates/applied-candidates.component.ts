@@ -21,7 +21,7 @@ export class AppliedCandidatesComponent implements OnInit {
   userid:any;
   ngOnInit(): void {
     this.userid=sessionStorage.getItem('userid')
-    
+    this.roleid = sessionStorage.getItem('roleid');
     
     // this.roleid = sessionStorage.getItem("roleid")
     // if(this.roleid=='3'){
@@ -39,7 +39,7 @@ export class AppliedCandidatesComponent implements OnInit {
     //   })
     // }
     this.GetCandidateReg()
-    this.roleid = localStorage.getItem('roleid');
+ 
   }
 
   public GetCandidateReg() {
