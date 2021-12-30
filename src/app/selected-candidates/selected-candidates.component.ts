@@ -48,7 +48,7 @@ export class SelectedCandidatesComponent implements OnInit {
   offernotes: any;
 
   Company_logo:any;
-
+  TentativeDate:any;
 
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
@@ -79,10 +79,12 @@ this.files.splice(this.files.indexOf(event),1);
 
 
   public updatedetails() {
+    debugger;
     var entity = {
       'ID': this.candidateid,
       'OfferLetterUrl': this.Company_logo,
-      'OfferNotes': this.offernotes
+      'OfferNotes': this.offernotes,
+      'TentativeDate': this.TentativeDate
     }
     this.RecruitmentServiceService.UpdateOfferLetter(entity).subscribe(data => {
       Swal.fire("Candidate Offered Successfully");
