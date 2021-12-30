@@ -28,11 +28,7 @@
   border: 1px solid lightgray;
    border-collapse: collapse; 
 }
-.Heading{
-  padding-left: 15px;
-  font-size: 20px;
-  color:black;
-}
+
 .head{
   background-color: #e4e5e6;
   color:#404040;
@@ -40,6 +36,12 @@
 }
 .FilterClass{
   padding-left: 15px;
+}
+
+.Heading{
+  padding-left: 15px;
+  font-size: 20px;
+  color:black;
 }
 
 .Count{

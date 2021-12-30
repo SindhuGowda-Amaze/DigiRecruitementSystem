@@ -383,7 +383,7 @@ export class LoginPageComponent implements OnInit {
         debugger;
         // this.loader = true;
         if (this.result != undefined || this.result != null) {
-          sessionStorage.setItem('UserName', this.result.vendor_Name);
+          sessionStorage.setItem('UserName', this.result.name);
           sessionStorage.setItem('userid', this.result.id);
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'ClientStaff');

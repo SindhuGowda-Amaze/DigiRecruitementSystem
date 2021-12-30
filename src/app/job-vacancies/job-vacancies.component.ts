@@ -16,7 +16,7 @@ export class JobVacanciesComponent implements OnInit {
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.Source=localStorage.getItem('role')
+    this.Source=sessionStorage.getItem('role')
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
