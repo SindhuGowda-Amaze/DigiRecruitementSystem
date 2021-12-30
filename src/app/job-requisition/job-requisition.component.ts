@@ -34,13 +34,15 @@ export class JobRequisitionComponent implements OnInit {
   constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
    editor:any;
    html:any;
+ 
 
   public editorValue: string = '';
   ngOnInit(): void {
-
+ 
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
+   
   }
 
   public GetHrName(even:any) {

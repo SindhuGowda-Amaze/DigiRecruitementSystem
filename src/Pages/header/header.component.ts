@@ -12,11 +12,12 @@ export class HeaderComponent implements OnInit {
   company_name: any;
   temp:any
   roleid:any;
+  UserName:any;
   ngOnInit() {
     this.temp=sessionStorage.getItem('temp')
     this.roleid = sessionStorage.getItem('roleid');
     this.company_name = sessionStorage.getItem("company_name");
-    
+    this.UserName = sessionStorage.getItem('UserName');
   }
 
   logout() {
