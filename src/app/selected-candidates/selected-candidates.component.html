@@ -81,8 +81,8 @@
                                 <td>{{job.email}}</td>
                                 <td>{{job.yearsofExp}}</td>
                                 <td>{{job.relavantExp}}</td>  
-                                <td></td> 
-                                <td></td> 
+                                <td>{{job.ctc}}</td> 
+                                <td>{{job.noticePeriod}}</td> 
                                 <td>{{job.interviewercomments}}</td>    
                                 <td  *ngIf="roleid!='4' && roleid=='6'">
                                     <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
@@ -336,7 +336,7 @@
                         <label class="Letter">Tentative Date</label>
                     </div>
                     <div class="col-lg-6">
-                       <input type="Date" class="form-control"> 
+                       <input type="Date" class="form-control" [(ngModel)]="TentativeDate" > 
                     </div>
                 </div> <br>
                 <div class="row">
