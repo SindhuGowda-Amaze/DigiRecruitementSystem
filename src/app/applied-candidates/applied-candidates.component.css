@@ -28,11 +28,7 @@
   border: 1px solid lightgray;
    border-collapse: collapse; 
 }
-.Heading{
-  padding-left: 15px;
-  font-size: 20px;
-  color:black;
-}
+
 .head{
   background-color: #e4e5e6;
   color:#404040;
@@ -41,10 +37,22 @@
 .FilterClass{
   padding-left: 15px;
 }
-.count{
-  text-align: right;
+
+.Heading{
+  padding-left: 15px;
+  font-size: 20px;
+  color:black;
+}
+
+.Count{
+  color: #212529;
+  font-size: 20px !important;
+  font-family: 'DIN Bold';
+  font-weight: bold;
+  float: right;
   padding-right: 10px;;
 }
+
 .pdf{
   width: 25%;
   height: auto;

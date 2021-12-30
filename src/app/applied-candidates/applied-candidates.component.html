@@ -36,7 +36,7 @@
             </select>
           </div>
           <div class="col-lg-2">
-            <p class="count">Count:{{count}}</p>
+            <p class="Count">Count:{{count}}</p>
           </div>
         </div> <br>
       </div><br>
@@ -48,7 +48,7 @@
               <tr class="head">
                 <!-- <th>Vendor</th> -->
                 <th>Job Reference ID</th>
-                <th>Source</th>
+                <th *ngIf=" roleid!='6' ">Source</th>
                 <th>Job Title</th>
                 <th>Candidate Name</th>
                 <th>Phone No</th>
@@ -64,7 +64,7 @@
               </tr>
               <tr *ngFor="let job of joblist|filter:search">
                 <td>{{job.jobRefernceID}}</td>
-                <td>{{job.source}}</td>
+                <td *ngIf=" roleid!='6' ">{{job.source}}</td>
                 <td>{{job.jobTitle}}</td>
                 <td>{{job.candidateName}}</td>
                 <td>{{job.phoneNo}}</td>
