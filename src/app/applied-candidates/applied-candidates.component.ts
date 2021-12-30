@@ -18,11 +18,14 @@ export class AppliedCandidatesComponent implements OnInit {
   jobid: any;
   search:any;
   roleid: any;
+  loader:any;
   userid:any;
+
+
   ngOnInit(): void {
+    this.loader=true;
     this.userid=sessionStorage.getItem('userid')
-    
-    
+
     // this.roleid = sessionStorage.getItem("roleid")
     // if(this.roleid=='3'){
     //   debugger;
@@ -47,6 +50,7 @@ export class AppliedCandidatesComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
       this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

@@ -18,7 +18,9 @@ export class DroppedCandiadtesReportsComponent implements OnInit {
   joblist: any;
   count: any;
   term: any;
+  loader:any;
   ngOnInit(): void {
+    this.loader=true;
     this.GetCandidateReg()
   }
 
@@ -26,6 +28,7 @@ export class DroppedCandiadtesReportsComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offerAcceptreject == 2);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

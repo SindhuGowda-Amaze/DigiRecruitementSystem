@@ -12,7 +12,9 @@ export class OfferedCandidatesReportsComponent implements OnInit {
   joblist: any;
   count: any;
   term: any;
+  loader:any;
   ngOnInit(): void {
+    this.loader=true;
     this.GetCandidateReg()
   }
   refresh(){
@@ -21,6 +23,7 @@ export class OfferedCandidatesReportsComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

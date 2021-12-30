@@ -14,13 +14,16 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
   timeid: any;
   count: any;
   DropJobList: any;
+  loader:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
+    this.loader=true;
     this.GetCandidateReg();
     this.GetStaffType();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.DropJobList = data;
+      this.loader=false;
 
     })
   }

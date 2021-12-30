@@ -18,14 +18,17 @@ export class SelectedCandidatesComponent implements OnInit {
   count: any;
   search: any;
   date: any;
+  loader:any;
   ngOnInit(): void {
     this.GetCandidateReg();
+    this.loader=true;
     this.roleid = sessionStorage.getItem('roleid');
   }
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.loader=false;
       this.count = this.joblist.length;
     })
 

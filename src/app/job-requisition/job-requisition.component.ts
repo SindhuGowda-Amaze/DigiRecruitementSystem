@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import swal from 'sweetalert2';
+import { Editor } from 'ngx-editor';
+
+
+
 
 @Component({
   selector: 'app-job-requisition',
@@ -8,6 +12,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./job-requisition.component.css']
 })
 export class JobRequisitionComponent implements OnInit {
+
 
 
 
@@ -25,10 +30,14 @@ export class JobRequisitionComponent implements OnInit {
   public resourcemanager: any;
   public hrlist: any;
 
+ 
   constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
+   editor:any;
+   html:any;
 
+  public editorValue: string = '';
   ngOnInit(): void {
-
+    this.editor = new Editor();
     this.RecruitmentServiceService.UsersHr().subscribe(data => {
       this.hrlist = data;
     })

@@ -12,11 +12,13 @@ export class ClientStaffDashboardComponent implements OnInit {
 
   count: any;
   search:any;
+  loader:any;
 
   constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-   this.GetClientStaff()
+   this.GetClientStaff();
+   this.loader=true;
   }
 
   ClientStaffList:any
@@ -26,6 +28,7 @@ export class ClientStaffDashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
       debugger
       this.ClientStaffList=data ;
+      this.loader=false;
       this.count = this.ClientStaffList.length;
      })
   }
