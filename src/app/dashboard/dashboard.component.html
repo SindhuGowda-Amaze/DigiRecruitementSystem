@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-3">
-        <select class="form-control" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+        <select  *ngIf="roleid!='3'&& roleid!='6'" class="form-control" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
             <option value="">Select</option>
             <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
           </select>

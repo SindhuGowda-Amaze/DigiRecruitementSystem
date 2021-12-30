@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import swal from 'sweetalert2';
 import { Editor } from 'ngx-editor';
+import Swal from 'sweetalert2';
 
 
 
@@ -62,6 +63,11 @@ export class JobRequisitionComponent implements OnInit {
 
 
   public insertdetails() {
+    if(this.jobtitile==null || this.jobtitile==undefined || this.jobtitile ==0 || this.skills==null || this.skills==undefined || this.skills==0 ){
+      Swal.fire('Please Fill the Mandatory Fields')
+    }
+else{
+
     var entity = {
       'jobTitle': this.jobtitile,
       'Skills': this.skills,
@@ -84,5 +90,6 @@ export class JobRequisitionComponent implements OnInit {
 
     })
   }
-
+  
+}
 }
