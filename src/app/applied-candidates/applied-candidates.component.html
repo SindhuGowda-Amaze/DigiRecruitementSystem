@@ -77,8 +77,10 @@
                 </td>
                 <!-- <td>{{job.comments}}</td> -->
                 <td>
-                  <p *ngIf="job.accept=='0'&&job.reject=='0'" [(ngModel)]="job.shortlistionNotes"
-                    name="job.shortlistionNotes"></p>
+                  <p *ngIf="job.accept=='0'&&job.reject=='0'&&job.notes==null">NA</p>
+                  <p *ngIf="job.accept=='0'&&job.reject=='0'&&job.notes!=null">{{job.notes}} </p>
+                
+                
                 </td>
                 <td *ngIf="roleid=='4' && roleid!='6' ">
                   <img src="assets/Images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"

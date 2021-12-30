@@ -58,7 +58,7 @@
                                 <th class="heading">No of Positions</th>
                                 <th class="heading">Current CTC </th>
                                 <th class="heading">Hiring Manager</th>
-                                <!-- <th class="heading">Resource Manager</th> -->
+                                <th class="heading">Recruiter Comments</th>
                                 <th class="heading">Actions   </th>
                             </tr>
                         </thead>
@@ -74,7 +74,7 @@
                                 <td >{{job.noofpositions}}</td>
                                 <td>{{job.package}}</td>
                                 <td >{{job.hiringManager}}</td>
-                                <!-- <td >{{job.resourceManager}}</td> -->
+                                 <td >{{job.notes}}</td> 
                                 <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" >Apply</button>
                                    <br/>
                                     <button *ngIf="job.vendor==null" class="button form-control Add1" data-toggle="modal"

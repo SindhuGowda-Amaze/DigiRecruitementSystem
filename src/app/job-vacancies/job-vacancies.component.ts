@@ -69,6 +69,11 @@ export class JobVacanciesComponent implements OnInit {
 
   public insertdetails() {
     debugger
+    if(this.candidatename==null || this.candidatename==undefined || this.candidatename==0 ){
+      Swal.fire('Please Fill All Mandatory Fields ')
+    }
+    else{
+    
     var entity = {
       'JobID': this.jobid,
       'CandidateName': this.candidatename,
@@ -91,6 +96,8 @@ export class JobVacanciesComponent implements OnInit {
         Swal.fire("Applied Successfully");
       }
     })
+      
+  }
   }
 
   files: File[] = [];
