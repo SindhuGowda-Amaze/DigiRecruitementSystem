@@ -34,6 +34,12 @@
   input{
     font-size: 10px;
   }
+
+  th{
+    background-color: #e4e5e6;
+    color:#404040;
+    font-family: "DIN Bold";
+}
   
   .Dinbold{
     font-family: 'DIN Bold';

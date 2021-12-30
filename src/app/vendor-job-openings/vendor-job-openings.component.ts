@@ -27,14 +27,14 @@ export class VendorJobOpeningsComponent implements OnInit {
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.vendor == this.userid);
+        this.joblist = data;
         this.count = this.joblist.length;
       })
   
     }
     else {
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid);
+        this.joblist = data;
         this.count = this.joblist.length;
       })
     }
