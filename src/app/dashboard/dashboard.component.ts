@@ -197,7 +197,24 @@ export class DashboardComponent implements OnInit {
 
 
   }
+  hiringManager:any;
+public GetJobRequirements(){
 
+
+  this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    debugger
+   
+    this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+   
+    this.count = this.joblist.length;
+ 
+
+  })
+
+ 
+
+
+}
 
 
   Anniversery: any
