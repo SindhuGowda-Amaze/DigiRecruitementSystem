@@ -77,13 +77,14 @@ export class JobVacanciesComponent implements OnInit {
       'YearsofExp': this.yearsofexp,
       'RelavantExp': this.relaventexp,
       'City': this.city,
-      'ResumeUrl': this.brochures1[0],
+      'ResumeUrl':  this.Company_logo,
       'CurrentCompany': this.currentcompany,
       'NoticePeriod': this.noticeperiod,
       'ctc': this.ctc,
       'ServingNotice': this.servingnotice,
       'Relocate': this.relocate,
-      'Source': this.Source
+      'Source': this.Source,
+     
     }
     this.RecruitmentServiceService.InsertCandidateRegistration(entity).subscribe(data => {
       if (data != 0) {
@@ -111,7 +112,7 @@ this.files.splice(this.files.indexOf(event),1);
 
   public uploadattachments() {
     debugger
-    this.RecruitmentServiceService.AttachmentsUpload(this.files).subscribe(res => {
+    this.RecruitmentServiceService.UploadImages(this.files).subscribe(res => {
       debugger
       this.Company_logo = res;
       alert("ATTACHMENT UPLOADED");
