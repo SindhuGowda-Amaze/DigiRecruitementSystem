@@ -18,12 +18,13 @@
         <div class="col-lg-4">
             Positions : {{job.noofpositions}}
         </div><br><br>
+        <div class="row"></div>
         <div class="col-lg-12">
             <span class="spanclass"><b>{{job.jobDescription}}</b></span><br><br>
         </div><br><br>
 
         <div class="col-lg-3">
-            <!-- <span style="color: green;">Package : {{job.package}}</span> -->
+            <span style="color: green;">Current Ctc : {{job.package}}</span>
         </div><br>
         <div class="col-lg-6">
             <span style="color: green;">Hiring Manager : {{job.hiringManager}}</span>
@@ -142,10 +143,10 @@
                     </div><br>
                     <div class="row">
                         <div class="col-lg-3">
-                            <label>CTC : </label>
+                            <label>Current CTC : </label>
                         </div>
                         <div class="col-lg-5">
-                            <input type="text" class="form-control" placeholder="CTC"
+                            <input type="text" class="form-control" placeholder="Current  CTC"
                                 [(ngModel)]="ctc" name="ctc">
                         </div>
 
