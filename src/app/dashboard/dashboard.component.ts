@@ -42,6 +42,7 @@ export class DashboardComponent implements OnInit {
   joblist14:any;
   vendorid: any;
   joblist:any;
+  hrlist:any;
   constructor(public router: Router, private datePipe: DatePipe,
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
@@ -55,6 +56,9 @@ export class DashboardComponent implements OnInit {
     this.roleid = localStorage.getItem('roleid');
     this.vendorid = localStorage.getItem('vendorid');
 
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
       this.joblist1 = data.filter(x => x.vendor == null);
