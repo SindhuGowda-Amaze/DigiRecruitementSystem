@@ -4,10 +4,11 @@
         <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-10">
-                  <p>Vendor Job Openings Dashboard</p> 
+                  <p class="Heading">Vendor Job Openings Dashboard</p> 
                 </div>
-            </div><hr class="HrLine">
-         
+            </div>
+
+            <hr class="HrLine">
             <div class="card">
                 <br>
                 <div class="row FilterClass">
@@ -36,7 +37,7 @@
                         </select>
                       </div>                
                       <div class="col-lg-2">
-                        <p class="count" >Count:{{count}}</p>
+                        <p class="Count">Count:{{count}}</p>
                       </div>
                 </div> <br>
             </div> <br>
@@ -73,7 +74,7 @@
                                 <td >{{job.noofpositions}}</td>
                                 <td>{{job.package}}</td>
                                 <td >{{job.hiringManager}}</td>
-                                <td >{{job.resourceManager}}</td>
+                                <!-- <td >{{job.resourceManager}}</td> -->
                                 <td ><button class="button form-control" data-toggle="modal"  (click)="GetId(job.id)" >Apply</button>
                                    <br/>
                                     <button *ngIf="job.vendor==null" class="button form-control Add1" data-toggle="modal"

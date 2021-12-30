@@ -1,9 +1,7 @@
 .card{
     padding: 10px;
 }
-.count{
-    float: right;
-}
+
 table{
     border-collapse: collapse;
     width: 100%;
@@ -36,4 +34,24 @@ td{
     font-size: 16px;
     height:61px;
   }
+
+.Count{
+    color: #212529;
+    font-size: 20px !important;
+    font-family: 'DIN Bold';
+    font-weight: bold;
+    float: right;
+}
+
+.Heading {
+    color: #212529;
+    font-size: 20px !important;
+    font-family: "DIN Bold";
+    font-weight: bold;
+}
+
+.HrLine {
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
   

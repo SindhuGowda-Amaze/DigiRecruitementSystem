@@ -3,50 +3,52 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
           <p class="job">Job Requisition </p>
+        </div>
+        <div class="col-lg-2">
+          <p class="job"></p>
         </div>
       </div>
       <hr>
       <div class="card">
-      
+
         <div class="row">
           <div class="col-lg-3">
             <p class="text"> Job Title </p>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-6">
             <p class="text"> Skill / Technology </p>
           </div>
           <div class="col-lg-3">
             <p class="text"> Total Years of Experience </p>
           </div>
-          <div class="col-lg-3">
-            <p class="text"> Years of Relavant Experience</p>
-          </div>
+
 
         </div>
         <div class="row">
           <div class="col-lg-3">
             <input class="form-control" placeholder=" Job Title" [(ngModel)]="jobtitile">
           </div>
-          <div class="col-lg-3">
-            <textarea class="form-control" placeholder="Skill / Technolog" [(ngModel)]="skills"></textarea>
+          <div class="col-lg-6">
+            <textarea class="form-control" placeholder="Skill / Technology" [(ngModel)]="skills" rows="6"></textarea>
           </div>
           <div class="col-lg-3">
             <input class="form-control" placeholder="Total Years of Experience" [(ngModel)]="yearsofexp">
           </div>
-          <div class="col-lg-3">
-            <input class="form-control" placeholder="Years of Relavant Experience" [(ngModel)]="yearsofrelavantexp">
-          </div>
+
 
         </div> <br>
         <div class="row">
           <div class="col-lg-3">
-            <p class="text">No of Positions</p>
+            <p class="text"> Years of Relavant Experience</p>
           </div>
           <div class="col-lg-3">
-            <p class="text"> Company Name </p>
+            <p class="text">No of Positions</p>
           </div>
+          <!-- <div class="col-lg-3">
+            <p class="text"> Company Name </p>
+          </div> -->
           <div class="col-lg-3">
             <p class="text"> Maximun CTC Offered </p>
           </div>
@@ -57,11 +59,14 @@
         </div>
         <div class="row">
           <div class="col-lg-3">
-            <input class="form-control" placeholder=" No of Positions" [(ngModel)]="noofpositions">
+            <input class="form-control" placeholder="Years of Relavant Experience" [(ngModel)]="yearsofrelavantexp">
           </div>
           <div class="col-lg-3">
-            <textarea class="form-control" placeholder=" Company Name " [(ngModel)]="companyname"></textarea>
+            <input class="form-control" placeholder=" No of Positions" [(ngModel)]="noofpositions">
           </div>
+          <!-- <div class="col-lg-3">
+            <textarea class="form-control" placeholder=" Company Name " [(ngModel)]="companyname"></textarea>
+          </div> -->
           <div class="col-lg-3">
             <input class="form-control" placeholder=" Maximun CTC Offered" [(ngModel)]="package">
           </div>
@@ -71,10 +76,10 @@
               <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
             </select>
           </div>
-
         </div>
+<br>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-6">
             <p class="text">Job Description </p>
           </div>
           <div class="col-lg-3">
@@ -88,9 +93,8 @@
           </div> -->
         </div>
         <div class="row">
-          <div class="col-lg-3">
-            
-            <input class="form-control" placeholder="Job Description" [(ngModel)]="jobdescription">
+          <div class="col-lg-6">
+            <textarea class="form-control" placeholder="Job Description" [(ngModel)]="jobdescription" rows="6"></textarea>
           </div>
           <div class="col-lg-3">
             <input class="form-control" placeholder=" Job Location" [(ngModel)]="joblocation">
@@ -103,17 +107,22 @@
             <input class="form-control" placeholder=" Resource Manager" [(ngModel)]="resourcemanager">
           </div> -->
         </div> <br>
+        <div class="row"> 
+          <div class="col-lg-3">
+            <button class="form-control addbtn" placeholder=" Positions Closed">Positions Closed</button>
+          </div>
+        </div>
 
 
         <div class="row">
-          <div class="col-lg-5">
+          <div class="col-lg-10">
           </div>
           <div class="col-lg-2">
             <button type="button" class="addbtn" (click)="insertdetails()">Save</button>
           </div>
         </div>
-    
+
+      </div>
+      <div class="col-lg-1"></div>
     </div>
-    <div class="col-lg-1"></div>
   </div>
-</div>
