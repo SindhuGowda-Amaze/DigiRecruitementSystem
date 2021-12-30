@@ -73,7 +73,7 @@
                 <td>{{job.relavantExp}}</td>
                 <td>{{job.city}}</td>
                 <td>
-                  <img src="/assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
+                  <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
                 </td>
                 <!-- <td>{{job.comments}}</td> -->
                 <td>
@@ -83,10 +83,10 @@
                 
                 </td>
                 <td *ngIf="roleid=='4' && roleid!='6' ">
-                  <img src="/assets/Images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
+                  <img src="assets/Images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
                     style="width:20px;" (click)="Accept(job.id,job.shortlistionNotes)" />&nbsp;<br>
 
-                  <img src="/assets/Images/can.png" *ngIf="job.accept=='0'&&job.reject=='0' " tilte="Reject"
+                  <img src="assets/Images/can.png" *ngIf="job.accept=='0'&&job.reject=='0' " tilte="Reject"
                     style="width:20px;" (click)="Reject(job.id,job.shortlistionNotes)" />
                 </td>
               </tr>
