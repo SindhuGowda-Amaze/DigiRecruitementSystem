@@ -11,12 +11,14 @@ export class ScheduledInterviewsReportsComponent implements OnInit {
   search: any;
   count: any;
   staffid: any;
+  loader:any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
+    this.loader=true;
     this.staffid = localStorage.getItem('staffssID');
-    this.GetCandidateReg()
+    this.GetCandidateReg();
   }
   refresh() {
     location.reload();
@@ -26,6 +28,7 @@ export class ScheduledInterviewsReportsComponent implements OnInit {
     if (this.staffid == undefined) {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.joblist = data.filter(x => x.scheduled == 1 && x.interviewRejected == 0 && x.interviewSelected == 0);
+        this.loader=false;
         this.count = this.joblist.length;
       })
     }

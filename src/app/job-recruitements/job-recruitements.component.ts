@@ -14,12 +14,15 @@ export class JobRecruitementsComponent implements OnInit {
   joblist: any;
   search: any;
   count: any;
+  loader:any;
 
   ngOnInit(): void {
+    this.loader=true;
     this.GetRecruiterStaff();
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data.filter(x => x.vendor == null);
+      this.loader=false;
       debugger
       this.count = this.joblist.length;
     })

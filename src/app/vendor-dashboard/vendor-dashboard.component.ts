@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import swal from 'sweetalert2';
-import  { NgxSpinnerService } from "ngx-spinner";
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-vendor-dashboard',
@@ -10,7 +11,7 @@ import  { NgxSpinnerService } from "ngx-spinner";
 })
 export class VendorDashboardComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService,private spinner:NgxSpinnerService) { }
+  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
   vendordetails:any;
   vendor_Logo:any;
   vendor_Name:any;
@@ -19,31 +20,22 @@ export class VendorDashboardComponent implements OnInit {
   address:any;
   search:any;
   count:any;
-  Spinner:any;
+  loader:any;
+ 
   
   ngOnInit(): void {
     this.GetVendor_Dasboard(); 
-    // this.Spinner.show();
-    // setTimeout(() => {
-    //   /** spinner ends after 5 seconds */
-    //   this.Spinner.hide();
-    // }, 5000);
+    this.loader=true;
+ 
   }
 
 
   public GetVendor_Dasboard() {
-     this.spinner.show();  
-    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {   
-      setTimeout(() => { 
-        this.spinner.hide();
-      
-    },3000);
- 
-    this.vendordetails = data;
-
-      this.count = this.vendordetails.length;
-    
      
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {   
+    this.vendordetails = data;
+    this.loader=false;
+    this.count = this.vendordetails.length;    
     })
   }
   edit(id: any){
