@@ -21,7 +21,6 @@ export class VendorJobOpeningsComponent implements OnInit {
   ngOnInit(): void {
     debugger;
     this.userid=sessionStorage.getItem('userid')
-    
     this.vendorid = sessionStorage.getItem('vendorid');
     this.roleid = sessionStorage.getItem("roleid")
     if(this.roleid=='3'){
@@ -34,7 +33,7 @@ export class VendorJobOpeningsComponent implements OnInit {
     }
     else {
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid);
+        this.joblist = data
         this.count = this.joblist.length;
       })
     }
@@ -63,6 +62,7 @@ export class VendorJobOpeningsComponent implements OnInit {
 
   Vendor:any;
   Notes:any;
+
   public UpdateVendor() {
     debugger
 
@@ -73,7 +73,6 @@ export class VendorJobOpeningsComponent implements OnInit {
       "VendorId": 1
     }
     this.RecruitmentServiceService.UpdateVendor(entity).subscribe(data => {
-
       Swal.fire('Updated successfully');
       location.reload();
 

@@ -87,7 +87,7 @@ export class JobVacanciesComponent implements OnInit {
     }
     this.RecruitmentServiceService.InsertCandidateRegistration(entity).subscribe(data => {
       if (data != 0) {
-        Swal.fire("Registered Successfully");
+        Swal.fire("Applied Successfully");
       }
     })
   }
