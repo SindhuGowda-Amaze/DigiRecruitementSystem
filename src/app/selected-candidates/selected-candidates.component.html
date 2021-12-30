@@ -19,12 +19,14 @@
                         <input class="form-control" placeholder="Search" [(ngModel)]="search" name="search">
                     </div>                  
                     <div class="col-lg-3">
-                        <select name="Select" class="form-control" >
+                        <input type="date" class="form-control" (change)="GetDate($event)" name="Date" value="Date"  [(ngModel)]="Date">
+
+                        <!-- <select name="Select" class="form-control">
                             <option value="Select CTC">Select CTC</option>
                             <option value="30,000-50,000">30,000-50,000</option>
                             <option value="50,000-1,00000">50,000-1,00000</option>
                             <option value="1,00000-2,00000">1,00000-2,00000</option>
-                        </select>
+                        </select> -->
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
@@ -57,10 +59,12 @@
                                 <th>Candidate Name</th>
                                 <th>Phone No</th>
                                 <th>Email</th>
-                                <!-- <th>CTC</th> -->
-                                <!-- <th>Notice Period</th> -->
+                            
+                               
                                 <th>Total Years of Experience</th>
                                 <th>Relevant Experience</th>
+                                <th>CTC Budget</th>
+                                <th>Notice Period</th> 
                                 <th>Interviewer Comments</th>
                                 <!-- <th>Interviewer Feedback</th> -->
                                 <th  *ngIf="roleid!='4' && roleid=='6'">Actions</th>
@@ -76,7 +80,9 @@
                                 <td>{{job.phoneNo}}</td>
                                 <td>{{job.email}}</td>
                                 <td>{{job.yearsofExp}}</td>
-                                <td>{{job.relavantExp}}</td>   
+                                <td>{{job.relavantExp}}</td>  
+                                <td></td> 
+                                <td></td> 
                                 <td>{{job.interviewercomments}}</td>    
                                 <td  *ngIf="roleid!='4' && roleid=='6'">
                                     <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
