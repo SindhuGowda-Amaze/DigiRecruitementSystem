@@ -9,22 +9,7 @@
       </div>
       <hr>
       <div class="card">
-        <div class="row">
-          <div class="col-lg-3">
-            <p class="text">Client Name</p>
-          </div>
-
-
-        </div>
-        <div class="row">
-          <div class="col-lg-3">
-            <select class="form-control" (change)="GetHrName($event)">
-              <option value="">Select</option>
-              <option value="">MindTree</option>
-            </select>
-          </div>
-
-        </div>
+      
         <div class="row">
           <div class="col-lg-3">
             <p class="text"> Job Title </p>
@@ -98,9 +83,9 @@
           <div class="col-lg-3">
             <p class="text">Other Required Conditions </p>
           </div>
-          <div class="col-lg-3">
+          <!-- <div class="col-lg-3">
             <p class="text"> Resource Manager </p>
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <div class="col-lg-3">
@@ -112,9 +97,9 @@
           <div class="col-lg-3">
             <input class="form-control" placeholder="Other Required Condition" [(ngModel)]="otherreqconditions">
           </div>
-          <div class="col-lg-3">
+          <!-- <div class="col-lg-3">
             <input class="form-control" placeholder=" Resource Manager" [(ngModel)]="resourcemanager">
-          </div>
+          </div> -->
         </div> <br>
 
 
@@ -125,7 +110,7 @@
             <button type="button" class="addbtn" (click)="insertdetails()">Save</button>
           </div>
         </div>
-      </div>
+    
     </div>
     <div class="col-lg-1"></div>
   </div>
