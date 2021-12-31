@@ -15,17 +15,41 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
   count: any;
   DropJobList: any;
   loader:any;
+  roleid:any;
+  userid:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
+    this.userid=sessionStorage.getItem('userid')
+    this.roleid = sessionStorage.getItem('roleid');
+    
     this.loader=true;
     this.GetCandidateReg();
     this.GetStaffType();
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.DropJobList = data;
-      this.loader=false;
+    if(this.roleid=='3'){
+      debugger;
+      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        this.DropJobList = data.filter(x=>(x.source == "Vendor" && x.vendorId == this.userid));
+        this.loader=false;
+  
+      })
+  
 
-    })
+ 
+  
+    }
+    else {
+  
+      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        this.DropJobList = data;
+        this.loader=false;
+  
+      })
+  
+    }
+
+
+
   }
   refresh(){
     location.reload();

@@ -36,8 +36,8 @@ export class ShortListedCandidatesComponent implements OnInit {
       debugger;
 
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 || x.source == 'Vendor' && x.vendor == this.userid 	) ;
-        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 || x.source == 'Vendor' && x.vendor == this.userid  );
+        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && ( x.source == 'Vendor' && x.vendor == this.userid )	) ;
+        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendor == this.userid)  );
         this.loader=false;
         this.count = this.joblist.length;
       })
