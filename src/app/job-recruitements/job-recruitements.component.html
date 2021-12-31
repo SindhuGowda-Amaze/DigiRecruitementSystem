@@ -46,7 +46,7 @@
                     <table class="table tablebordered">
                         <thead>
                             <tr class="newFont">
-                                <th>Job Reference ID</th>
+                                <th >Job Reference ID</th>
                                 <th>Date</th>
                                 <!-- <th>Client Name</th> -->
                                 <th>Job Title</th>
@@ -75,19 +75,19 @@
                             <td >{{job.noofpositions}}</td>
                             <td >{{job.package}} </td>
                             <td >{{job.hiringManager}}</td>
-                            <td > {{job.otherRequiredConditions}}</td>
+                            <td >{{job.otherRequiredConditions}}</td>
                             <!-- <td *ngIf="job.vendor==null">{{job.resourceManager}}</td> -->
                             <!-- <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview">Assign Vendor</button> <br/>
                                     <button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview1">Assign Recruiter</button></td>
                             -->
-                            <td *ngIf="job.vendor==null"> <button class="button form-control Add1" data-toggle="modal"
+                            <td> <button class="button form-control Add1" data-toggle="modal"
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
                         </tr>
                     </table>
-                </div>
-            </div>
+                </div>    
+            </div>   
         </div>
         <div class="col-lg-1"></div>
     </div>
