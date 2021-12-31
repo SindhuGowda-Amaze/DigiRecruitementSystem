@@ -63,19 +63,19 @@
                             </tr>
                         </thead>
                         <tr *ngFor="let job of joblist|filter:search">
-                            <td *ngIf="job.vendor==null">{{job.jobRefernceID}}</td>
-                            <td *ngIf="job.vendor==null">{{job.date}}</td>
+                            <td >{{job.jobRefernceID}}</td>
+                            <td >{{job.date}}</td>
                             <!-- <td>MindTree</td> -->
-                            <td *ngIf="job.vendor==null">{{job.jobTitle}}</td>
-                            <td *ngIf="job.vendor==null">{{job.skills}}</td>
-                            <td *ngIf="job.vendor==null">{{job.totalExp}}</td>
-                            <td *ngIf="job.vendor==null">{{job.relaventExp}}</td>
-                            <td *ngIf="job.vendor==null">{{job.jobDescription}}</td>
-                            <td *ngIf="job.vendor==null">{{job.joblocation}}</td>
-                            <td *ngIf="job.vendor==null">{{job.noofpositions}}</td>
-                            <td *ngIf="job.vendor==null">{{job.package}} </td>
-                            <td *ngIf="job.vendor==null">{{job.hiringManager}}</td>
-                            <td *ngIf="job.vendor==null"> {{job.otherRequiredConditions}}</td>
+                            <td >{{job.jobTitle}}</td>
+                            <td>{{job.skills}}</td>
+                            <td >{{job.totalExp}}</td>
+                            <td >{{job.relaventExp}}</td>
+                            <td >{{job.jobDescription}}</td>
+                            <td >{{job.joblocation}}</td>
+                            <td >{{job.noofpositions}}</td>
+                            <td >{{job.package}} </td>
+                            <td >{{job.hiringManager}}</td>
+                            <td > {{job.otherRequiredConditions}}</td>
                             <!-- <td *ngIf="job.vendor==null">{{job.resourceManager}}</td> -->
                             <!-- <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview">Assign Vendor</button> <br/>

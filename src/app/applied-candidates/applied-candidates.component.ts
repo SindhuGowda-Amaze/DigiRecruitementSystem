@@ -34,8 +34,8 @@ export class AppliedCandidatesComponent implements OnInit {
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 || x.vendor == this.userid)
-        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 || x.vendor == this.userid);
+        this.dummjoblist = data.filter(x => (x.accept == 0 && x.reject == 0) || x.source == "Vendor" && x.vendor == this.userid )
+        this.joblist = data.filter(x => (x.accept == 0 && x.reject == 0 ) || x.source == "Vendor" && x.vendor == this.userid);
       
         this.count = this.joblist.length;
       })

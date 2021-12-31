@@ -22,7 +22,7 @@ Date: any;
     this.GetRecruiterStaff();
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data.filter(x => x.vendor == null);
+      this.joblist = data;
       this.loader=false;
       debugger
       this.count = this.joblist.length;
