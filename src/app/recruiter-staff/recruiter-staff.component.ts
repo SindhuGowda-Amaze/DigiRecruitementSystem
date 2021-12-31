@@ -138,13 +138,13 @@ this.files.splice(this.files.indexOf(event),1);
       if (data != 0) {
         Swal.fire("Updated Recruiter Staff Successfully");
         location.reload();
-        location.href = "/RecruiterStaffDashboard";
+        location.href = "#/RecruiterStaffDashboard";
       }
     })
   }
 
   cancel(){
     location.reload();
-    location.href="/RecruiterStaffDashboard"
+    location.href="#/RecruiterStaffDashboard"
   }
 }

@@ -107,7 +107,7 @@ this.files.splice(this.files.indexOf(event),1);
         debugger
         let result = data;
         Swal.fire("Update Sucessfully");
-      location.href="/VendorDashboard";
+      location.href="#/VendorDashboard";
       })
     }
 
