@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
-                    </div>
+                    </div>  
                 </div> <br>
             </div><br>
 
@@ -59,8 +59,6 @@
                                 <th>Candidate Name</th>
                                 <th>Phone No</th>
                                 <th>Email</th>
-                            
-                               
                                 <th>Total Years of Experience</th>
                                 <th>Relevant Experience</th>
                                 <th>CTC Budget</th>
@@ -225,7 +223,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Joining Date : </label>
+                        <label class="Letter">Joining Date : <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <input type="date" [(ngModel)]="date" name="date" class="form-control">
@@ -234,7 +232,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Joining Bonus :</label>
+                        <label class="Letter">Joining Bonus : <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <!-- <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="joiningbonus" name="offernotes"></textarea> -->
@@ -246,7 +244,7 @@
 
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Notice Period By then :</label>
+                        <label class="Letter">Notice Period By then : <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <!-- <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="joiningbonus" name="offernotes"></textarea> -->
@@ -257,7 +255,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Notes :</label>
+                        <label class="Letter">Notes : <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <!-- <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="joiningbonus" name="offernotes"></textarea> -->
@@ -302,7 +300,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Offer Letter : </label>
+                        <label class="Letter">Offer Letter : <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <!-- -->
@@ -324,7 +322,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Notes :</label>
+                        <label class="Letter">Notes : <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="offernotes"
@@ -333,7 +331,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Tentative Date</label>
+                        <label class="Letter">Tentative Date <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                        <input type="Date" class="form-control" [(ngModel)]="TentativeDate" > 

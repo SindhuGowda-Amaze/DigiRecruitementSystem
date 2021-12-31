@@ -26,35 +26,54 @@ export class AppliedCandidatesComponent implements OnInit {
   
     this.userid=sessionStorage.getItem('userid');
     this.roleid = sessionStorage.getItem('roleid');
-
+    
+    this.userid=sessionStorage.getItem('userid')
+    
+ 
+ 
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 || x.vendor == this.userid)
-        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 || x.vendor == this.userid);
+        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid) )
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid));
+      
         this.count = this.joblist.length;
-
       })
-    } 
-    this.GetCandidateReg();
-  }
-
-  public GetCandidateReg() {
   
-    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
-      this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
-    
-      this.count = this.joblist.length;
-    })
 
-
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.DropJobList = data;
-
-    })
-
+ 
+  
+    }
+    else {
+  
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+      
+        this.count = this.joblist.length;
+      })
+  
+    }
+    // this.GetCandidateReg();
+ 
   }
+
+  // public GetCandidateReg() {
+  
+  //   this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+  //     this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
+  //     this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+    
+  //     this.count = this.joblist.length;
+  //   })
+
+
+  //   this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+  //     this.DropJobList = data;
+
+  //   })
+
+  // }
   public Ondelete(id:any) {
     // this.DigipayrollServiceService.DeleteBanks(id).subscribe(
     //   data => {
@@ -81,7 +100,7 @@ export class AppliedCandidatesComponent implements OnInit {
             'Candidate has been shortlisted',
             'success'
           )
-          this.GetCandidateReg()
+          // this.GetCandidateReg()
         })
         // For more information about handling dismissals please visit
         // https://sweetalert2.github.io/#handling-dismissals
@@ -116,7 +135,7 @@ export class AppliedCandidatesComponent implements OnInit {
             'Candidate has been Rejected',
             'success'
           )
-          this.GetCandidateReg()
+          // this.GetCandidateReg()
         })
         // For more information about handling dismissals please visit
         // https://sweetalert2.github.io/#handling-dismissals

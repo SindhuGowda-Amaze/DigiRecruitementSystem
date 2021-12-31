@@ -13,9 +13,11 @@ export class JobVacanciesComponent implements OnInit {
   Company_logo: any;
   ID:any;
   Source:any;
+  userid:any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userid=sessionStorage.getItem('userid')
     this.Source=sessionStorage.getItem('role')
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
@@ -69,6 +71,11 @@ export class JobVacanciesComponent implements OnInit {
 
   public insertdetails() {
     debugger
+    if(this.candidatename==null || this.candidatename==undefined || this.candidatename==0 ){
+      Swal.fire('Please Fill All Mandatory Fields ')
+    }
+    else{
+    
     var entity = {
       'JobID': this.jobid,
       'CandidateName': this.candidatename,
@@ -84,6 +91,7 @@ export class JobVacanciesComponent implements OnInit {
       'ServingNotice': this.servingnotice,
       'Relocate': this.relocate,
       'Source': this.Source,
+      'VendorId':this.userid
      
     }
     this.RecruitmentServiceService.InsertCandidateRegistration(entity).subscribe(data => {
@@ -91,6 +99,8 @@ export class JobVacanciesComponent implements OnInit {
         Swal.fire("Applied Successfully");
       }
     })
+      
+  }
   }
 
   files: File[] = [];

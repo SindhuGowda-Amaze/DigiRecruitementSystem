@@ -79,7 +79,16 @@ this.files.splice(this.files.indexOf(event),1);
 
 
   public updatedetails() {
-    debugger;
+
+    if(this.Company_logo==null || this.Company_logo==undefined || this.Company_logo==0 ||
+      this.offernotes==null || this.offernotes==undefined || this.offernotes==0 ||
+      this.TentativeDate==null || this.TentativeDate==undefined || this.TentativeDate==0)
+      {
+        Swal.fire('Please Fill the Mandatory Fields')
+      }
+
+    else{
+      debugger;
     var entity = {
       'ID': this.candidateid,
       'OfferLetterUrl': this.Company_logo,
@@ -90,6 +99,9 @@ this.files.splice(this.files.indexOf(event),1);
       Swal.fire("Candidate Offered Successfully");
       this.sendmail()
     })
+
+    }
+    
   }
 
   joiningbonus: any;
@@ -100,24 +112,32 @@ this.files.splice(this.files.indexOf(event),1);
 
 
   public updatejoiningdate() {
-    var entity = {
-      'ID': this.candidateid,
-      'JoiningDate': this.date,
-      'JoiningBonus': this.joiningbonus,
-      'NoticePeriodByThen': this.noticeperiodbythen,
-      'Commentss': this.Notes
+    if(this.date==null || this.date==undefined || this.date==0 ||
+      this.joiningbonus==null || this.joiningbonus==undefined || this.joiningbonus==0 ||
+      this.noticeperiodbythen==null || this.noticeperiodbythen==undefined || this.noticeperiodbythen==0 ||
+      this.Notes==null || this.Notes==undefined || this.Notes==0)
+      {
+        Swal.fire('Please Fill the Mandatory Fields')
+      }
+    else{
+      var entity = {
+        'ID': this.candidateid,
+        'JoiningDate': this.date,
+        'JoiningBonus': this.joiningbonus,
+        'NoticePeriodByThen': this.noticeperiodbythen,
+        'Commentss': this.Notes
+      }
+      this.RecruitmentServiceService.UpdateCandidateJoiningDate(entity).subscribe(data => {
+        Swal.fire("Saved Successfully");
+        this.date = "";
+        this.joiningbonus = "";
+        this
+      })
+
     }
-    this.RecruitmentServiceService.UpdateCandidateJoiningDate(entity).subscribe(data => {
-      Swal.fire("Saved Successfully");
-      this.date = "";
-      this.joiningbonus = "";
-      this
-    })
+    
   }
-
-
-
-
+  
   emailattchementurl = [];
   public email: any;
   public doctorname: any;
