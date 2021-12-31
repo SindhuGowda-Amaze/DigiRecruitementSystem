@@ -136,6 +136,14 @@ export class ShortListedCandidatesComponent implements OnInit {
   notes: any;
 
   public UpdateInterviewSchedule() {
+    if(this.staffid==null || this.staffid==undefined || this.staffid==0 ||
+      this.date==null || this.date==undefined || this.date==0 ||
+      this.timeid==null || this.timeid==undefined || this.timeid==0 ||
+      this.notes==null || this.notes==undefined || this.notes==0)
+      {
+        Swal.fire('Please Fill the Mandatory Fields')
+      }
+  else{
     var entity = {
       'ID': this.candidateid,
       'StaffID': this.staffid,
@@ -148,6 +156,9 @@ export class ShortListedCandidatesComponent implements OnInit {
       // this.GetCandidateReg();
     })
   }
+
+  }
+    
 
   public GetOfferLetter(offer:any) {
     window.open(offer, "_blank")
