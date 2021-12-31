@@ -24,7 +24,7 @@ export class AppliedCandidatesComponent implements OnInit {
 
   ngOnInit(): void {
   
-    this.userid=sessionStorage.getItem('userid')
+    this.userid=sessionStorage.getItem('userid');
     this.roleid = sessionStorage.getItem('roleid');
     
     this.userid=sessionStorage.getItem('userid')

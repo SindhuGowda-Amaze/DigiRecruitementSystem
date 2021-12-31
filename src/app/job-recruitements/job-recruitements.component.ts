@@ -10,15 +10,15 @@ import Swal from 'sweetalert2';
 })
 export class JobRecruitementsComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute,public router: Router,) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute, public router: Router,) { }
   joblist: any;
   search: any;
   count: any;
-Date: any;
-  loader:any;
+  Date: any;
+  loader: any;
 
   ngOnInit(): void {
-    this.loader=true;
+    this.loader = true;
     this.GetRecruiterStaff();
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
@@ -40,6 +40,24 @@ Date: any;
 
   GetId(id: any) {
     this.ID = id
+  }
+
+  Hired: any;
+  NoofpositionsHired: any;
+
+  UpdateJobPost() {
+    debugger
+    var entity = {
+      "ID": this.ID,
+      "Hired": this.Hired,
+      "NoofpositionsHired": this.NoofpositionsHired,
+    }
+    this.RecruitmentServiceService.UpdateJobPost(entity).subscribe(data => {
+
+      Swal.fire('Job Unposted Successfully');
+      location.reload();
+
+    })
   }
   ID: any;
   Vendor: any;
@@ -66,8 +84,8 @@ Date: any;
     debugger
     this.vendorid = even.target.value;
     debugger
-    var list = this.Userlist.filter((x: { id: any; })=>x.id==this.vendorid);
-    this.Vendor=list[0].name
+    var list = this.Userlist.filter((x: { id: any; }) => x.id == this.vendorid);
+    this.Vendor = list[0].name
 
   }
 
@@ -77,7 +95,7 @@ Date: any;
     this.router.navigate(['/AttendanceView']);
   }
 
-  Recruiter:any;
+  Recruiter: any;
 
   public UpdateRecruiter() {
     debugger
@@ -86,7 +104,7 @@ Date: any;
       "ID": this.ID,
       "Recruiter": this.Recruiter,
       "Notes": this.Notes,
-     
+
     }
     this.RecruitmentServiceService.AssignRecruiter(entity).subscribe(data => {
 
@@ -95,31 +113,31 @@ Date: any;
 
     })
   }
-  stafflist:any;
+  stafflist: any;
   public GetRecruiterStaff() {
     this.RecruitmentServiceService.GetRecruiterStaff().subscribe(
       data => {
-      this.stafflist = data 
-    })
+        this.stafflist = data
+      })
   }
 
-  public GetDate(event:any) {
-    if(this.Date==0){
+  public GetDate(event: any) {
+    if (this.Date == 0) {
       debugger
       this.RecruitmentServiceService.GetUserslist().subscribe(data => {
         this.joblist = data.filter(x => x.recruiter == this.userid);
         this.count = this.joblist.length;
       })
     }
-    else{
+    else {
       debugger
       this.RecruitmentServiceService.GetUserslist().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
-      
+        this.joblist = data.filter(x => x.recruiter == this.userid && x.date == this.Date);
+
         this.count = this.joblist.length;
       })
     }
-    
+
   }
 
 }

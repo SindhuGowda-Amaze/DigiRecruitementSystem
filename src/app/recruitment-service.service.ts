@@ -355,4 +355,11 @@ export class RecruitmentServiceService {
     return this.http.post(this.url, data);
   }
 
+  public UpdateJobPost(data:any) {
+    debugger
+    this.url = this.host + "/User/UpdateJobPost";
+    return this.http.post(this.url, data);
+  }
+
 }
+  

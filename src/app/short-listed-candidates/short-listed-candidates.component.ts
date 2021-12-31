@@ -42,12 +42,6 @@ export class ShortListedCandidatesComponent implements OnInit {
         this.count = this.joblist.length;
       })
 
-
-    
-  
-
- 
-  
     }
     else {
   
@@ -61,7 +55,6 @@ export class ShortListedCandidatesComponent implements OnInit {
     }
   }
 
-  
 
   public GetDate(even:any) {
     this.date = even.target.value;
