@@ -27,16 +27,15 @@ export class ShortListedCandidatesComponent implements OnInit {
     this.GetCandidateReg();
     this.GetStaffType();
     this.roleid = sessionStorage.getItem('roleid');
+
+    
   }
 
-  
 
   public GetDate(even:any) {
     this.date = even.target.value;
     this.GetSlotsMaster();
   }
-
-
 
 
   public GetCandidateReg() {
