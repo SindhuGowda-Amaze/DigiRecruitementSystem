@@ -55,8 +55,9 @@ export class LoginPageComponent implements OnInit {
 
     if (this.userName == 'admin' && this.password == '1') {
       debugger
-      sessionStorage.setItem('userName', 'admin');
+      sessionStorage.setItem('UserName', 'admin');
       sessionStorage.setItem('temp', '1');
+      sessionStorage.setItem('role', 'Admin');
       // this.router.navigate(["/Dashboard"]);
       location.href="#/AdminDashboard"
       sessionStorage.setItem('roleid', '1');
@@ -82,7 +83,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Phonenumber or Password is invalid');
+          Swal.fire('Username or Password is invalid');
           this.userName = "";
           this.password = "";
         }
@@ -111,7 +112,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Phonenumber or Password is invalid');
+          Swal.fire('Username or Password is invalid');
           this.userName = "";
           this.password = "";
         }
@@ -142,7 +143,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Phonenumber or Password is invalid');
+          Swal.fire('Username or Password is invalid');
           this.userName = "";
           this.password = "";
         }
@@ -396,7 +397,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Phonenumber or Password is invalid');
+          Swal.fire('Username or Password is invalid');
           this.userName = "";
           this.password = "";
         }
@@ -430,7 +431,7 @@ export class LoginPageComponent implements OnInit {
         }
         else {
 
-          Swal.fire('Phonenumber or Password is invalid');
+          Swal.fire('Username or Password is invalid');
           this.userName = "";
           this.password = "";
         }
@@ -463,7 +464,7 @@ export class LoginPageComponent implements OnInit {
         }
         else {
 
-          Swal.fire('Phonenumber or Password is invalid');
+          Swal.fire('Username or Password is invalid');
           this.userName = "";
           this.password = "";
         }
@@ -471,4 +472,5 @@ export class LoginPageComponent implements OnInit {
     }
 
   }
+  
 }

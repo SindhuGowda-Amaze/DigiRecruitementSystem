@@ -67,6 +67,7 @@ body {
     border-radius: 10px;
     width: 275px;
     height: 325px;
+    overflow-y: scroll;
   }
   
   .attendance-day {
@@ -80,6 +81,7 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%);
     border-radius: 10px;
+   
   }
   
   .backflip {

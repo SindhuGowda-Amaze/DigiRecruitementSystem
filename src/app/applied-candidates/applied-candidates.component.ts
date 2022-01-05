@@ -20,7 +20,8 @@ export class AppliedCandidatesComponent implements OnInit {
   roleid: any;
   loader:any;
   userid:any;
-
+  searchbyctc:any;
+  searchbynotice:any;
 
   ngOnInit(): void {
   

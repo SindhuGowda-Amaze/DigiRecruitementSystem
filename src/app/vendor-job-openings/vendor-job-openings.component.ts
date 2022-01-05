@@ -60,7 +60,7 @@ export class VendorJobOpeningsComponent implements OnInit {
     this.Getvendorid(this.ID);
   }
   ID: any;
-
+  searchByCtc: any
   Vendor:any;
   Notes:any;
   public UpdateVendor() {
@@ -114,8 +114,9 @@ export class VendorJobOpeningsComponent implements OnInit {
     else{
       debugger
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        debugger
         this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
-      
+      debugger
         this.count = this.joblist.length;
       })
     }

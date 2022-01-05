@@ -31,7 +31,7 @@
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
                     <div class="col-md-2">
-                        <button class=" form-control export">Export to Excel</button>
+                        <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
@@ -41,7 +41,7 @@
             <hr>
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered">
+                    <table class="table-bordered" id="downloadaplication">
                         <tr  class="heading">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th><span class="menu">Interview Date</span></th>

@@ -11,7 +11,7 @@
             </div> -->
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="Heading">OFFERED CANDIDATES DASHBOARD</p>
+                    <p class="Heading">OFFERED CANDIDATES REPORT</p>
                 </div>
             </div>
             <hr class="hrline">
@@ -31,7 +31,7 @@
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
                     <div class="col-md-2">
-                        <button class=" form-control export">Export to Excel</button>
+                        <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
@@ -41,14 +41,15 @@
             <hr>
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered">
+                    <table class="table-bordered" id="downloadaplication">
                         <tr  class="heading">
                             <th>Job Reference ID</th>
-                            <th>Clinet Name</th>
+                            <th>Client Name</th>
                             <!-- <th>Interview Date</th>
                             <th>Time</th> -->
                             <th>Staff</th>
                             <th>Job Title</th>
+                            <th>Tentative Date</th>
                             <th>Candidate Name</th>
                             <th>Phone No</th>
                             <th>Email</th>
@@ -68,6 +69,7 @@
                             <td>{{job.slotTime}}</td> -->
                             <td>{{job.staffname}}</td>
                             <td>{{job.jobTitle}}</td>
+                            <td>{{job.tentativeDate|date}}</td>
                             <td>{{job.candidateName}}</td>
                             <td>{{job.phoneNo}}</td>
                             <td>{{job.email}}</td>

@@ -1,10 +1,10 @@
 <div class="container-fluid" style="background-color: #f2f2f2;">
     <br>
-    <div class="row">
+    <div class="row" *ngIf="roleid!='3'|| roleid!='6'">
         <div class="col-lg-1"></div>
         <div class="col-lg-3">
-        <select  *ngIf="roleid!='3'&& roleid!='6'" class="form-control" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
-            <option value="">Select</option>
+        <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+            <option value="Select HR">Select Hiring Manager</option>
             <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
           </select>
         </div>
@@ -38,9 +38,9 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JobRecruitements"><button class="viewall"   *ngIf="roleid!='7'" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/JobRecruitements"><button class="viewall"   *ngIf="roleid!='7'" (click)="Regularization()">VIEW ALL</button></a>
 
-                                <a href="/VendorJobOpenings"><button class="viewall" *ngIf="roleid=='7'" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/VendorJobOpenings"><button class="viewall" *ngIf="roleid=='7'" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/AppliedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/AppliedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/ShortListedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/ShortListedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -187,7 +187,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/SelectedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/SelectedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/OfferedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/OfferedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -294,7 +294,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/JoinedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/JoinedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>
@@ -343,7 +343,7 @@
                             <hr class="new4">
                             <div class="backflip">
                                 <button class="bcakbtn">BACK</button>
-                                <a href="/DroppedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
+                                <a href="#/DroppedCandidates"><button class="viewall" (click)="Regularization()">VIEW ALL</button></a>
                                 <!-- <button class="viewall" (click)="Regularization()" routerLink="/JobRecruitements/">VIEW ALL</button> -->
                             </div>
                         </div>

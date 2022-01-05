@@ -20,7 +20,7 @@
                         Filter By
                     </div>
                     <div class="col-lg-3">
-                        <input class="form-control" placeholder="Search" [(ngModel)]="search" name="search">
+                        <input class="form-control" placeholder="Search..." [(ngModel)]="search" name="search">
                     </div>
                     <div class="col-lg-3">
                         <input type="date" class="form-control" (change)="GetDate($event)" name="Date" value="Date"  [(ngModel)]="Date">
@@ -28,10 +28,10 @@
                     </div>
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
-                            <option value="Select CTC">Select CTC</option>
-                            <option value="30,000-50,000">30,000-50,000</option>
-                            <option value="50,000-1,00000">50,000-1,00000</option>
-                            <option value="1,00000-2,00000">1,00000-2,00000</option>
+                            <option value="Select CTC">Select CTC Budget</option>
+                            <option *ngFor="let job of joblist" value="30,000-50,000">{{job.package}}</option>
+                            <!-- <option value="50,000-1,00000">50,000-1,00000</option>
+                            <option value="1,00000-2,00000">1,00000-2,00000</option> -->
                         </select>
                     </div>
                   

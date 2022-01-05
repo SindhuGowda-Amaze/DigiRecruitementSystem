@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RecruitmentServiceService } from '../recruitment-service.service';
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-shortlisted-candidates-reports',
   templateUrl: './shortlisted-candidates-reports.component.html',
@@ -31,26 +32,17 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
         this.DropJobList = data.filter(x=>(x.source == "Vendor" && x.vendorId == this.userid));
         this.loader=false;
-  
       })
-  
-
- 
-  
     }
     else {
   
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
         this.DropJobList = data;
         this.loader=false;
-  
       })
-  
     }
-
-
-
   }
+
   refresh(){
     location.reload();
   }
@@ -60,9 +52,7 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     this.GetSlotsMaster();
   }
 
-
   dummjoblist: any;
-
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
@@ -70,7 +60,6 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
       this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
       this.count = this.joblist.length;
     })
-
   }
 
   jobid: any;
@@ -86,7 +75,6 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     }
   }
 
-
   staffid: any;
 
   public GetStaffID(even:any) {
@@ -99,7 +87,6 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     this.RecruitmentServiceService.GetStaffs().subscribe(data => {
       this.stafflist = data;
     })
-
   }
 
   public GetTimeID(even:any) {
@@ -113,7 +100,6 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
       this.slotslist = data;
       debugger
     })
-
   }
 
   candidateid: any;
@@ -144,6 +130,20 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     window.open(offer, "_blank")
   }
 
+  fileName = 'SHORTLISTED CANDIDATES REPORT.xlsx';
+  exportexcel(): void {
+    this.loader = true;
+    /* table id is passed over here */
+    let element = document.getElementById('downloadaplication');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Shortlisted Candidates');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
+    this.loader = false;
+  }
 
 }

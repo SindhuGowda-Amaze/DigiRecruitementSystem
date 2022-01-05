@@ -116,7 +116,7 @@ this.files.splice(this.files.indexOf(event),1);
       if (data != 0) {
         Swal.fire("Registered Successfully");
       }
-      location.reload();
+      location.href = "#/RecruiterStaffDashboard";
     })
   }
 
@@ -137,14 +137,13 @@ this.files.splice(this.files.indexOf(event),1);
     this.RecruitmentServiceService.UpdateRecruiterStaff(entity).subscribe(data => {
       if (data != 0) {
         Swal.fire("Updated Recruiter Staff Successfully");
-        location.reload();
-        location.href = "/RecruiterStaffDashboard";
+        // location.reload();
+        location.href = "#/RecruiterStaffDashboard";
       }
     })
   }
 
   cancel(){
-    location.reload();
-    location.href="/RecruiterStaffDashboard"
+    location.href="#/RecruiterStaffDashboard"
   }
 }

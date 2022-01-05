@@ -27,6 +27,6 @@ export class HeaderComponent implements OnInit {
     location.href = "#/Login";
 
     // localStorage.clear();
-    //location.reload();
+    location.reload();
   }
 }

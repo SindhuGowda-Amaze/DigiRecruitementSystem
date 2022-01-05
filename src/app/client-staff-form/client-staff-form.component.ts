@@ -97,22 +97,29 @@ export class ClientStaffFormComponent implements OnInit {
 
  Save() {
   debugger
-  var json = {
-    "ClientID": this.Staff,
-    "Role_Id": this.Role,
-    "Name": this.Name,
-    "PhoneNo": this.PhoneNo,
-    "Email": this.Email,
-    "Address": this.Address,
-    "Signature": this.Signature,
-  };
-  this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
-    data => {
-      debugger
-      let id = data;
-      alert("Successfully Submitted...!!")
-      location.href = "/ClientStaffDashBoard"
-    })
+  if(this.Name==undefined||this.PhoneNo==undefined||this.Email==undefined||this.Address==undefined||this.Signature==undefined)
+  {
+    alert("Please Fill All Fields to Save!!!")
+  }
+  else{
+    var json = {
+      "ClientID": this.Staff,
+      "Role_Id": this.Role,
+      "Name": this.Name,
+      "PhoneNo": this.PhoneNo,
+      "Email": this.Email,
+      "Address": this.Address,
+      "Signature": this.Signature,
+    };
+    this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
+      data => {
+        debugger
+        let id = data;
+        Swal.fire("Successfully Submitted...!!");
+        location.href = "#/ClientStaffDashBoard"
+      })
+  }
+ 
 }
 
 
@@ -151,9 +158,11 @@ this.files.splice(this.files.indexOf(event),1);
         debugger
         let result = data;
         Swal.fire("Updated Sucessfully...");
-        location.href = "/ClientStaffDashBoard";
+        location.href = "#/ClientStaffDashBoard";
       })
   }
 
-
+cancel(){
+  location.href = "#/ClientStaffDashBoard";
+}
 }

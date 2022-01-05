@@ -48,7 +48,7 @@
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
                     <div class="col-md-2">
-                        <button class=" form-control export">Export to Excel</button>
+                        <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
@@ -58,12 +58,13 @@
         <hr>
         <div class="row">
             <div class="col-lg-12">
-                <table class="table-bordered">
+                <table class="table-bordered" id="downloadaplication">
                     <tr class="heading">
                         <th><span class="menu">Job Reference ID</span></th>
                         <th>Client Name</th>
                         <th><span class="menu">Staff</span></th>
                         <th><span class="menu">Job Title</span></th>
+                        <th><span class="menu">Offered Date</span></th> 
                         <th><span class="menu">Candidate Name</span></th>
                         <th><span class="menu">Phone No</span></th>
                         <th><span class="menu">Email</span></th>
@@ -79,6 +80,7 @@
                         <td>{{job.slotTime}}</td> -->
                         <td>{{job.staffname}}</td>
                         <td>{{job.jobTitle}}</td>
+                        <td>{{job.date}}</td>  
                         <td>{{job.candidateName}}</td>
                         <td>{{job.phoneNo}}</td>
                         <td>{{job.email}}</td>

@@ -21,6 +21,8 @@ export class ShortListedCandidatesComponent implements OnInit {
   loader:any;
   roleid: any;
   userid:any;
+  searchbyctc:any;
+  searchbynotice:any
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {

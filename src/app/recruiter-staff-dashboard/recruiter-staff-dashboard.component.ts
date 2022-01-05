@@ -36,7 +36,7 @@ export class RecruiterStaffDashboardComponent implements OnInit {
   
 
 Update(staff:any) {
-  location.href = "/RecruiterStaff/" + staff.id
+  location.href = "#/RecruiterStaff/" + staff.id
 }
 
 public DisableStaff(id: any) {

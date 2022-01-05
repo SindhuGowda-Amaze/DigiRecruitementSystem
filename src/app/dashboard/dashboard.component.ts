@@ -47,6 +47,7 @@ export class DashboardComponent implements OnInit {
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.hiringManager='Select Vendor'
     this.myDate = new Date();
     this.showfront = true;
     this.Anniversery = true;
@@ -62,7 +63,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
       this.joblist1 = data.filter(x => x.vendor == null);
-      this.joblist1 = this.joblist1.slice(0, 4);
+      this.joblist1 = this.joblist1.slice(0, 3);
       debugger
 
     })
@@ -150,7 +151,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist9 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
-      this.joblist9 = this.joblist9.slice(0, 4);
+      this.joblist9 = this.joblist9.slice(0, 3);
       debugger
      
     })
@@ -278,20 +279,20 @@ public GetJobRequirements(){
 
   public leavedashbaord1() {
     debugger
-    this.router.navigate(['/MyTeamLeaveDetails']);
+    this.router.navigate(['#/MyTeamLeaveDetails']);
   }
 
   public leavedashbaord() {
     debugger
-    this.router.navigate(['/LeaveListDashboard']);
+    this.router.navigate(['#/LeaveListDashboard']);
   }
   public Regularization() {
     debugger
-    this.router.navigate(['/AttendanceView']);
+    this.router.navigate(['#/AttendanceView']);
   }
   public goprofile() {
     debugger
-    this.router.navigate(['/EmployeeProfileView']);
+    this.router.navigate(['#/EmployeeProfileView']);
   }
 
 }

@@ -11,7 +11,7 @@
             </div> -->
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="Heading">APPLIED CANDIDATED REPORTS</p>
+                    <p class="Heading">APPLIED CANDIDATES REPORTS</p>
                 </div>
             </div>
             <hr class="hrline">
@@ -41,9 +41,17 @@
                     <div class="col-lg-1">
                         Filter By
                     </div>
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <input class="form-control" type="date" placeholder="Duration">
-                    </div>
+                    </div> -->
+                    <div class="col-lg-2">
+                        <select name="Select" class="form-control" [(ngModel)]="searchbyctc">
+                          <option value="Select CTC">Select CTC</option>
+                          <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
+                          <!-- <option value="50,000-1,00000">50,000-1,00000</option>
+                          <option value="1,00000-2,00000">1,00000-2,00000</option> -->
+                        </select>
+                      </div>
                     <div class="col-lg-3">
                         <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="term" name="term">
                     </div>
@@ -51,7 +59,7 @@
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
                     <div class="col-md-2">
-                        <button class=" form-control export">Export to Excel</button>
+                        <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
@@ -61,7 +69,7 @@
             <hr>
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered">
+                    <table class="table-bordered" id="downloadaplication">
                         <tr class="heading">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th><span class="menu">Job Title</span></th>
@@ -69,19 +77,23 @@
                             <th><span class="menu">Candidate Name</span></th>
                             <th><span class="menu">Phone No</span></th>
                             <th><span class="menu">Email </span></th>
+                            <th><span class="menu">Current CTC </span></th>
+                            <th><span class="menu">Notice Period </span></th>
                             <th><span class="menu">Total Years of Experience</span></th>
                             <th><span class="menu">Years of Relavant Experience</span></th>
                             <th><span class="menu">City</span></th>
                             <th><span class="menu">Notes</span></th>
 
                         </tr>
-                        <tr *ngFor="let job of joblist|filter:term">
+                        <tr *ngFor="let job of joblist|filter:term|filter:searchbyctc">
                             <td>{{job.jobRefernceID}}</td>
                             <td>{{job.jobTitle}}</td>
                             <td>Mind Tree</td>
                             <td>{{job.candidateName}}</td>
                             <td>{{job.phoneNo}}</td>
                             <td>{{job.email}}</td>
+                            <td>{{job.ctc}}</td> 
+                            <td>{{job.noticePeriod}}</td> 
                             <td>{{job.yearsofExp}}</td>
                             <td>{{job.relavantExp}}</td>
                             <td>{{job.city}}</td>
