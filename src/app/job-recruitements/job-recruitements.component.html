@@ -43,7 +43,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table tablebordered">
+                    <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
                         <thead>
                             <tr class="newFont">
                                 <th >Job Reference ID</th>
@@ -86,6 +86,9 @@
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
                         </tr>
                     </table>
+                    <ng-template #noResults>
+                        <p> no results found for "{{search}}" </p> 
+                      </ng-template>
                 </div>    
             </div>   
         </div>
@@ -115,7 +118,6 @@
                         </select>
                     </div>
                 </div> <br>
-
                 <div class="row">
                     <div class="col-lg-3">
                         <label class="Text" style="font-weight: bold;">No Of Positions Hired :</label>

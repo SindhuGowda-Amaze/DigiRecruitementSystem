@@ -23,6 +23,7 @@ export class JobRecruitementsComponent implements OnInit {
     this.GetUserslist();
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data;
+      this.dummjoblist = data;
       this.loader=false;
       debugger
       this.count = this.joblist.length;
@@ -120,22 +121,22 @@ export class JobRecruitementsComponent implements OnInit {
         this.stafflist = data
       })
   }
-
+  dummjoblist:any;
   public GetDate(event: any) {
     if (this.Date == 0) {
       debugger
-      this.RecruitmentServiceService.GetUserslist().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid);
+      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+        this.joblist = data;
+        debugger
+        this.dummjoblist = data;
+        
         this.count = this.joblist.length;
       })
     }
     else {
       debugger
-      this.RecruitmentServiceService.GetUserslist().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid && x.date == this.Date);
-
-        this.count = this.joblist.length;
-      })
+      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
+      this.count = this.joblist.length;
     }
 
   }

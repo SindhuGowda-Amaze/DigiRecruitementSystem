@@ -45,7 +45,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table tablebordered">
+                    <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
                         <thead>
                             <tr class="head">
                                 <!-- <th>Vendor</th> -->
@@ -94,6 +94,9 @@
                             </tr>
                         </thead>
                     </table>
+                    <ng-template #noResults>
+                        <p>no results found for "{{search}}" </p> 
+                      </ng-template>
                 </div>
             </div>
         </div>

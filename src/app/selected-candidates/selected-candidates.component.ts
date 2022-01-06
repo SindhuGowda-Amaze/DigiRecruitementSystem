@@ -19,6 +19,7 @@ export class SelectedCandidatesComponent implements OnInit {
   search: any;
   date: any;
   loader:any;
+  dummjoblist:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
@@ -26,8 +27,11 @@ export class SelectedCandidatesComponent implements OnInit {
   }
 
   public GetCandidateReg() {
+    debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+       this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.dummjoblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+     
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -158,23 +162,39 @@ this.files.splice(this.files.indexOf(event),1);
 
   Date:any;
   userid:any;
-  public GetDate(event:any) {
-    if(this.Date==0){
-      debugger
-      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid);
-        this.count = this.joblist.length;
-      })
-    }
-    else{
-      debugger
-      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
+  // public GetDate(event:any) {
+  //   if(this.Date==0){
+  //     debugger
+  //     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+  //       this.joblist = data.filter(x => x.recruiter == this.userid);
+  //       this.count = this.joblist.length;
+  //     })
+  //   }
+  //   else{
+  //     debugger
+  //     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+  //       this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
       
+  //       this.count = this.joblist.length;
+  //     })
+  //   }
+    
+  // }
+
+  public GetDate(event: any) {
+    if (this.Date == 0) {
+      debugger
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.joblist = data;
+        debugger
+        this.dummjoblist = data;
         this.count = this.joblist.length;
       })
     }
-    
+    else {
+      debugger
+      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
+      this.count = this.joblist.length;
+    }
   }
- 
 }

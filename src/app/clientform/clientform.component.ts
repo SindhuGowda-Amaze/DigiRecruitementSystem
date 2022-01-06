@@ -24,17 +24,22 @@ export class ClientformComponent implements OnInit {
 
   count: any;
   recruiterlist: any;
+  showButton:any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-
-    this.GetClientMaster();
     this.ActivatedRoute.params.subscribe(params => {
       debugger
       this.id = params["id"];
       if (this.id != null && this.id != undefined) {
+        this.GetClientMaster();
+        this.showButton=1;
+      }
+      else
+      {
+        this.showButton=2;
         this.GetClientMaster();
       }
     })
@@ -140,7 +145,15 @@ export class ClientformComponent implements OnInit {
 
   public Save() {
     debugger
-    
+  //   if(this.Name==undefined||this.PhoneNo==undefined||this.Email==undefined||this.Address==undefined||this.Company_logo==undefined)
+  // {
+  //   alert("Please Fill All Fields to Save!!!")
+  // }
+  if(this.RegForm.invalid)
+  {
+    alert("Please Fill All Fields to Save!!!")
+  }
+  else{
     var entity = {
       'Logo': this.Company_logo,
       'Name': this.Name,
@@ -156,6 +169,8 @@ export class ClientformComponent implements OnInit {
       Swal.fire("Successfully Submitted...!!");
       location.href = "#/ClientDashBoard"
     })
+  }
+   
   }
 
 

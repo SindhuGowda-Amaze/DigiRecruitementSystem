@@ -73,7 +73,7 @@ export class DashboardComponent implements OnInit {
 
    
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data.filter(x => x.vendor == null);
+      this.joblist = data
      debugger
      this.count = this.joblist.length;
     })
