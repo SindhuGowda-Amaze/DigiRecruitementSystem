@@ -154,3 +154,7 @@ table {
   float: right;
   padding-right: 50px;
 }
+
+.NoResultShow{
+  font-size: 16px;
+}
