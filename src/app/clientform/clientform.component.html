@@ -1,28 +1,17 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="row">
-            <div class="col-lg-2">
-                <p class="FormHeadText">Client Form</p>
+            <div class="col-lg-11">
+                <a href="" class="Heading" style="color: #3247D5; font-family: 'Poppins';">Client Form</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-10"></div>
-        </div>
         <br>
-        <!-- <div class="row LocDashboard">
-                <div class="col-lg-12">
-                    <label>Client Details</label>
-                </div>
-            </div> -->
         <div class="card BOXCARD">
             <form [formGroup]="RegForm">
-                <div class="row leavereq">
+                <div class="row leavereq" style="">
                     <div class="col-md-2">
                         <label>Client Logo<span style="color: red;">*</span></label>
                     </div>
-                    <!-- <div class="col-md-2">
-                        <label>Role<span style="color: red;">*</span></label>
-                    </div> -->
                     <div class="col-md-2">
                         <label>Client Name<span style="color: red;">*</span></label>
                     </div>
@@ -36,37 +25,8 @@
                     <div class="col-md-2">
                         <label>Address<span style="color: red;">*</span></label>
                     </div>
-                    <!-- <div class="col-md-2">
-                        <label>Signature</label>
-                    </div> -->
-
-                    <!-- <div class="col-md-2">
-                        <label>SS Total<span style="color: red;">*</span></label>
-                    </div> -->
                 </div>
                 <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <div class="dropdown">
-                            <select class="form-control inputfield" >
-                                <option value="Select">Select Min. Range</option>
-                                <option value="1">Min. Range 1 to 50</option>
-                                <option value="1">Min. Range 51 to 100</option>
-                                <option value="1">Min. Range 101 to 151</option>
-                                <option value="1">Min. Range 151 to 200</option>
-                            </select>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-md-2">
-                        <div class="dropdown">
-                            <select class="form-control inputfield" >
-                                <option value="Select">Select Max. Range</option>
-                                <option value="1">Max. Range 1000 to 1500</option>
-                                <option value="1">Max. Range 1501 to 2000</option>
-                                <option value="1">Max. Range 2001 to 2500</option>
-                                <option value="1">Max. Range 2501 to 3000</option>
-                            </select>
-                        </div>
-                    </div> -->
                     <div class="col-md-2">
                         <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
                             <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
@@ -107,44 +67,21 @@
                     </div> -->
                 </div>
                 <br>
-                <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <label>MPF-ER<span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-md-2">
-                        <label>MPF-EE<span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-md-2">
-                        <label>EC-ER<span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-md-2">
-                        <label>Total Contribution<span style="color: red;">*</span></label>
-                    </div> -->
-                </div>
-                <div class="row leavereq">
-                    <!-- <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield">
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control inputfield" >
-                    </div> -->
-                </div>
                 <br>
                 <div class="row">
                     <div class="col-lg-10"></div>
                     <div class="col-lg-1">
-                        <button class="form-control CancelBTN" (click)="cancel()">Cancel</button>
+                        <!-- <button class="form-control CancelBTN" (click)="cancel()">Cancel</button> -->
+                        <button class="form-control Edit" (click)="cancel()">Cancel</button>
                     </div>
                     <div class="col-lg-1">
-                        <button type="button" class="form-control SubmitBTN" *ngIf="showButton==2"
+                        <!-- <button type="button" class="form-control SubmitBTN" *ngIf="showButton==2"
                             [disabled]="!RegForm.valid" (click)="Save()">Save</button>
                         <button type="button" class="form-control SubmitBTN" *ngIf="showButton==1"
+                            (click)="Update()">Update</button> -->
+                        <button type="button" class="form-control Edit" *ngIf="showButton==2"
+                            [disabled]="!RegForm.valid" (click)="Save()">Save</button>
+                        <button type="button" class="form-control Edit" *ngIf="showButton==1"
                             (click)="Update()">Update</button>
                     </div>
                 </div>

@@ -113,6 +113,8 @@ table {
   font-weight: bold;
   float: right;
   margin-top: 5px;
+  margin-right: -80px;
+
 }
 
 .button {
@@ -130,7 +132,6 @@ table {
   margin-right: 15px;
   font-size: 15px;
   font-weight: bold;
-  margin-right: 112px;
 }
 
 .Edit {
