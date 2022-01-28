@@ -1,126 +1,11 @@
-<!-- <br>
-<div class="container-fluid">
-  <div class="card">
-      <div class="row">
-          <div class="col-lg-12">
-              <p class="Job">SHORTLISTED CANDIDATES DASHBOARD</p>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-lg-3">
-              <input class="form-control" placeholder="Search">
-          </div>
-          <div class="col-lg-3">
-            <select name="Select CTC"  class="form-control">
-                <option value="Select CTC">Select CTC</option>
-                <option value="30,000-50,000">30,000-50,000</option>
-                <option value="50,000-1,00000">50,000-1,00000</option>
-                <option value="1,00000-2,00000">1,00000-2,00000</option>
-              </select>
-        </div>
-        <div class="col-lg-3">
-            <select name="Select CTC"  class="form-control">
-                <option value="Select Notice Period">Select Notice Period</option>
-                <option value="15days">15days</option>
-                <option value="30 days">30 days</option>
-                <option value="45days">45days</option>
-                <option value="90days">90days</option>
-              </select>
-        </div>
-        <div class="col-lg-1">
-            <p>Count : 3</p>
-        </div>
-      </div> <br>
-      <div class="row">
-        <div class="col-lg-12">
-            <table class="table tablebordered">
-                <thead>
-                    <tr class="newFont">
-                        <th>Vendor</th>
-                        <th>Job Reference ID</th>
-                        <th>Job Title</th>
-                        <th>Candidate Name</th>
-                        <th>Phone No</th>
-                        <th>Email</th>
-                        <th>CTC	</th>
-                        <th>Notice Period</th>
-                        <th>Total Years of Experience</th>
-                        <th>Relevant Experience</th>
-                        <th>Hiring Manager	</th> 
-                        <th>Resume</th>
-                        <th>Notes</th>
-                        <th>Actions</th>
-                    </tr>
-                    <tr class="Textdata">
-                      <td>Amaze</td>
-                      <td>25984</td>                                   
-                      <td>Full Stack Developer</td>
-                      <td>ananya</td>
-                      <td>08129981409</td>
-                      <td>ananya@gmail.com</td>
-                      <td>3 LPA</td>
-                      <td>30 days</td>
-                      <td>5</td>
-                      <td>4</td>
-                      <td>Stefan</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr class="Textdata">
-                        <td>Amaze</td>
-                        <td>80640</td>                                   
-                        <td>QA Engineer</td>
-                        <td>sawthi</td>
-                        <td>08129981401</td>
-                        <td>sawthi@gmail.com</td>
-                        <td>3 LPA</td>
-                        <td>15 days</td>
-                        <td>4</td>
-                        <td>4</td>
-                        <td>bangalore</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr class="Textdata">
-                        <td>Amaze</td>
-                        <td>25984</td>                                   
-                        <td>Full Stack Developer</td>
-                        <td>joe</td>
-                        <td>7990167890</td>
-                        <td>joe@gmail.com</td>
-                        <td>3 LPA</td>
-                        <td>15 days</td>
-                        <td>4</td>
-                        <td>4</td>
-                        <td>John</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-  </div>
-</div>
- -->
-
-
  <app-spinner *ngIf="loader"></app-spinner>
- <div class="container-fluid">
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-10">
       <div class="row">
         <div class="col-lg-12">
           <p class="Heading"> SHORTLISTED CANDIDATES DASHBOARD</p>
           <hr class="HrLine">
         </div>
       </div> <br>
-
       <div class="card"><br>
         <div class="row FilterClass">
           <div class="col-lg-1">
@@ -129,30 +14,24 @@
           <div class="col-lg-3">
             <input class="form-control" placeholder="Search for  Candidate Name..." [(ngModel)]="search">
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-2">
             <select name="Select" class="form-control" [(ngModel)]="searchbyctc">
-              <option value="Select CTC">Select CTC</option>
-              <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
-              <!-- <option value="50,000-1,00000">50,000-1,00000</option>
-              <option value="1,00000-2,00000">1,00000-2,00000</option> -->
+              <option style="color:#0C275A"  value="Select CTC">Select CTC</option>
+              <option style="color:#0C275A"  *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
             </select>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-2">
             <select name="Select" class="form-control" [(ngModel)]="searchbynotice">
-              <option value="Select Notice Period">Select Notice Period</option>
-              <option  *ngFor="let job of joblist" value="15 Days">{{job.noticePeriod}}</option>
-              <!-- <option value="30 Days">30 Days</option>
-              <option value="45 Days">45 Days</option>
-              <option value="90 Days">90 Days</option> -->
+              <option style="color:#0C275A"  value="Select Notice Period">Select Notice Period</option>
+              <option  style="color:#0C275A"  *ngFor="let job of joblist" value="15 Days">{{job.noticePeriod}}</option>
             </select>
           </div>
-          
+          <div class="col-lg-2"></div>
           <div class="col-lg-2">
             <p class="Count">Count:{{count}}</p>
           </div>
         </div> <br>
-      </div><br>
-
+      </div><br><br>
       <div class="row">
         <div class="col-lg-12">
           <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
@@ -175,20 +54,20 @@
                 <th>Resume</th>             
                 <th  *ngIf="roleid!='4' && roleid=='6'" >Actions</th>
               </tr>
-              <tr *ngFor="let job of joblist|filter:search|filter:searchbyctc">
-                <td>{{job.jobRefernceID}}</td>
-                <td> {{job.source}}</td>
-                <td>{{job.jobTitle}}</td>
-                <td>{{job.candidateName}}</td>
-                <td>{{job.phoneNo}}</td>
-                <td>{{job.email}}</td>
-                <td>{{job.ctc}}</td> 
-                <td>{{job.noticePeriod}}</td> 
-                <td>{{job.yearsofExp}}</td>
-                <td>{{job.relavantExp}}</td>
-                <td>{{job.hiringManager}}</td>
-                <td>{{job.city}}</td>
-                <td>{{job.shortlistionNotes}}</td>
+              <tr *ngFor="let job of joblist|filter:search|filter:searchbyctc" class="new">
+                <td style="color:#0C275A">{{job.jobRefernceID}}</td>
+                <td  style="color:#0C275A"> {{job.source}}</td>
+                <td  style="color:#0C275A">{{job.jobTitle}}</td>
+                <td  style="color:#0C275A">{{job.candidateName}}</td>
+                <td  style="color:#0C275A">{{job.phoneNo}}</td>
+                <td  style="color:#0C275A">{{job.email}}</td>
+                <td  style="color:#0C275A">{{job.ctc}}</td> 
+                <td  style="color:#0C275A">{{job.noticePeriod}}</td> 
+                <td  style="color:#0C275A">{{job.yearsofExp}}</td>
+                <td  style="color:#0C275A">{{job.relavantExp}}</td>
+                <td  style="color:#0C275A">{{job.hiringManager}}</td>
+                <td  style="color:#0C275A">{{job.city}}</td>
+                <td  style="color:#0C275A">{{job.shortlistionNotes}}</td>
                 <td>
                   <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
                 </td>
@@ -212,73 +91,9 @@
           </ng-template>
         </div>
       </div>
-    </div>
-    <div class="col-lg-1"></div>
-  </div>
+    
 </div>
 
-
-<!-- <div id="ScheduleInterview" class="modal fade" role="dialog">
-
-  <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title">Schedule Interview</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                  <div class="col-lg-3">
-                      <label class="Text"> Date :</label>
-                  </div>
-                  <div class="col-lg-5">
-                     <input class="form-control" type="Month">
-                  </div>                  
-              </div> <br>
-              <div class="row">
-                  <div class="col-lg-3">
-                      <label  class="Text">Time :</label>
-                  </div>
-                  <div class="col-lg-5">
-                     <input class="form-control" type="Time">
-                  </div>                  
-              </div> <br>
-
-              <div class="row">
-                <div class="col-lg-3">
-                  <label  class="Text">Staff :</label>
-                </div>
-                  <div class="col-lg-5">
-                    <select name="Select" class="form-control">
-                      <option value="Select">Select </option>              
-                    </select>
-                  </div>                  
-              </div> <br>
-
-              <div class="row">
-                  <div class="col-lg-3">
-                      <label  class="Text" style="font-weight: bold;">Notes :</label>
-                  </div>
-                  <div class="col-lg-5">
-                    <textarea class="form-control" placeholder="Notes"></textarea>
-                  </div>                  
-              </div> <br>
-              <div class="row">
-                  <div class="col-lg-5"></div>
-                  <div class="col-lg-2">
-                      <button class="Save">Schedule</button>
-                  </div>
-              </div>              
-          </div>
-          <div class="modal-footer">
-              <hr>
-             <div class="col-lg-2">
-                 <button class="Button" >Close</button>
-             </div>
-          </div>
-      </div>
-  </div>
-</div> -->
 
 
 

@@ -1,10 +1,10 @@
 .export{
     border-radius: 10px;
-    background-color: #21a4da;
+    background-color: #3247D5;
     height: 35px;
     color: #fff;
     width: 100%;
-    border-radius: 0px;
+    border-radius: 5px;
     margin-top: 2%;
 }
 
@@ -18,11 +18,15 @@
 .Heading{
     padding-left: 15px;
     font-size: 20px;
-    color:black;
+    color:#3247D5;
 }
 
+.head{
+    background-color:#02CFFF ;
+    color:white;
+}
 .Count{
-  color: #212529;
+    color:#0C275A;
   font-size: 20px !important;
   font-family: 'DIN Bold';
   font-weight: bold;
@@ -40,7 +44,7 @@ table{
     font-family: "DIN Bold";
 }
 td, th {
-    border: 1px solid #ddd;
+
     text-align: left;
     padding: 8px;
 }
@@ -50,4 +54,16 @@ td{
 .count
 {
     text-align: right;
+}
+
+.card{
+    width:100%;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+}
+.FilterClass{
+    color:#0C275A;
+    font-size: 15px;
+    margin:15px
 }

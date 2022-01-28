@@ -1,23 +1,14 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <!-- <div class="row">
-                <div class="col-lg-10"></div>
-                <div class="col-lg-2">
-                    <button class="form-control export">Export to Excel</button>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">SELECTED CANDIDATES REPORTS</p>
                 </div>
             </div>
             <hr class="hrline">
-            <div class="card">
-               
-                <div class="row">
+            <div class="card"> 
+                <br>            
+                <div class="row filterclass">
                     <div class="col-lg-1">
                         Filter By
                     </div>
@@ -27,22 +18,21 @@
                     <div class="col-lg-3">
                         <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="search" name="search">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
                     </div>
                 </div><br> 
-            </div>  
-            <hr>
+            </div>  <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered" id="downloadaplication">
-                        <tr  class="heading">
+                    <table class="table" id="downloadaplication">
+                        <tr  class="head">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th><span class="menu">Interview Date</span></th>
                             <th>Client Name </th>
@@ -53,22 +43,20 @@
                             <th><span class="menu">Phone No</span></th>
                             <th><span class="menu">Email</span></th>
                             <th><span class="menu">Total Years of Experience</span></th>
-                            <th><span class="menu">Years of Relavant Experience</span></th>  
-        
-        
+                            <th><span class="menu">Years of Relavant Experience</span></th>         
                         </tr>
                         <tr *ngFor="let job of joblist|filter:search">
-                            <td>{{job.jobRefernceID}}</td>
-                            <td>{{job.date}}</td>
-                            <td>Mind Tree</td>
-                            <td>{{job.slotTime}}</td>
-                            <td>{{job.staffname}}</td>
-                            <td>{{job.jobTitle}}</td>
-                            <td>{{job.candidateName}}</td>
-                            <td>{{job.phoneNo}}</td>
-                            <td>{{job.email}}</td>
-                            <td>{{job.yearsofExp}}</td>
-                            <td>{{job.relavantExp}}</td>
+                            <td style="color:#0C275A">{{job.jobRefernceID}}</td>
+                            <td style="color:#0C275A">{{job.date}}</td>
+                            <td style="color:#0C275A">Mind Tree</td>
+                            <td style="color:#0C275A">{{job.slotTime}}</td>
+                            <td style="color:#0C275A">{{job.staffname}}</td>
+                            <td style="color:#0C275A">{{job.jobTitle}}</td>
+                            <td style="color:#0C275A">{{job.candidateName}}</td>
+                            <td style="color:#0C275A">{{job.phoneNo}}</td>
+                            <td style="color:#0C275A">{{job.email}}</td>
+                            <td style="color:#0C275A">{{job.yearsofExp}}</td>
+                            <td style="color:#0C275A">{{job.relavantExp}}</td>
     
 <!--     
                             <td>
@@ -83,9 +71,5 @@
                         </tr>
                     </table>
                 </div>
-            </div>
-        
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+            </div>    
 </div>

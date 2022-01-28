@@ -1,9 +1,6 @@
 
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">DROPPED CANDIDATES DASHBOARD</p>
@@ -19,18 +16,18 @@
                     <div class="col-lg-3 ">
                         <input class="form-control" placeholder="Search" [(ngModel)]="search">
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <select name="Select" class="form-control">
                             <option value="Select Vendor ">Select Vendor</option>
                             <option value="Amaze">Amaze</option>
                         </select>
                     </div>
-                    <div class="col-lg-3"></div>
+                    <div class="col-lg-4"></div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
                     </div>
                 </div> <br>
-            </div><br>
+            </div><br><br>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -55,16 +52,16 @@
                                 <!-- <th>Dropped Notes</th> -->
                             </tr>
                             <tr *ngFor="let job of joblist|filter:search">
-                                <td>{{job.vendorName}}</td>
-                                <td>{{job.jobRefernceID}}</td>
-                                <td>{{job.hiringManager}}</td>
-                                 <td>{{job.date}}</td>  
-                                 <td>{{job.source}}</td>                          
-                                <td>{{job.candidateName}}</td>
-                                <td>{{job.phoneNo}}</td>
-                                <td>{{job.email}}</td>
-                                <td>{{job.yearsofExp}}</td>
-                                <td>{{job.relavantExp}}</td>
+                                <td  style="color:#0C275A">{{job.vendorName}}</td>
+                                <td  style="color:#0C275A">{{job.jobRefernceID}}</td>
+                                <td  style="color:#0C275A">{{job.hiringManager}}</td>
+                                 <td  style="color:#0C275A">{{job.date}}</td>  
+                                <td style="color:#0C275A">{{job.source}}</td>                          
+                                <td  style="color:#0C275A">{{job.candidateName}}</td>
+                                <td  style="color:#0C275A">{{job.phoneNo}}</td>
+                                <td  style="color:#0C275A">{{job.email}}</td>
+                                <td  style="color:#0C275A">{{job.yearsofExp}}</td>
+                                <td  style="color:#0C275A">{{job.relavantExp}}</td>
                                 <td>
                                     <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
                                 </td>
@@ -72,7 +69,7 @@
                                     <span *ngIf="job.offerAcceptreject=='1'">Joined</span>
                                     <span *ngIf="job.offerAcceptreject=='2'">Dropped</span>
                                 </td> -->
-                                <td>
+                                <td  style="color:#0C275A">
                                   {{job.offerComments}}
                                 </td>
                                 <!-- <td>
@@ -90,7 +87,5 @@
                       </ng-template>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+       
 </div>

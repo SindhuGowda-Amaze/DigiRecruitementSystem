@@ -4,50 +4,45 @@
             <p style="font-size: 20px;">Job Vacancies</p>
         </div>
     </div>
-</div>
-<div class="container-fluid">
-    <div class="card">
-        <br>
-        <div class="row" *ngFor="let job of joblist">
-            <div class="row">
+    <div class="card" style="padding:15px;">
+            <div class="row" *ngFor="let job of joblist">
                 <div class="col-lg-12">
                     <br>
-                    <p style="color:#447eed;font-size: 17px;">{{job.jobTitle}} ({{job.companyName}})
+                    <p style="color:#447eed;font-size:17px;">{{job.jobTitle}} ({{job.companyName}})
                     </p>
                 </div>
-            </div> <br>
-            <div class="row" style="margin-left: 10px;">
-                <div class="col-lg-8">
-                    <span class="catcss">Technical Skills : {{job.skills}}</span>
-                </div>
-                <div class="col-lg-2">
-                    <span class="catcss">Job Location : {{job.joblocation}}</span><br>
-                </div>
-                <div class="col-lg-2">
-                    <span class="catcss">No. Of Positions : {{job.noofpositions}}</span><br>
-                </div>
-            </div> <br> <br><br>
 
-            <div class="row">
+                <div class="col-lg-6">
+                    <span  style="margin-left:15px;" class="catcss">{{job.skills}}</span>
+                </div>
+                <div class="col-lg-3">
+                    <span style="margin-left:15px;" class="catcss">{{job.joblocation}}</span><br>
+                </div> 
+                <div class="col-lg-3">
+                    Positions : {{job.noofpositions}}
+                </div><br>
+
+           
                 <div class="col-lg-12">
-                    <p style="margin-left:20px; font-size:15px;">{{job.jobDescription}}</p>
-                </div>
-            </div> <br>
+                    <span class="spanclass"><b>{{job.jobDescription}}</b></span><br><br>
+             
+                </div><br><br>
 
-            <div class="row">
-                <div class="col-lg-4">
+
+                <div class="col-lg-3">
                     <span style="color: green;">Current Ctc : {{job.package}}</span>
-                </div>
-                <div class="col-lg-4">
+                </div><br>
+                <div class="col-lg-6">
                     <span style="color: green;">Hiring Manager : {{job.hiringManager}}</span>
+                </div><br>
+                <div class="col-lg-3">
+                    <button class="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-primary"
+                        (click)="GetJobID(job.id)">Apply</button>&nbsp;
                 </div>
-                <div class="col-lg-4"></div>
-            </div>
 
 
-
-
-        </div>
+            </div><br><br><br>
+        
     </div>
 </div>
 

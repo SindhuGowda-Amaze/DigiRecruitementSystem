@@ -1,15 +1,19 @@
 .export{
     border-radius: 10px;
-    background-color: #21a4da;
+    background-color: #3247D5;
     height: 35px;
     color: #fff;
     width: 100%;
-   border-radius: 0px;
+   border-radius: 5px;
     margin-top: 2%;
 }
 
 .card{
   padding: 10px;
+  width:100%;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
 }
 .hrline{
    margin-top: 0px;
@@ -18,7 +22,7 @@
 .Heading{
     padding-left: 15px;
     font-size: 20px;
-    color:black;
+    color:#3247D5;
 }
 
 .Count{
@@ -30,9 +34,9 @@
   padding-right: 10px;;
 }
 
-.heading{
-    background-color: #e4e5e6;
-    color:#404040;
+.head{
+    background-color: #02CFFF;
+    color:white;
     font-family: "DIN Bold";
 }
 table{
@@ -40,7 +44,6 @@ table{
     width: 100%;
 }
 td, th {
-    border: 1px solid #ddd;
     text-align: left;
     padding: 8px;
 }

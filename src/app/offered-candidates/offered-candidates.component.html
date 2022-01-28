@@ -1,8 +1,6 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
+ 
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">OFFERED CANDIDATES DASHBOARD</p>
@@ -17,20 +15,13 @@
                     </div>
                     <div class="col-lg-3">
                         <input class="form-control" placeholder="Search"  [(ngModel)]="search">
-                        <!-- <select name="Select" class="form-control">
-                            <option value="Select Notice Period">Select Notice Period</option>
-                            <option value="15 Days">15 Days</option>
-                            <option value="30 Days">30 Days</option>
-                            <option value="45 Days">45 Days</option>
-                            <option value="90 Days">90 Days</option>
-                        </select> -->
                     </div>
                     <div class="col-lg-6"></div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
                     </div>
                 </div> <br>
-            </div><br>
+            </div><br> <br>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -55,18 +46,18 @@
                             </tr>
                             <tr>
                                 <tr *ngFor="let job of joblist|filter:search">
-                                    <td>{{job.jobRefernceID}}</td>
-                                    <td>{{job.source}}</td>
+                                    <td style="color: #0C275A;">{{job.jobRefernceID}}</td>
+                                    <td style="color: #0C275A;">{{job.source}}</td>
                                     <!-- <td>{{job.date}}</td>
                                     <td>{{job.slotTime}}</td> -->
-                                    <td>{{job.hiringManager}}</td>
-                                    <td>{{job.jobTitle}}</td>
-                                    <td>{{job.tentativeDate|date}}</td>
-                                    <td>{{job.candidateName}}</td>
-                                    <td>{{job.phoneNo}}</td>
-                                    <td>{{job.email}}</td>
-                                    <td>{{job.yearsofExp}}</td>
-                                    <td>{{job.relavantExp}}</td>
+                                    <td  style="color: #0C275A;">{{job.hiringManager}}</td>
+                                    <td  style="color: #0C275A;">{{job.jobTitle}}</td>
+                                    <td  style="color: #0C275A;" >{{job.tentativeDate|date}}</td>
+                                    <td  style="color: #0C275A;">{{job.candidateName}}</td>
+                                    <td  style="color: #0C275A;">{{job.phoneNo}}</td>
+                                    <td  style="color: #0C275A;">{{job.email}}</td>
+                                    <td  style="color: #0C275A;">{{job.yearsofExp}}</td>
+                                    <td  style="color: #0C275A;">{{job.relavantExp}}</td>
                                     <td>
                                         <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
                                         <!-- <input type="file" id="test" name="test" accept=".pdf" (click)="GetOfferLetter(job.offerLetter)"> -->
@@ -92,7 +83,5 @@
                       </ng-template>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+     
 </div>
