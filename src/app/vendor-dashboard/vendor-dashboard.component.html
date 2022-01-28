@@ -8,9 +8,7 @@
                 <div class="col-lg-10">
                     <p class="Heading">Vendor Dashboard</p>
                 </div>
-                <div class="col-lg-2">
-                    <p class="Text" style="float:right; padding-right:50px;">Count:{{count}}</p>
-                </div>
+              
             </div>
             <!-- <hr class="HrLine"> -->
 <div class="card">
@@ -18,10 +16,14 @@
         <div class="col-lg-1">
             <p class="Text">Filter By</p>
         </div>
-        <div class="col-lg-6">
-            <input type="search" class="form-control" placeholder="Search for Name.." [(ngModel)]="search" name="search">
-        </div>             
-        <div class="col-lg-1"></div>
+        <div class="col-lg-5">
+            <input type="search" class="form-control" style="font-family: 'Poppins';" placeholder="Search for Name.." [(ngModel)]="search" name="search">
+        </div>       
+        <div class="col-lg-4"></div>
+           
+        <div class="col-lg-2">
+            <p class="Text" style="float:right; padding-right:50px;color: #3247D5; font-family: 'Poppins';">Count :{{count}}</p>
+        </div>
     </div>
 </div>
 <br>
