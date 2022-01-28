@@ -23,22 +23,24 @@ td{
   color:#404040;
   font-family: "DIN Bold";
 } */
-.table, th, td {
+/* .table, th, td {
 border: 1px solid lightgray;
  border-collapse: collapse; 
-}
+} */
 .Heading{
 padding-left: 15px;
 font-size: 20px;
-color:black;
+color:#3247D5;
 }
 .head{
-background-color: #e4e5e6;
-color:#404040;
+background-color:#02CFFF ;
+color:white;
 font-family: "DIN Bold";
 }
 .FilterClass{
 padding-left: 15px;
+font-size: 15px;
+color:#0C275A;
 }
 .Count{
   color: #212529;
@@ -104,4 +106,10 @@ padding-left: 15px;
 .count{
   font-size: 16px;
   padding-right:15px;
+}
+.card{
+  width:100%;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
 }

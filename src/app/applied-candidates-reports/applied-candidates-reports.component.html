@@ -1,76 +1,41 @@
 <app-spinner *ngIf="loader"></app-spinner>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <!-- <div class="row">
-                <div class="col-lg-10"></div>
-                <div class="col-lg-2">
-                    <button class="form-control export">Export to Excel</button>
-                </div>
-            </div> -->
+<div class="container-fluid">    
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">APPLIED CANDIDATES REPORTS</p>
                 </div>
             </div>
             <hr class="hrline">
-            <!-- <div class="card">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <input type="search" class="form-control" placeholder="Search">
-                    </div>
-                    <div class="col-lg-3">
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="col-lg-3">
-                        <select class="form-control">
-                            <option value="Select Vendor">Select Vendor</option>
-                            <option value="Amaze">Amaze</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3">
-                        <p class="count">Count :</p>
-                    </div>
-                </div>
-                <br>
-            </div> -->
             <div class="card">
                 <br>
                 <div class="row FilterClass">
                     <div class="col-lg-1">
                         Filter By
                     </div>
-                    <!-- <div class="col-lg-2">
-                        <input class="form-control" type="date" placeholder="Duration">
-                    </div> -->
                     <div class="col-lg-2">
                         <select name="Select" class="form-control" [(ngModel)]="searchbyctc">
                           <option value="Select CTC">Select CTC</option>
                           <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
-                          <!-- <option value="50,000-1,00000">50,000-1,00000</option>
-                          <option value="1,00000-2,00000">1,00000-2,00000</option> -->
                         </select>
                       </div>
                     <div class="col-lg-3">
                         <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="term" name="term">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
                     </div>
-                </div><br>
-            </div>
-            <hr>
+                </div>
+            </div><br> <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered" id="downloadaplication">
-                        <tr class="heading">
+                    <table class="table" id="downloadaplication">
+                        <tr class="head">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th><span class="menu">Job Title</span></th>
                             <th>Client Name</th>
@@ -86,24 +51,20 @@
 
                         </tr>
                         <tr *ngFor="let job of joblist|filter:term|filter:searchbyctc">
-                            <td>{{job.jobRefernceID}}</td>
-                            <td>{{job.jobTitle}}</td>
-                            <td>Mind Tree</td>
-                            <td>{{job.candidateName}}</td>
-                            <td>{{job.phoneNo}}</td>
-                            <td>{{job.email}}</td>
-                            <td>{{job.ctc}}</td> 
-                            <td>{{job.noticePeriod}}</td> 
-                            <td>{{job.yearsofExp}}</td>
-                            <td>{{job.relavantExp}}</td>
-                            <td>{{job.city}}</td>
+                            <td style="color:#0C275A">{{job.jobRefernceID}}</td>
+                            <td style="color:#0C275A" >{{job.jobTitle}}</td>
+                            <td style="color:#0C275A">Mind Tree</td>
+                            <td style="color:#0C275A">{{job.candidateName}}</td>
+                            <td style="color:#0C275A">{{job.phoneNo}}</td>
+                            <td style="color:#0C275A">{{job.email}}</td>
+                            <td style="color:#0C275A">{{job.ctc}}</td> 
+                            <td style="color:#0C275A">{{job.noticePeriod}}</td> 
+                            <td style="color:#0C275A">{{job.yearsofExp}}</td>
+                            <td style="color:#0C275A">{{job.relavantExp}}</td>
+                            <td style="color:#0C275A">{{job.city}}</td>
                             <td  *ngIf="job.accept=='0'&&job.reject=='0'" class="form-control" [(ngModel)]="job.shortlistionNotes" name="job.shortlistionNotes"> </td>
                         </tr>
                     </table>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-lg-1"></div>
-    </div>
+            </div> 
 </div>

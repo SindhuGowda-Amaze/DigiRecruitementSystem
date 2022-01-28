@@ -1,49 +1,40 @@
 
 <app-spinner *ngIf="loader"></app-spinner>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <!-- <div class="row">
-                <div class="col-lg-10"></div>
-                <div class="col-lg-2">
-                    <button class="form-control export">Export to Excel</button>
-                </div>
-            </div> -->
+<div class="container-fluid">         
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">SHORTLISTED CANDIDATES REPORTS</p>
                 </div>
             </div>
-            <hr class="hrline">
+            <hr class="hrline"> <br>
             <div class="card">
-               
-                <div class="row">
+              <br>              
+                <div class="row filterclass">
                     <div class="col-lg-1">
                         Filter By
                     </div>
-                    <!-- <div class="col-lg-2">
-                        <input class="form-control" type="date" placeholder="Duration">
-                    </div> -->
-                    <div class="col-lg-5">
+
+                    <div class="col-lg-2">
                         <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="search" name="search">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-2">
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
                     </div>
+                    
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
                     </div>
                 </div><br>    
-            </div>
-            <hr>
+            </div><br><br>
+           
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered" id="downloadaplication">
-                        <tr  class="heading">
+                    <table class="table" id="downloadaplication">
+                        <tr  class="head">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th>Client Name</th>
                             <th><span class="menu">Job Title</span></th>
@@ -58,22 +49,19 @@
 
                         </tr>
                         <tr *ngFor="let job of joblist|filter:search">
-                            <td>{{job.jobRefernceID}}</td>
-                            <td>Mind Tree</td>
-                            <td>{{job.jobTitle}}</td>
-                            <td>{{job.candidateName}}</td>
-                            <td>{{job.phoneNo}}</td>
-                            <td>{{job.email}}</td>
-                            <td>{{job.yearsofExp}}</td>
-                            <td>{{job.relavantExp}}</td>
-                            <td>{{job.hiringManager}}</td>
-                            <td>{{job.city}}</td>
-                            <td>{{job.shortlistionNotes}}</td>
+                            <td style="color:#0C275A">{{job.jobRefernceID}}</td>
+                            <td style="color:#0C275A">Mind Tree</td>
+                            <td style="color:#0C275A">{{job.jobTitle}}</td>
+                            <td style="color:#0C275A">{{job.candidateName}}</td>
+                            <td style="color:#0C275A">{{job.phoneNo}}</td>
+                            <td style="color:#0C275A">{{job.email}}</td>
+                            <td style="color:#0C275A">{{job.yearsofExp}}</td>
+                            <td style="color:#0C275A">{{job.relavantExp}}</td>
+                            <td style="color:#0C275A">{{job.hiringManager}}</td>
+                            <td style="color:#0C275A">{{job.city}}</td>
+                            <td style="color:#0C275A">{{job.shortlistionNotes}}</td>
                         </tr>
                     </table>
                 </div>
-            </div> 
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+            </div>      
 </div>

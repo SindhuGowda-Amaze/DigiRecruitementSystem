@@ -1,14 +1,5 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <!-- <div class="row">
-                <div class="col-lg-10"></div>
-                <div class="col-lg-2">
-                    <button class="form-control export">Export to Excel</button>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">JOINED CANDIDATES REPORTS</p>
@@ -16,7 +7,7 @@
             </div>
             <hr class="hrline">
             <div class="card">
-              
+                <br>           
                 <div class="row">
                     <div class="col-lg-1">
                         Filter By
@@ -38,11 +29,11 @@
                     </div>
                 </div><br>          
             </div>
-            <hr>
+        <br><br>
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table-bordered" id="downloadaplication">
-                        <tr  class="heading">
+                    <table class="table" id="downloadaplication">
+                        <tr  class="head">
                             <th><span class="menu">Job Reference ID</span></th>
                             <th>Client Name</th>
                             <th><span class="menu">Staff</span></th>
@@ -57,22 +48,22 @@
         
                         </tr>
                         <tr *ngFor="let job of joblist|filter:term">
-                            <td>{{job.jobRefernceID}}</td>
-                            <td>Mind Tree</td>
+                            <td style="color:#0C275A">{{job.jobRefernceID}}</td>
+                            <td style="color:#0C275A">Mind Tree</td>
                             <!-- <td>{{job.date}}</td>
                             <td>{{job.slotTime}}</td> -->
-                            <td>{{job.staffname}}</td>
-                            <td>{{job.jobTitle}}</td>
-                            <td>{{job.candidateName}}</td>
-                            <td>{{job.phoneNo}}</td>
-                            <td>{{job.email}}</td>
-                            <td>{{job.yearsofExp}}</td>
-                            <td>{{job.relavantExp}}</td>
+                            <td style="color:#0C275A">{{job.staffname}}</td>
+                            <td style="color:#0C275A">{{job.jobTitle}}</td>
+                            <td style="color:#0C275A">{{job.candidateName}}</td>
+                            <td style="color:#0C275A">{{job.phoneNo}}</td>
+                            <td style="color:#0C275A">{{job.email}}</td>
+                            <td style="color:#0C275A">{{job.yearsofExp}}</td>
+                            <td style="color:#0C275A">{{job.relavantExp}}</td>
                             <!-- <td>
                                 <img src="../../assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
                             </td> -->
                           
-                            <td>
+                            <td style="color:#0C275A">
                                {{job.offerComments}}
                             </td>
                             <!-- <td>
@@ -86,7 +77,5 @@
                     </table>
                 </div>
             </div>  
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+
 </div>

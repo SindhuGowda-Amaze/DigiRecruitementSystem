@@ -1,8 +1,6 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
+
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading"> SELECTED CANDIDATES DASHBOARD</p>
@@ -18,30 +16,21 @@
                     <div class="col-lg-3">
                         <input class="form-control" placeholder="Search" [(ngModel)]="search" name="search">
                     </div>                  
-                    <div class="col-lg-3">
-                        <input type="date" class="form-control" (change)="GetDate($event)" name="Date" value="Date"  [(ngModel)]="Date">
-
-                        <!-- <select name="Select" class="form-control">
-                            <option value="Select CTC">Select CTC</option>
-                            <option value="30,000-50,000">30,000-50,000</option>
-                            <option value="50,000-1,00000">50,000-1,00000</option>
-                            <option value="1,00000-2,00000">1,00000-2,00000</option>
-                        </select> -->
-                    </div>
-                    <div class="col-lg-3">
-                        <select name="Select" class="form-control" [(ngModel)]="searchbynotice">
-                            <option value="Select Notice Period">Select Notice Period</option>
-                            <option *ngFor="let job of joblist" value="15 Days">{{job.noticePeriod}}</option>
-                            <!-- <option value="30 Days">30 Days</option>
-                            <option value="45 Days">45 Days</option>
-                            <option value="90 Days">90 Days</option> -->
-                        </select>
+                    <div class="col-lg-2">
+                        <input type="date" style="color:#0C275A;" class="form-control" (change)="GetDate($event)" name="Date" value="Date"  [(ngModel)]="Date">
                     </div>
                     <div class="col-lg-2">
-                        <p class="Count">Count:{{count}}</p>
+                        <select  name="Select" class="form-control" [(ngModel)]="searchbynotice">
+                            <option value="Select Notice Period" style="color:#0C275A;" >Select Notice Period</option>
+                            <option style="color:#0C275A;" *ngFor="let job of joblist" value="15 Days">{{job.noticePeriod}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2">
+                        <p class="Count" style="color:#0C275A;">Count:{{count}}</p>
                     </div>  
                 </div> <br>
-            </div><br>
+            </div><br> <br>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -68,20 +57,20 @@
                                 <th  *ngIf="roleid!='4' && roleid=='6'">Actions</th>
                             </tr>
                             <tr *ngFor="let job of joblist|filter:search |filter:searchbynotice   ">
-                                <td>{{job.jobRefernceID}}</td>
-                                <td>{{job.date}}</td>
-                                <td>{{job.source}}</td>
-                                <td>{{job.slotTime}}</td>
-                                <td>{{job.staffname}}</td>
-                                <td>{{job.jobTitle}}</td>
-                                <td>{{job.candidateName}}</td>
-                                <td>{{job.phoneNo}}</td>
-                                <td>{{job.email}}</td>
-                                <td>{{job.yearsofExp}}</td>
-                                <td>{{job.relavantExp}}</td>  
-                                <td>{{job.ctc}}</td> 
-                                <td>{{job.noticePeriod}}</td> 
-                                <td>{{job.interviewercomments}}</td>    
+                                <td style="color:#0C275A">{{job.jobRefernceID}}</td>
+                                <td style="color:#0C275A">{{job.date}}</td>
+                                <td style="color:#0C275A">{{job.source}}</td>
+                                <td style="color:#0C275A">{{job.slotTime}}</td>
+                                <td style="color:#0C275A">{{job.staffname}}</td>
+                                <td style="color:#0C275A">{{job.jobTitle}}</td>
+                                <td style="color:#0C275A">{{job.candidateName}}</td>
+                                <td  style="color:#0C275A">{{job.phoneNo}}</td>
+                                <td style="color:#0C275A">{{job.email}}</td>
+                                <td style="color:#0C275A">{{job.yearsofExp}}</td>
+                                <td style="color:#0C275A">{{job.relavantExp}}</td>  
+                                <td style="color:#0C275A">{{job.ctc}}</td> 
+                                <td style="color:#0C275A">{{job.noticePeriod}}</td> 
+                                <td style="color:#0C275A">{{job.interviewercomments}}</td>    
                                 <td  *ngIf="roleid!='4' && roleid=='6'">
                                     <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
                                         data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
@@ -99,118 +88,11 @@
                       </ng-template>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+       
 </div>
 
 
-<!-- <div id="Offer" class="modal fade" role="dialog">
 
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Offer</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <hr>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Offer">Offer Letter:</label>
-                    </div>
-                    <div class="col-lg-5">
-                        <ngx-dropzone (change)="onSelect($event)">
-                            <ngx-dropzone-label>Drag and Drop Here!!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
-                    </div>                  
-                </div> <br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Offer">Notes :</label>
-                    </div> 
-                    <div class="col-lg-5">
-                        <textarea class="form-control" placeholder="Notes"></textarea>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-5"></div>
-                    <div class="col-lg-2">
-                        <button class="Save">Save</button>
-                    </div>
-                </div>          
-            </div>
-            <div class="modal-footer">
-                <hr>
-               <div class="col-lg-2">
-                   <button class="button">Close</button>
-               </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="Notes" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Notes</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label class="Text">Joining Date :</label>
-                    </div>
-                    <div class="col-lg-5">
-                       <input class="form-control" type="date">
-                    </div>                  
-                </div> <br>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label  class="Text">Joining Bonus :</label>
-                    </div>
-                    <div class="col-lg-5">
-                       <input class="form-control" placeholder="Joining Bonus">
-                    </div>                  
-                </div> <br>
-
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label  class="Text">Notice Period By then :</label>
-                    </div>
-                    <div class="col-lg-5">
-                       <input class="form-control" placeholder="Notice Period By then">
-                    </div>                  
-                </div> <br>
-
-                <div class="row">
-                    <div class="col-lg-3">
-                        <label  class="Text">Notes :</label>
-                    </div>
-                    <div class="col-lg-5">
-                      <textarea class="form-control" placeholder="Notes"></textarea>
-                    </div>                  
-                </div> <br>
-                <div class="row">
-                    <div class="col-lg-5"></div>
-                    <div class="col-lg-2">
-                        <button class="Save">Save</button>
-                    </div>
-                </div>              
-            </div>
-            <div class="modal-footer">
-                <hr>
-               <div class="col-lg-2">
-                   <button class="button">Close</button>
-               </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 
 
