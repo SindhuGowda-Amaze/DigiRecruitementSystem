@@ -17,24 +17,6 @@
   font-weight: bold;
 }
 
-.card {
-  padding: 20px;
-  border-radius: 0px;
-}
-
-.BOXCARD {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
 th {
   background-color: #e4e5e6;
 }
@@ -100,4 +82,12 @@ body {
   margin-right: 15px;
   font-size: 12px;
   font-weight: bold;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  width: 98%;
+  margin-left: 10px;
 }

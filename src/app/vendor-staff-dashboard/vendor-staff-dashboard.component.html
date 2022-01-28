@@ -1,40 +1,43 @@
 <br>
 <app-spinner *ngIf="loader"></app-spinner>
-<div class="container-fluid">
-    <div class="row">
-      
-        <div class="col-lg-12">
-            <div class="row">
-                <div class="col-lg-10">
-                    <p class="Heading">Vendor Staff Dashboard</p>                 
-                </div>   
-                       
-       </div>       <!-- <hr class="HrLine">  -->
-          <div class="card">
-            <div class="row FilterClass">
-                <div class="col-lg-1">
-                    <p class="Text">Filter By</p>
-                </div>
-                <div class="col-lg-5">
-                    <input class="form-control" style="font-family: 'Poppins';" placeholder="search" [(ngModel)]="search" name="search"  >
-                </div>
-                <div class="col-lg-4">
-                    
-                </div>   
-                <div class="col-lg-2">
-                    <p class="Text" style="float:right; padding-right:50px;color: #3247D5; font-family: 'Poppins';">Count:{{count}}</p>
-                </div>   
-            </div> 
-          </div>
-               <br>
-
-                <div class="row">
-                    <div class="col-lg-10"></div>
-                    <div class="col-lg-2">
-                        <button class="button1" routerLink="/VendorStaffForm">Add</button>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-11">
+                <a href="" class="Heading" style="color: #3247D5; font-family: 'Poppins';">Vendor Staff Dashboard</a>
+            </div>
+        </div>
+        <br>
+        <div class="row FilterClass">
+            <div class="col-lg-12">
+                <div class="card">
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-1" style="color: #0C275A; font-family: 
+                        'Poppins'; margin-left: 15px; margin-top: 5px; font-size: 15px;
+                         font-weight: bold;">
+                            Filter By
+                        </div>
+                        <div class="col-lg-4" style="font-family: 'Poppins';">
+                            <input class="form-control" type="search" placeholder="Search" [(ngModel)]="search"
+                                name="search">
+                        </div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-2">
+                            <p class="Count">Count: {{count}}</p>
+                        </div>
                     </div>
-                </div> <br>
-           
+                    <br>
+                </div>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-lg-10"></div>
+            <div class="col-lg-2">
+                <button class="button1" routerLink="/VendorStaffForm">Add</button>
+            </div>
+        </div> <br>
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <table class="table" *ngIf="(staffdetails | filter: search).length > 0; else noResults">
@@ -44,7 +47,7 @@
                                 <th>Role </th>
                                 <th>Staff Name</th>
                                 <th>Phone Number</th>
-                                <th>Email Id</th>                              
+                                <th>Email Id</th>
                                 <th style="width:160px;">Signature</th>
                                 <th>Actions</th>
                             </tr>
@@ -52,27 +55,28 @@
                                 <td>{{vendor.vendor_Name}}</td>
                                 <td>{{vendor.short}}</td>
                                 <td>{{vendor.staff_Name}}</td>
-                                <td>{{vendor.phone_Number}}</td>  
-                                <td>{{vendor.email_Id}}</td>                                                                                       
-                                <td><img style="width:100% ; text-align:center;" src="{{vendor.signature}}"> </td>   
+                                <td>{{vendor.phone_Number}}</td>
+                                <td>{{vendor.email_Id}}</td>
+                                <td><img style="width:100% ; text-align:center;" src="{{vendor.signature}}"> </td>
                                 <td><button class="Edit" (click)="edit(vendor.id)">Edit</button> <br> <br>
                                     <button class="Edit" (click)="Ondelete(vendor.id)">Delete</button><br><br>
-                                    
-                                    <img src="assets/Images/activate.png" style="width:15%"
-                                    *ngIf="vendor.enable_Disable==0 || vendor.enable_Disable==null "
-                                    (click)="DisableStaff(vendor.id)"> <br />
 
-                                <img src="assets/Images/deactivate.png"
-                                    *ngIf="vendor.enable_Disable==1"
-                                    (click)="DisableStaff1(vendor.id)" style="width:15%">
-                               
-                                </td>                          
-                            </tr> 
+                                    <img src="assets/Images/activate.png" style="width:15%"
+                                        *ngIf="vendor.enable_Disable==0 || vendor.enable_Disable==null "
+                                        (click)="DisableStaff(vendor.id)"> <br />
+
+                                    <img src="assets/Images/deactivate.png" *ngIf="vendor.enable_Disable==1"
+                                        (click)="DisableStaff1(vendor.id)" style="width:15%">
+
+                                </td>
+                            </tr>
                         </thead>
                     </table>
                     <ng-template #noResults>
-                        <p class="NoResultShow"> No results found for "{{search}}" </p> 
+                        <p class="NoResultShow"> No results found for "{{search}}" </p>
                     </ng-template>
                 </div>
             </div>
         </div>
+    </div>
+</div>
