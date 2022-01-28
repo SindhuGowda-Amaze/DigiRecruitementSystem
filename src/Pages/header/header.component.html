@@ -1,4 +1,4 @@
-<!-- <div class="container-fluid">
+ <!-- <div class="container-fluid">
     <div class="row ">
         <div class="col-lg-2">
             <img src="../../assets/Images/digiRecruitment_250_100.png" class="logo" alt="logo">
@@ -10,7 +10,7 @@
     </div>
 </div> -->
 
-<div class="container-fluid" *ngIf="temp=='1'">
+<!-- <div class="container-fluid" *ngIf="temp=='1'">
     <div class="row">
         <div class="col-lg-1">
             <img src="assets/Images/digiRecruitment_250_100.png" class="logo" alt="logo">
@@ -32,9 +32,9 @@
                 <li class="dropdown-item"><a class="menuitem" routerLink="/RecruiterStaffDashboard">Company Staff </a></li> 
                 <li class="dropdown-item"><a class="menuitem" 
                         routerLink="/VendorDashboard">Vendor</a></li>
-                <!-- <li class="dropdown-item"><a class="menuitem" routerLink="/VendorStaffDashboard">Vendor Staff</a></li> -->
-                <!-- <li class="dropdown-item"><a class="menuitem" routerLink="/SourcingDashboard">Sourcing</a></li>
-                <li class="dropdown-item"><a class="menuitem" routerLink="/SourcingStaffDashboard">Sourcing Staff</a></li> -->
+       <li class="dropdown-item"><a class="menuitem" routerLink="/VendorStaffDashboard">Vendor Staff</a></li> 
+           <li class="dropdown-item"><a class="menuitem" routerLink="/SourcingDashboard">Sourcing</a></li>
+                <li class="dropdown-item"><a class="menuitem" routerLink="/SourcingStaffDashboard">Sourcing Staff</a></li>
                 
             </ul>
         </div>
@@ -63,7 +63,6 @@
                         routerLink="/VendorJobOpenings">Job Recruitment </a></li>
                 <li class="dropdown-item"><a class="menuitem" routerLink="/AppliedCandidates">Applied Candidates</a></li>
                 <li class="dropdown-item"><a class="menuitem" routerLink="/ShortListedCandidates">Shortlisted Candidates</a></li>
-                <!-- <li class="dropdown-item"><a class="menuitem" *ngIf="roleid==8"routerLink="/ScheduledInterviews">Scheduled Interviews </a></li> -->
                 <li class="dropdown-item"><a class="menuitem" routerLink="/SelectedCandidates">Selected Candidates</a>
                 </li>
                 <li class="dropdown-item"><a class="menuitem" routerLink="/OfferedCandidates">Offered Candidates </a>
@@ -106,5 +105,29 @@
             <img src="assets/Images/notification.png" class="notify" routerLink="/Notification">&nbsp; &nbsp;&nbsp;
         </div>
         <div class="col-lg-1"> Welcome {{UserName}} ({{role}})</div>
+    </div>
+</div>  -->
+
+<div class="container-fluid" *ngIf="temp=='1'" style="background: #3247D5; height:70px;">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="assets/Images/Logo_digiOffice_White.png" class="logo" alt="logo" routerLink="/CompanyDashboard">
+        </div>
+        <div class="col-lg-4"></div>
+       
+        <div class="col-lg-1" style="margin-left: 100px;">
+            <img src="assets/Images/noti.png" style="    width: 30%;
+            margin-top: 15px;" >
+            <img src="assets/Images/Logo_out.1.png" class="logout" (click)="logout()" class="logout">
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/Images/usr.png" style="    width: 15%;
+            margin-top: 15px;">
+            <p class="user">Hi {{UserName}} ({{role}})</p>
+            <!-- <p *ngIf="roleid=='6'">welcome {{UserName}},Employee</p>
+            <p *ngIf="roleid=='2'">welcome {{UserName}},Manager</p>
+            <p *ngIf="roleid=='9'">welcome {{UserName}},HR</p> -->
+        </div>
     </div>
 </div>

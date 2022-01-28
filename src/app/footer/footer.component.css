@@ -1,11 +1,14 @@
-.Text{
+.Text {
     text-align: center;
-    background-color:white;
-    font-weight:bold;
-    padding-top: 10px;
 }
-.foot{
-    padding-left: 0px;
-    padding-right: 0px;
-   }
 
+.container-fluid {
+    width: 100%;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    height: 10px;
+}
