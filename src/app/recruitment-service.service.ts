@@ -9,6 +9,7 @@ export class RecruitmentServiceService {
  
 
   host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+  
   //DigiOfficeBSINTAPI
 // private host = "http://localhost:1807/";
   // private host = localStorage.getItem('apiurl');
