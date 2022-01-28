@@ -1,19 +1,19 @@
 <div class="container-fluid ">
-    <div class="col-lg-5">
-        <h3>Job Vacancies</h3>
+    <div class="col-lg-5 newtext" >
+        <p style="font-size: 20px;">Job Vacancies</p>
     </div>
 
     <div class="row maindiv" *ngFor="let job of joblist">
         <div class="col-lg-12">
-            <h6 style="color: #447eed;margin-top: -10px;">{{job.jobTitle}} ({{job.companyName}})
-            </h6>
+            <br>
+            <p style="color: #447eed;margin-left: 15px;">{{job.jobTitle}} ({{job.companyName}})
+            </p>
         </div>
         <div class="col-lg-4">
             <span class="catcss">{{job.skills}}</span>
         </div>
         <div class="col-lg-4">
             <span class="catcss">{{job.joblocation}}</span><br>
-            <!-- <i class="fa fa-map-marker"> {{job.joblocation}}</i><br> -->
         </div>
         <div class="col-lg-4">
             Positions : {{job.noofpositions}}

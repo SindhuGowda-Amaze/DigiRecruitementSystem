@@ -1,10 +1,7 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
+<div class="container-fluid">  
             <div class="row">
                 <div class="col-lg-10">
-                  <p class="Heading">Vendor Job Openings Dashboard</p> 
+                  <p class="Heading" style="color:#3247D5" >Vendor Job Openings Dashboard</p> 
                 </div>
             </div>
 
@@ -18,7 +15,7 @@
                     <div class="col-lg-3">
                         <input class="form-control" placeholder="Search.."  [(ngModel)]="search" name="search">
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" >
                         <input type="date" class="form-control" (change)="GetDate($event)" name="Date" value="Date"  [(ngModel)]="Date">
                         <!-- <select name="Select" class="form-control">
                           <option value="Select Notice Period">Select Notice Period</option>
@@ -30,10 +27,10 @@
                     </div> 
                     <div class="col-lg-3">
                         <select name="Select" class="form-control">
-                          <option value="Select CTC">Select CTC</option>
-                          <option value="30,000-50,000">30,000-50,000</option>
-                          <option value="50,000-1,00000">50,000-1,00000</option>
-                          <option value="1,00000-2,00000">1,00000-2,00000</option>
+                          <option style="color:#0C275A" value="Select CTC">Select CTC</option>
+                          <option style="color:#0C275A" value="30,000-50,000">30,000-50,000</option>
+                          <option style="color:#0C275A" value="50,000-1,00000">50,000-1,00000</option>
+                          <option style="color:#0C275A" value="1,00000-2,00000">1,00000-2,00000</option>
                         </select>
                       </div>                
                       <div class="col-lg-2">
@@ -44,7 +41,7 @@
         
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table tablebordered">
+                    <table class="table ">
                         <thead>
                             <tr class="newFont">                              
                                 <th class="heading">Job Reference ID</th>
@@ -62,7 +59,7 @@
                                 <th class="heading">Actions   </th>
                             </tr>
                         </thead>
-                            <tr   *ngFor="let job of joblist|filter:search">
+                            <tr   *ngFor="let job of joblist|filter:search" style="color:#0C275A">
                                 <td >{{job.jobRefernceID}}</td>                                  
                                 <td >{{job.date}}</td>
                                 <td >{{job.jobTitle}}</td>
@@ -86,9 +83,9 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-1"></div>
-    </div>
+    
+   
+  
 </div>
 
 

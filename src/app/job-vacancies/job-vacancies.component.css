@@ -21,7 +21,7 @@ padding-left:16px;
   font-weight: initial;
   text-shadow: initial;
   letter-spacing: 0.5px;
-  background-color:#2F87CC ;
+  background-color:#3247D5 ;
   color:white;
   border-radius: 5px;
   border:none;
@@ -48,12 +48,9 @@ padding-left:16px;
 
 
   .maindiv{
-    background-color: #fff;
-   padding: 3%;
-   border-radius: 5px; 
-   border: 1px solid rgba(22,50,92,.09);
-   cursor: pointer;  
-   margin-top: 10px;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
    /* width: 100%;
    background-color: #fff;
    border: 1px solid rgba(22,50,92,.09);
@@ -68,3 +65,8 @@ padding-left:16px;
 
  }
  
+ .newtext{
+   color:#3247D5;
+   font-size:20px;
+   font-weight: bold;
+ }
