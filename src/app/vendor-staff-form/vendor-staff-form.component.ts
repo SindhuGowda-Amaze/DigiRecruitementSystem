@@ -135,6 +135,9 @@ export class VendorStaffFormComponent implements OnInit {
       }
     )
   }
+  cancel(){
+    location.href = "/VendorStaffDashboard";
+  }
 }
 
 

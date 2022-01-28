@@ -1,11 +1,4 @@
 
-.card{
-    background-color: white;
-  }
-  
-  .card-padding{
-    padding:1%;
-  }
   .table{
   border-radius: 5px;
   }
@@ -31,13 +24,20 @@
    .Heading{
      font-size: 20px;
      font-weight: bold;
+     color: #3247D5; 
+     font-family: 'Poppins';
    }
    .count{
      font-size: 15px;
      float:right;
      margin-right: 10px;
    }
-  
+   .card{
+     padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+  }
   
   /* .table, th, td {
     border: 1px solid lightgray;
@@ -49,7 +49,7 @@
     padding:7px;
     border-radius: 5px;
     border:none;
-    background-color: #21a4da;
+    background-color: #3247D5;
     color:white; 
     width:100%;
     font-size: 16px;
@@ -63,7 +63,7 @@
 
     border-radius: 5px;
     border:none;
-    background-color: #21a4da;
+    background-color: #3247D5;
     color:white; 
     width:100%;
     font-size: 16px;
