@@ -20,11 +20,12 @@ export class AppliedCandidatesComponent implements OnInit {
   roleid: any;
   loader:any;
   userid:any;
-
+  searchbyctc:any;
+  searchbynotice:any;
 
   ngOnInit(): void {
   
-    this.userid=sessionStorage.getItem('userid')
+    this.userid=sessionStorage.getItem('userid');
     this.roleid = sessionStorage.getItem('roleid');
     
     this.userid=sessionStorage.getItem('userid')
@@ -34,8 +35,8 @@ export class AppliedCandidatesComponent implements OnInit {
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 || x.vendor == this.userid)
-        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 || x.vendor == this.userid);
+        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid) )
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid));
       
         this.count = this.joblist.length;
       })

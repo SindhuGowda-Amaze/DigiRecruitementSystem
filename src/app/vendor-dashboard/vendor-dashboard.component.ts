@@ -40,7 +40,7 @@ export class VendorDashboardComponent implements OnInit {
   }
   edit(id: any){
     debugger
-   location.href="/VendorForm/"+ id;
+   location.href="#/VendorForm/"+ id;
   }
 
 
@@ -54,7 +54,4 @@ export class VendorDashboardComponent implements OnInit {
     )
     
   }
-
-
-
 }

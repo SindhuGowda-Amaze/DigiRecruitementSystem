@@ -45,6 +45,7 @@ import { SourcingStaffDashboardComponent } from './sourcing-staff-dashboard/sour
 import { AuthGuard } from './services/auth.guard';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { NotificationComponent } from './notification/notification.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -106,6 +107,8 @@ const routes: Routes = [
   { path: 'SourcingStaffDashboard', component: SourcingStaffDashboardComponent, canActivate: [AuthGuard] },
   { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent, canActivate: [AuthGuard] },
   { path: 'AdminDashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'Notification', component: NotificationComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({

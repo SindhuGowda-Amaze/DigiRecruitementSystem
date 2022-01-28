@@ -19,6 +19,7 @@ export class SelectedCandidatesComponent implements OnInit {
   search: any;
   date: any;
   loader:any;
+  dummjoblist:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
@@ -26,8 +27,11 @@ export class SelectedCandidatesComponent implements OnInit {
   }
 
   public GetCandidateReg() {
+    debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+       this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.dummjoblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+     
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -79,7 +83,16 @@ this.files.splice(this.files.indexOf(event),1);
 
 
   public updatedetails() {
-    debugger;
+
+    if(this.Company_logo==null || this.Company_logo==undefined || this.Company_logo==0 ||
+      this.offernotes==null || this.offernotes==undefined || this.offernotes==0 ||
+      this.TentativeDate==null || this.TentativeDate==undefined || this.TentativeDate==0)
+      {
+        Swal.fire('Please Fill the Mandatory Fields')
+      }
+
+    else{
+      debugger;
     var entity = {
       'ID': this.candidateid,
       'OfferLetterUrl': this.Company_logo,
@@ -90,34 +103,45 @@ this.files.splice(this.files.indexOf(event),1);
       Swal.fire("Candidate Offered Successfully");
       this.sendmail()
     })
+
+    }
+    
   }
 
   joiningbonus: any;
   Notes: any;
   noticeperiodbythen: any;
-
+  searchbynotice:any
 
 
 
   public updatejoiningdate() {
-    var entity = {
-      'ID': this.candidateid,
-      'JoiningDate': this.date,
-      'JoiningBonus': this.joiningbonus,
-      'NoticePeriodByThen': this.noticeperiodbythen,
-      'Commentss': this.Notes
+    if(this.date==null || this.date==undefined || this.date==0 ||
+      this.joiningbonus==null || this.joiningbonus==undefined || this.joiningbonus==0 ||
+      this.noticeperiodbythen==null || this.noticeperiodbythen==undefined || this.noticeperiodbythen==0 ||
+      this.Notes==null || this.Notes==undefined || this.Notes==0)
+      {
+        Swal.fire('Please Fill the Mandatory Fields')
+      }
+    else{
+      var entity = {
+        'ID': this.candidateid,
+        'JoiningDate': this.date,
+        'JoiningBonus': this.joiningbonus,
+        'NoticePeriodByThen': this.noticeperiodbythen,
+        'Commentss': this.Notes
+      }
+      this.RecruitmentServiceService.UpdateCandidateJoiningDate(entity).subscribe(data => {
+        Swal.fire("Saved Successfully");
+        this.date = "";
+        this.joiningbonus = "";
+        this
+      })
+
     }
-    this.RecruitmentServiceService.UpdateCandidateJoiningDate(entity).subscribe(data => {
-      Swal.fire("Saved Successfully");
-      this.date = "";
-      this.joiningbonus = "";
-      this
-    })
+    
   }
-
-
-
-
+  
   emailattchementurl = [];
   public email: any;
   public doctorname: any;
@@ -138,23 +162,39 @@ this.files.splice(this.files.indexOf(event),1);
 
   Date:any;
   userid:any;
-  public GetDate(event:any) {
-    if(this.Date==0){
-      debugger
-      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid);
-        this.count = this.joblist.length;
-      })
-    }
-    else{
-      debugger
-      this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
+  // public GetDate(event:any) {
+  //   if(this.Date==0){
+  //     debugger
+  //     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+  //       this.joblist = data.filter(x => x.recruiter == this.userid);
+  //       this.count = this.joblist.length;
+  //     })
+  //   }
+  //   else{
+  //     debugger
+  //     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+  //       this.joblist = data.filter(x => x.recruiter == this.userid && x.date==this.Date);
       
+  //       this.count = this.joblist.length;
+  //     })
+  //   }
+    
+  // }
+
+  public GetDate(event: any) {
+    if (this.Date == 0) {
+      debugger
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.joblist = data;
+        debugger
+        this.dummjoblist = data;
         this.count = this.joblist.length;
       })
     }
-    
+    else {
+      debugger
+      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
+      this.count = this.joblist.length;
+    }
   }
- 
 }

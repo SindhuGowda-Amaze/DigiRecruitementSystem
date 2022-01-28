@@ -23,76 +23,85 @@
     color:#404040;
     font-family: "DIN Bold";
   } */
-  /* .table, th, td {
+  .table, th, td {
   border: 1px solid lightgray;
    border-collapse: collapse; 
-  } */
+  }
   .Heading{
   padding-left: 15px;
   font-size: 20px;
   color:black;
   }
   .head{
-  background-color: #dee2e6;
+  background-color: #e4e5e6;
   color:#404040;
   font-family: "DIN Bold";
   }
   .FilterClass{
   padding-left: 15px;
   }
-  .count{
-  text-align: right;
-  padding-right: 10px;;
+  .Count{
+    color: #212529;
+    font-size: 20px !important;
+    font-family: 'DIN Bold';
+    font-weight: bold;
+    float: right;
+    padding-right: 10px;;
   }
+  
   
   .button{
     padding:5px;
     border-radius: 5px;
     color:white;
-    background-color: #2F87CC;
+    background-color: #21a4da;
     border:none;
-    width:50%;
-    margin-left: 15px;
+    width:100%;
   }
-
-  .Edit{
-    width: 50px;
-    border-radius: 7px;
-    background-color: #2F87CC;
-    color: white;
-  }
-  .button2{
+  .offer{
     padding:5px;
     border-radius: 5px;
-    color:white;
-    background-color: #2F87CC;
     border:none;
-    width:50%;
-    margin-left: 15px;
-
-  }
-  
-    .button{
-      text-transform: uppercase;
-    font-weight: initial;
-    text-shadow: initial;
-    letter-spacing: 0.5px;
-    background-color:#2F87CC ;
     color:white;
+    background-color: #dc3545;
+    width:100%;
+  }
+  .Notes{
+    padding:5px;
     border-radius: 5px;
     border:none;
-    padding: 5px;
-    width:50%;
-    float: right;
-    margin-right: 15px;
-    font-size: 15px;
-    font-weight: bold;
+    color:white;
+    background-color:#dc3545;
+    width:100%;
+  }
+  .Offer{
+    font-size: 20px;
+  }
+  
+  .Save{
+    padding:5px;
+    border-radius: 5px;
+    border:none;
+    background-color:#007bff ;
+    float:right;
+    color:white;
+    width:100%;
+    font-size: 16px;
+  }
+  .button{
+    background-color: #6c757d;
+    color:white;
+    border-radius: 5px;
+    border:#e4e5e6;
   }
   .Text{
     font-size: 18px;
   }
-
-  .NoResultShow{
+  .Letter{
     font-size: 16px;
+    font-weight: bold;
   }
-  
+  .count{
+    font-size: 16px;
+    padding-right:15px;
+  }

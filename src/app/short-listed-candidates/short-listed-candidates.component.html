@@ -126,26 +126,27 @@
           <div class="col-lg-1">
             Filter By
           </div>
-          <div class="col-lg-6">
-            <input class="form-control" placeholder="Search" [(ngModel)]="search">
-          </div>
-          <!-- <div class="col-lg-3">
-            <select name="Select" class="form-control">
-              <option value="Select CTC">Select CTC</option>
-              <option value="30,000-50,000">30,000-50,000</option>
-              <option value="50,000-1,00000">50,000-1,00000</option>
-              <option value="1,00000-2,00000">1,00000-2,00000</option>
-            </select>
-          </div> -->
           <div class="col-lg-3">
-            <!-- <select name="Select" class="form-control">
-              <option value="Select Notice Period">Select Notice Period</option>
-              <option value="15 Days">15 Days</option>
-              <option value="30 Days">30 Days</option>
-              <option value="45 Days">45 Days</option>
-              <option value="90 Days">90 Days</option>
-            </select> -->
+            <input class="form-control" placeholder="Search for  Candidate Name..." [(ngModel)]="search">
           </div>
+          <div class="col-lg-3">
+            <select name="Select" class="form-control" [(ngModel)]="searchbyctc">
+              <option value="Select CTC">Select CTC</option>
+              <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
+              <!-- <option value="50,000-1,00000">50,000-1,00000</option>
+              <option value="1,00000-2,00000">1,00000-2,00000</option> -->
+            </select>
+          </div>
+          <div class="col-lg-3">
+            <select name="Select" class="form-control" [(ngModel)]="searchbynotice">
+              <option value="Select Notice Period">Select Notice Period</option>
+              <option  *ngFor="let job of joblist" value="15 Days">{{job.noticePeriod}}</option>
+              <!-- <option value="30 Days">30 Days</option>
+              <option value="45 Days">45 Days</option>
+              <option value="90 Days">90 Days</option> -->
+            </select>
+          </div>
+          
           <div class="col-lg-2">
             <p class="Count">Count:{{count}}</p>
           </div>
@@ -154,7 +155,7 @@
 
       <div class="row">
         <div class="col-lg-12">
-          <table class="table tablebordered">
+          <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
             <thead>
               <tr class="head">
                 <!-- <th>Vendor</th> -->
@@ -164,8 +165,8 @@
                 <th>Candidate Name</th>
                 <th>Phone No</th>
                 <th>Email</th>
-                <!-- <th>CTC</th> -->
-                <!-- <th>Notice Period</th> -->
+                 <th>Current CTC</th> 
+                 <th>Notice Period</th> 
                 <th>Total Years of Experience</th>
                 <th>Relevant Experience</th>
                 <th>Hiring Manager</th>
@@ -174,13 +175,15 @@
                 <th>Resume</th>             
                 <th  *ngIf="roleid!='4' && roleid=='6'" >Actions</th>
               </tr>
-              <tr *ngFor="let job of joblist|filter:search">
+              <tr *ngFor="let job of joblist|filter:search|filter:searchbyctc">
                 <td>{{job.jobRefernceID}}</td>
                 <td> {{job.source}}</td>
                 <td>{{job.jobTitle}}</td>
                 <td>{{job.candidateName}}</td>
                 <td>{{job.phoneNo}}</td>
                 <td>{{job.email}}</td>
+                <td>{{job.ctc}}</td> 
+                <td>{{job.noticePeriod}}</td> 
                 <td>{{job.yearsofExp}}</td>
                 <td>{{job.relavantExp}}</td>
                 <td>{{job.hiringManager}}</td>
@@ -204,6 +207,9 @@
               </tr>
             </thead>
           </table>
+          <ng-template #noResults>
+            <p>no results found for "{{search}}" </p> 
+          </ng-template>
         </div>
       </div>
     </div>
@@ -289,7 +295,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-3">
-            <label>Staff :</label>
+            <label>Staff : <span style="color: red;">*</span></label>
           </div>
           <div class="col-lg-6">
             <select class="form-control" (change)="GetStaffID($event)">
@@ -300,7 +306,7 @@
         </div><br>
         <div class="row">
           <div class="col-lg-3">
-            <label>Date :</label>
+            <label>Date : <span style="color: red;">*</span></label>
           </div>
           <div class="col-lg-6">
             <input type="date" class="form-control" [(ngModel)]="date" name="date" (change)="GetDate($event)">
@@ -308,7 +314,7 @@
         </div><br>
         <div class="row">
           <div class="col-lg-3">
-            <label>Time :</label>
+            <label>Time : <span style="color: red;">*</span></label>
           </div>
           <div class="col-lg-6">
             <select class="form-control" (change)="GetTimeID($event)">
@@ -319,7 +325,7 @@
         </div><br>
         <div class="row">
           <div class="col-lg-3">
-            <label>Notes :</label>
+            <label>Notes : <span style="color: red;">*</span></label>
           </div>
           <div class="col-lg-6">
             <textarea class="form-control" rows="4" placeholder="Notes" [(ngModel)]="notes" name="notes"></textarea>

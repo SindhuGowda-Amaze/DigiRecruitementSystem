@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/Pages/header/header.component';
@@ -32,7 +33,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 import { PipesModule } from 'pipes-module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
 import { VendorJobOpeningsComponent } from './vendor-job-openings/vendor-job-openings.component';
@@ -56,7 +57,11 @@ import { AuthGuard } from './services/auth.guard';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+=======
+import { NotificationComponent } from './notification/notification.component';
+>>>>>>> 47899c72dea3195b3d8da8acdf66fe14df1ea922
 
 
 
@@ -109,12 +114,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SourcingStaffFormComponent,
     AdminDashboardComponent,
     SpinnerComponent,
+    NotificationComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxDropzoneModule,
     FormsModule,
     HttpClientModule,

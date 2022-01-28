@@ -166,19 +166,6 @@
                             <label>Resume : </label>
                         </div>
                         <div class="col-lg-5">
-                            <!-- -->
-                            <!-- <ngx-dropzone style="height:50px">
-                                <ngx-dropzone-label (change)="onattachmentUpload($event)" >Drag and drop file here</ngx-dropzone-label>
-                            </ngx-dropzone> -->
-
-                            <!-- <ngx-dropzone [multiple]="false" (change)="onattachmentUpload($event)"
-                                class="dropzone_vendorinvoice">
-                                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
-                            </ngx-dropzone>
-                        </div>
-                        <div class="col-lg-4">
-                            <img src="{{attachmentsurl}}" style="width: 42px;">
-                        </div> -->
                             <ngx-dropzone (change)="onSelect($event)" style="height: 60px;" accept="application/pdf" >
                                 <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
                                 <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"

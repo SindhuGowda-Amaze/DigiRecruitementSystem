@@ -15,11 +15,11 @@
             <hr class="HrLine">
 
             <div class="row FilterClass ">
-                <div class="col-lg-2">
-                    <p class="Text">Search</p>
+                <div class="col-lg-1">
+                    <p class="Text">Filter By</p>
                 </div>
                 <div class="col-lg-6">
-                    <input class="form-control" placeholder="search" [(ngModel)]="search" name="search">
+                    <input type="search" class="form-control" placeholder="Search for Name.." [(ngModel)]="search" name="search">
                 </div>             
                 <div class="col-lg-1"></div>
             </div><br>
@@ -34,7 +34,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <table class="table ">
+                        <table class="table" *ngIf="(vendordetails | filter: search).length > 0; else noResults">
                             <thead>
                                 <tr class="head">
                                     <th>Vendor Logo</th>
@@ -56,6 +56,9 @@
                                 </tr>
                             </thead>
                         </table>
+                        <ng-template #noResults>
+                            <p class="NoResultShow"> No results found for "{{search}}" </p> 
+                        </ng-template>
                     </div>
                 </div>
             </div>

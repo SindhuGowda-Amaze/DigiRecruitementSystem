@@ -20,16 +20,43 @@ export class ShortListedCandidatesComponent implements OnInit {
   dummjoblist:any;
   loader:any;
   roleid: any;
+  userid:any;
+  searchbyctc:any;
+  searchbynotice:any
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loader=true;
-    this.GetCandidateReg();
+    // this.GetCandidateReg();
     this.GetStaffType();
     this.roleid = sessionStorage.getItem('roleid');
+    this.userid=sessionStorage.getItem('userid')
+    this.roleid = sessionStorage.getItem('roleid');
+
+ 
+    if(this.roleid=='3'){
+      debugger;
+
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && ( x.source == 'Vendor' && x.vendorId == this.userid )	) ;
+        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.loader=false;
+        this.count = this.joblist.length;
+      })
+
+    }
+    else {
+  
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.loader=false;
+        this.count = this.joblist.length;
+      })
+  
+    }
   }
 
-  
 
   public GetDate(even:any) {
     this.date = even.target.value;
@@ -39,15 +66,15 @@ export class ShortListedCandidatesComponent implements OnInit {
 
 
 
-  public GetCandidateReg() {
-    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-      this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-      this.loader=false;
-      this.count = this.joblist.length;
-    })
+  // public GetCandidateReg() {
+  //   this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+  //     this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+  //     this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+  //     this.loader=false;
+  //     this.count = this.joblist.length;
+  //   })
 
-  }
+  // }
 
   jobid: any;
 
@@ -104,6 +131,14 @@ export class ShortListedCandidatesComponent implements OnInit {
   notes: any;
 
   public UpdateInterviewSchedule() {
+    if(this.staffid==null || this.staffid==undefined || this.staffid==0 ||
+      this.date==null || this.date==undefined || this.date==0 ||
+      this.timeid==null || this.timeid==undefined || this.timeid==0 ||
+      this.notes==null || this.notes==undefined || this.notes==0)
+      {
+        Swal.fire('Please Fill the Mandatory Fields')
+      }
+  else{
     var entity = {
       'ID': this.candidateid,
       'StaffID': this.staffid,
@@ -113,9 +148,12 @@ export class ShortListedCandidatesComponent implements OnInit {
     }
     this.RecruitmentServiceService.UpdateCandidateInterviewSchedule(entity).subscribe(data => {
       Swal.fire("Interview Scheduled Successfully");
-      this.GetCandidateReg();
+      // this.GetCandidateReg();
     })
   }
+
+  }
+    
 
   public GetOfferLetter(offer:any) {
     window.open(offer, "_blank")

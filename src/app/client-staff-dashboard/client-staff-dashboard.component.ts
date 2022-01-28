@@ -35,7 +35,7 @@ export class ClientStaffDashboardComponent implements OnInit {
 
   edit(details: any){
     debugger
-    location.href="/ClientStaffForm/"+ details;
+    location.href="#/ClientStaffForm/"+ details;
     }
 
  
@@ -52,13 +52,9 @@ export class ClientStaffDashboardComponent implements OnInit {
   }
 
   public DisableStaff(id: any) {
-
     var eb = {
-
       'ID': id,
-
       'Enable_Disable': 1
-
     }
 
     this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
@@ -75,9 +71,7 @@ export class ClientStaffDashboardComponent implements OnInit {
     var eb = {
 
       'ID': id,
-
       'Enable_Disable': 0
-
     }
 
     this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
@@ -88,5 +82,4 @@ export class ClientStaffDashboardComponent implements OnInit {
       },
     )
   }
-
 }

@@ -49,7 +49,7 @@
                                 <th class="heading">Job Title</th>
                                 <th class="heading">Skill/Technology</th>
                                 <th class="heading">Total Years of Experience</th>
-                                <th class="heading">expected Experience</th>
+                                <th class="heading">Expected Experience</th>
                                 <th class="heading">Job Description</th>
                                 <th class="heading">Job Location</th>
                                 <th class="heading">No of Positions</th>
@@ -59,9 +59,13 @@
                                 <th class="heading">Actions   </th>
                             </tr>
                         </thead>
+<<<<<<< HEAD
                             <tr   *ngFor="let job of joblist|filter:search" style="color:#0C275A">
+=======
+                            <tr   *ngFor="let job of joblist|filter:search|filter:searchByCtc">
+>>>>>>> 47899c72dea3195b3d8da8acdf66fe14df1ea922
                                 <td >{{job.jobRefernceID}}</td>                                  
-                                <td >{{job.date}}</td>
+                                <td ><span style="width: 10px;">{{job.date}}</span></td>
                                 <td >{{job.jobTitle}}</td>
                                 <td >{{job.skills}}</td>
                                 <td >{{job.totalExp}}</td>
@@ -76,11 +80,12 @@
                                    <br/>
                                     <button *ngIf="job.vendor==null" class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
-                                </td>
-                            
+                                </td>                
                             </tr>                          
-                       
                     </table>
+                    <ng-template #noResults>
+                        <p> no results found for "{{search}}" </p> 
+                      </ng-template>
                 </div>
             </div>
     

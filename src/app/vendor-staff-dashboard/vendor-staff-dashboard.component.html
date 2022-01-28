@@ -32,7 +32,7 @@
            
             <div class="row">
                 <div class="col-lg-12">
-                    <table class="table ">
+                    <table class="table" *ngIf="(staffdetails | filter: search).length > 0; else noResults">
                         <thead>
                             <tr class="head">
                                 <th>Vendor Name</th>
@@ -65,6 +65,9 @@
                             </tr> 
                         </thead>
                     </table>
+                    <ng-template #noResults>
+                        <p class="NoResultShow"> No results found for "{{search}}" </p> 
+                    </ng-template>
                 </div>
             </div>
         </div>

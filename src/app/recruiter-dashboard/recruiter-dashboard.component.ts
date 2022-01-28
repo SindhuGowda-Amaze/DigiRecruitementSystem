@@ -41,6 +41,6 @@ export class RecruiterDashboardComponent implements OnInit {
   }
 
   Update(id:any) {
-    location.href = "/RecruiterForm/" +id;
+    location.href = "#/RecruiterForm/" +id;
   }
 }
