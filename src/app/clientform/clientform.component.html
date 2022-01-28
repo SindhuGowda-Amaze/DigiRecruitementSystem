@@ -1,55 +1,51 @@
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-
-            <div class="row">
-                <div class="col-lg-2">
-                    <p class="FormHeadText">Client Form</p>
-                </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-2">
+                <p class="FormHeadText">Client Form</p>
             </div>
-            <div class="row">
-                <div class="col-lg-10"></div>
-            </div>
-            <br>
-            <!-- <div class="row LocDashboard">
+        </div>
+        <div class="row">
+            <div class="col-lg-10"></div>
+        </div>
+        <br>
+        <!-- <div class="row LocDashboard">
                 <div class="col-lg-12">
                     <label>Client Details</label>
                 </div>
             </div> -->
-            <div class="card BOXCARD">
-                <form [formGroup]="RegForm">
-                    <div class="row leavereq">
-                        <div class="col-md-2">
-                            <label>Client Logo<span style="color: red;">*</span></label>
-                        </div>
-                        <!-- <div class="col-md-2">
+        <div class="card BOXCARD">
+            <form [formGroup]="RegForm">
+                <div class="row leavereq">
+                    <div class="col-md-2">
+                        <label>Client Logo<span style="color: red;">*</span></label>
+                    </div>
+                    <!-- <div class="col-md-2">
                         <label>Role<span style="color: red;">*</span></label>
                     </div> -->
-                        <div class="col-md-2">
-                            <label>Client Name<span style="color: red;">*</span></label>
-                        </div>
-                        <div class="col-md-2">
-                            <label>Email <span style="color: red;">*</span></label>
-                        </div>
-                        <div class="col-md-2">
-                            <label>Phone No.<span style="color: red;">*</span></label>
-                        </div>
+                    <div class="col-md-2">
+                        <label>Client Name<span style="color: red;">*</span></label>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Email <span style="color: red;">*</span></label>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Phone No.<span style="color: red;">*</span></label>
+                    </div>
 
-                        <div class="col-md-2">
-                            <label>Address<span style="color: red;">*</span></label>
-                        </div>
-                        <!-- <div class="col-md-2">
+                    <div class="col-md-2">
+                        <label>Address<span style="color: red;">*</span></label>
+                    </div>
+                    <!-- <div class="col-md-2">
                         <label>Signature</label>
                     </div> -->
 
-                        <!-- <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <label>SS Total<span style="color: red;">*</span></label>
                     </div> -->
-                    </div>
-                    <div class="row leavereq">
-                        <!-- <div class="col-md-2">
+                </div>
+                <div class="row leavereq">
+                    <!-- <div class="col-md-2">
                         <div class="dropdown">
                             <select class="form-control inputfield" >
                                 <option value="Select">Select Min. Range</option>
@@ -60,7 +56,7 @@
                             </select>
                         </div>
                     </div> -->
-                        <!-- <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <div class="dropdown">
                             <select class="form-control inputfield" >
                                 <option value="Select">Select Max. Range</option>
@@ -71,19 +67,18 @@
                             </select>
                         </div>
                     </div> -->
-                        <div class="col-md-2">
-                            <ngx-dropzone (change)="onSelect($event)" style="height: 60px;" >
-                                <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
-                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
-                                    (removed)="onRemove(f)">
-                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                                </ngx-dropzone-preview>
-                            </ngx-dropzone>
-                        </div>
-                        <!-- <div class="col-md-2">
+                    <div class="col-md-2">
+                        <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
+                            <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                    <!-- <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Role">
                     </div> -->
-                        <!-- <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <div class="dropdown">
                             <select class="form-control" name="Role" Id="Role" [(ngModel)]="Role">
                                 <option value="">Select </option>
@@ -91,25 +86,29 @@
                             </select>
                         </div>
                     </div>  -->
-                        <div class="col-md-2">
-                            <input type="text" class="form-control inputfield"  [(ngModel)]="Name" name="Name" formControlName="Name">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control inputfield"  [(ngModel)]="PhoneNo" name="PhoneNo" formControlName="PhoneNo">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control inputfield"  [(ngModel)]="Email" name="Email" formControlName="Email">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control inputfield"  [(ngModel)]="Address" name="Address" formControlName="Address">
-                        </div>
-                        <!-- <div class="col-md-2">
+                    <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Name" name="Name"
+                            formControlName="Name">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="PhoneNo" name="PhoneNo"
+                            formControlName="PhoneNo">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Email" name="Email"
+                            formControlName="Email">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control inputfield" [(ngModel)]="Address" name="Address"
+                            formControlName="Address">
+                    </div>
+                    <!-- <div class="col-md-2">
                         <input type="text" class="form-control inputfield" [(ngModel)]="Signature">
                     </div> -->
-                    </div>
-                    <br>
-                    <div class="row leavereq">
-                        <!-- <div class="col-md-2">
+                </div>
+                <br>
+                <div class="row leavereq">
+                    <!-- <div class="col-md-2">
                         <label>MPF-ER<span style="color: red;">*</span></label>
                     </div>
                     <div class="col-md-2">
@@ -121,9 +120,9 @@
                     <div class="col-md-2">
                         <label>Total Contribution<span style="color: red;">*</span></label>
                     </div> -->
-                    </div>
-                    <div class="row leavereq">
-                        <!-- <div class="col-md-2">
+                </div>
+                <div class="row leavereq">
+                    <!-- <div class="col-md-2">
                         <input type="text" class="form-control inputfield" >
                     </div>
                     <div class="col-md-2">
@@ -135,23 +134,21 @@
                     <div class="col-md-2">
                         <input type="text" class="form-control inputfield" >
                     </div> -->
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-10"></div>
+                    <div class="col-lg-1">
+                        <button class="form-control CancelBTN" (click)="cancel()">Cancel</button>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-10"></div>
-                        <div class="col-lg-1">
-                            <button class="form-control CancelBTN" (click)="cancel()">Cancel</button>
-                        </div>
-                        <div class="col-lg-1">
-                            <button type="button" class="form-control SubmitBTN" *ngIf="showButton==2"  [disabled]="!RegForm.valid"
-                                 (click)="Save()">Save</button>
-                            <button type="button" class="form-control SubmitBTN" *ngIf="showButton==1"
-                                (click)="Update()">Update</button>
-                        </div>
+                    <div class="col-lg-1">
+                        <button type="button" class="form-control SubmitBTN" *ngIf="showButton==2"
+                            [disabled]="!RegForm.valid" (click)="Save()">Save</button>
+                        <button type="button" class="form-control SubmitBTN" *ngIf="showButton==1"
+                            (click)="Update()">Update</button>
                     </div>
-                </form>
-            </div><br>
-        </div>
-        <div class="col-lg-1"></div>
+                </div>
+            </form>
+        </div><br>
     </div>
 </div>
