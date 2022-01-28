@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+// import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxDropzoneModule } from 'ngx-dropzone';
@@ -56,6 +57,7 @@ import { AuthGuard } from './services/auth.guard';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './notification/notification.component';
 
 
@@ -124,13 +126,8 @@ import { NotificationComponent } from './notification/notification.component';
     PipesModule,
     Ng2SearchPipeModule,
     NgxSpinnerModule,
-
-
- 
-    
-
-    
-  
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
 
   providers: [AuthGuard],

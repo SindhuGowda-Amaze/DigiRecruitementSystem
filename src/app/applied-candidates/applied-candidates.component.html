@@ -1,24 +1,20 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-10">
       <div class="row">
         <div class="col-lg-12">
           <p class="Heading"> Applied Candidates Dashboard</p>
           <hr class="HrLine">
         </div>
       </div> <br>
-
       <div class="card"><br>
         <div class="row FilterClass">
-          <div class="col-lg-1">
+          <!-- <div class="col-lg-1">
             Filter By
-          </div>
-          <div class="col-lg-3">
+          </div> -->
+          <div class="col-lg-2">
             <input class="form-control" placeholder="Search for Candidate Name..." [(ngModel)]="search">
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-2">
             <select name="Select" class="form-control" [(ngModel)]="searchbyctc">
               <option value="Select CTC">Select CTC</option>
               <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
@@ -26,7 +22,7 @@
               <option value="1,00000-2,00000">1,00000-2,00000</option> -->
             </select>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-2">
             <select name="Select" class="form-control"  [(ngModel)]="searchbynotice">
               <option value="Select Notice Period">Select Notice Period</option>
               <option  *ngFor="let job of joblist" value="15 Days">{{job.noticePeriod}}</option>
@@ -35,13 +31,12 @@
               <option value="90 Days">90 Days</option> -->
             </select>
           </div>
-          
+           <div class="col-lg-4"></div>
           <div class="col-lg-2">
             <p class="Count">Count:{{count}}</p>
           </div>
         </div> <br>
       </div><br>
-
       <div class="row">
         <div class="col-lg-12">
           <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
@@ -100,8 +95,5 @@
             <p>no results found for "{{search}}" </p> 
           </ng-template>
         </div>
-      </div>
-    </div>
-    <div class="col-lg-1"></div>
-  </div>
+      </div> 
 </div>

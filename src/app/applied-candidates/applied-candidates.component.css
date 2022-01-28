@@ -24,14 +24,14 @@
     color:#404040;
     font-family: "DIN Bold";
 } */
-.table, th, td {
+/* .table, th, td {
   border: 1px solid lightgray;
    border-collapse: collapse; 
-}
+} */
 
 .head{
-  background-color: #e4e5e6;
-  color:#404040;
+ background-color: #02CFFF;
+ color:white;
   font-family: "DIN Bold";
 }
 .FilterClass{
@@ -41,7 +41,7 @@
 .Heading{
   padding-left: 15px;
   font-size: 20px;
-  color:black;
+  color:#3247D5;
 }
 
 .Count{
@@ -50,7 +50,8 @@
   font-family: 'DIN Bold';
   font-weight: bold;
   float: right;
-  padding-right: 10px;;
+  padding-right: 10px;
+  margin-right: 10px;
 }
 
 .pdf{
@@ -72,4 +73,9 @@
 .imgcancel:hover{
   background-color: red;
   color: white;
+}
+.card{
+  background: #FFFFFF;
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
 }
