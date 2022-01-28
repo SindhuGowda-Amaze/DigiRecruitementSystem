@@ -67,6 +67,13 @@ padding-left:16px;
  
  .newtext{
    color:#3247D5;
-   font-size:20px;
+   font-size:24px;
    font-weight: bold;
+
+ }
+ .catcss{
+   color:#0C275A;
+ }
+ .spanclass{
+  color:#0C275A;
  }
