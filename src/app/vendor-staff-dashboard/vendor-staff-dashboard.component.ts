@@ -49,7 +49,7 @@ search:any;
 
   edit(id: any) {
     debugger
-    location.href = "/VendorStaffForm/" + id;
+    location.href = "#/VendorStaffForm/" + id;
   }
 
 

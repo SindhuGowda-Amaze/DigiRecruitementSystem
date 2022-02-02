@@ -1,8 +1,8 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
+      
+        <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-10">
                     <p class="Heading">Job Openings Dashboard</p>
@@ -42,10 +42,10 @@
             </div> <br>
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="overflow: auto;">
                     <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
-                        <thead>
-                            <tr class="newFont">
+                    
+                            <tr class="head">
                                 <th >Job Reference ID</th>
                                 <th>Date</th>
                                 <!-- <th>Client Name</th> -->
@@ -61,7 +61,7 @@
                                  <th>Other Required Conditions</th>
                                 <th>Actions </th>
                             </tr>
-                        </thead>
+                        
                         <tr *ngFor="let job of joblist|filter:search">
                             <td >{{job.jobRefernceID}}</td>
                             <td >{{job.date}}</td>

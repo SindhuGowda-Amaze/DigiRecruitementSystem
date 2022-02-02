@@ -34,8 +34,46 @@
     font-weight: bold;
 }
 
+.red{
+
+  margin-top: -21px;
+  background: #02CFFF;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+
+}
 
 
+.font{
+
+}
+
+
+.cream{
+
+  margin-top: -21px;
+  background: #FBB584;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+}
+
+
+.blue{
+
+  margin-top: -21px;
+  background: #3247D5;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+}
+
+
+.orange{
+
+  margin-top: -21px;
+  background: #FF756D;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+}
 
 body {
     margin: 0;
@@ -316,9 +354,14 @@ body {
   }
   
   .cardlabel {
-    font-family: 'DIN Bold';
-    font-size: 20px;
-    margin-top: -1px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-top:10px;
   }
   
   ::-webkit-scrollbar {
@@ -423,6 +466,7 @@ body {
     font-size:30px;
     color: #2F87CC;
     margin-left:-20px;
+    margin-top: 12px;
 }
 
 .din-Medium {

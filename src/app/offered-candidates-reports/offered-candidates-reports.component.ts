@@ -15,8 +15,13 @@ export class OfferedCandidatesReportsComponent implements OnInit {
   term: any;
   loader:any;
   ngOnInit(): void {
-    this.loader=true;
-    this.GetCandidateReg()
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      debugger
+      this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+ 
+      this.count = this.joblist.length;
+    })
   }
   refresh(){
     location.reload();

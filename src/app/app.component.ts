@@ -14,4 +14,11 @@ export class AppComponent {
     this.temp=localStorage.getItem('temp')
     this.company_name = localStorage.getItem("company_name");
   }
+
+
+  public onActivate(event:any) {
+
+    window.scroll(0, 0);
+
+  }
 }
