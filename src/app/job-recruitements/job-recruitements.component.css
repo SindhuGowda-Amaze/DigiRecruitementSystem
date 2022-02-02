@@ -27,6 +27,12 @@ border-radius: 5px;
 .HrLine{
   margin-top: 10px;
 }
+
+
+.head{
+  background-color:#02CFFF ;
+  color: white;
+}
  .Heading{
    font-size: 20px;
    font-weight: bold;
@@ -41,11 +47,7 @@ border-radius: 5px;
 }
 
 
-.table, th, td {
-  border: 1px solid lightgray;
-   border-collapse: collapse; 
-   
-}
+
 
 
 .Button{
