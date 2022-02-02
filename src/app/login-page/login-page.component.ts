@@ -19,11 +19,12 @@ export class LoginPageComponent implements OnInit {
   password: any;
   username: any;
   loginTypeList: any;
-
-
+  companycode:any
+  showpassword: any;
   constructor(public RecruitmentServiceService: RecruitmentServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.showpassword = 0;
     if (localStorage.getItem('temp') == '1') {
       localStorage.clear();
       location.reload();
@@ -31,6 +32,28 @@ export class LoginPageComponent implements OnInit {
     }
     this.GetLoginTypeMaster();
   } 
+
+  Showhidepassword() {
+    debugger
+    if (this.showpassword == 0) {
+      this.showpassword = 1;
+    }
+    else {
+      this.showpassword = 0;
+    }
+  }
+
+  public getcompanycode() {
+    debugger
+    localStorage.setItem('companycode', this.companycode);
+    if (this.companycode == 1001) {
+      localStorage.setItem('apiurl', 'http://103.133.214.197/digiOfficeV4API');
+
+    }
+    else if (this.companycode == 1002) {
+      localStorage.setItem('apiurl', 'http://103.133.214.197/Dynamic_NCNDAAPI');
+    }
+  }
   GetLoginTypeMaster() {
 
     this.RecruitmentServiceService.GetLoginTypeMaster().subscribe(data => {
