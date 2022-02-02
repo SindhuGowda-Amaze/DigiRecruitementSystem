@@ -1,7 +1,7 @@
 
 
    .Heading{
-    padding-left: 30px;
+    padding-left: 20px;
     font-size: 20px;
 }
 ul {
@@ -105,13 +105,7 @@ ul {
     border-radius: 12px;
   }
   
-  .Heading {
-    padding-left: 15px;
-    color: #212529;
-    font-size: 20px !important;
-    font-family: "DIN Bold";
-    font-weight: bold;
-  }
+
   
   .Count {
     color: #3247d5;
@@ -155,7 +149,7 @@ ul {
     font-size: 12px;
     font-weight: bold;
   }
-  
+/*   
   .table td {
     color: #0c275a;
     vertical-align: middle;
@@ -172,4 +166,4 @@ ul {
   .table th {
     background-color: #02cfff !important;
     color: #ffffff;
-  }
+  } */

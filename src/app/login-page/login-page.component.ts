@@ -106,7 +106,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Username or Password is invalid');
+          Swal.fire('Username or Password is Invalid');
           this.userName = "";
           this.password = "";
         }
@@ -135,7 +135,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Username or Password is invalid');
+          Swal.fire('Username or Password is Invalid');
           this.userName = "";
           this.password = "";
         }
@@ -166,7 +166,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Username or Password is invalid');
+          Swal.fire('Username or Password is Invalid');
           this.userName = "";
           this.password = "";
         }
@@ -420,7 +420,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Username or Password is invalid');
+          Swal.fire('Username or Password is Invalid');
           this.userName = "";
           this.password = "";
         }
@@ -454,7 +454,7 @@ export class LoginPageComponent implements OnInit {
         }
         else {
 
-          Swal.fire('Username or Password is invalid');
+          Swal.fire('Username or Password is Invalid');
           this.userName = "";
           this.password = "";
         }
@@ -487,7 +487,7 @@ export class LoginPageComponent implements OnInit {
         }
         else {
 
-          Swal.fire('Username or Password is invalid');
+          Swal.fire('Username or Password is Invalid');
           this.userName = "";
           this.password = "";
         }

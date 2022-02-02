@@ -9,13 +9,7 @@
 }
 
 
-.card{
-  padding: 10px;
-  width:100%;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
-}
+
 .hrline{
    margin-top: 0px;
 }
@@ -28,28 +22,13 @@
     padding-right: 10px;;
 }
 
-.Heading{
-    padding-left: 15px;
-    font-size: 20px;
-    color:#3247D5;
-}
 
 .head{
     background-color: #02CFFF;
     color:white;
 
 }
-table{
-    border-collapse: collapse;
-    width: 100%;
-}
-td, th {
-    text-align: left;
-    padding: 8px;
-}
-td{
-    background-color: white
-}
+
 .filterclass{
     font-size: 15px;
     margin-left: 15px;

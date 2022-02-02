@@ -103,21 +103,21 @@
 
 <div class="container-fluid"  *ngIf="temp=='1'">
 <div class="row">
-    <div class="col-md-2 sidenav" style="height: 100vh;margin-top: 75px;position: fixed;">
+    <div class="col-md-2 sidenav " style="height: 100vh;margin-top: 75px;position: fixed;">
 
-        <a *ngIf="roleid=='1' && roleid!='5'"  routerLink="/AdminDashboard">
-            <i class="fa fa-users icon28" style="width: 20px;    margin-right: 17px;"></i>
+        <a *ngIf="roleid=='1' && roleid!='5'"  routerLink="/AdminDashboard" class="nonactive">
+            <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;   margin-right: 17px;"></i>
             &nbsp; Dashboard
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
-        <a *ngIf=" roleid=='6' || roleid=='3'" routerLink="/Dashboard">
+        <a *ngIf=" roleid=='6' || roleid=='3'" routerLink="/Dashboard"class="nonactive">
 
-            <i class="fa fa-users icon28" style="width: 20px;    margin-right: 17px;"></i>
+            <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
             &nbsp; Dashboard
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
 
-        <a *ngIf="roleid=='1'" data-toggle="collapse" class="togglebtn button" data-target="#userapplications">
+        <a *ngIf="roleid=='1'" data-toggle="collapse" class="togglebtn button nonactive" data-target="#userapplications">
 
             <i class="fa fa-gears icon28" style="width: 20px;    margin-right: 17px;"></i>
             &nbsp; SETUP
@@ -125,110 +125,110 @@
         </a>
 
         <div id="userapplications" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/ClientDashBoard">
+            <a routerLink="/ClientDashBoard"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; CLIENT
             </a>
-            <a routerLink="/ClientStaffDashBoard">
+            <a routerLink="/ClientStaffDashBoard"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; CLIENT
                 STAFF
             </a>
-            <a routerLink="/RecruiterStaffDashboard">
+            <a routerLink="/RecruiterStaffDashboard"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;COMPANY
                 STAFF
             </a>
-            <a routerLink="/VendorDashboard">
+            <a routerLink="/VendorDashboard"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;VENDOR
             </a>
-            <a routerLink="/VendorStaffDashboard">
+            <a routerLink="/VendorStaffDashboard"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;VENDOR
                 STAFF
             </a>
         </div>
 
         <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button"
-            data-target="#userapplications1">
+            data-target="#userapplications1"class="nonactive">
 
-            <i class="fa fa-gears icon28" style="width: 20px;   margin-right: 17px;" *ngIf="roleid!=8"></i>
+            <i class="fa fa-users" style="width: 20px; font-size: 20px;   margin-right: 17px;" *ngIf="roleid!=8"></i>
             &nbsp; Job Recruitements
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
 
         <div id="userapplications1" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/JobRecruitements" *ngIf="roleid=='4'" >
+            <a routerLink="/JobRecruitements" *ngIf="roleid=='4'" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
             </a>
-            <a routerLink="/VendorJobOpenings" *ngIf="roleid=='3' || roleid=='6'">
+            <a routerLink="/VendorJobOpenings" *ngIf="roleid=='3' || roleid=='6'"class="nonactive">
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;  JOB RECRUITMENT    
             </a>
-            <a routerLink="/AppliedCandidates">
+            <a routerLink="/AppliedCandidates"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;APPLIED CANDIDATES
            
             </a>
-            <a routerLink="/ShortListedCandidates">
+            <a routerLink="/ShortListedCandidates"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SHORTLISTED 
             </a>
-            <a routerLink="/ScheduledInterviews" *ngIf="roleid==8">
+            <a routerLink="/ScheduledInterviews" *ngIf="roleid==8" class="nonactive">
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;SCHEDULED INTERVIEWS
      
             </a>
-            <a routerLink="/SelectedCandidates">
+            <a routerLink="/SelectedCandidates" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SELECTED CANDIDATES
            
             </a>
-            <a routerLink="/OfferedCandidates">
+            <a routerLink="/OfferedCandidates" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;OFFERED CANDIDATES
             
             </a>
-            <a routerLink="/JoinedCandidates">
+            <a routerLink="/JoinedCandidates" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;JOINED CANDIDATES
            
             </a>
-            <a routerLink="/DroppedCandidates">
+            <a routerLink="/DroppedCandidates" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;DROPPED CANDIDATES
            
             </a>
         </div>
 
 
-        <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button"
-            data-target="#userapplications2">
+        <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button nonactive"
+            data-target="#userapplications2" >
 
-            <i class="fa fa-gears icon28" style="width: 20px;   margin-right: 17px;" *ngIf="roleid!=8"></i>
+            <i class="fa fa-address-book" style="width: 20px; font-size: 20px;  margin-right: 17px;" *ngIf="roleid!=8"></i>
             &nbsp; Reports
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
 
-        <div id="userapplications2" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/JobRecruitementReport" *ngIf="roleid=='4'" >
+        <div id="userapplications2" class="collapse" style="padding-left: 7%; ">
+            <a routerLink="/JobRecruitementReport" *ngIf="roleid=='4'" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; JOB RECRUITMENT 
             </a>
-            <a routerLink="/VendorJobOpenings" *ngIf="roleid=='3' || roleid=='6'">
+            <a routerLink="/VendorJobOpenings" *ngIf="roleid=='3' || roleid=='6'" class="nonactive">
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;  JOB RECRUITMENT              
             </a>
-            <a routerLink="/AppliedCandidatesReports">
+            <a routerLink="/AppliedCandidatesReports" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;APPLIED CANDIDATES            
             </a>
-            <a routerLink="/ShortlistedCandidatesReports">
+            <a routerLink="/ShortlistedCandidatesReports"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SHORTLISTED  
             </a>
-            <a routerLink="/ScheduledInterviewsReports" *ngIf="roleid==8">
+            <a routerLink="/ScheduledInterviewsReports" *ngIf="roleid==8"class="nonactive">
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;SCHEDULED INTERVIEWS    
             </a>
-            <a routerLink="/SelectedCandidatesReports">
+            <a routerLink="/SelectedCandidatesReports"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SELECTED CANDIDATES           
             </a>
-            <a routerLink="/OfferedCandidatesReports">
+            <a routerLink="/OfferedCandidatesReports"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;OFFERED CANDIDATES           
             </a>
-            <a routerLink="/JoinedCandidatesReport">
+            <a routerLink="/JoinedCandidatesReport"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;JOINED CANDIDATES           
             </a>
-            <a routerLink="/DroppedCandiadtesReports">
+            <a routerLink="/DroppedCandiadtesReports"class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;DROPPED CANDIDATES
             </a>
         </div>
 
-        <a *ngIf="roleid==5" data-toggle="collapse" class="togglebtn button"
+        <a *ngIf="roleid==5" data-toggle="collapse" class="togglebtn button nonactive"
             data-target="#userapplications4">
 
             <i class="fa fa-gears icon28" style="width: 20px;   margin-right: 17px;" *ngIf="roleid!=8"></i>
@@ -237,10 +237,10 @@
         </a>
 
         <div id="userapplications4" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/ScheduledInterviews">
+            <a routerLink="/ScheduledInterviews" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SCHEDULED INTERVIEWS
             </a>
-            <a routerLink="/SelectedCandidates">
+            <a routerLink="/SelectedCandidates" class="nonactive">
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp; SELECTED CANDIDATES             
             </a>
         </div>

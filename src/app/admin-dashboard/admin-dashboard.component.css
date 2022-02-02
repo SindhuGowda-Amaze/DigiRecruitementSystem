@@ -228,13 +228,13 @@ body {
 
   .title_outer {
     float: left;
-    max-width: 78%;
+    max-width: 88%;
     padding: 3px 0;
   }
   
   .title_outer1 {
     float: left;
-    max-width: 98%;
+    max-width: 100%;
     padding: 3px 0;
   }
   
@@ -305,6 +305,9 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, .7);
   
   }
+  i{
+    color: white;
+  }
   
   .holidayflow {
   
@@ -312,13 +315,7 @@ body {
     height: 235px;
     overflow-y: scroll;
   }
-  
-  .cardlabel {
-    font-family: 'DIN Bold';
-    font-size: 20px;
-    margin-top: -1px;
-  }
-  
+
   ::-webkit-scrollbar {
     width: 5px;
   }
@@ -420,10 +417,15 @@ body {
 .calend{
 
 
-    font-size:30px;
-    color: #2F87CC;
-    margin-left:-20px;
-    margin-top: 12px;
+  
+  color: #FFFFFF;
+  /* margin-left: -20px;
+  margin-top: 12px; */
+  position: absolute;
+  height: 20.01px;
+  left: 16.94%;
+  right: 81.67%;
+  top: 28.99px;
 }
 
 .din-Medium {
@@ -484,6 +486,7 @@ hr.new4 {
 border-top-left-radius: 15px;
 border-top-right-radius: 15px;
 
+
 }
 
 
@@ -499,14 +502,13 @@ border-top-right-radius: 15px;
 
 
 .cardlabel {
-  font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 19px;
-    line-height: 40px;
-    letter-spacing: 0.5px;
-    color: #FFFFFF;
-    margin-top:10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 55px;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  margin-top: 10px;
 }
 
 .blue{

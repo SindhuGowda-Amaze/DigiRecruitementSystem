@@ -8,7 +8,7 @@
                 </div>
             </div> <br>
 
-            <div class="card"><br>
+            <div class="card">
                 <div class="row FilterClass">
                     <div class="col-lg-1">
                         <p>Filter By</p>
@@ -29,14 +29,14 @@
                     <div class="col-lg-2">
                         <p class="Count" >Count:{{count}}</p>
                     </div>  
-                </div> <br>
+                </div> 
             </div><br> <br>
 
             <div class="row">
                 <div class="col-lg-12" style="height: 470px; overflow-y: scroll;">
                     <table class="table tablebordered" *ngIf="(joblist | filter: search).length > 0; else noResults">
                         <thead>
-                            <tr class="head">
+                            <tr>
                                 <!-- <th>Vendor</th> -->
                                 <th>Job Reference ID</th>
                                 <th>Interview Date</th>
@@ -57,20 +57,20 @@
                                 <th  *ngIf="roleid!='4' && roleid=='6'">Actions</th>
                             </tr>
                             <tr *ngFor="let job of joblist|filter:search |filter:searchbynotice   ">
-                                <td style="color:#0C275A">{{job.jobRefernceID}}</td>
-                                <td style="color:#0C275A">{{job.date}}</td>
-                                <td style="color:#0C275A">{{job.source}}</td>
-                                <td style="color:#0C275A">{{job.slotTime}}</td>
-                                <td style="color:#0C275A">{{job.staffname}}</td>
-                                <td style="color:#0C275A">{{job.jobTitle}}</td>
-                                <td style="color:#0C275A">{{job.candidateName}}</td>
-                                <td  style="color:#0C275A">{{job.phoneNo}}</td>
-                                <td style="color:#0C275A">{{job.email}}</td>
-                                <td style="color:#0C275A">{{job.yearsofExp}}</td>
-                                <td style="color:#0C275A">{{job.relavantExp}}</td>  
-                                <td style="color:#0C275A">{{job.ctc}}</td> 
-                                <td style="color:#0C275A">{{job.noticePeriod}}</td> 
-                                <td style="color:#0C275A">{{job.interviewercomments}}</td>    
+                                <td>{{job.jobRefernceID}}</td>
+                                <td>{{job.date}}</td>
+                                <td>{{job.source}}</td>
+                                <td>{{job.slotTime}}</td>
+                                <td>{{job.staffname}}</td>
+                                <td>{{job.jobTitle}}</td>
+                                <td>{{job.candidateName}}</td>
+                                <td>{{job.phoneNo}}</td>
+                                <td>{{job.email}}</td>
+                                <td>{{job.yearsofExp}}</td>
+                                <td>{{job.relavantExp}}</td>  
+                                <td>{{job.ctc}}</td> 
+                                <td>{{job.noticePeriod}}</td> 
+                                <td>{{job.interviewercomments}}</td>    
                                 <td  *ngIf="roleid!='4' && roleid=='6'">
                                     <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
                                         data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>

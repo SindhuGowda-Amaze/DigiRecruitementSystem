@@ -1,54 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+/* 
+@font-face {
+  font-family: 'DIN Regular';
+  src:
+
+    url('assets/D-DIN.otf') format('opentype');
+}
 
 @font-face {
-    font-family: 'DIN Regular';
-    src: 
-      
-      url('assets/D-DIN.otf') 
-      format('opentype');
-  }
-  @font-face {
-    font-family: 'DIN Bold';
-    src: 
-      
-      url('assets/D-DIN-Bold.otf') 
-      format('opentype');
-  }
+  font-family: 'DIN Bold';
+  src:
 
-  @font-face {
-    font-family: 'DIN Medium';
-    src: 
-      
-      url('assets/DIN Medium.otf') 
-      format('opentype');
-  }
-  body,button,p,table,label,h1,h6,h4,h2,th,span{
-    font-family: 'Poppins';
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer; 
-  }
-  input{
-    font-size: 10px;
-  }
-  .Count{
-    color: #3247d5;
-  }
+    url('assets/D-DIN-Bold.otf') format('opentype');
+}
 
-  /* th{
+@font-face {
+  font-family: 'DIN Medium';
+  src:
+
+    url('assets/DIN Medium.otf') format('opentype');
+} */
+
+body, button, p, table, label, h1, h6, h4, h2, th, span {
+  font-size: 13px;
+  font-family: 'Poppins';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input {
+  font-size: 12px;
+}
+
+.Count {
+  color: #3247d5;
+}
+
+/* th{
     background-color: #e4e5e6;
     color:#404040;
     font-family: "DIN Bold";
 } */
-  
-  .poppinns{
-    font-family: 'Poppins';
-    font-size: 12px;
-  }
+
+.poppinns {
+  font-family: 'Poppins';
+  font-size: 13px;
+}
 
 
-   /* table thead tr th {
+/* table thead tr th {
     border: none!important;
     min-width: 50px;
     color: #404040 !important;
@@ -67,7 +68,10 @@
 } */
 
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
+
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 .Addbutton {
@@ -85,4 +89,109 @@ html, body { height: 100%; }
   margin-right: 15px;
   font-size: 15px;
   font-weight: bold;
+}
+
+.dashboardicons {
+  position: absolute;
+  height: 20.01px;
+  left: 16.94%;
+  right: 81.67%;
+  background: #FFFFFF;
+}
+
+.icon28 {
+
+  color: #BEBEBE;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+
+}
+
+.card{
+padding: 20px;
+box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
+border-radius: 12px;
+}
+
+th:first-of-type {
+
+  border-top-left-radius: 10px;
+
+}
+
+
+
+th:last-of-type {
+
+  border-top-right-radius: 10px;
+
+}
+
+
+
+tr:last-of-type td:first-of-type {
+
+  border-bottom-left-radius: 10px;
+
+
+
+}
+
+
+
+tr:last-of-type td:last-of-type {
+
+  border-bottom-right-radius: 10px;
+
+}
+
+
+
+table,
+
+tr,
+
+td {
+
+  border: none !important;
+
+  font-family: Poppins;
+
+  font-style: normal;
+
+  font-weight: normal;
+
+  font-size: 13px;
+
+  line-height: 17px;
+
+  /* identical to box height, or 131% */
+
+  color: #0C275A;
+
+}
+th{
+  background-color: #02CFFF;
+  color: white;
+}
+
+
+tr:nth-child(odd) {
+  background-color: #F2F2F2 !important
+
+
+}
+
+
+tr:nth-child(even) {
+
+  background-color: #FFFFFF !important
+
+}
+
+.Heading{
+  padding-left: 5px;
+  font-size: 20px;
+  color:#3247D5;
 }

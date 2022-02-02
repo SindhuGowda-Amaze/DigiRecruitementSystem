@@ -15,23 +15,14 @@
   width:100%;
   vertical-align: middle;
 }
-td{
-  background-color: white
-}
+
 /* .th{
   background-color: #e4e5e6;
   color:#404040;
   font-family: "DIN Bold";
 } */
-.table, th, td {
-border: 1px solid lightgray;
- border-collapse: collapse; 
-}
-.Heading{
-padding-left: 15px;
-font-size: 20px;
-color:black;
-}
+
+
 .head{
   background-color:#02CFFF ;
   color:white;
@@ -40,12 +31,13 @@ color:black;
 .FilterClass{
 padding-left: 15px;
 }
-.count{
+.Count{
 text-align: right;
-padding-right: 10px;;
+padding-right: 10px;
+font-size: 20px;
 }
   .Button{
-    background-color: #007bff;
+    background-color: #3247D5;
     color:white;
     padding:5px;
     text-align: center;
@@ -68,6 +60,4 @@ padding-right: 10px;;
     color:white;
     background-color:red ;
   }
-  .count{
-    font-size: 16px;
-  }
+  

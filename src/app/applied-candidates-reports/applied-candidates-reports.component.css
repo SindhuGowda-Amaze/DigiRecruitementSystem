@@ -8,18 +8,12 @@
     margin-top: 2%;
 }
 
-.card{
-  padding: 10px;
-}
+
 .hrline{
    margin-top: 0px;
 }
 
-.Heading{
-    padding-left: 15px;
-    font-size: 20px;
-    color:#3247D5;
-}
+
 
 .head{
     background-color:#02CFFF ;
@@ -33,34 +27,19 @@
   padding-right: 10px;;
 }
 
-table{
-    border-collapse: collapse;
-    width: 100%;
-}
+
 .heading{
     background-color: #e4e5e6;
     color:#404040;
     font-family: "DIN Bold";
 }
-td, th {
 
-    text-align: left;
-    padding: 8px;
-}
-td{
-    background-color: white
-}
 .count
 {
     text-align: right;
 }
 
-.card{
-    width:100%;
-    background: #FFFFFF;
-    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
-    border-radius: 12px;
-}
+
 .FilterClass{
     color:#0C275A;
     font-size: 15px;

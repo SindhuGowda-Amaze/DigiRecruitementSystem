@@ -107,7 +107,7 @@
         <div class="col-lg-1"> Welcome {{UserName}} ({{role}})</div>
     </div>
 </div>  -->
-
+<!-- 
 <div class="container-fluid" *ngIf="temp=='1'" style="background: #3247D5; height:70px;">
 
     <div class="row">
@@ -126,6 +126,28 @@
             margin-top: 15px;">
             <p class="user">Hi {{UserName}} ({{role}})</p>
            
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid" *ngIf="temp=='1'" style="background: #3247D5; height:70px;">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="assets/Images/Logo_digiOffice_White.png" class="logo" alt="logo" routerLink="/CompanyDashboard">
+        </div>
+        <div class="col-lg-5"></div>
+       
+        <div class="col-lg-1" style="margin-left: 100px;">
+            <img src="assets/Images/noti.png" style="    width: 26%;
+            margin-top: 20px;" >
+            <img src="assets/Images/Logo_out.1.png" class="logout" (click)="logout()" class="logout">
+        </div>
+        <div class="col-lg-1">
+            <img src="assets/Images/usr.png" style="width: 30%;
+            margin-top: 17px;">
+            <p class="user">Hi {{UserName}} ({{role}})</p>
+          
         </div>
     </div>
 </div>
