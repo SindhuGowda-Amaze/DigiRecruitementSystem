@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-.container-fluid{
-    font-family: 'Open Sans', sans-serif;
-}
+
 @font-face {
     font-family: 'DIN Regular';
     src: 
@@ -26,7 +24,7 @@
       format('opentype');
   }
   body,button,p{
-    font-family: 'DIN Bold';
+    font-family: 'Poppins';
     font-size: 12px;
     font-weight: bold;
     cursor: pointer; 
@@ -42,8 +40,7 @@
 } */
   
   .Dinbold{
-    font-family: 'DIN Bold';
-  }
+    font-family: 'Poppins';}
 
 
    /* table thead tr th {
@@ -66,4 +63,4 @@
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
