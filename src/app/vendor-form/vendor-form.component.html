@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <br>
+           
                     <div class="row">
                         <form style="margin-left: 30px; margin-right: 30px;">
                             <div class="row leavereq">
@@ -57,22 +57,21 @@
                                         [(ngModel)]="address"></textarea>
                                 </div>
                             </div><br>
-                            <div class="row">
-                                <div class="col-lg-10"></div>
-                                <div class="col-lg-1">
-                                    <button class="form-control Edit" (click)="cancel()">Cancel</button>
-                                </div>
-                                <div class="col-lg-1">
-                                    <!-- <button class="form-control Edit" *ngIf="id==null || id==undefined"
-                                        (click)="Save()">Save</button>
-                                    <button class="form-control Edit" *ngIf="id!=null || id!=undefined"
-                                        (click)="Update()">Update</button> -->
-                                    <button class="form-control Edit" (click)="Save()">Save</button>    
-                                </div>
-                            </div>
                         </form>
                     </div>
-                    <br>
+                        <div class="row">
+                            <div class="col-lg-10"></div>
+                            <div class="col-lg-1">
+                                <button class="form-control Edit" (click)="cancel()">Cancel</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <!-- <button class="form-control Edit" *ngIf="id==null || id==undefined"
+                                    (click)="Save()">Save</button>
+                                <button class="form-control Edit" *ngIf="id!=null || id!=undefined"
+                                    (click)="Update()">Update</button> -->
+                                <button class="form-control Edit" (click)="Save()">Save</button>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

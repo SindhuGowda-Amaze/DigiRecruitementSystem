@@ -20,9 +20,9 @@
    margin-top: 0px;
 }
 .Count{
-    color: #0C275A;
+
     font-size: 20px !important;
-    font-family: 'DIN Bold';
+  
     font-weight: bold;
     float: right;
     padding-right: 10px;;
@@ -37,7 +37,7 @@
 .head{
     background-color: #02CFFF;
     color:white;
-    font-family: "DIN Bold";
+
 }
 table{
     border-collapse: collapse;

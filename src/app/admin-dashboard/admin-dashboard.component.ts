@@ -30,7 +30,9 @@ export class AdminDashboardComponent implements OnInit {
     vendorstafflist:any;
     vendorstafflist1:any;
     count4:any;
+    temp:any;
   ngOnInit(): void {
+    this.temp=sessionStorage.getItem('temp')
     this.RecruitmentServiceService.GetClientMaster().subscribe(data => {
       debugger
       this.clientlist = data;
@@ -72,10 +74,7 @@ export class AdminDashboardComponent implements OnInit {
       this.vendorstafflist1 = this.vendorstafflist.slice(0, 4);
       this.count4 = this.vendorstafflist.length
       debugger
-    })
-
-    
-    
+    })  
   }
 
   

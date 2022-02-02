@@ -1,25 +1,25 @@
 <app-spinner *ngIf="loader"></app-spinner>
-<div class="container-fluid">    
+<div class="container-fluid">  <br>  
             <div class="row">
                 <div class="col-lg-12">
                     <p class="Heading">APPLIED CANDIDATES REPORTS</p>
                 </div>
             </div>
-            <hr class="hrline">
+      
             <div class="card">
-                <br>
+
                 <div class="row FilterClass">
                     <div class="col-lg-1">
-                        Filter By
+                        <p>Filter By</p>
                     </div>
                     <div class="col-lg-2">
-                        <select name="Select" class="form-control" [(ngModel)]="searchbyctc">
+                        <select name="Select" class="form-control poppinns" [(ngModel)]="searchbyctc">
                           <option value="Select CTC">Select CTC</option>
                           <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
                         </select>
                       </div>
                     <div class="col-lg-3">
-                        <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="term" name="term">
+                        <input class="form-control poppinns" type="search" placeholder="Search by Vendor..." [(ngModel)]="term" name="term">
                     </div>
                     <div class="col-lg-2">
                         <button class=" form-control export" (click)="refresh()">Refresh</button>
@@ -31,9 +31,9 @@
                         <p class="Count">Count:{{count}}</p>
                     </div>
                 </div>
-            </div><br> <br>
+            </div><br> 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12"  style="height: 470px; overflow-y: scroll;">
                     <table class="table" id="downloadaplication">
                         <tr class="head">
                             <th><span class="menu">Job Reference ID</span></th>
@@ -62,7 +62,8 @@
                             <td style="color:#0C275A">{{job.yearsofExp}}</td>
                             <td style="color:#0C275A">{{job.relavantExp}}</td>
                             <td style="color:#0C275A">{{job.city}}</td>
-                            <td  *ngIf="job.accept=='0'&&job.reject=='0'" class="form-control" [(ngModel)]="job.shortlistionNotes" name="job.shortlistionNotes"> </td>
+                            <td  *ngIf="job.accept=='0'&&job.reject=='0'"  [(ngModel)]="job.shortlistionNotes" name="job.shortlistionNotes"> </td>
+                    
                         </tr>
                     </table>
                 </div>

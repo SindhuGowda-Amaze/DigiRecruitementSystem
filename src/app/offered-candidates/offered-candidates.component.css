@@ -35,7 +35,7 @@ color:#3247D5;
 .head{
 background-color: #02CFFF;
 color:white;
-font-family: "DIN Bold";
+
 }
 .FilterClass{
 padding-left: 15px;
@@ -43,9 +43,9 @@ font-size: 15px;
 color: #0C275A;
 }
 .Count{
-  color: #0C275A;
+
   font-size: 20px !important;
-  font-family: 'DIN Bold';
+
   font-weight: bold;
   float: right;
   padding-right: 10px;;
