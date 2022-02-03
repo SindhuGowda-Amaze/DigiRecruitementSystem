@@ -41,7 +41,7 @@
                                 <th>Job Reference ID</th>
                                 <th>Interview Date</th>
                                 <th>Source</th>
-                                <th>Time</th>
+                                <!-- <th>Time</th> -->
                                 <th>Interviewed By</th>
                                 <!-- <th>Tentitive Joining Date</th> -->
                                 <th>Job Title</th>
@@ -49,8 +49,9 @@
                                 <th>Phone No</th>
                                 <th>Email</th>
                                 <th>Total Years of Experience</th>
-                                <th>Relevant Experience</th>
-                                <th>CTC Budget</th>
+                                <th>Resume</th>
+                                <!-- <th>Relevant Experience</th> -->
+                                <!-- <th>CTC Budget</th> -->
                                 <th>Notice Period</th> 
                                 <th>Interviewer Comments</th>
                                 <!-- <th>Interviewer Feedback</th> -->
@@ -60,15 +61,18 @@
                                 <td>{{job.jobRefernceID}}</td>
                                 <td>{{job.date}}</td>
                                 <td>{{job.source}}</td>
-                                <td>{{job.slotTime}}</td>
+                                <!-- <td>{{job.slotTime}}</td> -->
                                 <td>{{job.staffname}}</td>
                                 <td>{{job.jobTitle}}</td>
                                 <td>{{job.candidateName}}</td>
                                 <td>{{job.phoneNo}}</td>
                                 <td>{{job.email}}</td>
                                 <td>{{job.yearsofExp}}</td>
-                                <td>{{job.relavantExp}}</td>  
-                                <td>{{job.ctc}}</td> 
+                                <td>
+                                    <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
+                                  </td>
+                                <!-- <td>{{job.relavantExp}}</td>   -->
+                                <!-- <td>{{job.ctc}}</td>  -->
                                 <td>{{job.noticePeriod}}</td> 
                                 <td>{{job.interviewercomments}}</td>    
                                 <td  *ngIf="roleid!='4' && roleid=='6'">

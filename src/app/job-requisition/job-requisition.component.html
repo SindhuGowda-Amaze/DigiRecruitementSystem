@@ -107,13 +107,32 @@
             <input class="form-control" placeholder=" Resource Manager" [(ngModel)]="resourcemanager">
           </div> -->
         </div> <br>
-      
+        <div class="row">
+          <div class="col-lg-3">
+            <textarea class="form-control" placeholder="Job Description" [(ngModel)]="jobdescription" rows="6"></textarea>
+          </div>
+          
+        </div> <br>
+        <div class="row">
+          <div class="col-lg-3">
+            <p class="text">Status<span style="color: red;">*</span></p>
+          </div>
+          
+        </div> <br>
 
         <div class="row">
           <div class="col-lg-10">
           </div>
           <div class="col-lg-2">
-            <button type="button" class="addbtn" (click)="insertdetails()">Save</button>
+            <select class="form-control" >
+              <option value="">Select</option>
+              <option value="">Request Raised</option>
+              <option value="">Resume Submitted</option>
+              <option value="">Candidate Shortlisted</option>
+              <option value="">Candidate Interviewed</option>
+              <option value="">Candidate Offered</option>
+              <option value="">Joined and Closed</option>
+            </select>
           </div>
         </div>
 

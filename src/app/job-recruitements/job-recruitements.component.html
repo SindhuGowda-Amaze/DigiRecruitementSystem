@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="Heading">JOB OPENINGS DASHBOARD</p>
+                    <p class="Heading">JOB OPENINGS </p>
                 </div>
                 <div class="col-lg-2">
                     <button class="Add" routerLink='/JobRequisition'>Add</button>
@@ -53,29 +53,32 @@
                                 <th>Job Title</th>
                                 <th>Skill/Technology</th>
                                 <th>Total Years of Experience</th>
-                                <th>expected Experience</th>
+                                <th>Expected Experience</th>
                                 <th>Job Description</th>
                                 <th>Job Location</th>
                                 <th>No of Positions</th>
-                                <th>CTC Budget</th>
-                                <th>Hiring Manager</th>
+                                <!-- <th>CTC Budget</th> -->
+                                <!-- <th>Hiring Manager</th> -->
                                  <th>Other Required Conditions</th>
+                                 <th>Status</th>
                                 <th>Actions </th>
                             </tr>
                         
                         <tr *ngFor="let job of joblist|filter:search">
                             <td >{{job.jobRefernceID}}</td>
-                            <td >{{job.date}}</td>
+                            <td >{{job.date|date}}</td>
                             <!-- <td>MindTree</td> -->
                             <td >{{job.jobTitle}}</td>
                             <td>{{job.skills}}</td>
                             <td >{{job.totalExp}}</td>
                             <td >{{job.relaventExp}}</td>
-                            <td >{{job.jobDescription}}</td>
+                            <td data-toggle="modal" 
+                            data-target="#ScheduleInterview3"><button class="Button">View</button></td>
+                            <!-- <td >{{job.jobDescription}}</td> -->
                             <td >{{job.joblocation}}</td>
                             <td >{{job.noofpositions}}</td>
-                            <td >{{job.package}} </td>
-                            <td >{{job.hiringManager}}</td>
+                            <!-- <td >{{job.package}} </td> -->
+                            <!-- <td >{{job.hiringManager}}</td> -->
                             <td >{{job.otherRequiredConditions}}</td>
                             <!-- <td *ngIf="job.vendor==null">{{job.resourceManager}}</td> -->
                             <!-- <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
@@ -83,6 +86,7 @@
                                     <button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview1">Assign Recruiter</button></td>
                             -->
+                            <td>Request Raised</td>
                             <td> <button class="button form-control Add1" data-toggle="modal"
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
                         </tr>
@@ -96,6 +100,33 @@
         <div class="col-lg-1"></div>
     </div>
 </div>
+
+
+
+<div id="ScheduleInterview3" class="modal fade" role="dialog" *ngFor="let job of joblist">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title Heading">Job Description</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <label class="Text">{{job.jobDescription}}</label>
+                    </div>
+                </div> <br>
+            </div>
+            <div class="modal-footer">
+                <hr>
+                <div class="col-lg-2">
+                    <button class="Button"data-dismiss="modal" >Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 

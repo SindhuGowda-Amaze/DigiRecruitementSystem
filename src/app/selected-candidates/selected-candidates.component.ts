@@ -47,7 +47,9 @@ export class SelectedCandidatesComponent implements OnInit {
     this.candidatename = job.candidateName,
       this.email = job.email
   }
-
+  public GetOfferLetter(offer:any) {
+    window.open(offer, "_blank")
+  }
 
   offernotes: any;
 

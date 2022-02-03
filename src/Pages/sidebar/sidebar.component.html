@@ -318,17 +318,44 @@
                 </a>
             </div>
 
-                <a *ngIf="roleid==5" routerLink="/ScheduledInterviews" class=" button nonactive" (click)="openCity($event)">
-                    <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SCHEDULED
-                    INTERVIEWS
-                </a>
-                <a *ngIf="roleid==5" routerLink="/SelectedCandidates" class="nonactive" (click)="openCity($event)">
+              
+
+                    <a *ngIf="roleid==5" (click)="ScheduledInterviews()" (click)="openCity($event)">
+                        <img src="../../assets/Images/64/ATTENDANCE/deadline.png"
+                            [ngClass]="active != 80 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                        <img src="../../assets/Images/64 Blue/ATTENDANCE/OVER TIME DETAILS.png"
+                            [ngClass]="active == 80 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                        <span [ngClass]="active == 80 ? 'Active1' : 'Active3'"> SCHEDULED
+                            INTERVIEWS </span>
+                    </a>
+
+                    <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SCHEDULED
+                    INTERVIEWS -->
+              
+                <a *ngIf="roleid==5" routerLink="/SelectedCandidates"  (click)="SelectedCandidates()" class="nonactive" (click)="openCity($event)">
+
+                    <img src="../../assets/Images/64/ATTENDANCE/ATTENDANCE DETAILS.png"
+                            [ngClass]="active != 81 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                        <img src="../assets/Images/64 Blue/ATTENDANCE/ATTENDANCE DETAILS.png"
+                            [ngClass]="active == 81 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                        <span [ngClass]="active == 81 ? 'Active1' : 'Active3'"> SELECTED
+                            CANDIDATES </span>
+<!-- 
                     <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SELECTED
-                    CANDIDATES
+                    CANDIDATES -->
                 </a>
-                <a *ngIf="roleid==5" routerLink="/SelectedCandidates" class="nonactive" (click)="openCity($event)">
-                    <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; REJECTED 
-                    CANDIDATES
+                <a *ngIf="roleid==5"   (click)="RejectedCandidates()" class="nonactive" (click)="openCity($event)">
+
+                    <img src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
+                    [ngClass]="active != 82 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                <img src="assets/Images/64 Blue/ATTENDANCE/Report/Employee Report.png"
+                    [ngClass]="active == 82 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                <span [ngClass]="active == 82 ? 'Active1' : 'Active3'"> REJECTED 
+                    CANDIDATES </span>
+
+
+                    <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; REJECTED 
+                    CANDIDATES -->
                 </a>
      
         </div>
