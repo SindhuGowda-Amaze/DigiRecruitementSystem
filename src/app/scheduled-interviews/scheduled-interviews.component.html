@@ -62,7 +62,8 @@
                 <td>
                     <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
                 </td>
-                <td>{{job.comments}}</td>
+                <!-- <td>{{job.comments}}</td> -->
+                <td>Select based on Relevant Experience</td>
                 <td>
                   <button class="btn btn-primary Button" data-toggle="modal" data-target="#exampleModal" (click)="getid(job.id)">Selected</button> <br><br>
                   <button class="btn btn-primary" style="background-color:#dc3545; border:none" 
@@ -98,7 +99,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row"> 
                     <div class="col-lg-3">
                         <label style="font-size: 16px;">Selected Notes</label> 
                     </div>
