@@ -57,6 +57,14 @@
 
 }
 
+a.active {
+  color:#3247D5;
+  width: 100%;
+}
+
+
+
+
 .sidenav a:active {
   color: #3247D5;
 } 

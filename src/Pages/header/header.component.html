@@ -133,10 +133,32 @@
 <div class="container-fluid" *ngIf="temp=='1'" style="background: #3247D5; height:70px;">
 
     <div class="row">
-        <div class="col-lg-4">
-            <img src="assets/Images/Logo_digiOffice_White.png" class="logo" alt="logo" routerLink="/CompanyDashboard">
+        <div class="col-lg-2">
+           
+            <img src="assets/Images/Logo_digiOffice_White.png" class="logo" alt="logo" routerLink="/CompanyDashboard"  style="    height: 57px;
+            margin-top: 3px;
+            width: 176px;">
         </div>
-        <div class="col-lg-5"></div>
+        <div class="col-lg-3" style="display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: start;margin-right: 85px 
+px
+;">
+            <div class="time">
+                <p class="time1">{{hh}} :</p>
+            </div>
+            <div class="time">
+                <p class="time1">{{mm}} :</p>
+            </div>
+            <div class="time">
+                <p class="time1">{{ampm}}</p>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="centerlabel">{{pagename}}</div>
+        </div>
+        <div class="col-lg-2"></div>
        
         <div class="col-lg-1" style="margin-left: 100px;">
             <img src="assets/Images/noti.png" style="    width: 26%;

@@ -105,19 +105,20 @@
 <div class="row">
     <div class="col-md-2 sidenav " style="height: 100vh;margin-top: 75px;position: fixed;">
 
-        <a *ngIf="roleid=='1' && roleid!='5'" (click)="admin()"  class="nonactive">
+        <a *ngIf="roleid=='1' && roleid!='5'" (click)="admin()"  class="nonactive" (click)="openCity($event)">
            
-            <img  src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;
-            
+            <img   *ngIf="!home" src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;
+            <img  *ngIf="home" src="assets/Images/64 Blue/home.png" style="width: 13%;  margin-right: 17px;"/>
             <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;   margin-right: 17px;"></i>-->
             &nbsp; Dashboard 
           
         </a>
-        <a *ngIf=" roleid=='6' || roleid=='3'" (click)="admin()" class="nonactive">
+        <a *ngIf=" roleid=='6' || roleid=='3'" (click)="admin()" class="nonactive" (click)="openCity($event)">
 
             <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
             &nbsp; Dashboard -->
-            <img  src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;   &nbsp; Dashboard 
+            <img  *ngIf="home" src="assets/Images/64 Blue/home.png" style="width: 13%;  margin-right: 17px;"/>
+            <img  *ngIf="!home" src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;   &nbsp; Dashboard 
         </a>
 
         <a *ngIf="roleid=='1'" data-toggle="collapse" class="togglebtn button nonactive" data-target="#userapplications">
@@ -128,66 +129,88 @@
         </a>
 
         <div id="userapplications" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/ClientDashBoard" (click)="admin()" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; CLIENT
+            <a  (click)="Client()" class="nonactive" (click)="openCity($event)">
+                <img  *ngIf="client" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Employee Job History.png" style="width: 13%;  margin-right: 17px;"/>
+                <img  *ngIf="!client" src="assets/Images/64/ATTENDANCE/Report/masters/Employee Job History.png" style="width: 13%;  margin-right: 17px;" /> &nbsp; CLIENT
             </a>
-            <a routerLink="/ClientStaffDashBoard"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; CLIENT
+            <a  (click)="Clientstaff()" class="nonactive" (click)="openCity($event)">
+                <img *ngIf="!clientstaff" src="assets/Images/64/ATTENDANCE/Report/masters/Department Master.png" style="width: 13%;    margin-right: 17px;"/>
+                <img  *ngIf="clientstaff" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Department Master.png" style="width: 13%;    margin-right: 17px;"/>
+               &nbsp; CLIENT
+                STAFF   `
+            </a>
+            <a class="nonactive" (click)="openCity($event)" (click)="Recruitstaff()">
+                <img *ngIf="recruitstaff" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Country_master.png"   style="width: 13%;    margin-right: 17px;"/>
+                <img *ngIf="!recruitstaff" src="assets/Images/64/ATTENDANCE/Report/masters/Country_master.png"  style="width: 13%;    margin-right: 17px;"/>
+               &nbsp;COMPANY
                 STAFF
             </a>
-            <a routerLink="/RecruiterStaffDashboard"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;COMPANY
-                STAFF
+            <a class="nonactive" (click)="openCity($event)" (click)="vendor()">
+                <img *ngIf="!vendo" src="assets/Images/64/ATTENDANCE/Report/masters/Deniminis _master.png" style="width: 13%;   margin-right: 17px;"/>
+                <img *ngIf="vendo" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Deniminis _master.png" style="width: 13%;    margin-right: 17px;"/>
+                &nbsp;VENDOR
             </a>
-            <a routerLink="/VendorDashboard"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;VENDOR
-            </a>
-            <a routerLink="/VendorStaffDashboard"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;VENDOR
+            <a  class="nonactive" (click)="openCity($event)" (click)="vendorstaff()">
+                <img *ngIf="vendorstaf" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Shift Master Trainer.png " style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!vendorstaf" src="assets/Images/64/ATTENDANCE/Report/masters/Shift Master Trainer.png" style="width: 13%;  margin-right: 17px;"/>
+                
+              &nbsp;VENDOR
                 STAFF
             </a>
         </div>
 
         <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button"
-            data-target="#userapplications1"class="nonactive">
-
-            <i class="fa fa-users" style="width: 20px; font-size: 20px;   margin-right: 17px;" *ngIf="roleid!=8"></i>
+            data-target="#userapplications1"class="nonactive" (click)="openCity($event)">
+            <img   src="assets/Images/64/ATTENDANCE/Report/Employee Report.png" style="width: 13%;  margin-right: 17px;" *ngIf="roleid!=8 "/>
+            
             &nbsp; Job Recruitements
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
 
         <div id="userapplications1" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/JobRecruitements" *ngIf="roleid=='4'" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
+            <a  (click)="JobRecruitment()" *ngIf="roleid=='4'" class="nonactive" (click)="openCity($event)">
+                <img  *ngIf="Jobrecruit==true" src="../../assets/Images/64 Blue/Staff.png" style="width: 20px;    margin-right: 17px;" />
+                <img *ngIf="Jobrecruit==false" src="assets/Images/64/Staff.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
             </a>
-            <a routerLink="/VendorJobOpenings" *ngIf="roleid=='3' || roleid=='6'"class="nonactive">
-                <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;  JOB RECRUITMENT    
+            <a  (click)="VendorRecruitment()"  *ngIf="roleid=='3' || roleid=='6'"class="nonactive" (click)="openCity($event)">
+                <img  *ngIf="Vendorrecruit" src="assets/Images/64 Blue/Staff.png" style="width: 20px;    margin-right: 17px;" />
+            <img *ngIf="!Vendorrecruit" src="assets/Images/64/Staff.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;  JOB RECRUITMENT    
             </a>
-            <a routerLink="/AppliedCandidates"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;APPLIED CANDIDATES
+            <a  (click)="Appliedcandidates()"  class="nonactive" (click)="openCity($event)">
+                <img *ngIf="!applied" src="assets/Images/64/ATTENDANCE/OVER TIME DETAILS.png" style="width: 13%;  margin-right: 17px;" /> 
+                <img *ngIf="applied" src="assets/Images/64 Blue/ATTENDANCE/OVER TIME DETAILS.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;APPLIED CANDIDATES
            
             </a>
-            <a routerLink="/ShortListedCandidates"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SHORTLISTED 
+            <a  (click)="Shortlisted()"  class="nonactive" (click)="openCity($event)">
+                <img  *ngIf="shortlist" src="assets/Images/64 Blue/ATTENDANCE/Report/Employee Report.png" style="width: 13%;  margin-right: 17px;"/>
+                <img  *ngIf="!shortlist" src="assets/Images/64/ATTENDANCE/Report/Employee Report.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;SHORTLISTED 
             </a>
-            <a routerLink="/ScheduledInterviews" *ngIf="roleid==8" class="nonactive">
-                <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;SCHEDULED INTERVIEWS
+            <a  (click)="Scheduled()" *ngIf="roleid==8" class="nonactive" (click)="openCity($event)">
+                <img src="assets/Images/Vector.png"   style="width: 13%;  margin-right: 17px;" /> 
+                
+                &nbsp;SCHEDULED INTERVIEWS
      
             </a>
-            <a routerLink="/SelectedCandidates" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SELECTED CANDIDATES
+            <a  (click)="Selected()"  class="nonactive" (click)="openCity($event)">
+                <img  *ngIf="!selected" src="assets/Images/64/ATTENDANCE/Report/Probation Evaluation.png" style="width: 13%;  margin-right: 17px;"/> 
+                <img *ngIf="selected" src="assets/Images/64 Blue/ATTENDANCE/Report/Probation Evaluation.png" style="width: 13%;  margin-right: 17px;"/>
+                
+                &nbsp;SELECTED CANDIDATES
            
             </a>
-            <a routerLink="/OfferedCandidates" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;OFFERED CANDIDATES
+            <a  (click)="Offered()"  class="nonactive" (click)="openCity($event)">
+                <img  *ngIf="offered" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Grievance Master.png" style="width: 13%;  margin-right: 17px;"/>
+                <img  *ngIf="!offered" src="assets/Images/64/ATTENDANCE/Report/masters/Grievance Master.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;OFFERED CANDIDATES
             
             </a>
-            <a routerLink="/JoinedCandidates" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;JOINED CANDIDATES
+            <a   (click)="Joined()" class="nonactive" (click)="openCity($event)">
+                <img *ngIf="joined" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Department Master.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!joined" src="assets/Images/64/ATTENDANCE/Report/masters/Department Master.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;JOINED CANDIDATES
            
             </a>
-            <a routerLink="/DroppedCandidates" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;DROPPED CANDIDATES
+            <a  (click)="Dropped()" class="nonactive" (click)="openCity($event)">
+                <img *ngIf="dropped" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/employee_benefits_mapping.png " style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!dropped" src="assets/Images/64/ATTENDANCE/Report/masters/employee_benefits_mapping.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;DROPPED CANDIDATES
            
             </a>
         </div>
@@ -195,39 +218,48 @@
 
         <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button nonactive"
             data-target="#userapplications2" >
-
-            <i class="fa fa-address-book" style="width: 20px; font-size: 20px;  margin-right: 17px;" *ngIf="roleid!=8"></i>
+        <img src="assets/Images/64/ATTENDANCE/Report/Timesheet_repoorts.png" *ngIf="roleid!=8" style="width: 13%;  margin-right: 17px;" />
+             
             &nbsp; Reports
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
 
         <div id="userapplications2" class="collapse" style="padding-left: 7%; ">
-            <a routerLink="/JobRecruitementReport" *ngIf="roleid=='4'" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; JOB RECRUITMENT 
+            <a  (click)="JobRecruitReport()" *ngIf="roleid=='4'" class="nonactive" (click)="openCity($event)">
+                <img *ngIf="Jobrecruitreport" src="assets/Images/64 Blue/Staff.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!Jobrecruitreport" src="assets/Images/64/Staff.png" style="width: 13%;  margin-right: 17px;" /> &nbsp; JOB RECRUITMENT 
             </a>
-            <a routerLink="/VendorJobOpenings" *ngIf="roleid=='3' || roleid=='6'" class="nonactive">
-                <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;  JOB RECRUITMENT              
+            <a  (click)="VendorReport()" *ngIf="roleid=='3' || roleid=='6'" class="nonactive" (click)="openCity($event)">
+                <img *ngIf="vendorreport" src="assets/Images/64 Blue/Staff.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!vendorreport"  src="assets/Images/64/Staff.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;  JOB RECRUITMENT              
             </a>
-            <a routerLink="/AppliedCandidatesReports" class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;APPLIED CANDIDATES            
+            <a  (click)="AppliedReport()"  class="nonactive" (click)="openCity($event)">
+                <img *ngIf="appliedreport" src="assets/Images/64 Blue/ATTENDANCE/OVER TIME DETAILS.png" style="width: 13%;  margin-right: 17px;" />
+                <img *ngIf="!appliedreport" src="assets/Images/64/ATTENDANCE/OVER TIME DETAILS.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;APPLIED CANDIDATES            
             </a>
-            <a routerLink="/ShortlistedCandidatesReports"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SHORTLISTED  
+            <a class="nonactive" (click)="openCity($event)" (click)="Shortlistedreport()">
+                <img *ngIf="shortlistedreport" src="assets/Images/64 Blue/ATTENDANCE/Report/Employee Report.png"  style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!shortlistedreport" src="assets/Images/64/ATTENDANCE/Report/Employee Report.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;SHORTLISTED  
             </a>
-            <a routerLink="/ScheduledInterviewsReports" *ngIf="roleid==8"class="nonactive">
+            <a  *ngIf="roleid==8"class="nonactive" (click)="openCity($event)" (click)="ScheduledReport()">
+                
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp;SCHEDULED INTERVIEWS    
             </a>
-            <a routerLink="/SelectedCandidatesReports"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;SELECTED CANDIDATES           
+            <a class="nonactive" (click)="openCity($event)" (click)="SelectedReport()" >
+                <img *ngIf="selectedreport" src="assets/Images/64 Blue/ATTENDANCE/Report/Probation Evaluation.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!selectedreport" src="assets/Images/64/ATTENDANCE/Report/Probation Evaluation.png" style="width: 13%;  margin-right: 17px;"/> &nbsp;SELECTED CANDIDATES           
             </a>
-            <a routerLink="/OfferedCandidatesReports"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;OFFERED CANDIDATES           
+            <a class="nonactive" (click)="openCity($event)" (click)="OfferedReport()">
+                <img *ngIf="offeredreport" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Grievance Master.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!offeredreport" src="assets/Images/64/ATTENDANCE/Report/masters/Grievance Master.png" style="width: 13%;  margin-right: 17px;" />&nbsp;OFFERED CANDIDATES           
             </a>
-            <a routerLink="/JoinedCandidatesReport"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;JOINED CANDIDATES           
+            <a class="nonactive" (click)="openCity($event)" (click)="JoinedReport()">
+                <img *ngIf="joinedreport" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Department Master.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!joinedreport" src="assets/Images/64/ATTENDANCE/Report/masters/Department Master.png" style="width: 13%;  margin-right: 17px;" />  &nbsp;JOINED CANDIDATES           
             </a>
-            <a routerLink="/DroppedCandiadtesReports"class="nonactive">
-                <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp;DROPPED CANDIDATES
+            <a class="nonactive" (click)="openCity($event)" (click)="DroppedReport()">
+                <img *ngIf="droppedreport" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/employee_benefits_mapping.png" style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!droppedreport" src="assets/Images/64/ATTENDANCE/Report/masters/employee_benefits_mapping.png" style="width: 13%;  margin-right: 17px;" /> &nbsp;DROPPED CANDIDATES
             </a>
         </div>
 
@@ -240,10 +272,10 @@
         </a>
 
         <div id="userapplications4" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/ScheduledInterviews" class="nonactive">
+            <a routerLink="/ScheduledInterviews" class="nonactive" (click)="openCity($event)">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SCHEDULED INTERVIEWS
             </a>
-            <a routerLink="/SelectedCandidates" class="nonactive">
+            <a routerLink="/SelectedCandidates" class="nonactive" (click)="openCity($event)">
                 <img src="assets/Images/Vector.png"   style="width: 20px;    margin-right: 17px;" /> &nbsp; SELECTED CANDIDATES             
             </a>
         </div>

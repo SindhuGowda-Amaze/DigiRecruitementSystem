@@ -20,6 +20,44 @@
   margin-top: 15px;
 }
 
+
+.centerlabel {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 16px;
+  /* identical to box height, or 89% */
+
+  text-align: center;
+  letter-spacing: 1px;
+
+  color: #FFFFFF;
+  margin-top: 15px;
+
+
+}
+
+.time1 {
+  text-align: center;
+  letter-spacing: -0.05em;
+
+  color: #0C275A;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.time {
+  height: 65%;
+  background: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 17%;
+  margin-top: 4px;
+  margin-right: 10px;
+}
+
 .dropdown-submenu>.dropdown-menu {
   top: 0;
   left: 100%;
