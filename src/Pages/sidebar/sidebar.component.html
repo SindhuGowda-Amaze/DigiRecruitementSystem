@@ -105,27 +105,30 @@
 <div class="row">
     <div class="col-md-2 sidenav " style="height: 100vh;margin-top: 75px;position: fixed;">
 
-        <a *ngIf="roleid=='1' && roleid!='5'"  routerLink="/AdminDashboard" class="nonactive">
-            <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;   margin-right: 17px;"></i>
-            &nbsp; Dashboard
-            <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
+        <a *ngIf="roleid=='1' && roleid!='5'" (click)="admin()"  class="nonactive">
+           
+            <img  src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;
+            
+            <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;   margin-right: 17px;"></i>-->
+            &nbsp; Dashboard 
+          
         </a>
-        <a *ngIf=" roleid=='6' || roleid=='3'" routerLink="/Dashboard"class="nonactive">
+        <a *ngIf=" roleid=='6' || roleid=='3'" (click)="admin()" class="nonactive">
 
-            <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
-            &nbsp; Dashboard
-            <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
+            <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
+            &nbsp; Dashboard -->
+            <img  src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;   &nbsp; Dashboard 
         </a>
 
         <a *ngIf="roleid=='1'" data-toggle="collapse" class="togglebtn button nonactive" data-target="#userapplications">
 
-            <i class="fa fa-gears icon28" style="width: 20px;    margin-right: 17px;"></i>
+            <i class="fa fa-gears icon28" style="width: 15%;    margin-right: 17px;"></i>
             &nbsp; SETUP
             <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
         </a>
 
         <div id="userapplications" class="collapse" style="padding-left: 7%;">
-            <a routerLink="/ClientDashBoard"class="nonactive">
+            <a routerLink="/ClientDashBoard" (click)="admin()" class="nonactive">
                 <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; CLIENT
             </a>
             <a routerLink="/ClientStaffDashBoard"class="nonactive">
