@@ -34,7 +34,7 @@
                 <th>Interview Date</th>
                 <!-- <th>Client Name</th> -->
                  <th>Time</th>
-                <th>Interviewer</th>
+                <!-- <th>Interviewer</th> -->
                 <th>Job Title</th>
                 <th>Candidate Name</th>
                 <th>Phone No</th>
@@ -52,7 +52,7 @@
                 <td>{{job.date}}</td>
                 <!-- <td>Mind Tree</td> -->
                 <td>{{job.slotTime}}</td>
-                <td>{{job.staffname}}</td>
+                <!-- <td>{{job.staffname}}</td> -->
                 <td>{{job.jobTitle}}</td>
                 <td>{{job.candidateName}}</td>
                 <td>{{job.phoneNo}}</td>
@@ -62,8 +62,7 @@
                 <td>
                     <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
                 </td>
-                <td>                   
-                </td>
+                <td>{{job.comments}}</td>
                 <td>
                   <button class="btn btn-primary Button" data-toggle="modal" data-target="#exampleModal" (click)="getid(job.id)">Selected</button> <br><br>
                   <button class="btn btn-primary" style="background-color:#dc3545; border:none" 
