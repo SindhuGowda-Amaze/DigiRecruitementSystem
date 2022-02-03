@@ -18,6 +18,7 @@ export class SelectedCandidatesReportsComponent implements OnInit {
    this.loader=true;
     this.GetCandidateReg()
   }
+  
   refresh(){
     location.reload();
   }

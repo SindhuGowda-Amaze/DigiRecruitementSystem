@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   showback: any;
   showfront: any;
   myDate: any;
-
+  joblist20:any;
   search: any;
   count: any;
   count1: any;
@@ -43,6 +43,8 @@ export class DashboardComponent implements OnInit {
   vendorid: any;
   joblist:any;
   hrlist:any;
+  count9:any;
+ 
   constructor(public router: Router, private datePipe: DatePipe,
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
@@ -180,6 +182,14 @@ export class DashboardComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+   
+      this.joblist20 = data.filter(x => x.accept == 1 && x.scheduled == 0);
+    
+      this.count9 = this.joblist20.length;
+    })
+
+
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist13 = data.filter(x => x.offerAcceptreject == 2);
       this.joblist13 = this.joblist13.slice(0, 3);
@@ -193,6 +203,8 @@ export class DashboardComponent implements OnInit {
       this.count6 = this.joblist14.length;
       debugger
     })
+
+
 
 
 

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-10">
             <br>
-            <p class="Heading" style="color:#3247D5">JOB OPENINGS </p>
+            <p class="Heading" style="color:#3247D5">OPEN POSITIONS</p>
         </div>
     </div><br>
     <div class="card">
@@ -66,16 +66,19 @@
                     <td>{{job.skills}}</td>
                     <td>{{job.totalExp}}</td>
                     <td>{{job.relaventExp}}</td>
-                    <td>{{job.jobDescription}}</td>
+                    <td data-toggle="modal" data-target="#Assign1"><button class="Button">view</button></td>
+                   
                     <td>{{job.joblocation}}</td>
                     <td>{{job.noofpositions}}</td>
                     <td>{{job.package}}</td>
                     <td>{{job.hiringManager}}</td>
                     <td>{{job.notes}}</td>
-                    <td><button class="button form-control" data-toggle="modal" (click)="GetId(job.id)">Apply</button>
+                    <td><button class="Button form-control" data-toggle="modal" (click)="GetId(job.id)">Apply</button>
                         <br />
-                        <button *ngIf="job.vendor==null" class="button form-control Add1" data-toggle="modal"
-                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
+                        <!-- <button *ngIf="job.vendor==null" class="button form-control Button" data-toggle="modal"
+                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
+                            <!-- <button  class="button form-control " data-toggle="modal"
+                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
                     </td>
                 </tr>
             </table>
@@ -84,9 +87,34 @@
             </ng-template>
         </div>
     </div>
+</div>
 
 
-
+<div id="Assign1" class="modal fade" role="dialog" *ngFor="let job of joblist">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="Heading">Job Description</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label class="Text">Description :</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <td>{{job.jobDescription}}</td>
+                    </div>
+                </div> <br>
+            </div>
+            <div class="modal-footer">
+                <hr>
+                <div class="col-lg-2">
+                    <button class="Button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

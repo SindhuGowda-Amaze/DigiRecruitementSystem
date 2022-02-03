@@ -65,7 +65,7 @@ public Clientstaff(){
 }
 recruitstaff:any
 public Recruitstaff(){
-  localStorage.setItem('Pagename', 'Client Staff')
+  localStorage.setItem('Pagename', 'Recruit Staff')
   this.router.navigate(['/RecruiterStaffDashboard']);
   this.client=false
   this.clientstaff=false
@@ -76,7 +76,7 @@ public Recruitstaff(){
 }
 vendo:any
 public vendor(){
-  localStorage.setItem('Pagename', 'Client Staff')
+  localStorage.setItem('Pagename', 'Vendor')
   this.router.navigate(['/VendorDashboard']);
   this.vendo=true
   this.client=false
@@ -88,7 +88,7 @@ public vendor(){
 
 vendorstaf:any
 public vendorstaff(){
-  localStorage.setItem('Pagename', 'Client Staff')
+  localStorage.setItem('Pagename', 'Vendor Staff')
   this.router.navigate(['/VendorStaffDashboard']);
   this.vendorstaf=true
   this.vendo=false
@@ -104,7 +104,7 @@ Vendorrecruit:any
     debugger
     if (this.roleid=='1') {
     localStorage.setItem('Pagename', 'Dashboard')
-    this.router.navigate(['/AdminDashboard']);
+    this.router.navigate(['/Dashboard']);
     this.home=true
     this.Jobrecruit=false
     this.Vendorrecruit=false
@@ -132,7 +132,7 @@ Vendorrecruit:any
     else if( this.roleid!='5')
     {
       localStorage.setItem('Pagename', 'Dashboard')
-      this.router.navigate(['/AdminDashboard']);
+      this.router.navigate(['/Dashboard']);
       this.home=true
       this.Jobrecruit=false
       this.Vendorrecruit=false
@@ -265,7 +265,7 @@ Vendorrecruit:any
     this.Jobrecruitreport=false
     this.joinedreport=false
     this.droppedreport=false
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/JobRecruitements']);
    
 
@@ -295,7 +295,7 @@ active:any;
     if(this.roleid=='5'){
       this.active = 82;
       localStorage.setItem('Pagename', 'Scheduled Interviews')
-      this.router.navigate(['/SelectedCandidates']);
+      this.router.navigate(['/RejectedCadidates']);
     }
     
   }
@@ -325,7 +325,7 @@ active:any;
     this.Jobrecruitreport=false
     this.joinedreport=false
     this.droppedreport=false
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/VendorJobOpenings']);
   
   }
@@ -691,7 +691,7 @@ active:any;
   }
 
   public OfferedReport(){
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/OfferedCandidatesReports']);
     this.offeredreport=true
     this.Jobrecruit=false
@@ -720,7 +720,7 @@ active:any;
   }
 
   public JobRecruitReport(){
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/JobRecruitementReport']);
     this.Jobrecruitreport=true
     this.Jobrecruit=false

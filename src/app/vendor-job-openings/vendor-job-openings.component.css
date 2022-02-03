@@ -32,6 +32,15 @@
     height: 61px;
 }
 
+.Button {
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3247D5;
+    color: white;
+    width: 100%;
+  }
+
 .Count {
     color: #3247D5;
     font-size: 20px !important;

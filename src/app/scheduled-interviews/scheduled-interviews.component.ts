@@ -18,9 +18,10 @@ export class ScheduledInterviewsComponent implements OnInit {
   search: any;
   count: any;
   staffid: any;
-
+  Username:any;
   ngOnInit(): void {
     this.staffid = localStorage.getItem('userid');
+    this.Username = localStorage.getItem('UserName');
     this.GetCandidateReg()
     // this.insertdetails()
   }

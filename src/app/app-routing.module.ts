@@ -46,6 +46,7 @@ import { AuthGuard } from './services/auth.guard';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { NotificationComponent } from './notification/notification.component';
+import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -108,6 +109,7 @@ const routes: Routes = [
   { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent, canActivate: [AuthGuard] },
   { path: 'AdminDashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'Notification', component: NotificationComponent, canActivate: [AuthGuard] },
+  { path: 'RejectedCadidates', component: RejectedCadidatesComponent, canActivate: [AuthGuard] },
 
 ];
 

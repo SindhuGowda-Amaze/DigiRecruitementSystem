@@ -59,6 +59,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './notification/notification.component';
+import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
 
 
 
@@ -112,6 +113,7 @@ import { NotificationComponent } from './notification/notification.component';
     AdminDashboardComponent,
     SpinnerComponent,
     NotificationComponent,
+    RejectedCadidatesComponent,
    
   ],
   imports: [

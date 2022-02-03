@@ -25,12 +25,13 @@ export class SelectedCandidatesComponent implements OnInit {
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
   }
-
+  dummjoblist1:any;
   public GetCandidateReg() {
     debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
        this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
       this.dummjoblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+      this.dummjoblist1 = data.filter(x => x.interviewSelected != 1 && x.offered != 0);
      
       this.loader=false;
       this.count = this.joblist.length;

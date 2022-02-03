@@ -113,7 +113,7 @@
                 &nbsp; Dashboard
 
             </a>
-            <a *ngIf=" roleid=='6' || roleid=='3'" (click)="admin()" class="nonactive" (click)="openCity($event)">
+            <a *ngIf=" roleid=='6' || roleid=='3' ||roleid=='4'" (click)="admin()" class="nonactive" (click)="openCity($event)">
 
                 <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
             &nbsp; Dashboard -->
@@ -177,7 +177,7 @@
                 <img src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
                     style="width: 13%;  margin-right: 17px;" *ngIf="roleid!=8 " />
 
-                &nbsp; Job Recruitements
+                &nbsp; JOB RECRUITMENTS
                 <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
             </a>
 
@@ -186,14 +186,14 @@
                     <img *ngIf="Jobrecruit==true" src="../../assets/Images/64 Blue/Staff.png"
                         style="width: 20px;    margin-right: 17px;" />
                     <img *ngIf="Jobrecruit==false" src="assets/Images/64/Staff.png"
-                        style="width: 20px;    margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
+                        style="width: 20px;    margin-right: 17px;" /> &nbsp; OPEN POSITIONS
                 </a>
                 <a (click)="VendorRecruitment()" *ngIf="roleid=='3' || roleid=='6'" class="nonactive"
                     (click)="openCity($event)">
                     <img *ngIf="Vendorrecruit" src="assets/Images/64 Blue/Staff.png"
                         style="width: 20px;    margin-right: 17px;" />
                     <img *ngIf="!Vendorrecruit" src="assets/Images/64/Staff.png"
-                        style="width: 13%;  margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
+                        style="width: 13%;  margin-right: 17px;" /> &nbsp; OPEN POSITIONS
                 </a>
                 <a (click)="Appliedcandidates()" class="nonactive" (click)="openCity($event)">
                     <img *ngIf="!applied" src="assets/Images/64/ATTENDANCE/OVER TIME DETAILS.png"
@@ -262,14 +262,14 @@
                     <img *ngIf="Jobrecruitreport" src="assets/Images/64 Blue/Staff.png"
                         style="width: 13%;  margin-right: 17px;" />
                     <img *ngIf="!Jobrecruitreport" src="assets/Images/64/Staff.png"
-                        style="width: 13%;  margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
+                        style="width: 13%;  margin-right: 17px;" /> &nbsp; OPEN POSITIONS
                 </a>
                 <a (click)="VendorReport()" *ngIf="roleid=='3' || roleid=='6'" class="nonactive"
                     (click)="openCity($event)">
                     <img *ngIf="vendorreport" src="assets/Images/64 Blue/Staff.png"
                         style="width: 13%;  margin-right: 17px;" />
                     <img *ngIf="!vendorreport" src="assets/Images/64/Staff.png"
-                        style="width: 13%;  margin-right: 17px;" /> &nbsp; JOB RECRUITMENT
+                        style="width: 13%;  margin-right: 17px;" /> &nbsp; OPEN POSITIONS
                 </a>
                 <a (click)="AppliedReport()" class="nonactive" (click)="openCity($event)">
                     <img *ngIf="appliedreport" src="assets/Images/64 Blue/ATTENDANCE/OVER TIME DETAILS.png"
