@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
-      this.joblist3 = this.joblist3.slice(0, 4);
+      this.joblist3 = this.joblist3.slice(0, 3);
       debugger
      
     })
@@ -129,6 +129,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist6 = data.filter(x => x.accept == 1 && x.scheduled == 0);
+      this.joblist6 = this.joblist6.slice(0, 3);
       this.count2 = this.joblist6.length;
       debugger
     })
@@ -136,7 +137,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
-      this.joblist7 = this.joblist7.slice(0, 4);
+      this.joblist7 = this.joblist7.slice(0, 3);
       debugger
      
     })
@@ -166,7 +167,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist11 = data.filter(x => x.offerAcceptreject == 1);
-      this.joblist11 = this.joblist11.slice(0, 4);
+      this.joblist11 = this.joblist11.slice(0, 3);
       debugger
      
     })
@@ -181,7 +182,7 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
       this.joblist13 = data.filter(x => x.offerAcceptreject == 2);
-      this.joblist13 = this.joblist13.slice(0, 4);
+      this.joblist13 = this.joblist13.slice(0, 3);
       debugger
      
     })

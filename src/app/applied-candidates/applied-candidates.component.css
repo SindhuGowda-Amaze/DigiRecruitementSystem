@@ -16,9 +16,7 @@
     width:100%;
     vertical-align: middle;
   }
-  td{
-    background-color: white
-}
+
  /* .th{
     background-color: #e4e5e6;
     color:#404040;
@@ -39,7 +37,7 @@
 }
 
 .Heading{
-  padding-left: 15px;
+  padding-left: 5px;
   font-size: 20px;
   color:#3247D5;
 }

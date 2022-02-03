@@ -43,12 +43,12 @@
   font-size: 12px;
   font-weight: bold;
 }
-  .Heading{
+  /* .Heading{
   padding-left: 15px;
   font-size: 20px;
   color:black;
   color: #3247D5; font-family: 'Poppins';
-  }
+  } */
   .head{
   background-color: #dee2e6;
   color:#404040;
@@ -141,15 +141,12 @@
     width: 99%;
   }
   
-  table {
-    border-radius: 12px;
-  }
-  
+ 
   .Heading {
     padding-left: 15px;
-    color: #212529;
+  
     font-size: 20px !important;
-    font-family: "DIN Bold";
+  
     font-weight: bold;
   }
   
@@ -196,7 +193,7 @@
     font-size: 12px;
     font-weight: bold;
   }
-  
+/*   
   .table td {
     color: #0c275a;
     vertical-align: middle;
@@ -214,5 +211,5 @@
     background-color: #02cfff !important;
     color: #ffffff;
   }
-  
+   */
   

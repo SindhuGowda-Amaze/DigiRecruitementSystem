@@ -1,22 +1,22 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid">
     <br>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="Heading">JOINED CANDIDATES DASHBOARD</p>
-              
-                </div>
-            </div> <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="Heading">JOINED CANDIDATES DASHBOARD</p>
+        </div>
+    </div> <br>
 
-            <div class="card"><br>
-                <div class="row FilterClass">
-                    <div class="col-lg-1">
-                        <p>Filter By</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <input class="form-control poppinns" placeholder="Search for Job Title or Candidate Name.." [(ngModel)]="search">
-                    </div>
-                    <!-- <div class="col-lg-3">
+    <div class="card">
+        <div class="row FilterClass">
+            <div class="col-lg-1">
+                <p>Filter By</p>
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control poppinns" placeholder="Search for Job Title or Candidate Name.."
+                    [(ngModel)]="search">
+            </div>
+            <!-- <div class="col-lg-3">
                         <select name="Select" class="form-control">
                             <option value="Select Notice Period FilterClass">Select Notice Period</option>
                             <option value="15 Days">15 Days</option>
@@ -25,56 +25,57 @@
                             <option value="90 Days">90 Days</option>
                         </select>
                     </div> -->
-                    <div class="col-lg-5"></div>
-                    <div class="col-lg-2">
-                        <p class="Count">Count:{{count}}</p>
-                    </div>
-                </div> <br>
-            </div><br> <br>
+            <div class="col-lg-5"></div>
+            <div class="col-lg-2">
+                <p class="Count">Count:{{count}}</p>
+            </div>
+        </div>
+    </div><br> <br>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <table class="table" *ngIf="(joblist | filter: search).length > 0; else noResults">
-                        <thead>
-                            <tr class="head">
-                                <!-- <th>Vendor</th> -->
-                                <th>Job Reference ID</th>
-                                <th>Source</th>
-                                <th>Hiring Manager</th>
-                                <th>Job Title</th>
-                                <th>Candidate Name</th>
-                                <th>Joined Date</th>
-                                <th>Phone No</th>
-                                <th>Email</th>
-                                <th>Total Years of Experience</th>
-                                <th>Relevant Experience</th>
-                                <th>Offer Letter</th>
-                                <th>Offer Comments</th>
-                            </tr>
-                            <tr *ngFor="let job of joblist|filter:search">
-                                <td style="color:#0C275A">{{job.jobRefernceID}}</td>  
-                                <td style="color:#0C275A">{{job.source}}</td>                             
-                                <!-- <td>{{job.slotTime}}</td> --> 
-                                <td style="color:#0C275A">{{job.hiringManager}}</td>
-                                <td style="color:#0C275A">{{job.jobTitle}}</td>
-                                <td style="color:#0C275A">{{job.candidateName}}</td>
-                                <td style="color:#0C275A">{{job.date}}
-                                <td style="color:#0C275A">{{job.phoneNo}}</td>
-                                <td style="color:#0C275A">{{job.email}}</td>
-                                <td style="color:#0C275A">{{job.yearsofExp}}</td>
-                                <td style="color:#0C275A">{{job.relavantExp}}</td>
-                                <td>
-                                    <img src="assets/Images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
-                                </td>                             
-                                <td style="color:#0C275A">
-                                   {{job.offerComments}}
-                                </td>                              
-                            </tr>
-                        </thead>
-                    </table>
-                    <ng-template #noResults>
-                        <p>no results found for "{{search}}" </p> 
-                      </ng-template>
-                </div>
-            </div>       
+    <div class="row">
+        <div class="col-lg-12" style="height: 450px; overflow-y: scroll;">
+            <table class="table" *ngIf="(joblist | filter: search).length > 0; else noResults">
+                <thead>
+                    <tr>
+                        <!-- <th>Vendor</th> -->
+                        <th>Job Reference ID</th>
+                        <th>Source</th>
+                        <th>Hiring Manager</th>
+                        <th>Job Title</th>
+                        <th>Candidate Name</th>
+                        <th>Joined Date</th>
+                        <th>Phone No</th>
+                        <th>Email</th>
+                        <th>Total Years of Experience</th>
+                        <th>Relevant Experience</th>
+                        <th>Offer Letter</th>
+                        <th>Offer Comments</th>
+                    </tr>
+                    <tr *ngFor="let job of joblist|filter:search">
+                        <td>{{job.jobRefernceID}}</td>
+                        <td>{{job.source}}</td>
+                        <!-- <td>{{job.slotTime}}</td> -->
+                        <td>{{job.hiringManager}}</td>
+                        <td>{{job.jobTitle}}</td>
+                        <td>{{job.candidateName}}</td>
+                        <td>{{job.date}}
+                        <td>{{job.phoneNo}}</td>
+                        <td>{{job.email}}</td>
+                        <td>{{job.yearsofExp}}</td>
+                        <td>{{job.relavantExp}}</td>
+                        <td>
+                            <img src="assets/Images/pdf.png" style="width: 30px;"
+                                (click)="GetOfferLetter(job.offerLetter)">
+                        </td>
+                        <td>
+                            {{job.offerComments}}
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+            <ng-template #noResults>
+                <p>no results found for "{{search}}" </p>
+            </ng-template>
+        </div>
+    </div>
 </div>

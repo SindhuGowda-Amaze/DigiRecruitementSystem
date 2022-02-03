@@ -1,46 +1,29 @@
-
-.card{
-  background-color: white;
-}
-
-.card-padding{
-  padding:1%;
-}
-.table{
-border-radius: 5px;
-}
-
-.FilterClass{
+.FilterClass {
   padding-left: 15px;
   font-size: 15px;
   font-weight: bold;
   color: black;
 }
 
-.table td {
-  color: #494949;
-  font-size: 12px;
-  vertical-align: middle;
-  background-color: white;
-}
-
-.HrLine{
+.HrLine {
   margin-top: 10px;
 }
 
 
-.head{
-  background-color:#02CFFF ;
+.head {
+  background-color: #02CFFF;
   color: white;
 }
- .Heading{
-   font-size: 20px;
-   font-weight: bold;
- }
- .Count{
-  color: #212529;
+
+.Heading {
+  font-size: 20px;
+  font-weight: bold;
+  color: #3247d5;
+}
+
+.Count {
+ 
   font-size: 20px !important;
-  font-family: 'DIN Bold';
   font-weight: bold;
   float: right;
   margin-right: 10px;
@@ -50,36 +33,37 @@ border-radius: 5px;
 
 
 
-.Button{
-  padding:7px;
+.Button {
+  padding: 7px;
   border-radius: 5px;
-  border:none;
+  border: none;
   background-color: #007bff;
-  color:white;
-  width:100%;
+  color: white;
+  width: 100%;
 }
-.Add{
-  padding:7px;
+
+.Add {
+  padding: 7px;
   border-radius: 5px;
-  border:none;
-  background-color: #007bff;
-  color:white; 
-  width:100%;
+  border: none;
+  background-color: #3247D5;
+  color: white;
+  width: 100%;
   font-size: 16px;
 }
 
-.Add1{
-  padding:7px;
+.Add1 {
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 5px;
-  border:none;
-  background-color: #007bff;
-  color:white; 
-  width:100%;
+  border: none;
+  background-color: #3247D5;
+  color: white;
+  width: 100%;
   font-size: 16px;
-  height:61px;
+ 
 }
 
-.NoResultShow{
+.NoResultShow {
   font-size: 16px;
 }
-
