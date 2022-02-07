@@ -56,8 +56,8 @@ export class DashboardComponent implements OnInit {
     this.Birthday = false;
     this.NewJoinee = false;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
-    this.roleid = localStorage.getItem('roleid');
-    this.vendorid = localStorage.getItem('vendorid');
+    this.roleid = sessionStorage.getItem('roleid');
+    this.vendorid = sessionStorage.getItem('vendorid');
 
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;

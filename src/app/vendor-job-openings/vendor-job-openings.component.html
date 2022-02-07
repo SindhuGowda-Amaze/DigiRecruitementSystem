@@ -31,7 +31,7 @@
                 </select>
             </div>
             <div class="col-lg-3">
-                <input class="form-control poppinns" placeholder="Search.."  [(ngModel)]="search" name="search">
+                <input class="form-control poppinns" placeholder="Search.."  [(ngModel)]="search" name="search" (ngModelChange)="Filterjobs()">
             </div>
             <div class="col-lg-2">
                 <p class="Count Heading">Count:{{count}}</p>
@@ -40,7 +40,7 @@
     </div> <br>
 
     <div class="row">
-        <div class="col-lg-12" style="height: 470px; overflow-y: scroll; ">
+        <div class="col-lg-12" style="overflow: auto; ">
             <table class="table">
                 <thead>
                     <tr>
@@ -59,7 +59,7 @@
                         <th class="heading">Actions </th>
                     </tr>
                 </thead>
-                <tr *ngFor="let job of joblist|filter:search" >
+                <tr *ngFor="let job of joblist|paginate: { itemsPerPage: count1, currentPage: p }" >
                     <td>{{job.jobRefernceID}}</td>
                     <td><span style="width: 10px;">{{job.date}}</span></td>
                     <td>{{job.jobTitle}}</td>
@@ -73,23 +73,29 @@
                     <td>{{job.package}}</td>
                     <td>{{job.hiringManager}}</td>
                     <td>{{job.notes}}</td>
-                    <td><button class="Button form-control" data-toggle="modal" (click)="GetId(job.id)">Apply</button>
+                    <td><button class="Button form-control" data-toggle="modal" (click)="GetId(job.id)">Upload</button>
                         <br />
-                        <!-- <button *ngIf="job.vendor==null" class="button form-control Button" data-toggle="modal"
-                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
+                        <button *ngIf="job.vendor==null" class=" form-control Add1" data-toggle="modal"
+                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
                             <!-- <button  class="button form-control " data-toggle="modal"
                             (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
                     </td>
                 </tr>
             </table>
+           
             <ng-template #noResults>
                 <p> no results found for "{{search}}" </p>
             </ng-template>
         </div>
+        <div class="text-right">
+            <br>
+            <pagination-controls (pageChange)="p = $event" class="poppinns"></pagination-controls>
+        </div> 
+        <span *ngIf="joblist.length==0">No data found.</span>
     </div>
 </div>
 
-
+  
 <div id="Assign1" class="modal fade" role="dialog" *ngFor="let job of joblist">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

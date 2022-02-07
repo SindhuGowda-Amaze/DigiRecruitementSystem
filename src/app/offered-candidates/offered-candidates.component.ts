@@ -12,7 +12,8 @@ export class OfferedCandidatesComponent implements OnInit {
 
   constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
 
-
+  p: any = 1;
+  count1: any = 5;
 
   OfferComments: any;
   joblist: any;
@@ -21,6 +22,8 @@ export class OfferedCandidatesComponent implements OnInit {
   search:any;
   roleid:any;
   loader:any;
+  jobListCopy:any;
+  Date:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
@@ -32,6 +35,8 @@ export class OfferedCandidatesComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      this.jobListCopy = this.joblist
+      
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -44,6 +49,21 @@ export class OfferedCandidatesComponent implements OnInit {
 
 
 
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
+
+  
+public changeAnniversary() {
+  debugger;
+
+  this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+
+    this.joblist = data.filter(x => x.tentativeDate == this.Date + "T00:00:00");
+  });
+}
 
 
   public Accept(id:any, comments:any) {

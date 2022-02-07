@@ -19,8 +19,11 @@ export class LoginPageComponent implements OnInit {
   password: any;
   username: any;
   loginTypeList: any;
-  companycode:any
+  companycode: any
   showpassword: any;
+
+  name:any;
+
   constructor(public RecruitmentServiceService: RecruitmentServiceService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,7 +34,7 @@ export class LoginPageComponent implements OnInit {
 
     }
     this.GetLoginTypeMaster();
-  } 
+  }
 
   Showhidepassword() {
     debugger
@@ -82,13 +85,13 @@ export class LoginPageComponent implements OnInit {
       sessionStorage.setItem('temp', '1');
       sessionStorage.setItem('role', 'Admin');
       // this.router.navigate(["/Dashboard"]);
-      location.href="#/Dashboard"
+      location.href = "#/AdminDashboard"
       sessionStorage.setItem('roleid', '1');
       location.reload();
 
-      
+
     }
-    else if (this.roleID == 6){
+    else if (this.roleID == 6) {
       this.RecruitmentServiceService.GetRecruiterStaff().subscribe(data => {
         let temp: any = data.filter(x => (x.email == this.userName || x.phoneNo == this.userName) && x.password == this.password);
         this.result = temp[0];
@@ -102,7 +105,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('roleid', '6');
           location.href = "#/Dashboard";
           location.reload();
-       
+
 
         }
         else {
@@ -110,14 +113,14 @@ export class LoginPageComponent implements OnInit {
           this.userName = "";
           this.password = "";
         }
-       
-    }) 
-     
+
+      })
+
     }
 
 
-      
-    else if (this.roleID == 4){
+
+    else if (this.roleID == 4) {
       this.RecruitmentServiceService.GetClientMaster().subscribe(data => {
         let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
         this.result = temp[0];
@@ -131,7 +134,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('roleid', '4');
           location.href = "#/Dashboard";
           location.reload();
-       
+
 
         }
         else {
@@ -139,17 +142,17 @@ export class LoginPageComponent implements OnInit {
           this.userName = "";
           this.password = "";
         }
-       
-    }) 
-     
+
+      })
+
     }
 
 
 
 
-    else if (this.roleID == 3){
+    else if (this.roleID == 3) {
       this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
-        let temp: any = data.filter(x => (x.phone_Number == this.userName||x.email_ID == this.userName) && x.password == this.password);
+        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -162,7 +165,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('notes', this.result.notes);
           location.href = "#/Dashboard";
           location.reload();
-       
+
 
         }
         else {
@@ -170,9 +173,9 @@ export class LoginPageComponent implements OnInit {
           this.userName = "";
           this.password = "";
         }
-       
-    }) 
-     
+
+      })
+
     }
 
 
@@ -192,32 +195,45 @@ export class LoginPageComponent implements OnInit {
 
 
 
-    //for vendor login
-    // else if (this.roleID == 7) {
-    //   debugger;
-    //   this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
-    //     this.result = data;
-    //     // this.result = data.filter(x => x.loginTypeID == 7);
-    //     debugger;
-    //     if (this.result != undefined || this.result != null) {
-    //       localStorage.setItem('temp', '1');
-    //       localStorage.setItem('roleid', '7');
-    //       localStorage.setItem('vendorid', this.result.id);
-    //       localStorage.setItem('staffID', this.result.staffID);
-    //       localStorage.setItem('buildingID', this.result.buildingID);
-    //       localStorage.setItem('userRoleID', this.result.userRoleID);
-    //       localStorage.setItem('userName', this.result.loginName);
-    //       localStorage.setItem('name', this.result.name);
-    //       localStorage.setItem('phoneNo', this.result.phoneNo);
-    //       localStorage.setItem('userName', this.result.emailID);
-    //       localStorage.setItem('password', this.result.password);
-    //       localStorage.setItem('projectName', this.result.projectName);
+    // for vendor login
+    else if (this.roleID == 7) {
+      debugger;
+      this.RecruitmentServiceService.GetVendor_Staff().subscribe(data => {
+        // this.result = data;
+        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password);
+        this.result = temp[0];
+        // this.result = data.filter(x => x.loginTypeID == 7);
+        debugger;
+        if (this.result != undefined || this.result != null) {
+          localStorage.setItem('temp', '1');
+          localStorage.setItem('roleid', '7');
+          localStorage.setItem('vendorid', this.result.id);
+          localStorage.setItem('staffID', this.result.staffID);
+          localStorage.setItem('buildingID', this.result.buildingID);
+          localStorage.setItem('userRoleID', this.result.userRoleID);
+          localStorage.setItem('userName', this.result.loginName);
+          localStorage.setItem('name', this.result.name);
+          localStorage.setItem('phoneNo', this.result.phoneNo);
+          localStorage.setItem('userName', this.result.emailID);
+          localStorage.setItem('password', this.result.password);
+          localStorage.setItem('projectName', this.result.projectName);
 
-    //       // this.router.navigate(["/Dashboard"]);
-    //       location.href="/Dashboard"
-    //       //  location.reload();
-          
-    //     }
+          // this.router.navigate(["/Dashboard"]);
+          location.href = "#/Dashboard"
+          location.reload();
+
+
+        }
+        else {
+          Swal.fire('Username or Password is Invalid');
+          this.userName = "";
+          this.password = "";
+        }
+
+      })
+
+    }
+
     //     else {
     //       Swal.fire('Phonenumber or Password is invalid');
     //       this.userName = "";
@@ -227,7 +243,7 @@ export class LoginPageComponent implements OnInit {
     // }
 
 
-    
+
     //for staff login
     // else if (this.roleID == 8) {
     //   debugger
@@ -261,7 +277,7 @@ export class LoginPageComponent implements OnInit {
     //   })
     // }
 
-//for hiring manager login
+    //for hiring manager login
     // else if (this.roleID == 9) {
     //   debugger
     //   this.RecruitmentServiceService.GetUsersdetailsForHRLogin(this.userName, this.password).subscribe(data => {
@@ -400,10 +416,10 @@ export class LoginPageComponent implements OnInit {
     //   })
     // }
 
-    
-    else if (this.roleID == 5){
+
+    else if (this.roleID == 5) {
       this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
-        let temp: any = data.filter(x => (x.phoneNo == this.userName||x.email == this.userName) && x.password == this.password);
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -411,12 +427,12 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('UserName', this.result.name);
           sessionStorage.setItem('userid', this.result.id);
           sessionStorage.setItem('temp', '1');
-          sessionStorage.setItem('role', 'ClientStaff');
+          sessionStorage.setItem('role', 'Interview Panel');
           sessionStorage.setItem('roleid', '5');
           location.href = "#/ScheduledInterviews";
           location.reload();
-        
-       
+
+
 
         }
         else {
@@ -424,13 +440,37 @@ export class LoginPageComponent implements OnInit {
           this.userName = "";
           this.password = "";
         }
-       
-    }) 
-     
+
+      })
     }
+      
+      else if (this.roleID == 2) {
+        this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+          let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
+          this.result = temp[0];
+          debugger;
+          // this.loader = true;
+          if (this.result != undefined || this.result != null) {
+            sessionStorage.setItem('UserName', this.result.name);
+            sessionStorage.setItem('userid', this.result.id);
+            sessionStorage.setItem('temp', '1');
+            sessionStorage.setItem('role', 'Hiring Manager');
+            sessionStorage.setItem('roleid', '2');
+            location.href = "#/Dashboard";
+            location.reload();
+          }
+          else {
+            Swal.fire('Username or Password is Invalid');
+            this.userName = "";
+            this.password = "";
+          }
+  
+        })
+  
+      }
 
 
-    
+
 
     else if (this.roleID == 5) {
 
@@ -493,7 +533,5 @@ export class LoginPageComponent implements OnInit {
         }
       })
     }
-
   }
-  
 }

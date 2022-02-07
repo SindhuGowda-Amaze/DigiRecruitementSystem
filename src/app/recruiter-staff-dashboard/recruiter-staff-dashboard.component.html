@@ -49,10 +49,10 @@
                                 <th>Phone No.</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th>Signature</th>
+                                <th style="width: 5%;">Signature</th>
                                 <!-- <th>Contact Person Name</th>
                                     <th>Contact Person Phone No.</th> -->
-                                <th>Actions</th>
+                                <th style="width: 5%;">Actions</th>
                             <tr>
                         </thead>
                         <tbody>
@@ -63,16 +63,16 @@
                                 <td>{{staff.phoneNo}}</td>
                                 <td>{{staff.email}}</td>
                                 <td>{{staff.address}}</td>
-                                <td><img src="{{staff.signature}}" class="logo"></td>
+                                <td style="width: 5%;"><img src="{{staff.signature}}" class="logo"></td>
                                 <td><button class="Edit" (click)="Update(staff)">Edit</button><br><br>
                                     <button class="Edit" (click)="delete(staff.id)">Delete</button><br><br>
 
-                                    <img src="assets/Images/activate.png" style="width:15%"
+                                    <img src="assets/Images/activate.png" style="width:30%"
                                         *ngIf="staff.enable_Disable==0 || staff.enable_Disable==null "
                                         (click)="DisableStaff(staff.id)"> <br />
 
                                     <img src="assets/Images/deactivate.png" *ngIf="staff.enable_Disable==1"
-                                        (click)="DisableStaff1(staff.id)" style="width:15%">
+                                        (click)="DisableStaff1(staff.id)" style="width:30%">
                                 </td>
                                 <!-- <td><img class="imgcancel" src="/assets/cancel (1).png" ></td> -->
                             </tr>

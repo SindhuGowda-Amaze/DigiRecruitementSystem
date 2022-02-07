@@ -18,6 +18,9 @@ export class VendorJobOpeningsComponent implements OnInit {
   term:any;
   userid:any;
   roleid:any;
+  jobListCopy:any;
+  p: any = 1;
+  count1: any = 5;
   ngOnInit(): void {
     debugger;
     this.userid=sessionStorage.getItem('userid')
@@ -35,6 +38,7 @@ export class VendorJobOpeningsComponent implements OnInit {
     else {
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
         this.joblist = data;
+        this.jobListCopy = this.joblist
         this.count = this.joblist.length;
       })
     }
@@ -49,7 +53,11 @@ export class VendorJobOpeningsComponent implements OnInit {
   //     this.count = this.joblist.length;
   //   })
   // }
-
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
   GetId(id: any) {
     this.ID = id
     location.href = "#/JobVacancies/" + this.ID

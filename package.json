@@ -34,6 +34,7 @@
     "ngx-bootstrap": "^7.1.0",
     "ngx-dropzone": "^3.0.0",
     "ngx-editor": "^12.0.0",
+    "ngx-pagination": "^5.1.1",
     "ngx-spinner": "^13.0.0",
     "pipes-module": "^1.0.1",
     "rxjs": "~7.4.0",
@@ -41,7 +42,9 @@
     "tslib": "^2.3.0",
     "xlsx": "^0.17.4",
     "xlsx-import": "^2.4.4",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "fullcalendar": "^5.10.1",
+    "ngx-fullcalendar": "^5.0.0-alpha.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.2",

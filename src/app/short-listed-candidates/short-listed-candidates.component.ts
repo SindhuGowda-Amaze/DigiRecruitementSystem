@@ -3,6 +3,7 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-short-listed-candidates',
   templateUrl: './short-listed-candidates.component.html',
@@ -22,7 +23,12 @@ export class ShortListedCandidatesComponent implements OnInit {
   roleid: any;
   userid:any;
   searchbyctc:any;
-  searchbynotice:any
+  searchbynotice:any;
+  p: any = 1;
+  count1: any = 5;
+  jobListCopy:any;
+  noticeperiodlist:any;
+  ctclist:any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -40,8 +46,11 @@ export class ShortListedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && ( x.source == 'Vendor' && x.vendorId == this.userid )	) ;
         this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
         this.loader=false;
         this.count = this.joblist.length;
+
       })
 
     }
@@ -50,6 +59,10 @@ export class ShortListedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+         this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
+       
+        this.jobListCopy = this.joblist
         this.loader=false;
         this.count = this.joblist.length;
       })
@@ -57,6 +70,29 @@ export class ShortListedCandidatesComponent implements OnInit {
     }
   }
 
+  public changeoption() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+    });
+  }
+
+  public changectc(){
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.ctc == this.searchbyctc));
+    });
+  }
+
+  public FilterVendorJobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
+
+ 
 
   public GetDate(even:any) {
     this.date = even.target.value;

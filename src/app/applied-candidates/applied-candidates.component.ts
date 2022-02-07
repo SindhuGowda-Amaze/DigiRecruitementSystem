@@ -22,6 +22,10 @@ export class AppliedCandidatesComponent implements OnInit {
   userid:any;
   searchbyctc:any;
   searchbynotice:any;
+  noticeperiodlist:any;
+  ctclist:any;
+  p: any = 1;
+  count1: any = 5;
 
   ngOnInit(): void {
   
@@ -37,7 +41,9 @@ export class AppliedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid) )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid));
-      
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+       
         this.count = this.joblist.length;
       })
   
@@ -50,7 +56,8 @@ export class AppliedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
-      
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.count = this.joblist.length;
       })
   
@@ -149,4 +156,21 @@ export class AppliedCandidatesComponent implements OnInit {
       }
     })
   }
+
+
+  public changeoption() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+    });
+  }
+
+  // public changectc(){
+  //   debugger;
+  
+  //   this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+  //     this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.ctc == this.searchbyctc));
+  //   });
+  // }
 }

@@ -18,6 +18,8 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
   loader:any;
   roleid:any;
   userid:any;
+  p: any = 1;
+  count1: any = 5;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {

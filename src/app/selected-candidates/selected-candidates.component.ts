@@ -20,6 +20,13 @@ export class SelectedCandidatesComponent implements OnInit {
   date: any;
   loader:any;
   dummjoblist:any;
+  jobListCopy:any;
+  joiningbonus: any;
+  Notes: any;
+  noticeperiodbythen: any;
+  searchbynotice:any;
+  option:any;
+  noticeperiodlist:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
@@ -30,9 +37,10 @@ export class SelectedCandidatesComponent implements OnInit {
     debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
        this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+       this.jobListCopy=this.joblist;
       this.dummjoblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
       this.dummjoblist1 = data.filter(x => x.interviewSelected != 1 && x.offered != 0);
-     
+      this.noticeperiodlist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -111,10 +119,8 @@ this.files.splice(this.files.indexOf(event),1);
     
   }
 
-  joiningbonus: any;
-  Notes: any;
-  noticeperiodbythen: any;
-  searchbynotice:any
+
+ 
 
 
 
@@ -184,20 +190,38 @@ this.files.splice(this.files.indexOf(event),1);
     
   // }
 
-  public GetDate(event: any) {
-    if (this.Date == 0) {
-      debugger
-      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.joblist = data;
-        debugger
-        this.dummjoblist = data;
-        this.count = this.joblist.length;
-      })
-    }
-    else {
-      debugger
-      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
-      this.count = this.joblist.length;
-    }
-  }
+//   public GetDate(event: any) {
+//     if (this.Date == 0) {
+//       debugger
+//       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+//         this.joblist = data;
+//         debugger
+//         this.dummjoblist = data;
+//         this.count = this.joblist.length;
+//       })
+//     }
+//     else {
+//       debugger
+//       this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
+//       this.count = this.joblist.length;
+//     }
+//   }
+
+
+public changeAnniversary() {
+  debugger;
+
+  this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+
+    this.joblist = data.filter(x => x.cdate == this.Date + "T00:00:00");
+  });
+}
+
+public changeoption() {
+  debugger;
+
+  this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+    this.joblist = data.filter(x => (x.interviewSelected == 1 && x.offered == 0) &&  (x.noticePeriod == this.searchbynotice));
+  });
+}
 }

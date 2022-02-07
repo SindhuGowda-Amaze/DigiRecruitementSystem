@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxFullCalendarModule } from 'ngx-fullcalendar';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +35,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 import { PipesModule } from 'pipes-module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+////import { DatePipe } from '@angular/common';
 // import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
@@ -60,7 +63,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './notification/notification.component';
 import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -114,6 +119,7 @@ import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadida
     SpinnerComponent,
     NotificationComponent,
     RejectedCadidatesComponent,
+    ScheduledInterviewCalenderComponent,
    
   ],
   imports: [
@@ -129,10 +135,13 @@ import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadida
     Ng2SearchPipeModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    NgxFullCalendarModule,
+    
   ],
 
-  providers: [AuthGuard],
+  providers: [AuthGuard,DatePipe],
   bootstrap: [AppComponent],
   
 })

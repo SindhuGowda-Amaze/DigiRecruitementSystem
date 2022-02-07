@@ -17,7 +17,13 @@ export class JoinedCandidatesComponent implements OnInit {
   term: any;
   search:any;
   loader:any;
+  p: any = 1;
+  count1: any = 5;
+  jobListCopy:any;
+  roleid:any;
+  Date:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
     this.GetCandidateReg();
   }
@@ -25,6 +31,7 @@ export class JoinedCandidatesComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offerAcceptreject == 1);
+      this.jobListCopy = this.joblist
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -35,7 +42,20 @@ export class JoinedCandidatesComponent implements OnInit {
     window.open(offer, "_blank")
   }
 
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
 
+  public changeAnniversary() {
+    debugger;
+  
+    this.RecruitServiceService.GetCandidateRegistration().subscribe(data => {
+  
+      this.joblist = data.filter(x => x.cdate == this.Date + "T00:00:00");
+    });
+  }
 
 
 

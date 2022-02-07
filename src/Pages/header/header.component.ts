@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   username: any
   ngOnInit() {
 
-
+    this.pagename = "DASHBOARD"
     interval(1000).subscribe((x => {
       
       this.pagename = localStorage.getItem('Pagename')

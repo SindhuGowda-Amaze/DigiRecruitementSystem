@@ -97,20 +97,20 @@ export class ClientStaffFormComponent implements OnInit {
 
  Save() {
   debugger
-  if(this.Name==undefined||this.PhoneNo==undefined||this.Email==undefined||this.Address==undefined||this.Signature==undefined)
-  {
-    alert("Please Fill All Fields to Save!!!")
-  }
-  else{
+  // if(this.Staff==undefined||this.Role==undefined||this.Email==undefined||this.PhoneNo==undefined||this.Address==undefined||this.Signature==undefined)
+  // {
+  //   alert("Please Fill All Fields to Save!!!")
+  // }
+  // else{
    
     var json = {
-      "ClientID": this.Staff,
-      "Role_Id": this.Role,
-      "Name": this.Name,
-      "PhoneNo": this.PhoneNo,
-      "Email": this.Email,
-      "Address": this.Address,
-      "Signature": this.Signature,
+      "clientID": this.Staff,
+      "role_Id": this.Role,
+      "name": this.Name,
+      "phoneNo": this.PhoneNo,
+      "email": this.Email,
+      "address": this.Address,
+      "signature": this.Signature,
     };
     this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
       data => {
@@ -119,7 +119,7 @@ export class ClientStaffFormComponent implements OnInit {
         Swal.fire("Successfully Submitted...!!");
         location.href = "#/ClientStaffDashBoard"
       })
-  }
+  // }
  
 }
 
@@ -145,13 +145,13 @@ this.files.splice(this.files.indexOf(event),1);
   Update() {
     debugger
     var json = {
-      "ClientID": this.Staff,
-      "Role": this.Role,
-      "Name": this.Name,
-      "PhoneNo": this.PhoneNo,
-      "Email": this.Email,
-      "Address": this.Address,
-      "Signature": this.Signature,  
+      "clientID": this.Staff,
+      "role": this.Role,
+      "name": this.Name,
+      "phoneNo": this.PhoneNo,
+      "email": this.Email,
+      "address": this.Address,
+      "signature": this.Signature,  
     };
 
     this.RecruitmentServiceService.UpdateClientStaff(json).subscribe(

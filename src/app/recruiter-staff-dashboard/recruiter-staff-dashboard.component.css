@@ -78,17 +78,16 @@ ul {
     text-align: center;
   }
 
-  .Edit{
-    width: 50px;
-    border-radius: 7px;
-    background-color: #2F87CC;
-    color: white;
-  }
 
   .logo{
-      width:6%
+      width:25%
   }
-
+  th{
+    width: 5%;
+  }
+td{
+  width: 5%;
+}
   .NoResultShow{
     font-size: 16px;
   }
@@ -144,7 +143,7 @@ ul {
     border-radius: 5px;
     border: none;
     padding: 5px;
-    width: 25%;
+    width: 35%;
     margin-right: 15px;
     font-size: 12px;
     font-weight: bold;
