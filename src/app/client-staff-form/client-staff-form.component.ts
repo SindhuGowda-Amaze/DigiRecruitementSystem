@@ -15,7 +15,9 @@ export class ClientStaffFormComponent implements OnInit {
 
     this.GetRoleType();
 
-    this.GetClientStaff();
+    this.GetClientMaster();
+
+
         this.ActivatedRoute.params.subscribe(params=>{
       debugger
      this.id=params["id"];
@@ -24,13 +26,13 @@ export class ClientStaffFormComponent implements OnInit {
      }
     })
   }
-
+  RoleList:any;
   public GetRoleType() {
     debugger
     this.RecruitmentServiceService.GetRoleType().subscribe(
       data => {
-      this.ClientList = data
-      this.count = this.ClientList.length;
+      this.RoleList = data
+      this.count = this.RoleList.length;
     })
 
   }
@@ -38,16 +40,17 @@ export class ClientStaffFormComponent implements OnInit {
 
 
   ClientStaffList:any;
-  public GetClientStaff() {
+  public GetClientMaster() {
     debugger
     this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
       debugger
-      this.StaffList=data ;
+      this.ClientList=data ;
      })
   }
 
   id:any;
   // Company_logo:any;
+  
   Name: any;
   PhoneNo: any;
   Email: any;
@@ -93,7 +96,7 @@ export class ClientStaffFormComponent implements OnInit {
     console.log("content", this.files);
   }
 
- 
+  client:any;
 
  Save() {
   debugger
@@ -104,13 +107,13 @@ export class ClientStaffFormComponent implements OnInit {
   // else{
    
     var json = {
-      "clientID": this.Staff,
-      "role_Id": this.Role,
-      "name": this.Name,
-      "phoneNo": this.PhoneNo,
-      "email": this.Email,
-      "address": this.Address,
-      "signature": this.Signature,
+      "ClientID": this.client,
+      "Role_Id": this.Role,
+      "Name": this.Name,
+      "PhoneNo": this.PhoneNo,
+      "Email": this.Email,
+      "Address": this.Address,
+      "Signature": this.Signature,
     };
     this.RecruitmentServiceService.InsertClientStaff(json).subscribe(
       data => {
@@ -141,11 +144,11 @@ this.files.splice(this.files.indexOf(event),1);
   }
 
 
-
+  Staff1:any
   Update() {
     debugger
     var json = {
-      "clientID": this.Staff,
+      "clientID": this.Staff1,
       "role": this.Role,
       "name": this.Name,
       "phoneNo": this.PhoneNo,

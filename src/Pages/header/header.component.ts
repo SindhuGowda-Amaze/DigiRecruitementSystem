@@ -21,10 +21,12 @@ export class HeaderComponent implements OnInit {
   hh: any;
   mm: any;
   ampm: any;
-  username: any
+  username: any;
   ngOnInit() {
 
-    this.pagename = "DASHBOARD"
+  this.pagename = "DASHBOARD"
+
+   
     interval(1000).subscribe((x => {
       
       this.pagename = localStorage.getItem('Pagename')

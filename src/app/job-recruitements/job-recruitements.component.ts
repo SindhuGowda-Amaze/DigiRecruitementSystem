@@ -22,11 +22,18 @@ export class JobRecruitementsComponent implements OnInit {
   dummjoblist1: any;
   Userlist: any;
   Hired: any;
+  hrlist:any;
+  roleid:any;
   NoofpositionsHired: any;
   ngOnInit(): void {
+    this.hiringManager="Slect Hiring Manager"
+    this.roleid = sessionStorage.getItem('roleid');
     this.loader = true;
     this.GetRecruiterStaff();
     this.GetUserslist();
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data;
       this.jobListCopy = this.joblist
@@ -156,7 +163,24 @@ export class JobRecruitementsComponent implements OnInit {
   }
 
 
-
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
+  }
 
 
 

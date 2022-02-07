@@ -104,7 +104,7 @@ Vendorrecruit:any
     debugger
     if (this.roleid=='1') {
     localStorage.setItem('Pagename', 'DASHBOARD')
-    this.router.navigate(['/Dashboard']);
+    this.router.navigate(['/AdminDashboard']);
     this.home=true
     this.Jobrecruit=false
     this.Vendorrecruit=false

@@ -91,7 +91,7 @@ export class VendorStaffFormComponent implements OnInit {
         debugger
         let id = data;
         alert("Successfully saved!!")
-        location.href = "/VendorStaffForm"
+        location.href = "#/VendorStaffDashboard"
       })
   }
   vendordetails: any;
@@ -130,13 +130,13 @@ export class VendorStaffFormComponent implements OnInit {
         debugger
         alert("Updated Sucessfully");
         let id = data;
-        location.href = "/VendorStaffDashboard";
+        location.href = "#/VendorStaffDashboard";
 
       }
     )
   }
   cancel(){
-    location.href = "/VendorStaffDashboard";
+    location.href = "#/VendorStaffDashboard";
   }
 }
 

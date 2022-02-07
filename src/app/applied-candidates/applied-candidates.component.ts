@@ -26,7 +26,8 @@ export class AppliedCandidatesComponent implements OnInit {
   ctclist:any;
   p: any = 1;
   count1: any = 5;
-
+  hrlist:any
+  hiringManager:any;
   ngOnInit(): void {
   
     this.userid=sessionStorage.getItem('userid');
@@ -34,7 +35,9 @@ export class AppliedCandidatesComponent implements OnInit {
     
     this.userid=sessionStorage.getItem('userid')
     
- 
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
  
     if(this.roleid=='3'){
       debugger;
@@ -173,4 +176,22 @@ export class AppliedCandidatesComponent implements OnInit {
   //     this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.ctc == this.searchbyctc));
   //   });
   // }
+
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
+  }
 }

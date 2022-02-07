@@ -12,6 +12,12 @@
           <div class="col-lg-1" style="font-size: 15px;">
             <p>Filter By</p>
           </div>
+          <div class="col-lg-3"  *ngIf="roleid==4">
+            <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                <option value="0">Select Hiring Manager</option>
+                <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+              </select>
+        </div>
           <!-- <div class="col-lg-2">
             <select name="Select" class="form-control poppinns" [(ngModel)]="searchbyctc">
               <option value="Select CTC">Select CTC</option>
@@ -27,7 +33,7 @@
           <div class="col-lg-4">
             <input class="form-control poppinns" placeholder="Search for Candidate Name..." [(ngModel)]="search">
           </div>
-           <div class="col-lg-1"></div>
+          
           <div class="col-lg-2">
             <p class="Count">Count:{{count}}</p>
           </div>
