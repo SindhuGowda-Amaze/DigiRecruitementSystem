@@ -17,13 +17,13 @@
       </div>
       <div class="col-lg-2">
         <select name="Select" class="form-control poppinns"  (change)="changectc()" [(ngModel)]="searchbyctc">
-          <option style="color:#0C275A" value="Select CTC">Select CTC</option>
+          <option style="color:#0C275A" value="">Select CTC</option>
           <option style="color:#0C275A" *ngFor="let job of ctclist" value="{{job.ctc}}">{{job.ctc}}</option>
         </select>
       </div>
       <div class="col-lg-2">
         <select name="Select" class="form-control poppinns"  (change)="changeoption()"  [(ngModel)]="searchbynotice">
-          <option style="color:#0C275A" value="Select Notice Period">Select Notice Period</option>
+          <option style="color:#0C275A" value="">Select Notice Period</option>
           <option style="color:#0C275A" *ngFor="let job of noticeperiodlist" value="{{job.noticePeriod}}">{{job.noticePeriod}}</option>
         </select>
       </div>

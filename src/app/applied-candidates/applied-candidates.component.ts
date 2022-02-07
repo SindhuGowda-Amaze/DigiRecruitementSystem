@@ -29,8 +29,9 @@ export class AppliedCandidatesComponent implements OnInit {
   hrlist:any
   hiringManager:any;
   ngOnInit(): void {
-  
-    this.userid=sessionStorage.getItem('userid');
+  this.hiringManager="";
+  this.searchbynotice="";
+   
     this.roleid = sessionStorage.getItem('roleid');
     
     this.userid=sessionStorage.getItem('userid')

@@ -46,7 +46,7 @@
                                 <th>Staff Name</th>
                                 <th>Phone Number</th>
                                 <th>Email Id</th>
-                                <th style="width:160px;">Signature</th>
+                                <!-- <th style="width:160px;">Signature</th> -->
                                 <th>Actions</th>
                             </tr>
                             <tr *ngFor="let vendor of staffdetails|filter:search">
@@ -55,7 +55,7 @@
                                 <td>{{vendor.staff_Name}}</td>
                                 <td>{{vendor.phone_Number}}</td>
                                 <td>{{vendor.email_Id}}</td>
-                                <td><img style="width:40% ; text-align:center;" src="{{vendor.signature}}"> </td>
+                                <!-- <td><img style="width:40% ; text-align:center;" src="{{vendor.signature}}"> </td> -->
                                 <td><button class="Edit" (click)="edit(vendor.id)">Edit</button> <br> <br>
                                     <button class="Edit" (click)="Ondelete(vendor.id)">Delete</button><br><br>
 

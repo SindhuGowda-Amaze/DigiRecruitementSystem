@@ -17,9 +17,25 @@ export class AppliedCandidatesReportsComponent implements OnInit {
   term: any;
   loader:any;
   searchbyctc:any;
+  roleid:any;
+  userid:any;
+  hrlist:any;
+  hiringManager:any;
+  search:any
+  p: any = 1;
+  count1: any = 5;
   ngOnInit(): void {
+    this.hiringManager="";
+    this.roleid = sessionStorage.getItem('roleid');
+    
+    this.userid=sessionStorage.getItem('userid')
+    
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     this.loader=true;
     this.GetCandidateReg()
+    
   }
   refresh(){
     location.reload();
@@ -66,5 +82,25 @@ export class AppliedCandidatesReportsComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
     this.loader = false;
+  }
+
+  
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  }
+
+  public GetOfferLetter(offer:any) {
+    
+    window.open(offer, "_blank")
   }
 }

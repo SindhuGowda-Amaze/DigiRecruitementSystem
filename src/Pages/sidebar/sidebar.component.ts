@@ -65,7 +65,7 @@ public Clientstaff(){
 }
 recruitstaff:any
 public Recruitstaff(){
-  localStorage.setItem('Pagename', 'RECRUITER STAFF')
+  localStorage.setItem('Pagename', 'RECRUITER')
   this.router.navigate(['/RecruiterStaffDashboard']);
   this.client=false
   this.clientstaff=false

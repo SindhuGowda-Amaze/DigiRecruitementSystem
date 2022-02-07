@@ -8,6 +8,8 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./job-recruitement-report.component.css']
 })
 export class JobRecruitementReportComponent implements OnInit {
+  ID: any;
+  show: any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
@@ -20,16 +22,33 @@ export class JobRecruitementReportComponent implements OnInit {
   search: any;
   count: any;
   loader:any;
-  
-
+  hiringManager:any;
+  hrlist:any;
+  p: any = 1;
+  count1: any = 5;
+  roleid:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
+    this.hiringManager="";
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
+
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       this.joblist = data;
       this.loader=false;
       this.count = this.joblist.length;
     })
   }
+  description:any;  
+  GetId(id: any) {
+    this.ID = id
+    debugger
+    this.description = this.joblist.filter((x: { ID: any; }) => x.ID == this.ID);
+    this.show=1;
+  }
+
   fileName = 'JOB RECRCUITMENT REPORT.xlsx';
   exportexcel(): void {
     this.loader = false;
@@ -46,4 +65,20 @@ export class JobRecruitementReportComponent implements OnInit {
     this.loader = false;
   }
 
+
+  joblist1:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist1 = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+
+}
 }

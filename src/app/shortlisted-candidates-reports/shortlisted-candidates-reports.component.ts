@@ -20,13 +20,20 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
   userid:any;
   p: any = 1;
   count1: any = 5;
+  hrlist:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
+    this.hiringManager="";
     this.userid=sessionStorage.getItem('userid')
     this.roleid = sessionStorage.getItem('roleid');
     
     this.loader=true;
+
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
+   
     this.GetCandidateReg();
     this.GetStaffType();
     if(this.roleid=='3'){
@@ -53,6 +60,8 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     this.date = even.target.value;
     this.GetSlotsMaster();
   }
+
+ 
 
   dummjoblist: any;
 
@@ -146,6 +155,26 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
     this.loader = false;
+  }
+
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
   }
 
 }

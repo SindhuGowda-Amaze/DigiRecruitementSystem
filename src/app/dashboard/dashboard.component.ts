@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit {
     private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.hiringManager='Select Vendor'
+    this.hiringManager="";
     this.myDate = new Date();
     this.showfront = true;
     this.Anniversery = true;

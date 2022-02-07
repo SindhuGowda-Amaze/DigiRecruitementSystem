@@ -28,6 +28,7 @@ export class SelectedCandidatesComponent implements OnInit {
   option:any;
   noticeperiodlist:any;
   ngOnInit(): void {
+    this.searchbynotice="";
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;

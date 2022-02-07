@@ -25,8 +25,8 @@
 
                     </div>
                     <div class="col-lg-3"  *ngIf="roleid==4">
-                        <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
-                            <option value="0">Select Hiring Manager</option>
+                        <select   class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                            <option value="">Select Hiring Manager</option>
                             <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
                           </select>
                     </div>
@@ -70,7 +70,7 @@
                                 <!-- <th>Hiring Manager</th> -->
                                  <th>Other Required Conditions</th>
                                  <th>Status</th>
-                                <th>Actions </th>
+                                <th *ngIf="roleid==2">Actions </th>
                             </tr>
                         
                         <tr *ngFor="let job of joblist | paginate: { itemsPerPage: count1, currentPage: p }">
@@ -82,7 +82,7 @@
                             <td >{{job.totalExp}}</td>
                             <td >{{job.relaventExp}}</td>
                             <td data-toggle="modal" 
-                            data-target="#ScheduleInterview3"><button class="Button">View</button></td>
+                            data-target="#show"><button class="Button" >View</button></td>
                             <!-- <td >{{job.jobDescription}}</td> -->
                             <td >{{job.joblocation}}</td>
                             <td >{{job.noofpositions}}</td>
@@ -96,7 +96,7 @@
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview1">Assign Recruiter</button></td>
                             -->
                             <td>Request Raised</td>
-                            <td> <button class="button form-control Add1" data-toggle="modal"
+                            <td *ngIf="roleid==2"> <button class="button form-control Add1" data-toggle="modal"
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
                         </tr>
                     </table>
@@ -119,8 +119,8 @@
 
 
 
-<div id="ScheduleInterview3" class="modal fade" role="dialog" *ngFor="let job of joblist">
-    <div class="modal-dialog modal-lg">
+<div id="show" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg"  *ngFor="let job of joblist">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title Heading">Job Description</h4>

@@ -75,7 +75,7 @@ export class ClientStaffFormComponent implements OnInit {
       debugger
       this.result = data;
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
-      this.clientName=this.result[0].clientName;
+      this.client=this.result[0].clientName;
       this.Role=this.result[0].role_Id;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].phoneNo;
@@ -148,13 +148,14 @@ this.files.splice(this.files.indexOf(event),1);
   Update() {
     debugger
     var json = {
-      "clientID": this.Staff1,
-      "role": this.Role,
-      "name": this.Name,
-      "phoneNo": this.PhoneNo,
-      "email": this.Email,
-      "address": this.Address,
-      "signature": this.Signature,  
+      "ID":this.id,
+      "ClientID": this.client,
+      "Role_Id": this.Role,
+      "Name": this.Name,
+      "PhoneNo": this.PhoneNo,
+      "Email": this.Email,
+      "Address": this.Address,
+      "Signature": this.Signature,
     };
 
     this.RecruitmentServiceService.UpdateClientStaff(json).subscribe(

@@ -93,7 +93,7 @@ export class LoginPageComponent implements OnInit {
     }
     else if (this.roleID == 6) {
       this.RecruitmentServiceService.GetRecruiterStaff().subscribe(data => {
-        let temp: any = data.filter(x => (x.email == this.userName || x.phoneNo == this.userName) && x.password == this.password);
+        let temp: any = data.filter(x => (x.email == this.userName || x.phoneNo == this.userName) && x.password == this.password && x.enable_Disable==false);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -109,7 +109,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Username or Password is Invalid');
+          Swal.fire('Username or Password is Invalid User is Disabled');
           this.userName = "";
           this.password = "";
         }
@@ -200,7 +200,7 @@ export class LoginPageComponent implements OnInit {
       debugger;
       this.RecruitmentServiceService.GetVendor_Staff().subscribe(data => {
         // this.result = data;
-        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password);
+        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password && x.enable_Disable==false);
         this.result = temp[0];
         // this.result = data.filter(x => x.loginTypeID == 7);
         debugger;
@@ -225,7 +225,7 @@ export class LoginPageComponent implements OnInit {
 
         }
         else {
-          Swal.fire('Username or Password is Invalid');
+          Swal.fire('Username or Password is Invalid or User is Disabled');
           this.userName = "";
           this.password = "";
         }
@@ -419,9 +419,11 @@ export class LoginPageComponent implements OnInit {
 
     else if (this.roleID == 5) {
       this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
-        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
+        
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable==false);
         this.result = temp[0];
         debugger;
+        // let temp1:any =data.filter(x=>x.x.enable_Disable==true)
         // this.loader = true;
         if (this.result != undefined || this.result != null) {
           sessionStorage.setItem('UserName', this.result.name);
@@ -432,21 +434,29 @@ export class LoginPageComponent implements OnInit {
           location.href = "#/ScheduledInterviews";
           location.reload();
 
-
-
+        
         }
+       
+        // else if(temp1==true)
+        // {
+        //   Swal.fire('User is Disabled!!');
+        //   this.userName = "";
+        //   this.password = "";
+        // }
+
         else {
-          Swal.fire('Username or Password is Invalid');
+          Swal.fire('Username or Password is Invalid or User is Disabled');
           this.userName = "";
           this.password = "";
         }
 
+       
       })
     }
       
       else if (this.roleID == 2) {
         this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
-          let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
+          let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable==false);
           this.result = temp[0];
           debugger;
           // this.loader = true;
@@ -460,7 +470,7 @@ export class LoginPageComponent implements OnInit {
             location.reload();
           }
           else {
-            Swal.fire('Username or Password is Invalid');
+            Swal.fire('Username or Password is Invalid or User is Disabled');
             this.userName = "";
             this.password = "";
           }

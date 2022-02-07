@@ -26,7 +26,8 @@ export class JobRecruitementsComponent implements OnInit {
   roleid:any;
   NoofpositionsHired: any;
   ngOnInit(): void {
-    this.hiringManager="Slect Hiring Manager"
+    this.show=0;
+    this.hiringManager="";
     this.roleid = sessionStorage.getItem('roleid');
     this.loader = true;
     this.GetRecruiterStaff();
@@ -60,9 +61,14 @@ export class JobRecruitementsComponent implements OnInit {
 
     })
   }
-
+  show:any;
+  
+  description:any;  
   GetId(id: any) {
     this.ID = id
+    debugger
+    this.description = this.joblist.filter((x: { ID: any; }) => x.ID == this.ID);
+    this.show=1;
   }
 
 

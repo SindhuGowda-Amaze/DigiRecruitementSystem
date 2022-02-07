@@ -16,48 +16,49 @@ export class RecruiterStaffComponent implements OnInit {
   Email: any;
   Address: any;
   RecruiterID: any;
-  ID:any;
+  ID: any;
   roleList: any;
-  roleid:any;
+  roleid: any;
 
-  constructor(private RecruitmentServiceService: RecruitmentServiceService,private ActivatedRoute: ActivatedRoute) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.GetRecruiterMaster();
     this.GetRoleType();
     this.ActivatedRoute.params.subscribe(params => {
       this.ID = params['id'];
-      if (this.ID != undefined && this.ID!=null) {
-        this.GetRecruiterStaff(); 
+      if (this.ID != undefined && this.ID != null) {
+        this.GetRecruiterStaff();
       }
     })
   }
 
 
   public GetRecruiterStaff() {
+    debugger
     this.RecruitmentServiceService.GetRecruiterStaff().subscribe(
       data => {
         this.recruiterlist = data
-        this.RecruiterID = this.recruiterlist[0].recruiterID; 
-        this.Signature=this.recruiterlist[0].signature;
-        this.Name=this.recruiterlist[0].name;
-        this.PhoneNo=this.recruiterlist[0].phoneNo;
-        this.Email=this.recruiterlist[0].email;
-        this.Address=this.recruiterlist[0].address;
-        
+        // this.RecruiterID = this.recruiterlist[0].recruiterName;
+        this.Signature = this.recruiterlist[0].signature;
+        this.Name = this.recruiterlist[0].name;
+        this.PhoneNo = this.recruiterlist[0].phoneNo;
+        this.Email = this.recruiterlist[0].email;
+        this.Address = this.recruiterlist[0].address;
+
         // this.count = this.recruiterlist.length;
       })
 
   }
 
-  
+
   public GetRoleType() {
     debugger
     this.RecruitmentServiceService.GetRoleType().subscribe(
       data => {
-      this.roleList = data
-      this.count = this.recruiterlist.length;
-    })
+        this.roleList = data
+        this.count = this.roleList.length;
+      })
 
   }
 
@@ -74,11 +75,10 @@ export class RecruiterStaffComponent implements OnInit {
   }
 
 
-  onRemove(event:any)
-  {
-debugger
-console.log(event);
-this.files.splice(this.files.indexOf(event),1);
+  onRemove(event: any) {
+    debugger
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
   }
 
   public uploadattachments() {
@@ -92,24 +92,25 @@ this.files.splice(this.files.indexOf(event),1);
 
 
   public GetRecruiterMaster() {
+    debugger
     this.RecruitmentServiceService.GetRecruiterMaster().subscribe(
       data => {
-      this.recruiterlist = data
-      this.count = this.recruiterlist.length;
-    })
+        this.recruiterlist = data.filter(x => x.id == this.ID)
+        this.count = this.recruiterlist.length;
+      })
 
   }
 
   public insertdetails() {
     debugger
     var entity = {
-    'RecruiterID':1,
-      'Name': this.Name,
-      'PhoneNo': this.PhoneNo,
-      'Email': this.Email,
-      'Address': this.Address,
-      "Signature":this.Signature,
-      "RoleId":this.roleid
+      'recruiterID': '1',
+      'name': this.Name,
+      'phoneNo': this.PhoneNo,
+      'email': this.Email,
+      'address': this.Address,
+      "signature": this.Signature,
+      "roleId": this.roleid
 
     }
     this.RecruitmentServiceService.InsertRecruiterStaff(entity).subscribe(data => {
@@ -120,18 +121,18 @@ this.files.splice(this.files.indexOf(event),1);
     })
   }
 
-  
+
   public Update() {
     debugger
     var entity = {
       'ID': this.ID,
-     'RecruiterID':this.RecruiterID,
-      'Name': this.Name,
-      'PhoneNo': this.PhoneNo,
-      'Email': this.Email,
-      'Address': this.Address,
-      "Signature":this.Signature,
-      "RoleId":this.roleid
+      // 'RecruiterID': this.recruiterlist,
+      'name': this.Name,
+      'phoneNo': this.PhoneNo,
+      'email': this.Email,
+      'sddress': this.Address,
+      "signature": this.Signature,
+      "roleId": this.roleid
 
     }
     this.RecruitmentServiceService.UpdateRecruiterStaff(entity).subscribe(data => {
@@ -143,7 +144,7 @@ this.files.splice(this.files.indexOf(event),1);
     })
   }
 
-  cancel(){
-    location.href="#/RecruiterStaffDashboard"
+  cancel() {
+    location.href = "#/RecruiterStaffDashboard"
   }
 }

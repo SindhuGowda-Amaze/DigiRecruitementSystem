@@ -34,6 +34,8 @@ export class ShortListedCandidatesComponent implements OnInit {
   ngOnInit(): void {
     this.loader=true;
     // this.GetCandidateReg();
+    this.searchbyctc="";
+    this.searchbynotice="";
     this.GetStaffType();
     this.roleid = sessionStorage.getItem('roleid');
     this.userid=sessionStorage.getItem('userid')
