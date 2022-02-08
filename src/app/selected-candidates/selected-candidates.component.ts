@@ -32,16 +32,27 @@ export class SelectedCandidatesComponent implements OnInit {
   offernotes: any;
   Company_logo:any;
   TentativeDate:any;
+  username:any;
   ngOnInit(): void {
     this.searchbynotice="";
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
+    this.username = sessionStorage.getItem('UserName');
   }
   dummjoblist1:any;
   public GetCandidateReg() {
     debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username);
+      }
+      else
+      {
+        this.joblist = data;
+      }
+
+
        this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
        this.jobListCopy=this.joblist;
       this.dummjoblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);

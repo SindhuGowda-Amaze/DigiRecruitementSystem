@@ -18,91 +18,106 @@ export class ShortListedCandidatesComponent implements OnInit {
   timeid: any;
   count: any;
   DropJobList: any;
-  dummjoblist:any;
-  loader:any;
+  dummjoblist: any;
+  loader: any;
   roleid: any;
-  userid:any;
-  searchbyctc:any;
-  searchbynotice:any;
+  userid: any;
+  searchbyctc: any;
+  searchbynotice: any;
   p: any = 1;
   count1: any = 5;
-  jobListCopy:any;
-  noticeperiodlist:any;
-  ctclist:any;
-  hrlist:any;
-  constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+  jobListCopy: any;
+  noticeperiodlist: any;
+  ctclist: any;
+  hrlist: any;
+  username: any
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loader=true;
+    this.loader = true;
     // this.GetCandidateReg();
-    this.searchbyctc="";
-    this.searchbynotice="";
+    this.searchbyctc = "";
+    this.searchbynotice = "";
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
     this.GetStaffType();
     this.roleid = sessionStorage.getItem('roleid');
-    this.userid=sessionStorage.getItem('userid')
+    this.userid = sessionStorage.getItem('userid')
     this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName');
 
- 
-    if(this.roleid=='3'){
+
+    if (this.roleid == '3') {
       debugger;
 
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && ( x.source == 'Vendor' && x.vendorId == this.userid )	) ;
-        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid));
+        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid));
         this.jobListCopy = this.joblist
-        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
-        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
-        this.loader=false;
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid));
+        this.ctclist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid));
+        this.loader = false;
         this.count = this.joblist.length;
 
       })
 
     }
+    else if (this.roleid == '2') {
+
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && x.hiringManager == this.username);
+        this.jobListCopy = this.joblist
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.ctclist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.loader = false;
+        this.count = this.joblist.length;
+      })
+
+    }
     else {
-  
+
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.jobListCopy = this.joblist
         this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-         this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
-       
-     
-        this.loader=false;
+        this.ctclist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+
+
+        this.loader = false;
         this.count = this.joblist.length;
       })
-  
+
     }
   }
 
   public changeoption() {
     debugger;
-  
+
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) && (x.noticePeriod == this.searchbynotice));
     });
   }
 
-  public changectc(){
+  public changectc() {
     debugger;
-  
+
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.ctc == this.searchbyctc));
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) && (x.ctc == this.searchbyctc));
     });
   }
 
   public Filterjobs() {
     debugger
     let searchCopy = this.search.toLowerCase();
-    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string, jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy) || x.jobTitle.toLowerCase().includes(searchCopy));
   }
 
- 
 
-  public GetDate(even:any) {
+
+  public GetDate(even: any) {
     this.date = even.target.value;
     this.GetSlotsMaster();
   }
@@ -123,7 +138,7 @@ export class ShortListedCandidatesComponent implements OnInit {
   jobid: any;
 
 
-  public GetJobFilter(even:any) {
+  public GetJobFilter(even: any) {
     this.jobid = even.target.value;
 
     // if (even.target.value != 0) {
@@ -137,7 +152,7 @@ export class ShortListedCandidatesComponent implements OnInit {
 
   staffid: any;
 
-  public GetStaffID(even:any) {
+  public GetStaffID(even: any) {
     this.staffid = even.target.value;
     this.GetSlotsMaster();
   }
@@ -150,7 +165,7 @@ export class ShortListedCandidatesComponent implements OnInit {
 
   }
 
-  public GetTimeID(even:any) {
+  public GetTimeID(even: any) {
     this.timeid = even.target.value;
   }
 
@@ -166,7 +181,7 @@ export class ShortListedCandidatesComponent implements OnInit {
 
   candidateid: any;
 
-  public GetCandidateID(candidateid:any) {
+  public GetCandidateID(candidateid: any) {
     this.candidateid = candidateid;
   }
 
@@ -175,51 +190,50 @@ export class ShortListedCandidatesComponent implements OnInit {
   notes: any;
 
   public UpdateInterviewSchedule() {
-    if(this.staffid==null || this.staffid==undefined || this.staffid==0 ||
-      this.date==null || this.date==undefined || this.date==0 ||
-      this.timeid==null || this.timeid==undefined || this.timeid==0 ||
-      this.notes==null || this.notes==undefined || this.notes==0)
-      {
-        Swal.fire('Please Fill the Mandatory Fields')
-      }
-  else{
-    var entity = {
-      'ID': this.candidateid,
-      'StaffID': this.staffid,
-      'Date': this.date,
-      'TimeID': this.timeid,
-      'Notes': this.notes
+    if (this.staffid == null || this.staffid == undefined || this.staffid == 0 ||
+      this.date == null || this.date == undefined || this.date == 0 ||
+      this.timeid == null || this.timeid == undefined || this.timeid == 0 ||
+      this.notes == null || this.notes == undefined || this.notes == 0) {
+      Swal.fire('Please Fill the Mandatory Fields')
     }
-    this.RecruitmentServiceService.UpdateCandidateInterviewSchedule(entity).subscribe(data => {
-      Swal.fire("Interview Scheduled Successfully");
-      // this.GetCandidateReg();
-    })
-  }
+    else {
+      var entity = {
+        'ID': this.candidateid,
+        'StaffID': this.staffid,
+        'Date': this.date,
+        'TimeID': this.timeid,
+        'Notes': this.notes
+      }
+      this.RecruitmentServiceService.UpdateCandidateInterviewSchedule(entity).subscribe(data => {
+        Swal.fire("Interview Scheduled Successfully");
+        // this.GetCandidateReg();
+      })
+    }
 
   }
-    
 
-  public GetOfferLetter(offer:any) {
+
+  public GetOfferLetter(offer: any) {
     window.open(offer, "_blank")
   }
 
-  hiringManager:any;
-  public GetJobRequirements(){
-  
-  
+  hiringManager: any;
+  public GetJobRequirements() {
+
+
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
-     
+
       this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
-     
+
       this.count = this.joblist.length;
-   
-  
+
+
     })
-  
-   
-  
-  
+
+
+
+
   }
 
 }

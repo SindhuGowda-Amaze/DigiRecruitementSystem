@@ -25,11 +25,12 @@ export class OfferedCandidatesComponent implements OnInit {
   jobListCopy:any;
   Date:any;
   hrlist:any;
+  username:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
-
+    this.username = sessionStorage.getItem('UserName');
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
@@ -39,8 +40,16 @@ export class OfferedCandidatesComponent implements OnInit {
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+      if(this.roleid==2){
+        this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0 && x.hiringManager==this.username);
+      }
+      else
+      {
+        this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
       this.jobListCopy = this.joblist
+      }
+
+     
       
       this.loader=false;
       this.count = this.joblist.length;

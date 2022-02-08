@@ -25,18 +25,37 @@ export class JobRecruitementsComponent implements OnInit {
   hrlist:any;
   roleid:any;
   NoofpositionsHired: any;
+  dropdownSettings1: any = {};
+  dropdownList1: any = [];
+  username:any;
   ngOnInit(): void {
     this.show=0;
     this.hiringManager="";
     this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName'); 
     this.loader = true;
+  
     this.GetRecruiterStaff();
     this.GetUserslist();
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
+
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
+      debugger
+      this.dropdownList1 = data;
+    })
+
+
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data;
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username);
+      }
+      else
+      {
+        this.joblist = data;
+      }
+     
       this.jobListCopy = this.joblist
       this.dummjoblist = data;
       this.dummjoblist1 = data.filter(x => x.ID == this.ID);
@@ -44,6 +63,19 @@ export class JobRecruitementsComponent implements OnInit {
       debugger
       this.count = this.joblist.length;
     })
+
+
+    this.dropdownSettings1 = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'vendor_Name',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 20,
+      allowSearchFilter: true,
+
+    };
+
 
 
   }

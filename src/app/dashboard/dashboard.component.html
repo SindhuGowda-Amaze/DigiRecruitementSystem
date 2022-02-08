@@ -1,13 +1,13 @@
 <div class="container-fluid" style="background-color: #f2f2f2;">
     <br>
     <!-- <div class="row" *ngIf="roleid!='3'|| roleid!='6'"> -->
-        <div class="hmcard"  *ngIf="roleid==4 ||roleid==7">
+        <div class="hmcard"  *ngIf="roleid==4 ||roleid==6">
             <div class="row" >
                 <div class="col-lg-1">
                     <p>Filter By :</p>
                 </div>
                 <div class="col-lg-3">
-                <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()"  (change)="changestaff()">
                     <option value="">Select Hiring Manager</option>
                     <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
                   </select>

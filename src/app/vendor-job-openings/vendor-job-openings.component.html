@@ -57,6 +57,7 @@
                         <th class="heading">Hiring Manager</th>
                         <th class="heading">Recruiter Comments</th>
                         <th class="heading">Actions </th>
+                        <th>Assigned Vendors</th>
                     </tr>
                 </thead>
                 <tr *ngFor="let job of joblist|paginate: { itemsPerPage: count1, currentPage: p }" >
@@ -75,11 +76,12 @@
                     <td>{{job.notes}}</td>
                     <td><button class="Button form-control" data-toggle="modal" (click)="GetId(job.id)">Upload</button>
                         <br />
-                        <button *ngIf="job.vendor==null" class=" form-control Add1" data-toggle="modal"
-                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
-                            <!-- <button  class="button form-control " data-toggle="modal"
+                        <!-- <button *ngIf="job.vendor==null" class=" form-control Add1" data-toggle="modal"
                             (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
+                            <button  class="Add1 form-control " data-toggle="modal"
+                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
                     </td>
+                    <td>Monster</td>
                 </tr>
             </table>
            
@@ -138,10 +140,9 @@
                         <label class="Text">Vendor :</label>
                     </div>
                     <div class="col-lg-5">
-                        <select class="form-control" [(ngModel)]="Vendor">
-                            <option value="">Select </option>
-                            <option *ngFor="let User of Userlist" value={{User.id}}>{{User.vendor_Name}} </option>
-                        </select>
+                        <ng-multiselect-dropdown [placeholder]="'Select Vendor'" [settings]="dropdownSettings1"
+                        [data]="dropdownList1" [(ngModel)]="Vendor"  (onSelect)="onItemSelect1($event)">
+                        </ng-multiselect-dropdown>
                     </div>
                 </div> <br>
 

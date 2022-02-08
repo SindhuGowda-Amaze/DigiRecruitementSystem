@@ -66,7 +66,7 @@ import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadida
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
 import { DatePipe } from '@angular/common';
-
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 
@@ -138,6 +138,7 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     NgxPaginationModule,
     NgxFullCalendarModule,
+    NgMultiSelectDropDownModule
     
   ],
 

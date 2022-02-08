@@ -12,8 +12,11 @@
                 <p>Filter By</p>
             </div>
             <div class="col-lg-2">
-
-                <input class="form-control poppinns" type="date" placeholder="Duration">
+                <select  *ngIf="roleid!=2" class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                    <option value="">Select Hiring Manager</option>
+                    <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+                  </select>
+                <input  *ngIf="roleid==2" class="form-control poppinns" type="date" placeholder="Duration">
             </div>
             <div class="col-lg-3">
                 <input class="form-control poppinns" type="search" placeholder="Search by candidate or source..." [(ngModel)]="search"
@@ -48,6 +51,7 @@
                         <th>Email</th>
                         <th>Total Years of Experience</th>
                         <th>Resume</th>
+                        <th *ngIf="roleid!='2'">Hiring Manger</th>
                         <!-- <th>Relevant Experience</th> -->
                         <!-- <th>CTC Budget</th> -->
                         <th>Notice Period</th>
@@ -70,6 +74,7 @@
                             <img src="assets/Images/pdf.png" style="width: 30px;"
                                 (click)="GetOfferLetter(job.resumeUrl)">
                         </td>
+                        <td *ngIf="roleid!='2'">{{job.hiringManager}}</td>
                         <!-- <td>{{job.relavantExp}}</td>   -->
                         <!-- <td>{{job.ctc}}</td>  -->
                         <td>{{job.noticePeriod}}</td>

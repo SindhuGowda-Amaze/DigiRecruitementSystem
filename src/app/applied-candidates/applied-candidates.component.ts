@@ -28,6 +28,7 @@ export class AppliedCandidatesComponent implements OnInit {
   count1: any = 5;
   hrlist:any
   hiringManager:any;
+  username:any;
   ngOnInit(): void {
   this.hiringManager="";
   this.searchbynotice="";
@@ -35,6 +36,9 @@ export class AppliedCandidatesComponent implements OnInit {
     this.roleid = sessionStorage.getItem('roleid');
     
     this.userid=sessionStorage.getItem('userid')
+    this.username = sessionStorage.getItem('UserName'); 
+
+    
     
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
@@ -50,13 +54,22 @@ export class AppliedCandidatesComponent implements OnInit {
        
         this.count = this.joblist.length;
       })
+    }
   
 
- 
+
+    else if (this.roleid==2) {
+  
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && x.hiringManager==this.username);
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.count = this.joblist.length;
+      })
   
     }
-    else {
-  
+    else{
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
@@ -64,8 +77,8 @@ export class AppliedCandidatesComponent implements OnInit {
         this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.count = this.joblist.length;
       })
-  
     }
+    
     // this.GetCandidateReg();
  
   }

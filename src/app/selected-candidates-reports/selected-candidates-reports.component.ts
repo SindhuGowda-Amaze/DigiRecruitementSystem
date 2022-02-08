@@ -13,12 +13,19 @@ export class SelectedCandidatesReportsComponent implements OnInit {
   date: any;
   loader:any;
   roleid:any;
+  hrlist:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
     this.roleid = sessionStorage.getItem('roleid');
    this.loader=true;
-    this.GetCandidateReg()
+   this.hiringManager="";
+   this.GetCandidateReg()
+
+   
+   this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+     this.hrlist = data;
+   })
   }
   
   refresh(){
@@ -51,5 +58,22 @@ export class SelectedCandidatesReportsComponent implements OnInit {
 
   public GetOfferLetter(offer:any) {
     window.open(offer, "_blank")
+  }
+
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0  && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
   }
 }

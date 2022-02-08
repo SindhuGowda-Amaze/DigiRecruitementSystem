@@ -27,8 +27,10 @@ export class JobRecruitementReportComponent implements OnInit {
   p: any = 1;
   count1: any = 5;
   roleid:any;
+  username:any;
   ngOnInit(): void {
     this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName'); 
     this.loader=true;
     this.hiringManager="";
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
@@ -36,9 +38,20 @@ export class JobRecruitementReportComponent implements OnInit {
     })
 
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data;
-      this.loader=false;
-      this.count = this.joblist.length;
+
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username);
+        this.loader=false;
+        this.count = this.joblist.length;
+      }
+      else
+      {
+        this.joblist = data;
+        this.loader=false;
+        this.count = this.joblist.length;
+      }
+
+      
     })
   }
   description:any;  
@@ -73,7 +86,7 @@ export class JobRecruitementReportComponent implements OnInit {
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
      
-      this.joblist1 = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+      this.joblist = data.filter(x => x.hiringManager == this.hiringManager);
      
       this.count = this.joblist.length;
    

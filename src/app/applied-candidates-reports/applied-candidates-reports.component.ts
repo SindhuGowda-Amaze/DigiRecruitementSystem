@@ -9,50 +9,64 @@ import * as XLSX from 'xlsx';
 })
 export class AppliedCandidatesReportsComponent implements OnInit {
 
-  constructor(private RecruitmentServiceService: RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
   joblist: any;
   count: any;
   DropJobList: any;
   dummjoblist: any;
   term: any;
-  loader:any;
-  searchbyctc:any;
-  roleid:any;
-  userid:any;
-  hrlist:any;
-  hiringManager:any;
-  search:any
+  loader: any;
+  searchbyctc: any;
+  roleid: any;
+  userid: any;
+  hrlist: any;
+  hiringManager: any;
+  search: any
   p: any = 1;
   count1: any = 5;
-  searchbynotice:any;
-  noticeperiodlist:any;
-  jobListCopy:any;
+  searchbynotice: any;
+  noticeperiodlist: any;
+  jobListCopy: any;
+  username: any;
   ngOnInit(): void {
-    this.hiringManager="";
-    this.searchbynotice="";
+    this.hiringManager = "";
+    this.searchbynotice = "";
     this.roleid = sessionStorage.getItem('roleid');
-    
-    this.userid=sessionStorage.getItem('userid')
-    
+    this.username = sessionStorage.getItem('UserName');
+    this.userid = sessionStorage.getItem('userid')
+
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
-    this.loader=true;
+    this.loader = true;
     this.GetCandidateReg()
-    
+
   }
-  refresh(){
+  refresh() {
     location.reload();
   }
-  
+
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
-      this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
-      this.jobListCopy=this.joblist
-      this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-      this.loader=false;
-      this.count = this.joblist.length;
+
+      if (this.roleid == 2) {
+        this.joblist = data.filter(x => x.hiringManager == this.username && x.accept == 0 && x.reject == 0);
+        this.jobListCopy = this.joblist
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.loader = false;
+        this.count = this.joblist.length;
+      }
+      else {
+
+        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+        this.jobListCopy = this.joblist
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.loader = false;
+        this.count = this.joblist.length;
+      }
+
+
     })
 
 
@@ -63,7 +77,7 @@ export class AppliedCandidatesReportsComponent implements OnInit {
 
   jobid: any;
 
-  public GetJobFilter(even:any) {
+  public GetJobFilter(even: any) {
     this.jobid = even.target.value;
 
     if (even.target.value != 0) {
@@ -90,37 +104,37 @@ export class AppliedCandidatesReportsComponent implements OnInit {
     this.loader = false;
   }
 
-  
-  public GetJobRequirements(){
-  
-  
+
+  public GetJobRequirements() {
+
+
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
       debugger
-     
+
       this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
-     
+
       this.count = this.joblist.length;
-   
-  
+
+
     })
   }
 
-  public GetOfferLetter(offer:any) {
-    
+  public GetOfferLetter(offer: any) {
+
     window.open(offer, "_blank")
   }
 
   public changeoption() {
     debugger;
-  
+
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) && (x.noticePeriod == this.searchbynotice));
     });
   }
 
   public Filterjobs() {
     debugger
     let termcopy = this.term.toLowerCase();
-    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(termcopy)||x.jobTitle.toLowerCase().includes(termcopy));
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string, jobTitle: string; }) => x.jobRefernceID.toString().includes(termcopy) || x.jobTitle.toLowerCase().includes(termcopy));
   }
 }
