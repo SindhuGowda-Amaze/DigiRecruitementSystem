@@ -27,6 +27,11 @@ export class SelectedCandidatesComponent implements OnInit {
   searchbynotice:any;
   option:any;
   noticeperiodlist:any;
+  p: any = 1;
+  count1: any = 5;
+  offernotes: any;
+  Company_logo:any;
+  TentativeDate:any;
   ngOnInit(): void {
     this.searchbynotice="";
     this.GetCandidateReg()
@@ -61,10 +66,14 @@ export class SelectedCandidatesComponent implements OnInit {
     window.open(offer, "_blank")
   }
 
-  offernotes: any;
 
-  Company_logo:any;
-  TentativeDate:any;
+
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
+
 
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
