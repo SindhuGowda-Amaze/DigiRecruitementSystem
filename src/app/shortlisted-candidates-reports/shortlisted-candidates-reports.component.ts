@@ -21,10 +21,13 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
   p: any = 1;
   count1: any = 5;
   hrlist:any;
+  searchbynotice:any;
+  noticeperiodlist:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
     this.hiringManager="";
+    this.searchbynotice="";
     this.userid=sessionStorage.getItem('userid')
     this.roleid = sessionStorage.getItem('roleid');
     
@@ -63,14 +66,24 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
 
  
 
+
   dummjoblist: any;
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
       this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+      this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
       this.count = this.joblist.length;
     })
+  }
+
+  public changeoption() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.noticeperiodlist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+    });
   }
 
   jobid: any;

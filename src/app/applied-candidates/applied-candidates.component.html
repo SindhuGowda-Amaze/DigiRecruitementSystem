@@ -33,9 +33,10 @@
           <div class="col-lg-4">
             <input class="form-control poppinns" placeholder="Search for Candidate Name..." [(ngModel)]="search">
           </div>
+          <div *ngIf="roleid==2" class="col-lg-3"></div>
           
           <div class="col-lg-2">
-            <p class="Count">Count:{{count}}</p>
+            <p class="Count">Count: {{count}}</p>
           </div>
         </div> 
       </div><br><br>

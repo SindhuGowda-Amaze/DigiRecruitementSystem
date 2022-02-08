@@ -1,64 +1,93 @@
 <app-spinner *ngIf="loader"></app-spinner>
 <div class="container-fluid"><br>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="Heading">SELECTED CANDIDATES REPORTS</p>
-                </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="Heading">SELECTED CANDIDATES REPORTS</p>
+        </div>
+    </div>
+    <BR>
+    <div class="card">
+        <div class="row filterclass">
+            <div class="col-lg-1">
+                <p>Filter By</p>
             </div>
-<BR>
-            <div class="card"> 
-                <div class="row filterclass">
-                    <div class="col-lg-1">
-                        <p>Filter By</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <input class="form-control" type="date" placeholder="Duration">
-                    </div>
-                    <div class="col-lg-3">
-                        <input class="form-control" type="search" placeholder="Search by Vendor..." [(ngModel)]="search" name="search">
-                    </div>
-                    <div class="col-lg-2">
-                        <button class=" form-control export" (click)="refresh()">Refresh</button>
-                    </div>
-                    <div class="col-lg-2">
-                        <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
-                    </div>
-                    <div class="col-lg-2">
-                        <p class="Count">Count:{{count}}</p>
-                    </div>
-                </div>
-            </div>  <br>
-            <div class="row">
-                <div class="col-lg-12" 
-                style="height: 470px; overflow-y: scroll;">
-                    <table class="table" id="downloadaplication">
-                        <tr>
-                            <th><span class="menu">Job Reference ID</span></th>
-                            <th><span class="menu">Interview Date</span></th>
-                            <th>Client Name </th>
-                            <!-- <th><span class="menu">Time</span></th> -->
-                            <th><span class="menu">Interview</span></th>
-                            <th><span class="menu">Job Title</span></th>
-                            <th><span class="menu">Candidate Name</span></th>
-                            <th><span class="menu">Phone No</span></th>
-                            <th><span class="menu">Email</span></th>
-                            <th><span class="menu">Total Years of Experience</span></th>
-                            <th><span class="menu">Years of Relavant Experience</span></th>         
-                        </tr>
-                        <tr *ngFor="let job of joblist|filter:search">
-                            <td style="color:#0C275A">{{job.jobRefernceID}}</td>
-                            <td style="color:#0C275A">{{job.date}}</td>
-                            <!-- <td style="color:#0C275A">Mind Tree</td> -->
-                            <!-- <td style="color:#0C275A">{{job.slotTime}}</td> -->
-                            <td style="color:#0C275A">{{job.staffname}}</td>
-                            <td style="color:#0C275A">{{job.jobTitle}}</td>
-                            <td style="color:#0C275A">{{job.candidateName}}</td>
-                            <td style="color:#0C275A">{{job.phoneNo}}</td>
-                            <td style="color:#0C275A">{{job.email}}</td>
-                            <td style="color:#0C275A">{{job.yearsofExp}}</td>
-                            <td style="color:#0C275A">{{job.relavantExp}}</td>
+            <div class="col-lg-2">
+
+                <input class="form-control poppinns" type="date" placeholder="Duration">
+            </div>
+            <div class="col-lg-3">
+                <input class="form-control poppinns" type="search" placeholder="Search by candidate or source..." [(ngModel)]="search"
+                    name="search">
+            </div>
+            <div class="col-lg-2">
+                <button class=" form-control export" (click)="refresh()">Refresh</button>
+            </div>
+            <div class="col-lg-2">
+                <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
+            </div>
+            <div class="col-lg-2">
+                <p class="Count">Count:{{count}}</p>
+            </div>
+        </div>
+    </div> <br>
+    <div class="row">
+        <div class="col-lg-12" style="height: 470px; overflow-y: scroll;">
+            <table class="table tablebordered">
+                <thead>
+                    <tr>
+                        <!-- <th>Vendor</th> -->
+                        <th>Job Reference ID</th>
+                        <th>Interview Date</th>
+                        <th>Source</th>
+                        <!-- <th>Time</th> -->
+                        <!-- <th>Interviewed By</th> -->
+                        <!-- <th>Tentitive Joining Date</th> -->
+                        <th>Job Title</th>
+                        <th>Candidate Name</th>
+                        <th>Phone No</th>
+                        <th>Email</th>
+                        <th>Total Years of Experience</th>
+                        <th>Resume</th>
+                        <!-- <th>Relevant Experience</th> -->
+                        <!-- <th>CTC Budget</th> -->
+                        <th>Notice Period</th>
+                        <th>Interviewer Comments</th>
+                        <!-- <th>Interviewer Feedback</th> -->
+                        <th *ngIf="roleid!='4' && roleid=='6'">Actions</th>
+                    </tr>
+                    <tr *ngFor="let job of joblist">
+                        <td>{{job.jobRefernceID}}</td>
+                        <td>{{job.date|date}}</td>
+                        <td>{{job.source}}</td>
+                        <!-- <td>{{job.slotTime}}</td> -->
+                        <!-- <td>{{job.staffname}}</td> -->
+                        <td>{{job.jobTitle}}</td>
+                        <td>{{job.candidateName}}</td>
+                        <td>{{job.phoneNo}}</td>
+                        <td>{{job.email}}</td>
+                        <td>{{job.yearsofExp}}</td>
+                        <td>
+                            <img src="assets/Images/pdf.png" style="width: 30px;"
+                                (click)="GetOfferLetter(job.resumeUrl)">
+                        </td>
+                        <!-- <td>{{job.relavantExp}}</td>   -->
+                        <!-- <td>{{job.ctc}}</td>  -->
+                        <td>{{job.noticePeriod}}</td>
+                        <td>{{job.interviewercomments}}</td>
+                        <!-- <td  *ngIf="roleid!='4' && roleid=='6'">
+                                <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
+                                    data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
     
-<!--     
+    
+                                <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
+                                    data-target="#exampleModal1" (click)="GetOfferID(job.id,job)">Notes</button>
+    
+                            </td> -->
+                    </tr>
+                </thead>
+            </table>
+
+            <!--     
                             <td>
                                 <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
                                     data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
@@ -68,8 +97,8 @@
                                     data-target="#exampleModal1" (click)="GetOfferID(job.id)">Notes</button>
     
                             </td> -->
-                        </tr>
-                    </table>
-                </div>
-            </div>    
+            <!-- </tr>
+            </table> -->
+        </div>
+    </div>
 </div>

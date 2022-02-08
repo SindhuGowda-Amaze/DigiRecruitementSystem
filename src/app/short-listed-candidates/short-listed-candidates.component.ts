@@ -29,6 +29,7 @@ export class ShortListedCandidatesComponent implements OnInit {
   jobListCopy:any;
   noticeperiodlist:any;
   ctclist:any;
+  hrlist:any;
   constructor(private RecruitmentServiceService:RecruitmentServiceService,private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -36,6 +37,9 @@ export class ShortListedCandidatesComponent implements OnInit {
     // this.GetCandidateReg();
     this.searchbyctc="";
     this.searchbynotice="";
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     this.GetStaffType();
     this.roleid = sessionStorage.getItem('roleid');
     this.userid=sessionStorage.getItem('userid')
@@ -48,6 +52,7 @@ export class ShortListedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && ( x.source == 'Vendor' && x.vendorId == this.userid )	) ;
         this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.jobListCopy = this.joblist
         this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
         this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
         this.loader=false;
@@ -61,10 +66,11 @@ export class ShortListedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.jobListCopy = this.joblist
         this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
          this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
        
-        this.jobListCopy = this.joblist
+     
         this.loader=false;
         this.count = this.joblist.length;
       })
@@ -88,7 +94,7 @@ export class ShortListedCandidatesComponent implements OnInit {
     });
   }
 
-  public FilterVendorJobs() {
+  public Filterjobs() {
     debugger
     let searchCopy = this.search.toLowerCase();
     this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
@@ -197,6 +203,23 @@ export class ShortListedCandidatesComponent implements OnInit {
     window.open(offer, "_blank")
   }
 
-
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
+  }
 
 }

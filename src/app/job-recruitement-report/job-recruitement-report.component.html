@@ -10,25 +10,26 @@
             
                 <div class="row filterclass">
                     <div class="col-lg-1">
-                       <p>Filter By</p> 
+                         <p>Filter By :</p> 
                     </div>
-                    <div class="col-lg-2">
-                        <select   class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                    <div class="col-lg-3">
+                      
+                        <select *ngIf="roleid!=2"  class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
                             <option value="">Select Hiring Manager</option>
                             <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
                           </select>
-                        <!-- <input style="color:#0C275A" class="form-control poppinns" type="date" placeholder="Duration"> -->
+                        <input *ngIf="roleid==2" style="color:#0C275A" class="form-control poppinns" type="date" placeholder="Duration">
                     </div>
                     <div class="col-lg-3">
-                        <input style="color:#0C275A" class="form-control poppinns" type="search" placeholder="Search by Vendor..." [(ngModel)]="search" name="search">
+                        <input style="color:#0C275A" class="form-control poppinns" type="search" placeholder="Search by Job reference ID..." [(ngModel)]="search" name="search">
                     </div>
                     <div class="col-lg-2">
-                        <button class=" form-control export" (click)="refresh()">Refresh</button>
+                        <button class=" form-control export poppinns" (click)="refresh()">Refresh</button>
                     </div>
                     <div class="col-lg-2">
-                        <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
+                        <button class=" form-control export poppinns" (click)="exportexcel()">Export to Excel</button>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                         <p class="Count">Count:{{count}}</p>
                     </div>
                 </div>   
@@ -49,10 +50,10 @@
                                 <th>Job Location</th>
                                 <th>No of Positions</th>
                                 <!-- <th>CTC Budget</th> -->
-                                <th>Hiring Manager</th>
+                                <th *ngIf="roleid==4">Hiring Manager</th>
                                  <th>Other Required Conditions</th>
                                  <th>Status</th>
-                                <th *ngIf="roleid==2">Actions </th>
+                             
         
         
                         </tr>
@@ -70,7 +71,7 @@
                             <td >{{job.joblocation}}</td>
                             <td >{{job.noofpositions}}</td>
                             <!-- <td >{{job.package}} </td> -->
-                            <td >{{job.hiringManager}}</td>
+                            <td *ngIf="roleid==4">{{job.hiringManager}}</td>
                             <td >{{job.otherRequiredConditions}}</td>
                             <!-- <td *ngIf="job.vendor==null">{{job.resourceManager}}</td> -->
                             <!-- <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
@@ -79,8 +80,7 @@
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview1">Assign Recruiter</button></td>
                             -->
                             <td>{{job.status}}</td>
-                            <td *ngIf="roleid==2"> <button class="button form-control Add1" data-toggle="modal"
-                                data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
+                           
                         </tr>
                     </table>
                 </div>

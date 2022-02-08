@@ -24,9 +24,14 @@ export class DroppedCandidatesComponent implements OnInit {
   Date:any;
   option:any;
   roleid:any;
+  hrlist:any;
   ngOnInit(): void {
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
+    this.hiringManager="";
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     this.GetCandidateReg()
   }
 
@@ -132,6 +137,23 @@ export class DroppedCandidatesComponent implements OnInit {
     })
   }
 
+  hiringManager:any;
+  public GetJobRequirements(){
   
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
+  }
 
 }

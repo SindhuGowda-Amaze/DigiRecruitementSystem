@@ -24,10 +24,15 @@ export class OfferedCandidatesComponent implements OnInit {
   loader:any;
   jobListCopy:any;
   Date:any;
+  hrlist:any;
   ngOnInit(): void {
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
+
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
   }
 
 
@@ -125,6 +130,26 @@ public changeAnniversary() {
         )
       }
     })
+  }
+
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
   }
 
 }

@@ -17,23 +17,28 @@
                     <option value="Select CTC">Select CTC</option>
                     <option *ngFor="let job of joblist" value="30,000-50,000">{{job.ctc}}</option>
                 </select> -->
-                <select   class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                <select *ngIf="roleid!=2"   class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
                     <option value="">Select Hiring Manager</option>
                     <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
                   </select>
+
+                  <select *ngIf="roleid==2"  name="Select" class="form-control poppinns form-select" (change)="changeoption()"  [(ngModel)]="searchbynotice">
+                    <option value="">Select Notice Period</option>
+                    <option  *ngFor="let job of noticeperiodlist" value="{{job.noticePeriod}}">{{job.noticePeriod}}</option>
+                  </select>
             </div>
             <div class="col-lg-3">
-                <input class="form-control poppinns" type="search" placeholder="Search by Vendor..." [(ngModel)]="term"
-                    name="term">
+                <input class="form-control poppinns" type="search" placeholder="Search by Job Reference ID..." [(ngModel)]="term"
+                (ngModelChange)="Filterjobs()"  name="term">
             </div>
             <div class="col-lg-2">
-                <button class=" form-control export" (click)="refresh()">Refresh</button>
+                <button class=" form-control export poppinns" (click)="refresh()">Refresh</button>
             </div>
             <div class="col-lg-2">
-                <button class=" form-control export" (click)="exportexcel()">Export to Excel</button>
+                <button class=" form-control export poppinns" (click)="exportexcel()">Export to Excel</button>
             </div>
             <div class="col-lg-2">
-                <p class="Count">Count:{{count}}</p>
+                <p class="Count">Count: {{count}}</p>
             </div>
         </div>
     </div><br>

@@ -257,7 +257,7 @@
             </a>
 
             <div id="userapplications2" class="collapse" style="padding-left: 7%; ">
-                <a (click)="JobRecruitReport()" *ngIf="roleid=='4'" class="nonactive" (click)="openCity($event)">
+                <a (click)="JobRecruitReport()" *ngIf="roleid=='4'||roleid=='2'" class="nonactive" (click)="openCity($event)">
                     <img *ngIf="Jobrecruitreport" src="assets/Images/64 Blue/Staff.png"
                         style="width: 13%;  margin-right: 17px;" />
                     <img *ngIf="!Jobrecruitreport" src="assets/Images/64/Staff.png"

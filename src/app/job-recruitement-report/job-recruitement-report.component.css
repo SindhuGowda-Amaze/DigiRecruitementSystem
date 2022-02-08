@@ -1,11 +1,11 @@
 .export{
     border-radius: 10px;
     background-color: #3247D5;
-    height: 35px;
+ 
     color: #fff;
     width: 100%;
    border-radius: 5px;
-    margin-top: 2%;
+   
 }
 
 
@@ -47,6 +47,6 @@
 
 .filterclass{
     font-size: 15px;
-    margin-left: 15px;
+  
     color:#0C275A;
 }

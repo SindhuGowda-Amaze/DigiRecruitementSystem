@@ -81,4 +81,6 @@ export class JobRecruitementReportComponent implements OnInit {
     })
 
 }
+
+
 }

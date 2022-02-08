@@ -21,14 +21,15 @@
                     </div>
                    
                     <div class="col-lg-3">
-                        <input type="date" class="form-control poppinns" (change)="GetDate($event)" name="date" value="date"  [(ngModel)]="date">
+                        <input  *ngIf="roleid==2" type="date" class="form-control poppinns" (change)="GetDate($event)" name="date" value="date"  [(ngModel)]="date">
 
                     </div>
-                    <div class="col-lg-3"  *ngIf="roleid==4">
+                    <div class="col-lg-3"  *ngIf="roleid!=2">
                         <select   class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
                             <option value="">Select Hiring Manager</option>
                             <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
                           </select>
+
                     </div>
                     <!-- <div class="col-lg-3">
                         <select name="Select" class="form-control poppinns">
@@ -41,9 +42,9 @@
                     <div class="col-lg-3">
                         <input class="form-control poppinns" placeholder="Search..." [(ngModel)]="search" (ngModelChange)="Filterjobs()" name="search">
                     </div>
-                    <!-- <div class="col-lg-3">
+                    <div *ngIf="roleid==2" class="col-lg-3">
                        
-                    </div> -->
+                    </div>
                   
                     <div class="col-lg-2">
                         <p class="Count">Count:{{count}}</p>
@@ -67,10 +68,11 @@
                                 <th>Job Location</th>
                                 <th>No of Positions</th>
                                 <!-- <th>CTC Budget</th> -->
-                                <!-- <th>Hiring Manager</th> -->
+                                <th *ngIf="roleid==4">Hiring Manager</th>
                                  <th>Other Required Conditions</th>
                                  <th>Status</th>
                                 <th *ngIf="roleid==2">Actions </th>
+                                <th>Assigned Vendors</th>
                             </tr>
                         
                         <tr *ngFor="let job of joblist | paginate: { itemsPerPage: count1, currentPage: p }">
@@ -87,7 +89,7 @@
                             <td >{{job.joblocation}}</td>
                             <td >{{job.noofpositions}}</td>
                             <!-- <td >{{job.package}} </td> -->
-                            <!-- <td >{{job.hiringManager}}</td> -->
+                            <td *ngIf="roleid==4">{{job.hiringManager}}</td>
                             <td >{{job.otherRequiredConditions}}</td>
                             <!-- <td *ngIf="job.vendor==null">{{job.resourceManager}}</td> -->
                             <!-- <td *ngIf="job.vendor==null"><button class="button form-control Add1" data-toggle="modal"
@@ -98,6 +100,7 @@
                             <td>Request Raised</td>
                             <td *ngIf="roleid==2"> <button class="button form-control Add1" data-toggle="modal"
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
+                                <td>Monster</td>
                         </tr>
                     </table>
                    

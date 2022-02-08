@@ -14,7 +14,13 @@ export class OfferedCandidatesReportsComponent implements OnInit {
   count: any;
   term: any;
   loader:any;
+  roleid:any;
+  hrlist:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
@@ -54,5 +60,24 @@ export class OfferedCandidatesReportsComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
     this.loader = false;
+  }
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
   }
 }

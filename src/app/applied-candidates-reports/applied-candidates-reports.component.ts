@@ -24,8 +24,12 @@ export class AppliedCandidatesReportsComponent implements OnInit {
   search:any
   p: any = 1;
   count1: any = 5;
+  searchbynotice:any;
+  noticeperiodlist:any;
+  jobListCopy:any;
   ngOnInit(): void {
     this.hiringManager="";
+    this.searchbynotice="";
     this.roleid = sessionStorage.getItem('roleid');
     
     this.userid=sessionStorage.getItem('userid')
@@ -45,6 +49,8 @@ export class AppliedCandidatesReportsComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0)
       this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+      this.jobListCopy=this.joblist
+      this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -102,5 +108,19 @@ export class AppliedCandidatesReportsComponent implements OnInit {
   public GetOfferLetter(offer:any) {
     
     window.open(offer, "_blank")
+  }
+
+  public changeoption() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+    });
+  }
+
+  public Filterjobs() {
+    debugger
+    let termcopy = this.term.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(termcopy)||x.jobTitle.toLowerCase().includes(termcopy));
   }
 }

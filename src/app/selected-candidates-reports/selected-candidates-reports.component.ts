@@ -12,9 +12,11 @@ export class SelectedCandidatesReportsComponent implements OnInit {
   search: any;
   date: any;
   loader:any;
+  roleid:any;
   constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
    this.loader=true;
     this.GetCandidateReg()
   }
@@ -45,5 +47,9 @@ export class SelectedCandidatesReportsComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
     this.loader = false;
+  }
+
+  public GetOfferLetter(offer:any) {
+    window.open(offer, "_blank")
   }
 }
