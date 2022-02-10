@@ -22,17 +22,24 @@
                           <option value="90 Days">90 Days</option>
                         </select> -->
             </div>
-            <div class="col-lg-3">
-                <select name="Select" class="form-control poppinns">
+            <div class="col-lg-3"  *ngIf="roleid==6" >
+                <!-- <select name="Select" class="form-control poppinns">
                     <option style="color:#0C275A" value="Select CTC">Select CTC</option>
                     <option style="color:#0C275A" value="30,000-50,000">30,000-50,000</option>
                     <option style="color:#0C275A" value="50,000-1,00000">50,000-1,00000</option>
                     <option style="color:#0C275A" value="1,00000-2,00000">1,00000-2,00000</option>
-                </select>
+                </select> -->
+
+                <select class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                    <option value="">Select Hiring Manager</option>
+                    <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+                  </select>
             </div>
+            
             <div class="col-lg-3">
                 <input class="form-control poppinns" placeholder="Search.."  [(ngModel)]="search" name="search" (ngModelChange)="Filterjobs()">
             </div>
+            <div class="col-lg-3" *ngIf="roleid==3"></div>
             <div class="col-lg-2">
                 <p class="Count Heading">Count:{{count}}</p>
             </div>
@@ -53,11 +60,11 @@
                         <th class="heading">Job Description</th>
                         <th class="heading">Job Location</th>
                         <th class="heading">No of Positions</th>
-                        <th class="heading">Current CTC </th>
+                        <th class="heading"> CTC Budget</th>
                         <th class="heading">Hiring Manager</th>
-                        <th class="heading">Recruiter Comments</th>
+                        <!-- <th class="heading">Recruiter Comments</th> -->
                         <th class="heading">Actions </th>
-                        <th>Assigned Vendors</th>
+                        <th *ngIf="roleid==6">Assigned Vendors</th>
                     </tr>
                 </thead>
                 <tr *ngFor="let job of joblist|paginate: { itemsPerPage: count1, currentPage: p }" >
@@ -73,15 +80,15 @@
                     <td>{{job.noofpositions}}</td>
                     <td>{{job.package}}</td>
                     <td>{{job.hiringManager}}</td>
-                    <td>{{job.notes}}</td>
+                    <!-- <td>{{job.notes}}</td> -->
                     <td><button class="Button form-control" data-toggle="modal" (click)="GetId(job.id)">Upload</button>
                         <br />
-                        <!-- <button *ngIf="job.vendor==null" class=" form-control Add1" data-toggle="modal"
-                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
-                            <button  class="Add1 form-control " data-toggle="modal"
+                        <button *ngIf="roleid==6" class=" form-control Add1" data-toggle="modal"
                             (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
+                            <!-- <button  class="Add1 form-control " data-toggle="modal"
+                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
                     </td>
-                    <td>Monster</td>
+                    <td  *ngIf="roleid==6">{{job.vendor}}</td>
                 </tr>
             </table>
            
@@ -136,7 +143,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <label class="Text">Vendor :</label>
                     </div>
                     <div class="col-lg-5">
@@ -147,12 +154,16 @@
                 </div> <br>
 
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <label class="Text" style="font-weight: bold;">Notes :</label>
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-10">
+
+                        <ckeditor id="Notes"   name="Notes"  [(ngModel)]="Notes" data="<p>Write Here !</p>"></ckeditor>
+                    
+<!-- 
                         <textarea class="form-control" name="Notes" id="Notes" [(ngModel)]="Notes"
-                            placeholder="Notes"></textarea>
+                            placeholder="Notes"></textarea> -->
                     </div>
                 </div> <br>
                 <div class="row">

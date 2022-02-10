@@ -14,7 +14,11 @@
                 <p>Filter By</p>
             </div>
             <div class="col-lg-2">
-                <input type="date" style="color:#0C275A;" class="form-control poppinns" (change)="changeAnniversary()"
+                <select  *ngIf="roleid!=2" class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+                    <option value="">Select Hiring Manager</option>
+                    <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+                  </select>
+                <input  *ngIf="roleid==2" type="date" style="color:#0C275A;" class="form-control poppinns" (change)="changeAnniversary()"
                     name="Date" value="Date" [(ngModel)]="Date">
             </div>
             <div class="col-lg-2">
@@ -45,9 +49,9 @@
                         <th>Job Reference ID</th>
                         <th>Interview Date</th>
                         <th>Source</th>
-                        <th>HM</th>
+                        <th  *ngIf="roleid!=2">Hiring Manager</th>
                         <!-- <th>Time</th> -->
-                        <!-- <th>Interviewed By</th> -->
+                        <th  *ngIf="roleid!=5">Interviewed By</th>
                         <!-- <th>Tentitive Joining Date</th> -->
                         <th>Job Title</th>
                         <th>Candidate Name</th>
@@ -67,7 +71,8 @@
                         <td>{{job.date|date}}</td>
                         <td>{{job.source}}</td>
                         <!-- <td>{{job.slotTime}}</td> -->
-                        <td>{{job.hiringManager}}</td>
+                        <td *ngIf="roleid!=5">{{job.staffname}}</td>
+                        <td  *ngIf="roleid!=2">{{job.hiringManager}}</td>
                         <td>{{job.jobTitle}}</td>
                         <td>{{job.candidateName}}</td>
                         <td>{{job.phoneNo}}</td>
@@ -86,8 +91,8 @@
                                 data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
 
 
-                            <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
-                                data-target="#exampleModal1" (click)="GetOfferID(job.id,job)">Notes</button>
+                            <!-- <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
+                                data-target="#exampleModal1" (click)="GetOfferID(job.id,job)">Notes</button> -->
 
                         </td>
                     </tr>
@@ -211,7 +216,7 @@
                             <ngx-dropzone-label (change)="onattachmentUpload($event)" >Drag and drop file here</ngx-dropzone-label>
                         </ngx-dropzone> -->
 
-                        <ngx-dropzone (change)="onSelect($event)" style="height: 60px;" accept="application/pdf">
+                        <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
                             <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
                             <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                                 <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
@@ -234,7 +239,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-3">
-                        <label class="Letter">Tentative Date <span style="color: red;">*</span></label>
+                        <label class="Letter">Tentative DOJ <span style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
                         <input type="Date" class="form-control" [(ngModel)]="TentativeDate">

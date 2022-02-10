@@ -76,7 +76,7 @@ export class LoginPageComponent implements OnInit {
   //   location.reload();
 
   // }
-
+  result1:any;
   public login() {
 
     if (this.userName == 'admin' && this.password == '1') {

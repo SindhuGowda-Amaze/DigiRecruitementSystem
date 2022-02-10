@@ -108,10 +108,10 @@ export class AppliedCandidatesReportsComponent implements OnInit {
   public GetJobRequirements() {
 
 
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
 
-      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+      this.joblist = data.filter(x =>  x.accept == 0 && x.reject == 0&& x.hiringManager == this.hiringManager);
 
       this.count = this.joblist.length;
 

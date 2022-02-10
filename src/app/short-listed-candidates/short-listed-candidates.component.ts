@@ -38,6 +38,7 @@ export class ShortListedCandidatesComponent implements OnInit {
     // this.GetCandidateReg();
     this.searchbyctc = "";
     this.searchbynotice = "";
+    this.hiringManager="";
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
@@ -221,19 +222,18 @@ export class ShortListedCandidatesComponent implements OnInit {
   public GetJobRequirements() {
 
 
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
-
-      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+      this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && x.hiringManager == this.hiringManager);
+      // this.joblist = data.filter(x =>x.hiringManager == this.hiringManager);
 
       this.count = this.joblist.length;
 
 
     })
-
-
-
-
   }
 
+  checkschedule(){
+      
+  }
 }

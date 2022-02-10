@@ -39,7 +39,7 @@ export class ScheduledInterviewsComponent implements OnInit {
     this.staffid = localStorage.getItem('userid');
     this.Username = localStorage.getItem('UserName');
     this.GetCandidateReg();
-    this.showorhidecontent = false;
+   
     // this.insertdetails()
 
 
@@ -93,6 +93,9 @@ export class ScheduledInterviewsComponent implements OnInit {
       height: 500,
     }
   }
+
+
+
   showorhidecontent: any;
 
   changeStatus(evn: any) {
@@ -156,7 +159,8 @@ export class ScheduledInterviewsComponent implements OnInit {
             'Candidate has been Accepted',
             'success'
           )
-          this.GetCandidateReg()
+          this.GetCandidateReg();
+          location.reload();
         })
         // For more information about handling dismissals please visit
         // https://sweetalert2.github.io/#handling-dismissals
@@ -166,6 +170,7 @@ export class ScheduledInterviewsComponent implements OnInit {
           'Your imaginary file is safe :)',
           'error'
         )
+        location.reload();
       }
     })
   }
@@ -208,7 +213,7 @@ export class ScheduledInterviewsComponent implements OnInit {
 
     this.RecriutmentServiceService.RejectInterview(this.id, 1, this.rinterview).subscribe(data => {
       Swal.fire(
-        'Shortlisted!',
+        'Selected!!',
         'Candidate has been Accepted',
         'success'
       )

@@ -18,7 +18,7 @@
                             <option value="">Select Hiring Manager</option>
                             <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
                           </select>
-                        <input type="date" style="color:#0C275A;" class="form-control poppinns"    (change)="changeAnniversary()" name="Date" value="Date"  [(ngModel)]="Date">
+                        <input *ngIf="roleid==2" type="date" style="color:#0C275A;" class="form-control poppinns"    (change)="changeAnniversary()" name="Date" value="Date"  [(ngModel)]="Date">
                     </div>
                     <div class="col-lg-5">
                         <input class="form-control poppinns" placeholder="Search"  [(ngModel)]="search" (ngModelChange)="Filterjobs()" >
@@ -29,8 +29,24 @@
                     </div>
                 </div> 
             </div><br> <br>
-
             <div class="row">
+                <div class="col-lg-4">
+                    <div class="col-lg-4">
+                        <!-- <select class="inputclass" (change)="changeStatus($event)">
+                          <option value="2">Calendar</option>
+                          <option value="1">List View</option>
+                        </select> -->
+                        <label class="switch">
+            
+                          <input type="checkbox" checked (change)="changeStatus($event)">
+                          <span class="slider round"></span>
+                        </label>
+                        <!-- &nbsp; &nbsp; &nbsp;<span>Calendar View</span> -->
+                      </div>
+                </div>
+            </div>
+
+            <div class="row" [hidden]="showorhidecontent">
                 <div class="col-lg-12" style=" overflow:auto">
                     <table class="table tablebordered" >
                         <thead>
@@ -49,12 +65,13 @@
                                 <th>Relevant Experience</th>
                                 <th>Offer Letter</th>
                                 <!-- <th>Offer Comments</th> -->
-                                <th  *ngIf="roleid=='4' && roleid!='6'">Actions</th>
+                                <th  *ngIf="roleid=='2' && roleid!='6'">Actions</th>
                             </tr>
                             
                                 <tr *ngFor="let job of joblist|paginate: { itemsPerPage: count1, currentPage: p }">
                                     <td>{{job.jobRefernceID}}</td>
                                     <td *ngIf="roleid=='4'">{{job.source}}</td>
+                                    <td *ngIf="roleid!='2'">{{job.hiringManager}}</td>
                                     <!-- <td>{{job.date}}</td>
                                     <td>{{job.slotTime}}</td> -->
                                     <!-- <td *ngIf="roleid!='2'">{{job.hiringManager}}</td> -->
@@ -78,7 +95,7 @@
                                     <!-- <td>
                                         <textarea class="form-control" row="4" [(ngModel)]="job.offerComments" name="job.offerComments" placeholder="Comments"></textarea>
                                     </td> -->
-                                    <td  *ngIf="roleid=='4' && roleid!='6'">
+                                    <td  *ngIf="roleid=='2' && roleid!='6'">
                                         <button class="btn btn-primary Joined" *ngIf="job.offerAcceptreject=='0'"
                                             (click)="Accept(job.id,job.offerComments)">Joined</button><br><br>
                                         <button class="btn btn-danger" *ngIf="job.offerAcceptreject=='0'"
@@ -97,5 +114,44 @@
                 </div> 
                 <span *ngIf="joblist.length==0">No data found.</span>
             </div>
+            
+     <div class="shadow p-3 mb-5 bg-white rounded  maincard " [hidden]="!showorhidecontent" > 
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row callendernavButtons">
+              <div class="col-lg-4">
+                <a (click)="previousmonth()">
+                  <img src="assets/Images/left.png" class="montharrow">
+                  <!-- <i class="fa fa-angle-left" aria-hidden="true"></i> -->
+                </a>
+              </div>
+              <div class="col-lg-4">
+                <strong>{{callenderMonth}}</strong> {{callenderyear}}
+
+              </div>
+              <div class="col-lg-4">
+                <a (click)="nextmonth()">
+                  <img src="assets/Images/right-arrow.png" class="montharrow">
+                  <!-- <i class="fa fa-chevron-right" aria-hidden="true"></i> -->
+                </a>
+              </div>
+
+            </div>
+            <div class="row callenderdiv">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-2 callenderboxes" *ngFor="let calday of callenderdaysdount;let i = index">
+                    {{calday.date}} {{calday.day}}
+                    <div class="event_Pending" [innerHtml]='calday.mantainenceHtml'
+                      style="overflow-y: auto; border-bottom: solid 6px white;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div> 
      
 </div>

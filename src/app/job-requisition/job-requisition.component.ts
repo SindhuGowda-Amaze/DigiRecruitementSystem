@@ -30,7 +30,7 @@ export class JobRequisitionComponent implements OnInit {
   public otherreqconditions: any;
   public resourcemanager: any;
   public hrlist: any;
- 
+  username:any;
  
   constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
    editor:any;
@@ -40,7 +40,7 @@ export class JobRequisitionComponent implements OnInit {
   
   ngOnInit(): void {
   
- 
+    this.username = sessionStorage.getItem('UserName');
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })
@@ -73,7 +73,7 @@ export class JobRequisitionComponent implements OnInit {
       this.noofpositions==null || this.noofpositions==undefined || this.noofpositions==0 ||
       // this.companyname==null || this.companyname==undefined || this.companyname==0 ||
       this.package==null || this.package==undefined || this.package==0 ||
-      this.hiringmanager==null || this.hiringmanager==undefined || this.hiringmanager==0 ||
+    
       this.otherreqconditions==null || this.otherreqconditions==undefined || this.otherreqconditions==0)
       // this.resourcemanager==null || this.resourcemanager==undefined || this.resourcemanager==0 
       {
@@ -91,7 +91,7 @@ else{
       'Noofpositions': this.noofpositions,
       'CompanyName': this.companyname,
       'package': this.package,
-      'HiringManager': this.hiringmanager,
+      'HiringManager': this.username,
       'OtherRequiredConditions': this.otherreqconditions,
       'ResourceManager': this.resourcemanager
     }

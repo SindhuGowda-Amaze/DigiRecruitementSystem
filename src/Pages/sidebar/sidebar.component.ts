@@ -237,6 +237,33 @@ Vendorrecruit:any
       this.joinedreport=false
       this.droppedreport=false
     }
+
+    else if(this.roleid=='2'){
+      localStorage.setItem('Pagename', 'DASHBOARD')
+      this.router.navigate(['/Dashboard']);
+      this.Jobrecruit=false
+      this.Vendorrecruit=false
+      this.home=true
+      this.applied=false
+      this.shortlist=false
+      this.scheduled=false
+      this.Vendorrecruit=false
+      this.applied=false
+      this.shortlist=false
+      this.scheduled=false
+      this.selected=false
+      this.offered=false
+      this.joined=false
+      this.dropped=false
+      this.vendorreport=false
+      this.appliedreport=false
+      this.shortlistedreport=false
+      this.selectedreport=false
+      this.offeredreport=false
+      this.Jobrecruitreport=false
+      this.joinedreport=false
+      this.droppedreport=false
+    }
   }
 
   Jobrecruit:any
@@ -271,6 +298,16 @@ Vendorrecruit:any
 
 
   }
+
+  // public JobRecruitment(){
+  //   if(this.roleid=='2'){
+  //     this.active = 88;
+  //     localStorage.setItem('Pagename', 'OPEN POSITIONS')
+  //   this.router.navigate(['/JobRecruitements']);
+  //   }
+    
+  // }
+
 active:any;
   public ScheduledInterviews(){
     if(this.roleid=='5'){
@@ -299,6 +336,10 @@ active:any;
     }
     
   }
+
+
+
+  
 
   // public ScheduledInterviewCalender(){
   //   if(this.roleid=='5'){

@@ -12,7 +12,7 @@
             <div class="col-lg-1">
                 <p>Filter By</p>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <select  *ngIf="roleid!=2" class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
                     <option value="">Select Hiring Manager</option>
                     <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
@@ -32,7 +32,7 @@
                             <option value="90 Days">90 Days</option>
                         </select>
                     </div> -->
-            <div class="col-lg-3"></div>
+            <div class="col-lg-2"></div>
             <div class="col-lg-2">
                 <p class="Count">Count:{{count}}</p>
             </div>

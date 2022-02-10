@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-applied-candidates',
   templateUrl: './applied-candidates.component.html',
@@ -32,6 +33,7 @@ export class AppliedCandidatesComponent implements OnInit {
   ngOnInit(): void {
   this.hiringManager="";
   this.searchbynotice="";
+  this.searchbyctc="";
    
     this.roleid = sessionStorage.getItem('roleid');
     
@@ -49,8 +51,8 @@ export class AppliedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid) )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid));
-        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
-        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.noticeperiodlist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.ctclist= data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
        
         this.count = this.joblist.length;
       })
@@ -63,8 +65,8 @@ export class AppliedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && x.hiringManager==this.username);
-        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.noticeperiodlist = data.filter(x => x.accept == 0 && x.reject == 0  );
+        this.ctclist= data.filter(x =>  x.accept == 0 && x.reject == 0 );
         this.count = this.joblist.length;
       })
   
@@ -73,8 +75,8 @@ export class AppliedCandidatesComponent implements OnInit {
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
-        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.noticeperiodlist = data.filter(x => x.accept == 0 && x.reject == 0 );
+        this.ctclist= data.filter(x =>  x.accept == 0 && x.reject == 0 );
         this.count = this.joblist.length;
       })
     }
@@ -125,6 +127,7 @@ export class AppliedCandidatesComponent implements OnInit {
             'Candidate has been shortlisted',
             'success'
           )
+          location.reload();
           // this.GetCandidateReg()
         })
         // For more information about handling dismissals please visit
@@ -135,6 +138,7 @@ export class AppliedCandidatesComponent implements OnInit {
           'Your imaginary file is safe :)',
           'error'
         )
+        location.reload();
       }
     })
   }
@@ -160,6 +164,7 @@ export class AppliedCandidatesComponent implements OnInit {
             'Candidate has been Rejected',
             'success'
           )
+          location.reload();
           // this.GetCandidateReg()
         })
         // For more information about handling dismissals please visit
@@ -170,6 +175,7 @@ export class AppliedCandidatesComponent implements OnInit {
           'Your imaginary file is safe :)',
           'error'
         )
+        location.reload();
       }
     })
   }
@@ -179,25 +185,25 @@ export class AppliedCandidatesComponent implements OnInit {
     debugger;
   
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+      this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 &&  x.noticePeriod == this.searchbynotice);
     });
   }
 
-  // public changectc(){
-  //   debugger;
+  public changectc(){
+    debugger;
   
-  //   this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-  //     this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.ctc == this.searchbyctc));
-  //   });
-  // }
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => (x.accept == 0 && x.reject == 0) &&  (x.ctc == this.searchbyctc));
+    });
+  }
 
   public GetJobRequirements(){
   
   
-    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
-     
-      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+      this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && x.hiringManager==this.hiringManager);
+      // this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && x.hiringManager == this.hiringManager);
      
       this.count = this.joblist.length;
    

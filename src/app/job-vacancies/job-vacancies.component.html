@@ -180,8 +180,8 @@
                             <label>Expected CTC : </label>
                         </div>
                         <div class="col-lg-5">
-                            <input type="text" class="form-control" placeholder="Current CTC" [(ngModel)]="ctc"
-                                name="ctc">
+                            <input type="text" class="form-control" placeholder="Expected CTC" [(ngModel)]="Expectedctc"
+                                name="Expectedctc">
                         </div>
 
                     </div><br>
@@ -200,7 +200,7 @@
                             <label>Resume : </label>
                         </div>
                         <div class="col-lg-5">
-                            <ngx-dropzone (change)="onSelect($event)" style="height: 60px;" accept="application/pdf">
+                            <ngx-dropzone (change)="onSelect($event)" style="height: 60px;" >
                                 <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
                                 <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
                                     (removed)="onRemove(f)">

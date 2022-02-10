@@ -67,6 +67,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
 import { DatePipe } from '@angular/common';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 
@@ -120,6 +121,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     NotificationComponent,
     RejectedCadidatesComponent,
     ScheduledInterviewCalenderComponent,
+
    
   ],
   imports: [
@@ -138,7 +140,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ReactiveFormsModule,
     NgxPaginationModule,
     NgxFullCalendarModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    CKEditorModule
     
   ],
 

@@ -66,6 +66,7 @@ export class JobVacanciesComponent implements OnInit {
   relaventexp: any;
   city: any;
   ctc:any;
+  Expectedctc:any;
  
 
 
@@ -98,25 +99,35 @@ export class JobVacanciesComponent implements OnInit {
       'ServingNotice': this.servingnotice,
       'Relocate': this.relocate,
       'Source': this.Source,
-      'VendorId':this.userid
+      'VendorId':this.userid,
+      'expectedctc':this.Expectedctc
      
     }
+    location.reload();
     this.RecruitmentServiceService.InsertCandidateRegistration(entity).subscribe(data => {
       if (data != 0) {
         Swal.fire("Applied Successfully");
       }
     })
-      
+      location.reload();
   }
   }
 
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
     debugger
-    console.log(event);
-    this.files.push(event.addedFiles[0]);
-    this.uploadattachments();
-    console.log("content", this.files);
+
+    if(event.addedFiles[0].type=="application/pdf")
+    {
+      console.log(event);
+      this.files.push(event.addedFiles[0]);
+      this.uploadattachments();
+      console.log("content", this.files);
+    }
+    else{
+      Swal.fire("Please Add Pdf Format");
+    }
+    
   }
 
 

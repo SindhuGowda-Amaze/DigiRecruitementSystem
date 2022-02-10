@@ -40,12 +40,12 @@ export class RecruiterStaffComponent implements OnInit {
       data => {
         this.recruiterlist = data
         // this.RecruiterID = this.recruiterlist[0].recruiterName;
-        this.Signature = this.recruiterlist[0].signature;
+      
         this.Name = this.recruiterlist[0].name;
         this.PhoneNo = this.recruiterlist[0].phoneNo;
         this.Email = this.recruiterlist[0].email;
         this.Address = this.recruiterlist[0].address;
-
+        this.Signature = this.recruiterlist[0].signature;
         // this.count = this.recruiterlist.length;
       })
 
@@ -103,22 +103,34 @@ export class RecruiterStaffComponent implements OnInit {
 
   public insertdetails() {
     debugger
-    var entity = {
-      'recruiterID': '1',
-      'name': this.Name,
-      'phoneNo': this.PhoneNo,
-      'email': this.Email,
-      'address': this.Address,
-      "signature": this.Signature,
-      "roleId": this.roleid
-
+    if( this.roleid==undefined||this.roleid==null|| 
+      this.Name==undefined||this.Name==null||
+      this.PhoneNo==undefined||this.PhoneNo==null||
+      this.Email==undefined||this.Email==null||
+      this.Address==undefined||this.Address==null||
+      this.Signature==undefined||this.Signature==null)
+      {
+      Swal.fire("Please fill all fields!!");
     }
-    this.RecruitmentServiceService.InsertRecruiterStaff(entity).subscribe(data => {
-      if (data != 0) {
-        Swal.fire("Registered Successfully");
+    else{
+      var entity = {
+        'recruiterID':'4',
+        'name': this.Name,
+        'phoneNo': this.PhoneNo,
+        'email': this.Email,
+        'address': this.Address,
+        "signature": this.Signature,
+        "roleId": this.roleid
+  
       }
-      location.href = "#/RecruiterStaffDashboard";
-    })
+      this.RecruitmentServiceService.InsertRecruiterStaff(entity).subscribe(data => {
+        if (data != 0) {
+          Swal.fire("Registered Successfully");
+        }
+        location.href = "#/RecruiterStaffDashboard";
+      })
+    }
+  
   }
 
 
@@ -126,11 +138,11 @@ export class RecruiterStaffComponent implements OnInit {
     debugger
     var entity = {
       'ID': this.ID,
-      // 'RecruiterID': this.recruiterlist,
+      'recruiterID':'4',
       'name': this.Name,
       'phoneNo': this.PhoneNo,
       'email': this.Email,
-      'sddress': this.Address,
+      'address': this.Address,
       "signature": this.Signature,
       "roleId": this.roleid
 

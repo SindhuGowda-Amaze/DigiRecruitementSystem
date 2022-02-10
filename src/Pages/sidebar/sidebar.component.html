@@ -182,11 +182,23 @@
 
             <div id="userapplications1" class="collapse" style="padding-left: 7%;">
                 <a (click)="JobRecruitment()" *ngIf="roleid=='2'" class="nonactive" (click)="openCity($event)">
-                    <img *ngIf="Jobrecruit==true" src="assets/Images/64 Blue/Staff.png"
+                    <img *ngIf="Jobrecruit" src="assets/Images/64 Blue/Staff.png"
                         style="width: 20px;    margin-right: 17px;" />
-                    <img *ngIf="Jobrecruit==false" src="assets/Images/64/Staff.png"
+                    <img *ngIf="!Jobrecruit" src="assets/Images/64/Staff.png"
                         style="width: 20px;    margin-right: 17px;" /> &nbsp; OPEN POSITIONS
                 </a>
+
+                <!-- <a *ngIf="roleid==2" (click)="JobRecruitment()" (click)="openCity($event)">
+                    <img src="assets/Images/64/Staff.png"
+                        [ngClass]="active != 88 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                    <img src="assets/Images/64 Blue/Staff.png"
+                        [ngClass]="active == 88 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                    <span [ngClass]="active == 88 ? 'Active1' : 'Active3'"> OPEN POSITIONS </span>
+                </a> -->
+
+
+
+
                 <a (click)="VendorRecruitment()" *ngIf="roleid=='3' || roleid=='6'" class="nonactive"
                     (click)="openCity($event)">
                     <img *ngIf="Vendorrecruit" src="assets/Images/64 Blue/Staff.png"
@@ -207,7 +219,7 @@
                     <img *ngIf="!shortlist" src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
                         style="width: 13%;  margin-right: 17px;" /> &nbsp;SHORTLISTED
                 </a>
-                <a (click)="Scheduled()" *ngIf="roleid==8" class="nonactive" (click)="openCity($event)">
+                <a (click)="Scheduled()" *ngIf="roleid==5" class="nonactive" (click)="openCity($event)">
                     <img src="assets/Images/Vector.png" style="width: 13%;  margin-right: 17px;" />
 
                     &nbsp;SCHEDULED INTERVIEWS
@@ -368,6 +380,11 @@
                     <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; REJECTED 
                     CANDIDATES -->
                 </a>
+
+
+
+
+                
 
                
      

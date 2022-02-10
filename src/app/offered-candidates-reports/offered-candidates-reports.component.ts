@@ -39,15 +39,17 @@ export class OfferedCandidatesReportsComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       if(this.roleid==2){
         this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0 && x.hiringManager==this.username);
-        this.loader=false;
-        this.count = this.joblist.length;
       }
-      else{
+      else
+      {
         this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
-        this.loader=false;
-        this.count = this.joblist.length;
+      // this.jobListCopy = this.joblist
       }
+
      
+      
+      this.loader=false;
+      this.count = this.joblist.length;
     })
 
     

@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class RecruitmentServiceService {
  
 
-  host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+  // host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+  host="http://localhost:1807/"
   
   //DigiOfficeBSINTAPI
 // private host = "http://localhost:1807/";
@@ -22,6 +23,11 @@ export class RecruitmentServiceService {
   public GetLoginTypeMaster() {
 
     return this.http.get<any[]>(this.host + "/Vendor/GetLoginTypeMaster");
+  }
+
+  public GetDepartment() {
+
+    return this.http.get<any[]>(this.host + "/Vendor/GetDepartment");
   }
 
   public GetClientMaster() {

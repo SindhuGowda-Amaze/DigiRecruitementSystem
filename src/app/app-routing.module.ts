@@ -48,6 +48,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NotificationComponent } from './notification/notification.component';
 import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
+import { AssignVendorDashboardComponent } from './assign-vendor-dashboard/assign-vendor-dashboard.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -112,7 +113,7 @@ const routes: Routes = [
   { path: 'Notification', component: NotificationComponent, canActivate: [AuthGuard] },
   { path: 'RejectedCadidates', component: RejectedCadidatesComponent, canActivate: [AuthGuard] },
   { path: 'ScheduledInterviewCalender', component: ScheduledInterviewCalenderComponent, canActivate: [AuthGuard] },
-
+  { path: 'AssignVendorDashboard', component: AssignVendorDashboardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

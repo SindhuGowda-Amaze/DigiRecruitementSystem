@@ -25,8 +25,10 @@ export class JoinedCandidatesReportComponent implements OnInit {
   p: any = 1;
   count1: any = 5;
   roleid:any;
+  username:any;
   ngOnInit(): void {
     this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName');
     this.loader=true;
     this.hiringManager="";
     this.GetCandidateReg()
@@ -39,8 +41,15 @@ export class JoinedCandidatesReportComponent implements OnInit {
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.offerAcceptreject == 1);
-      this.jobListCopy=this.joblist
+      if(this.roleid==2){
+        this.joblist = data.filter(x => x.offerAcceptreject == 1 && x.hiringManager==this.username);
+        this.jobListCopy=this.joblist
+      }
+      else{
+        this.joblist = data.filter(x => x.offerAcceptreject == 1);
+        this.jobListCopy=this.joblist
+      }
+ 
       this.loader=false;
       this.count = this.joblist.length;
     })

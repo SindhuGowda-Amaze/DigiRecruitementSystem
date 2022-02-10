@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import * as ClassicEditor from '@ckeditor/ckeditor5-angular';
 @Component({
   selector: 'app-vendor-job-openings',
   templateUrl: './vendor-job-openings.component.html',
@@ -9,8 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class VendorJobOpeningsComponent implements OnInit {
   Date: any;
-
+  
+  
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
+  public Editor = ClassicEditor;
   joblist: any;
   search: any;
   count: any;
@@ -24,16 +27,24 @@ export class VendorJobOpeningsComponent implements OnInit {
   dropdownSettings1: any = {};
   dropdownList1: any = [];
   selectedItems1: any = [];
+  hrlist:any;
+  hiringManager:any
+  username:any;
   ngOnInit(): void {
     debugger;
     this.userid=sessionStorage.getItem('userid')
-    
+    this.hiringManager="";
     this.vendorid = sessionStorage.getItem('vendorid');
+    this.username= sessionStorage.getItem('UserName')
     this.roleid = sessionStorage.getItem("roleid")
+
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data.filter(x => x.vendor == this.userid);
+        this.joblist = data.filter(x => x.vendor == this.username);
         this.count = this.joblist.length;
       })
   
@@ -169,5 +180,23 @@ export class VendorJobOpeningsComponent implements OnInit {
       })
     }
     
+  }
+
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
   }
 }

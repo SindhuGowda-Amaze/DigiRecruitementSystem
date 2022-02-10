@@ -66,7 +66,7 @@
                   </tr>
                   <tr *ngFor="let job of joblist|paginate: { itemsPerPage: count1, currentPage: p }" >
                     <td style="color:#0C275A">{{job.jobRefernceID}}</td>
-                    <td *ngIf=" roleid!='6' ">{{job.source}}</td>
+                    <td *ngIf=" roleid!='6' ">{{job.source}}-{{job.vendor}}</td>
                     <td  style="color:#0C275A">{{job.jobTitle}}</td>
                     <td  style="color:#0C275A">{{job.candidateName}}</td>
                     <td  style="color:#0C275A">{{job.phoneNo}}</td>

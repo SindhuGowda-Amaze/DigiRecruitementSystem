@@ -23,8 +23,10 @@ export class DroppedCandiadtesReportsComponent implements OnInit {
   roleid:any;
   hrlist:any;
   hiringManager:any;
+  username:any;
   ngOnInit(): void {
     this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName');
     this.loader=true;
     
     this.hiringManager="";
@@ -37,7 +39,13 @@ export class DroppedCandiadtesReportsComponent implements OnInit {
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.offerAcceptreject == 2);
+      if(this.roleid==2){
+        this.joblist = data.filter(x => x.offerAcceptreject == 2 && x.hiringManager==this.username);
+      }
+      else{
+        this.joblist = data.filter(x => x.offerAcceptreject == 2);
+      }
+     
       this.loader=false;
       this.count = this.joblist.length;
     })

@@ -28,6 +28,7 @@ export class JoinedCandidatesComponent implements OnInit {
     this.roleid = sessionStorage.getItem('roleid');
     this.username = sessionStorage.getItem('UserName');
     this.loader=true;
+    this.hiringManager="";
     this.GetCandidateReg();
 
     this.RecruitServiceService.GetClientStaff().subscribe(data => {
@@ -139,10 +140,10 @@ export class JoinedCandidatesComponent implements OnInit {
   public GetJobRequirements(){
   
   
-    this.RecruitServiceService.GetJob_Requirements().subscribe(data => {
+    this.RecruitServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
      
-      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+      this.joblist = data.filter(x =>  x.offerAcceptreject == 1 && x.hiringManager == this.hiringManager);
      
       this.count = this.joblist.length;
    

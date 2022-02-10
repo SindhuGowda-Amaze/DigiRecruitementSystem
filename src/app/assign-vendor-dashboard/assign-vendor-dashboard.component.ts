@@ -5,13 +5,11 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [DatePipe]
+  selector: 'app-assign-vendor-dashboard',
+  templateUrl: './assign-vendor-dashboard.component.html',
+  styleUrls: ['./assign-vendor-dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-
+export class AssignVendorDashboardComponent implements OnInit {
   showback: any;
   showfront: any;
   myDate: any;
@@ -81,10 +79,6 @@ export class DashboardComponent implements OnInit {
         this.joblist1 = this.joblist.slice(0, 3);
       
       }
-      else if(this.roleid==3){
-        this.joblist = data.filter(x => x.vendor == this.username);
-        this.joblist1 = this.joblist.slice(0, 3);
-      }
       else {
         debugger
         this.joblist = data;
@@ -99,10 +93,6 @@ export class DashboardComponent implements OnInit {
       if (this.roleid == 2 ){
         this.joblist = data.filter(x => x.hiringManager == this.username);
         
-        this.count = this.joblist.length;
-      }
-      else if(this.roleid==3){
-        this.joblist = data.filter(x => x.vendor == this.username);
         this.count = this.joblist.length;
       }
       else{
@@ -138,10 +128,6 @@ export class DashboardComponent implements OnInit {
         this.joblist3 = this.joblist3.slice(0, 3);
         debugger
       }
-      else if(this.roleid==3){
-        this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0 && x.vendor == this.username);
-        this.joblist3 = this.joblist3.slice(0, 3);
-      }
       else{
         this.joblist3 = data.filter(x => x.accept == 0 && x.reject == 0);
         this.joblist3 = this.joblist3.slice(0, 3);
@@ -158,10 +144,6 @@ export class DashboardComponent implements OnInit {
         this.count1 = this.joblist4.length;
   
         debugger
-      }
-      else if(this.roleid==3){
-        this.joblist4 = data.filter(x =>  x.accept == 0 && x.reject == 0 && x.vendor == this.username);
-        this.count1 = this.joblist4.length;
       }
       else{
         this.joblist4 = data.filter(x => x.accept == 0 && x.reject == 0);
@@ -191,10 +173,6 @@ export class DashboardComponent implements OnInit {
         this.joblist5 = data.slice(0, 3);
         debugger
       }
-      else if(this.roleid==3){
-        this.joblist5 = data.filter(x => x.accept == 1 && x.scheduled == 0  && x.vendor == this.username);
-        this.joblist5 = data.slice(0, 3);
-      }
       else{
         this.joblist5 = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.joblist5 = data.slice(0, 3);
@@ -212,11 +190,6 @@ export class DashboardComponent implements OnInit {
         this.count2 = this.joblist6.length;
         debugger
       }
-      else if(this.roleid==3){
-        this.joblist6 = data.filter(x => x.accept == 1 && x.scheduled == 0 && x.vendor == this.username);
-        this.joblist6 = this.joblist6.slice(0, 3);
-        this.count2 = this.joblist6.length;
-      }
       else{
         this.joblist6 = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.joblist6 = this.joblist6.slice(0, 3);
@@ -233,10 +206,6 @@ export class DashboardComponent implements OnInit {
         this.joblist7 = this.joblist7.slice(0, 3);
         debugger
       }
-      else if(this.roleid==3){
-        this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0  && x.vendor == this.username);
-        this.joblist7 = this.joblist7.slice(0, 3);
-      }
       else{
         this.joblist7 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
         this.joblist7 = this.joblist7.slice(0, 3);
@@ -251,16 +220,12 @@ export class DashboardComponent implements OnInit {
       if (this.roleid == 2){
         this.joblist8 = data.filter(x => x.interviewSelected == 1 && x.offered == 0  && x.hiringManager == this.username);
         this.count3 = this.joblist8.length;
-  
-      }
-      else if(this.roleid==3){
-        this.joblist8 = data.filter(x => x.interviewSelected == 1 && x.offered == 0  && x.vendor == this.username);
-        this.count3 = this.joblist8.length;
+        debugger
       }
       else{
         this.joblist8 = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
         this.count3 = this.joblist8.length;
-    
+        debugger
       }
       
     })
@@ -270,16 +235,12 @@ export class DashboardComponent implements OnInit {
       if (this.roleid == 2){
         this.joblist9 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0  && x.hiringManager == this.username);
         this.joblist9 = this.joblist9.slice(0, 3);
-      
-      }
-      else if(this.roleid==3){
-        this.joblist9 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0  && x.vendor == this.username);
-        this.joblist9 = this.joblist9.slice(0, 3);
+        debugger
       }
       else{
         this.joblist9 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
         this.joblist9 = this.joblist9.slice(0, 3);
- 
+        debugger
       }
    
 
@@ -290,16 +251,12 @@ export class DashboardComponent implements OnInit {
       if (this.roleid == 2){
         this.joblist10 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0  && x.hiringManager == this.username);
         this.count4 = this.joblist10.length;
-      
-      }
-      else if(this.roleid==3){
-        this.joblist10 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0  && x.vendor == this.username);
-        this.count4 = this.joblist10.length;
+        debugger
       }
       else{
         this.joblist10 = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
         this.count4 = this.joblist10.length;
-    
+        debugger
       }
  
     })
@@ -310,10 +267,6 @@ export class DashboardComponent implements OnInit {
         this.joblist11 = data.filter(x => x.offerAcceptreject == 1  && x.hiringManager == this.username);
         this.joblist11 = this.joblist11.slice(0, 3);
         debugger
-      }
-      else if(this.roleid==3){
-        this.joblist11 = data.filter(x => x.offerAcceptreject == 1  && x.vendor == this.username);
-        this.joblist11 = this.joblist11.slice(0, 3);
       }
       else{
         this.joblist11 = data.filter(x => x.offerAcceptreject == 1);
@@ -331,10 +284,6 @@ export class DashboardComponent implements OnInit {
         this.count5 = this.joblist12.length;
         debugger
       }
-      else if(this.roleid==3){
-        this.joblist12 = data.filter(x => x.offerAcceptreject == 1  && x.vendor == this.username);
-        this.count5 = this.joblist12.length;
-      }
       else{
         this.joblist12 = data.filter(x => x.offerAcceptreject == 1);
         this.count5 = this.joblist12.length;
@@ -346,10 +295,6 @@ export class DashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       if (this.roleid == 2){
         this.joblist20 = data.filter(x => x.accept == 1 && x.scheduled == 0  && x.hiringManager == this.username);
-        this.count9 = this.joblist20.length;
-      }
-      else if(this.roleid==3){
-        this.joblist20 = data.filter(x => x.accept == 1 && x.scheduled == 0  && x.vendor == this.username);
         this.count9 = this.joblist20.length;
       }
       else{
@@ -367,10 +312,6 @@ export class DashboardComponent implements OnInit {
         this.joblist13 = this.joblist13.slice(0, 3);
         debugger
       }
-      else if(this.roleid==3){
-        this.joblist13 = data.filter(x => x.offerAcceptreject == 2  && x.vendor == this.username);
-        this.joblist13 = this.joblist13.slice(0, 3);
-      }
       else{
         this.joblist13 = data.filter(x => x.offerAcceptreject == 2);
         this.joblist13 = this.joblist13.slice(0, 3);
@@ -386,10 +327,6 @@ export class DashboardComponent implements OnInit {
         this.joblist14 = data.filter(x => x.offerAcceptreject == 2  && x.hiringManager == this.username);
         this.count6 = this.joblist14.length;
         debugger
-      }
-      else if(this.roleid==3){
-        this.joblist14 = data.filter(x => x.offerAcceptreject == 2  && x.vendor == this.username);
-        this.count6 = this.joblist14.length;
       }
       else{
         this.joblist14 = data.filter(x => x.offerAcceptreject == 2);
@@ -571,3 +508,4 @@ export class DashboardComponent implements OnInit {
   }
 
 }
+
