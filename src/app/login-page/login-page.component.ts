@@ -103,6 +103,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'recruiter');
           sessionStorage.setItem('roleid', '6');
+          localStorage.setItem('Pagename','DASHBOARD')
           location.href = "#/Dashboard";
           location.reload();
 
@@ -132,6 +133,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'Client');
           sessionStorage.setItem('roleid', '4');
+          localStorage.setItem('Pagename','DASHBOARD')
           location.href = "#/Dashboard";
           location.reload();
 
@@ -163,6 +165,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('role', 'Vendor');
           sessionStorage.setItem('roleid', '3');
           sessionStorage.setItem('notes', this.result.notes);
+          localStorage.setItem('Pagename','DASHBOARD')
           location.href = "#/Dashboard";
           location.reload();
 
@@ -217,6 +220,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
+          localStorage.setItem('Pagename','DASHBOARD')
 
           // this.router.navigate(["/Dashboard"]);
           location.href = "#/Dashboard"
@@ -432,6 +436,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('role', 'Interview Panel');
           sessionStorage.setItem('roleid', '5');
           location.href = "#/ScheduledInterviews";
+          localStorage.setItem('Pagename','DASHBOARD')
           location.reload();
 
         
@@ -466,6 +471,7 @@ export class LoginPageComponent implements OnInit {
             sessionStorage.setItem('temp', '1');
             sessionStorage.setItem('role', 'Hiring Manager');
             sessionStorage.setItem('roleid', '2');
+            localStorage.setItem('Pagename','DASHBOARD')
             location.href = "#/Dashboard";
             location.reload();
           }
@@ -499,6 +505,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('loginTypeId', this.result.loginTypeID);
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '5');
+          localStorage.setItem('Pagename','DASHBOARD')
           this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
@@ -532,6 +539,7 @@ export class LoginPageComponent implements OnInit {
 
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '1');
+          localStorage.setItem('Pagename','DASHBOARD')
           this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
