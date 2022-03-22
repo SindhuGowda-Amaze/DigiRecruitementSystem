@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxFullCalendarModule } from 'ngx-fullcalendar';
+// import { NgxFullCalendarModule } from 'ngx-fullcalendar';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -143,7 +143,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    NgxFullCalendarModule,
+    // NgxFullCalendarModule,
     NgMultiSelectDropDownModule,
 
     
