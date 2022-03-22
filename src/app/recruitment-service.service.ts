@@ -374,12 +374,7 @@ export class RecruitmentServiceService {
       this.host + "/Announcement/GetManpowerPlanningandBudgeting"
     );
   }
-  public GetJobDescriptionMaster() {
-    debugger
-    return this.http.get<any[]>(
-      this.host + "/Vendor/GetJobDescriptionMaster"
-    );
-  }
+
 
   public DeleteManpowerPlanningandBudgeting(ID: any) {
     return this.http.get<any[]>(
