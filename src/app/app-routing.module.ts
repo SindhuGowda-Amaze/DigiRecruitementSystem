@@ -46,15 +46,21 @@ import { AuthGuard } from './services/auth.guard';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { NotificationComponent } from './notification/notification.component';
+import { JobDescriptionDashComponent } from './job-description-dash/job-description-dash.component';
+import { JobDescriptionFormComponent } from './job-description-form/job-description-form.component';
 import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
 import { AssignVendorDashboardComponent } from './assign-vendor-dashboard/assign-vendor-dashboard.component';
 import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
 import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
+import { JobApprovalConfigComponent } from './job-approval-config/job-approval-config.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  { path: "JobApprovalConfig", component: JobApprovalConfigComponent },
   { path: "Login", component: LoginPageComponent },
+  { path: "JobDescriptionDash", component: JobDescriptionDashComponent },
+  { path: "JobDescriptionForm", component: JobDescriptionFormComponent },
   { path: "Spinner", component: SpinnerComponent },
   { path: "Header", component: HeaderComponent, canActivate: [AuthGuard] },
   { path: "Sidebar", component: SidebarComponent, canActivate: [AuthGuard] },
@@ -91,6 +97,7 @@ const routes: Routes = [
   { path: 'VendorDashboard', component: VendorDashboardComponent, canActivate: [AuthGuard] },
   { path: 'VendorForm', component: VendorFormComponent, canActivate: [AuthGuard] },
   { path: 'RecruiterForm', component: RecruiterFormComponent, canActivate: [AuthGuard] },
+  { path: "JobDescriptionForm/:id", component: JobDescriptionFormComponent },
   { path: 'RecruiterForm/:id', component: RecruiterFormComponent, canActivate: [AuthGuard] },
   { path: 'RecruiterDashboard', component: RecruiterDashboardComponent, canActivate: [AuthGuard] },
   { path: 'RecruiterStaff', component: RecruiterStaffComponent, canActivate: [AuthGuard] },

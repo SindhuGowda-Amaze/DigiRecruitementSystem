@@ -392,4 +392,27 @@ export class RecruitmentServiceService {
   }
 
 
+  public InsertJobDescriptionMaster(data:any) {
+    this.url = this.host + "/Vendor/InsertJobDescriptionMaster";
+    return this.http.post(this.url, data);
+  }
+
+  public UpdateJobDescriptionMaster(data:any) {
+    this.url = this.host + "/Vendor/UpdateJobDescriptionMaster";
+    return this.http.post(this.url, data);
+  }
+
+    
+  public GetJobDescriptionMaster() {
+    debugger
+    return this.http.get<any[]>(this.host + "/Vendor/GetJobDescriptionMaster");
+  }
+  
+  public DeleteJobDescriptionMaster(ID:any) {
+    debugger
+    return this.http.get<any[]>(this.host + "/Master/DeleteJobDescriptionMaster?ID="+ID)
+  }
+
+
+
 }

@@ -363,30 +363,43 @@ export class SidebarComponent implements OnInit {
   // }
 
 
-  public VendorRecruitment() {
-    this.Vendorrecruit = true
-    this.Jobrecruit = false
 
-    this.home = false
-    this.applied = false
-    this.shortlist = false
-    this.scheduled = false
+  public JOBAPPROVAL(){
+    localStorage.setItem('Pagename', 'Job Approval')
+    this.router.navigate(['/JobApprovalConfig']);
+  }
+  
 
-    this.applied = false
-    this.shortlist = false
-    this.scheduled = false
-    this.selected = false
-    this.offered = false
-    this.joined = false
-    this.dropped = false
-    this.vendorreport = false
-    this.appliedreport = false
-    this.shortlistedreport = false
-    this.selectedreport = false
-    this.offeredreport = false
-    this.Jobrecruitreport = false
-    this.joinedreport = false
-    this.droppedreport = false
+
+  public Description(){
+    localStorage.setItem('Pagename', 'Job Description')
+    this.router.navigate(['/JobDescriptionDash']);
+  }
+
+  public VendorRecruitment(){
+    this.Vendorrecruit=true
+    this.Jobrecruit=false
+   
+    this.home=false
+    this.applied=false
+    this.shortlist=false
+    this.scheduled=false
+  
+    this.applied=false
+    this.shortlist=false
+    this.scheduled=false
+    this.selected=false
+    this.offered=false
+    this.joined=false
+    this.dropped=false
+    this.vendorreport=false
+    this.appliedreport=false
+    this.shortlistedreport=false
+    this.selectedreport=false
+    this.offeredreport=false
+    this.Jobrecruitreport=false
+    this.joinedreport=false
+    this.droppedreport=false
     localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/VendorJobOpenings']);
 
