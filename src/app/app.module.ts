@@ -144,7 +144,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ReactiveFormsModule,
     NgxPaginationModule,
     NgxFullCalendarModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+
     
   ],
 
