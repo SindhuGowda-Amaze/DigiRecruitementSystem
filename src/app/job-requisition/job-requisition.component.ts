@@ -46,7 +46,7 @@ export class JobRequisitionComponent implements OnInit {
       this.hrlist = data;
     })
     this.RecruitmentServiceService.GetManpowerPlanningandBudgeting().subscribe(data => {
-      this.joblist = data;
+      this.joblist = data.filter(x => x.department == sessionStorage.getItem('Department'));
     })
 
   }
@@ -115,9 +115,16 @@ export class JobRequisitionComponent implements OnInit {
   public Getjobno(event: any) {
     debugger
     this.RecruitmentServiceService.GetManpowerPlanningandBudgeting().subscribe(data => {
-      let temp: any = data.filter(x => x.id = event.target.value);
+      let temp: any = data.filter(x => x.id == event.target.value);
       this.Department = temp[0].department;
       this.noofpositions = temp[0].headCount
     })
+    this.RecruitmentServiceService.GetJobDescriptionMaster().subscribe(data => {
+      let temp: any = data.filter(x => x.department == this.Department);
+      this.jobdescription = temp[0].description
+    })
+
+
+
   }
 }

@@ -223,6 +223,11 @@ export class ManpowerPlanningandBudgetingdashboardComponent implements OnInit {
 
   }
 
+  public ApproveBudget(holiday: any) {
+    debugger
+    Swal.fire('Approved Successfully');
+  }
+
 
 
 

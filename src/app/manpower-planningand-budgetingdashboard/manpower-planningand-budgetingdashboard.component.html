@@ -85,6 +85,7 @@
                                 <th>Approved Count</th>
                                 <th>Year</th>
                                 <th>Remarks</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,6 +96,11 @@
                                 <td>{{holiday.headCount}}</td>
                                 <td>{{holiday.year}}</td>
                                 <td>{{holiday.remarks}}</td>
+                                <td>
+                                    <button style="height: fit-content;" type="button" class="upload"
+                                        (click)="ApproveBudget(holiday)">
+                                        Approve</button>
+                                </td>
                             </tr>
                         </tbody>
 

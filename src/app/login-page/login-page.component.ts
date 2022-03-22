@@ -22,7 +22,7 @@ export class LoginPageComponent implements OnInit {
   companycode: any
   showpassword: any;
 
-  name:any;
+  name: any;
 
   constructor(public RecruitmentServiceService: RecruitmentServiceService, private router: Router) { }
 
@@ -76,7 +76,7 @@ export class LoginPageComponent implements OnInit {
   //   location.reload();
 
   // }
-  result1:any;
+  result1: any;
   public login() {
 
     if (this.userName == 'admin' && this.password == '1') {
@@ -93,7 +93,7 @@ export class LoginPageComponent implements OnInit {
     }
     else if (this.roleID == 6) {
       this.RecruitmentServiceService.GetRecruiterStaff().subscribe(data => {
-        let temp: any = data.filter(x => (x.email == this.userName || x.phoneNo == this.userName) && x.password == this.password && x.enable_Disable==false);
+        let temp: any = data.filter(x => (x.email == this.userName || x.phoneNo == this.userName) && x.password == this.password && x.enable_Disable == false);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -103,7 +103,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'recruiter');
           sessionStorage.setItem('roleid', '6');
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
           location.href = "#/Dashboard";
           location.reload();
 
@@ -133,7 +133,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('temp', '1');
           sessionStorage.setItem('role', 'Client');
           sessionStorage.setItem('roleid', '4');
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
           location.href = "#/Dashboard";
           location.reload();
 
@@ -149,6 +149,30 @@ export class LoginPageComponent implements OnInit {
 
     }
 
+    else if (this.roleID == 8) {
+      sessionStorage.setItem('UserName', 'Anup');
+      sessionStorage.setItem('userid', '1');
+      sessionStorage.setItem('temp', '1');
+      sessionStorage.setItem('role', 'HR');
+      sessionStorage.setItem('roleid', '8');
+      localStorage.setItem('Pagename', 'DASHBOARD')
+      location.href = "#/ManpowerPlanningandBudgetingdash";
+      location.reload();
+
+    }
+
+
+    else if (this.roleID == 9) {
+      sessionStorage.setItem('UserName', 'KUmar');
+      sessionStorage.setItem('userid', '1');
+      sessionStorage.setItem('temp', '1');
+      sessionStorage.setItem('role', 'CEO');
+      sessionStorage.setItem('roleid', '9');
+      localStorage.setItem('Pagename', 'DASHBOARD')
+      location.href = "#/ManpowerPlanningandBudgetingdash";
+      location.reload();
+
+    }
 
 
 
@@ -165,7 +189,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('role', 'Vendor');
           sessionStorage.setItem('roleid', '3');
           sessionStorage.setItem('notes', this.result.notes);
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
           location.href = "#/Dashboard";
           location.reload();
 
@@ -203,7 +227,7 @@ export class LoginPageComponent implements OnInit {
       debugger;
       this.RecruitmentServiceService.GetVendor_Staff().subscribe(data => {
         // this.result = data;
-        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password && x.enable_Disable==false);
+        let temp: any = data.filter(x => (x.phone_Number == this.userName || x.email_ID == this.userName) && x.password == this.password && x.enable_Disable == false);
         this.result = temp[0];
         // this.result = data.filter(x => x.loginTypeID == 7);
         debugger;
@@ -220,7 +244,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('userName', this.result.emailID);
           localStorage.setItem('password', this.result.password);
           localStorage.setItem('projectName', this.result.projectName);
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
 
           // this.router.navigate(["/Dashboard"]);
           location.href = "#/Dashboard"
@@ -423,8 +447,8 @@ export class LoginPageComponent implements OnInit {
 
     else if (this.roleID == 5) {
       this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
-        
-        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable==false);
+
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable == false);
         this.result = temp[0];
         debugger;
         // let temp1:any =data.filter(x=>x.x.enable_Disable==true)
@@ -436,12 +460,12 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('role', 'Interview Panel');
           sessionStorage.setItem('roleid', '5');
           location.href = "#/ScheduledInterviews";
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
           location.reload();
 
-        
+
         }
-       
+
         // else if(temp1==true)
         // {
         //   Swal.fire('User is Disabled!!');
@@ -455,35 +479,37 @@ export class LoginPageComponent implements OnInit {
           this.password = "";
         }
 
-       
+
       })
     }
-      
-      else if (this.roleID == 2) {
-        this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
-          let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable==false);
-          this.result = temp[0];
-          debugger;
-          // this.loader = true;
-          if (this.result != undefined || this.result != null) {
-            sessionStorage.setItem('UserName', this.result.name);
-            sessionStorage.setItem('userid', this.result.id);
-            sessionStorage.setItem('temp', '1');
-            sessionStorage.setItem('role', 'Hiring Manager');
-            sessionStorage.setItem('roleid', '2');
-            localStorage.setItem('Pagename','DASHBOARD')
-            location.href = "#/Dashboard";
-            location.reload();
-          }
-          else {
-            Swal.fire('Username or Password is Invalid or User is Disabled');
-            this.userName = "";
-            this.password = "";
-          }
-  
-        })
-  
-      }
+
+    else if (this.roleID == 2) {
+      this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable == false);
+        this.result = temp[0];
+        debugger;
+        // this.loader = true;
+        if (this.result != undefined || this.result != null) {
+          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('userid', this.result.id);
+          sessionStorage.setItem('temp', '1');
+          sessionStorage.setItem('role', 'Hiring Manager');
+          sessionStorage.setItem('Department', this.result.department);
+
+          sessionStorage.setItem('roleid', '2');
+          localStorage.setItem('Pagename', 'DASHBOARD')
+          location.href = "#/Dashboard";
+          location.reload();
+        }
+        else {
+          Swal.fire('Username or Password is Invalid or User is Disabled');
+          this.userName = "";
+          this.password = "";
+        }
+
+      })
+
+    }
 
 
 
@@ -505,7 +531,7 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('loginTypeId', this.result.loginTypeID);
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '5');
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
           this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
@@ -539,7 +565,7 @@ export class LoginPageComponent implements OnInit {
 
           localStorage.setItem('temp', '1');
           localStorage.setItem('roleid', '1');
-          localStorage.setItem('Pagename','DASHBOARD')
+          localStorage.setItem('Pagename', 'DASHBOARD')
           this.router.navigate(["/Dashboard"]);
           // location.reload();
         }
