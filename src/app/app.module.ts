@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxFullCalendarModule } from 'ngx-fullcalendar';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +35,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { JobRequisitionComponent } from './job-requisition/job-requisition.component';
 import { PipesModule } from 'pipes-module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+////import { DatePipe } from '@angular/common';
 // import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
@@ -63,6 +66,11 @@ import { JobDescriptionFormComponent } from './job-description-form/job-descript
 import { JobDescriptionDashComponent } from './job-description-dash/job-description-dash.component';
 
 
+import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
+import { DatePipe } from '@angular/common';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 
@@ -116,6 +124,8 @@ import { JobDescriptionDashComponent } from './job-description-dash/job-descript
     NotificationComponent,
     JobDescriptionFormComponent,
     JobDescriptionDashComponent,
+    RejectedCadidatesComponent,
+    ScheduledInterviewCalenderComponent,
    
   ],
   imports: [
@@ -131,10 +141,14 @@ import { JobDescriptionDashComponent } from './job-description-dash/job-descript
     Ng2SearchPipeModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    NgxFullCalendarModule,
+    NgMultiSelectDropDownModule
+    
   ],
 
-  providers: [AuthGuard],
+  providers: [AuthGuard,DatePipe],
   bootstrap: [AppComponent],
   
 })

@@ -17,14 +17,36 @@ export class JoinedCandidatesComponent implements OnInit {
   term: any;
   search:any;
   loader:any;
+  p: any = 1;
+  count1: any = 5;
+  jobListCopy:any;
+  roleid:any;
+  Date:any;
+  hrlist:any;
+  username:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName');
     this.loader=true;
     this.GetCandidateReg();
+
+    this.RecruitServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
   }
 
   public GetCandidateReg() {
     this.RecruitServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.offerAcceptreject == 1);
+
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username && x.offerAcceptreject == 1);
+      }
+      else
+      {
+        this.joblist = data.filter(x => x.offerAcceptreject == 1);
+        this.jobListCopy = this.joblist
+      }
+
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -35,7 +57,20 @@ export class JoinedCandidatesComponent implements OnInit {
     window.open(offer, "_blank")
   }
 
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
 
+  public changeAnniversary() {
+    debugger;
+  
+    this.RecruitServiceService.GetCandidateRegistration().subscribe(data => {
+  
+      this.joblist = data.filter(x => x.cdate == this.Date + "T00:00:00");
+    });
+  }
 
 
 
@@ -98,5 +133,24 @@ export class JoinedCandidatesComponent implements OnInit {
         )
       }
     })
+  }
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
   }
 }

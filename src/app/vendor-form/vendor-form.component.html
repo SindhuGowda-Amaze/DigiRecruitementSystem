@@ -41,19 +41,19 @@
                                     </ngx-dropzone>
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control inputfield" placeholder="Vendor Name"
+                                    <input class="form-control inputfield" placeholder="Vendor Name" name="vendor_Name"
                                         [(ngModel)]="vendor_Name">
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control inputfield" placeholder="Phone Number"
+                                    <input class="form-control inputfield" placeholder="Phone Number"name="phone_Number"
                                         [(ngModel)]="phone_Number">
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control inputfield" placeholder="Email ID"
+                                    <input class="form-control inputfield" placeholder="Email ID"name="email_ID"
                                         [(ngModel)]="email_ID">
                                 </div>
                                 <div class="col-md-3">
-                                    <textarea class="form-control inputfield" placeholder="Address"
+                                    <textarea class="form-control inputfield" placeholder="Address"name="address"
                                         [(ngModel)]="address"></textarea>
                                 </div>
                             </div><br>
@@ -65,11 +65,11 @@
                                 <button class="form-control Edit" (click)="cancel()">Cancel</button>
                             </div>
                             <div class="col-lg-1">
-                                <!-- <button class="form-control Edit" *ngIf="id==null || id==undefined"
+                                <button class="form-control Edit" *ngIf="id==null || id==undefined"
                                     (click)="Save()">Save</button>
                                 <button class="form-control Edit" *ngIf="id!=null || id!=undefined"
-                                    (click)="Update()">Update</button> -->
-                                <button class="form-control Edit" (click)="Save()">Save</button>
+                                    (click)="Update()">Update</button>
+                                <!-- <button class="form-control Edit" (click)="Save()">Save</button> -->
                             </div>
                         </div>
                 </div>

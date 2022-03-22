@@ -33,7 +33,7 @@
   letter-spacing: 1px;
 
   color: #FFFFFF;
-  margin-top: 15px;
+  margin-top: 20px;
 
 
 }
@@ -43,7 +43,7 @@
   letter-spacing: -0.05em;
 
   color: #0C275A;
-  margin-top: 4px;
+  margin-top: 8px;
   font-size: 20px;
 }
 
@@ -202,7 +202,7 @@ li a:hover {
   left: 45%;
 
 right: 6.04%;
-top: 20.57%;
+top: 40.57%;
 bottom: 38.57%;
 
 font-family: Poppins;

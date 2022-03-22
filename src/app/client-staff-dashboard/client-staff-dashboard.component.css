@@ -79,13 +79,13 @@ ul {
   .SelectData{
     text-align: center;
   }
-
+/* 
   .Edit{
     width: 50px;
     border-radius: 7px;
     background-color: #2F87CC;
     color: white;
-  }
+  } */
   .Text{
     font-size: 16px;
   }
@@ -195,7 +195,7 @@ ul {
     border-radius: 5px;
     border: none;
     padding: 5px;
-    width: 30%;
+    width: 60%;
     margin-right: 15px;
     font-size: 12px;
     font-weight: bold;

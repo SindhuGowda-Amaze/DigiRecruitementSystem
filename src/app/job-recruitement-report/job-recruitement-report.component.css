@@ -1,17 +1,25 @@
 .export{
     border-radius: 10px;
     background-color: #3247D5;
-    height: 35px;
+ 
     color: #fff;
     width: 100%;
    border-radius: 5px;
-    margin-top: 2%;
+   
 }
 
 
 .hrline{
    margin-top: 0px;
 }
+.Button {
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3247D5;
+    color: white;
+    width: 100%;
+  }
 
 .head{
     background-color:#02CFFF ;
@@ -39,6 +47,6 @@
 
 .filterclass{
     font-size: 15px;
-    margin-left: 15px;
+  
     color:#0C275A;
 }

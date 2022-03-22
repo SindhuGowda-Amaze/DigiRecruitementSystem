@@ -1,15 +1,20 @@
 <div class="container-fluid" style="background-color: #f2f2f2;">
     <br>
     <!-- <div class="row" *ngIf="roleid!='3'|| roleid!='6'"> -->
-        <div class="row" *ngIf="roleid==4">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-3">
-        <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
-            <option value="Select HR">Select Hiring Manager</option>
-            <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
-          </select>
+        <div class="hmcard"  *ngIf="roleid==4 ||roleid==6">
+            <div class="row" >
+                <div class="col-lg-1">
+                    <p>Filter By :</p>
+                </div>
+                <div class="col-lg-3">
+                <select   class="form-control form-select" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()"  (change)="changestaff()">
+                    <option value="">Select Hiring Manager</option>
+                    <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+                  </select>
+                </div>
+            </div>
         </div>
-    </div>
+       
     <br/>
     <br/>
     
@@ -158,7 +163,7 @@
                             <div class="row">
                                 <div class="col-lg-4"></div>
                                 <div class="col-lg-4" style="text-align: center;">
-                                    <h6 class="Number">{{count2}}</h6>
+                                    <h6 class="Number">{{count9}}</h6>
                                 </div>
                                 <div class="col-lg-4"></div>
                             </div><br><br><br><br>

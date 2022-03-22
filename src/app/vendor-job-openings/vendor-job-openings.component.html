@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-10">
             <br>
-            <p class="Heading" style="color:#3247D5">VENDOR JOB OPENINGS DASHBOARD</p>
+            <p class="Heading" style="color:#3247D5">OPEN POSITIONS</p>
         </div>
     </div><br>
     <div class="card">
@@ -31,7 +31,7 @@
                 </select>
             </div>
             <div class="col-lg-3">
-                <input class="form-control poppinns" placeholder="Search.."  [(ngModel)]="search" name="search">
+                <input class="form-control poppinns" placeholder="Search.."  [(ngModel)]="search" name="search" (ngModelChange)="Filterjobs()">
             </div>
             <div class="col-lg-2">
                 <p class="Count Heading">Count:{{count}}</p>
@@ -40,7 +40,7 @@
     </div> <br>
 
     <div class="row">
-        <div class="col-lg-12" style="height: 470px; overflow-y: scroll; ">
+        <div class="col-lg-12" style="overflow: auto; ">
             <table class="table">
                 <thead>
                     <tr>
@@ -57,36 +57,72 @@
                         <th class="heading">Hiring Manager</th>
                         <th class="heading">Recruiter Comments</th>
                         <th class="heading">Actions </th>
+                        <th>Assigned Vendors</th>
                     </tr>
                 </thead>
-                <tr *ngFor="let job of joblist|filter:search" >
+                <tr *ngFor="let job of joblist|paginate: { itemsPerPage: count1, currentPage: p }" >
                     <td>{{job.jobRefernceID}}</td>
                     <td><span style="width: 10px;">{{job.date}}</span></td>
                     <td>{{job.jobTitle}}</td>
                     <td>{{job.skills}}</td>
                     <td>{{job.totalExp}}</td>
                     <td>{{job.relaventExp}}</td>
-                    <td>{{job.jobDescription}}</td>
+                    <td data-toggle="modal" data-target="#Assign1"><button class="Button">view</button></td>
+                   
                     <td>{{job.joblocation}}</td>
                     <td>{{job.noofpositions}}</td>
                     <td>{{job.package}}</td>
                     <td>{{job.hiringManager}}</td>
                     <td>{{job.notes}}</td>
-                    <td><button class="button form-control" data-toggle="modal" (click)="GetId(job.id)">Apply</button>
+                    <td><button class="Button form-control" data-toggle="modal" (click)="GetId(job.id)">Upload</button>
                         <br />
-                        <button *ngIf="job.vendor==null" class="button form-control Add1" data-toggle="modal"
+                        <!-- <button *ngIf="job.vendor==null" class=" form-control Add1" data-toggle="modal"
+                            (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button> -->
+                            <button  class="Add1 form-control " data-toggle="modal"
                             (click)="GetId1(job.id)" data-target="#Assign">Assign Vendor</button>
                     </td>
+                    <td>Monster</td>
                 </tr>
             </table>
+           
             <ng-template #noResults>
                 <p> no results found for "{{search}}" </p>
             </ng-template>
         </div>
+        <div class="text-right">
+            <br>
+            <pagination-controls (pageChange)="p = $event" class="poppinns"></pagination-controls>
+        </div> 
+        <span *ngIf="joblist.length==0">No data found.</span>
     </div>
+</div>
 
-
-
+  
+<div id="Assign1" class="modal fade" role="dialog" *ngFor="let job of joblist">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="Heading">Job Description</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label class="Text">Description :</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <td>{{job.jobDescription}}</td>
+                    </div>
+                </div> <br>
+            </div>
+            <div class="modal-footer">
+                <hr>
+                <div class="col-lg-2">
+                    <button class="Button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -104,10 +140,9 @@
                         <label class="Text">Vendor :</label>
                     </div>
                     <div class="col-lg-5">
-                        <select class="form-control" [(ngModel)]="Vendor">
-                            <option value="">Select </option>
-                            <option *ngFor="let User of Userlist" value={{User.id}}>{{User.vendor_Name}} </option>
-                        </select>
+                        <ng-multiselect-dropdown [placeholder]="'Select Vendor'" [settings]="dropdownSettings1"
+                        [data]="dropdownList1" [(ngModel)]="Vendor"  (onSelect)="onItemSelect1($event)">
+                        </ng-multiselect-dropdown>
                     </div>
                 </div> <br>
 

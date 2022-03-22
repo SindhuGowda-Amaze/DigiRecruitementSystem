@@ -69,10 +69,10 @@ export class VendorStaffFormComponent implements OnInit {
         this.result = this.result.filter((x: { id: any; }) => x.id == Number(this.id));
         this.vendor_Name = this.result[0].vendor_Name;
         this.staff_Name = this.result[0].staff_Name;
-        this.Email_ID = this.result[0].Email_ID;
+        this.Email_ID = this.result[0].email_Id;
         this.phone_Number = this.result[0].phone_Number;
-        this.Company_logo = this.result[0].signature;
-        this.role_Id = this.result[0].role;
+        // this.Company_logo = this.result[0].signature;
+        // this.role_Id = this.result[0].role;
 
       })
   }
@@ -82,7 +82,7 @@ export class VendorStaffFormComponent implements OnInit {
       "VendorId": this.vendor_Name,
       "Staff_Name": this.staff_Name,
       "Phone_Number": this.phone_Number,
-      "Email_ID": this.Email_ID,
+      "Email_Id": this.Email_ID,
       "Signature": this.Company_logo,
       "Role": this.role_Id
     };
@@ -91,7 +91,7 @@ export class VendorStaffFormComponent implements OnInit {
         debugger
         let id = data;
         alert("Successfully saved!!")
-        location.href = "/VendorStaffForm"
+        location.href = "#/VendorStaffDashboard"
       })
   }
   vendordetails: any;
@@ -130,13 +130,13 @@ export class VendorStaffFormComponent implements OnInit {
         debugger
         alert("Updated Sucessfully");
         let id = data;
-        location.href = "/VendorStaffDashboard";
+        location.href = "#/VendorStaffDashboard";
 
       }
     )
   }
   cancel(){
-    location.href = "/VendorStaffDashboard";
+    location.href = "#/VendorStaffDashboard";
   }
 }
 

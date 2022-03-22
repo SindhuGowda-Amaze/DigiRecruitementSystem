@@ -22,39 +22,63 @@ export class AppliedCandidatesComponent implements OnInit {
   userid:any;
   searchbyctc:any;
   searchbynotice:any;
-
+  noticeperiodlist:any;
+  ctclist:any;
+  p: any = 1;
+  count1: any = 5;
+  hrlist:any
+  hiringManager:any;
+  username:any;
   ngOnInit(): void {
-  
-    this.userid=sessionStorage.getItem('userid');
+  this.hiringManager="";
+  this.searchbynotice="";
+   
     this.roleid = sessionStorage.getItem('roleid');
     
     this.userid=sessionStorage.getItem('userid')
+    this.username = sessionStorage.getItem('UserName'); 
+
     
- 
+    
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
  
     if(this.roleid=='3'){
       debugger;
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid) )
         this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && (x.source == "Vendor" && x.vendorId == this.userid));
-      
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0 && (x.source == 'Vendor' && x.vendorId == this.userid)  );
+       
         this.count = this.joblist.length;
       })
+    }
   
 
- 
-  
-    }
-    else {
+
+    else if (this.roleid==2) {
   
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
-        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
-      
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && x.hiringManager==this.username);
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.count = this.joblist.length;
       })
   
     }
+    else{
+      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+        this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0);
+        this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.ctclist= data.filter(x => x.accept == 1 && x.scheduled == 0);
+        this.count = this.joblist.length;
+      })
+    }
+    
     // this.GetCandidateReg();
  
   }
@@ -148,5 +172,40 @@ export class AppliedCandidatesComponent implements OnInit {
         )
       }
     })
+  }
+
+
+  public changeoption() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.noticePeriod == this.searchbynotice));
+    });
+  }
+
+  // public changectc(){
+  //   debugger;
+  
+  //   this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+  //     this.joblist = data.filter(x => (x.accept == 1 && x.scheduled == 0) &&  (x.ctc == this.searchbyctc));
+  //   });
+  // }
+
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
   }
 }

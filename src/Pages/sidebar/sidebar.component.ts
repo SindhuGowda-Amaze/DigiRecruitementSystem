@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
   }
   client:any
 public Client(){
-  localStorage.setItem('Pagename', 'Client')
+  localStorage.setItem('Pagename', 'CLIENT')
     this.router.navigate(['/ClientDashBoard']);
     this.client=true
     this.home=false
@@ -54,7 +54,7 @@ public Client(){
 }
 clientstaff:any
 public Clientstaff(){
-  localStorage.setItem('Pagename', 'Client Staff')
+  localStorage.setItem('Pagename', 'CLIENT STAFF')
     this.router.navigate(['/ClientStaffDashBoard']);
     this.client=false
     this.clientstaff=true
@@ -65,8 +65,8 @@ public Clientstaff(){
 }
 recruitstaff:any
 public Recruitstaff(){
-  localStorage.setItem('Pagename', 'Client Staff')
-  this.router.navigate(['/ClientStaffDashBoard']);
+  localStorage.setItem('Pagename', 'RECRUITER')
+  this.router.navigate(['/RecruiterStaffDashboard']);
   this.client=false
   this.clientstaff=false
   this.home=false
@@ -76,8 +76,8 @@ public Recruitstaff(){
 }
 vendo:any
 public vendor(){
-  localStorage.setItem('Pagename', 'Client Staff')
-  this.router.navigate(['/ClientStaffDashBoard']);
+  localStorage.setItem('Pagename', 'VENDOR')
+  this.router.navigate(['/VendorDashboard']);
   this.vendo=true
   this.client=false
   this.clientstaff=false
@@ -88,7 +88,7 @@ public vendor(){
 
 vendorstaf:any
 public vendorstaff(){
-  localStorage.setItem('Pagename', 'Client Staff')
+  localStorage.setItem('Pagename', 'VENDOR STAFF')
   this.router.navigate(['/VendorStaffDashboard']);
   this.vendorstaf=true
   this.vendo=false
@@ -103,7 +103,7 @@ Vendorrecruit:any
   public admin() {
     debugger
     if (this.roleid=='1') {
-    localStorage.setItem('Pagename', 'Dashboard')
+    localStorage.setItem('Pagename', 'DASHBOARD')
     this.router.navigate(['/AdminDashboard']);
     this.home=true
     this.Jobrecruit=false
@@ -131,8 +131,8 @@ Vendorrecruit:any
     }
     else if( this.roleid!='5')
     {
-      localStorage.setItem('Pagename', 'Dashboard')
-      this.router.navigate(['/AdminDashboard']);
+      localStorage.setItem('Pagename', 'DASHBOARD')
+      this.router.navigate(['/Dashboard']);
       this.home=true
       this.Jobrecruit=false
       this.Vendorrecruit=false
@@ -158,7 +158,7 @@ Vendorrecruit:any
       this.droppedreport=false
     }
     else if(this.roleid=='6'){
-      localStorage.setItem('Pagename', 'Dashboard')
+      localStorage.setItem('Pagename', 'DASHBOARD')
       this.router.navigate(['/Dashboard']);
       this.home=true
       this.Jobrecruit=false
@@ -185,7 +185,7 @@ Vendorrecruit:any
       this.droppedreport=false
     }
     else if(this.roleid=='3'){
-      localStorage.setItem('Pagename', 'Dashboard')
+      localStorage.setItem('Pagename', 'DASHBOARD')
       this.router.navigate(['/Dashboard']);
       this.home=true
       this.Jobrecruit=false
@@ -211,8 +211,8 @@ Vendorrecruit:any
       this.joinedreport=false
       this.droppedreport=false
     }
-    else if(this.roleid=='1'){
-      localStorage.setItem('Pagename', 'Dashboard')
+    else if(this.roleid=='4'){
+      localStorage.setItem('Pagename', 'DASHBOARD')
       this.router.navigate(['/Dashboard']);
       this.Jobrecruit=false
       this.Vendorrecruit=false
@@ -265,12 +265,50 @@ Vendorrecruit:any
     this.Jobrecruitreport=false
     this.joinedreport=false
     this.droppedreport=false
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/JobRecruitements']);
    
 
 
   }
+active:any;
+  public ScheduledInterviews(){
+    if(this.roleid=='5'){
+      this.active = 80;
+      localStorage.setItem('Pagename', 'SCHEDULED INTERVIEWS')
+      this.router.navigate(['/ScheduledInterviews']);
+    }
+    
+  }
+
+  
+  public SelectedCandidates(){
+    if(this.roleid=='5'){
+      this.active = 81;
+      localStorage.setItem('Pagename', 'SELECTED CANDIDATES')
+      this.router.navigate(['/SelectedCandidates']);
+    }
+    
+  }
+
+  public RejectedCandidates(){
+    if(this.roleid=='5'){
+      this.active = 82;
+      localStorage.setItem('Pagename', 'REJECTED CANDIDATES')
+      this.router.navigate(['/RejectedCadidates']);
+    }
+    
+  }
+
+  // public ScheduledInterviewCalender(){
+  //   if(this.roleid=='5'){
+  //     this.active = 83;
+  //     localStorage.setItem('Pagename', 'INTERVIEW CALENDER')
+  //     this.router.navigate(['/ScheduledInterviewCalender']);
+  //   }
+    
+  // }
+
 
   public Description(){
     localStorage.setItem('Pagename', 'Job Description')
@@ -301,13 +339,13 @@ Vendorrecruit:any
     this.Jobrecruitreport=false
     this.joinedreport=false
     this.droppedreport=false
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/VendorJobOpenings']);
   
   }
 
   public Appliedcandidates(){
-    localStorage.setItem('Pagename', 'Applied Candidates')
+    localStorage.setItem('Pagename', 'APPLIED CANDIDATES')
     this.router.navigate(['/AppliedCandidates']);
     this.applied=true
     this.Jobrecruit=false
@@ -336,7 +374,7 @@ Vendorrecruit:any
 
 
   public Shortlisted(){
-    localStorage.setItem('Pagename', 'Shortlisted Candidates')
+    localStorage.setItem('Pagename', 'SHORTLISTED CANDIDATES')
     this.router.navigate(['/ShortListedCandidates']);
     this.shortlist=true
     this.applied=false
@@ -370,7 +408,7 @@ Vendorrecruit:any
   joined:any
   dropped:any
   public Scheduled(){
-    localStorage.setItem('Pagename', 'Scheduled Candidates')
+    localStorage.setItem('Pagename', 'SCHEDULED INTERVIEWS')
     this.router.navigate(['/ScheduledInterviews']);
     this.scheduled=true
     this.Jobrecruit=false
@@ -396,10 +434,11 @@ Vendorrecruit:any
     this.joinedreport=false
     this.droppedreport=false
   }
+
   
 
   public Selected(){
-    localStorage.setItem('Pagename', 'Selected Candidates')
+    localStorage.setItem('Pagename', 'SELECTED CANDIDATES')
     this.router.navigate(['/SelectedCandidates']);
     this.selected=true
     this.Jobrecruit=false
@@ -428,7 +467,7 @@ Vendorrecruit:any
 
 
   public Offered(){
-    localStorage.setItem('Pagename', 'Offered Candidates')
+    localStorage.setItem('Pagename', 'OFFERED CANDIDATES')
     this.router.navigate(['/OfferedCandidates']);
     this.offered=true
     this.Jobrecruit=false
@@ -456,7 +495,7 @@ Vendorrecruit:any
   }
 
   public Joined(){
-    localStorage.setItem('Pagename', 'Joined Candidates')
+    localStorage.setItem('Pagename', 'JOINED CANDIDATES')
     this.router.navigate(['/JoinedCandidates']);
     this.joined=true
     this.Jobrecruit=false
@@ -485,7 +524,7 @@ Vendorrecruit:any
 
 
   public Dropped(){
-    localStorage.setItem('Pagename', 'Dropped Candidates')
+    localStorage.setItem('Pagename', 'DROPPED CANDIDATES')
     this.router.navigate(['/DroppedCandidates']);
     this.dropped=true
     this.Jobrecruit=false
@@ -522,7 +561,7 @@ Vendorrecruit:any
   joinedreport:any
   droppedreport:any
   public VendorReport(){
-    localStorage.setItem('Pagename', 'Vendor')
+    localStorage.setItem('Pagename', 'VENDOR REPORT')
     this.router.navigate(['/VendorJobOpenings']);
     this.vendorreport=true
     this.Jobrecruit=false
@@ -550,7 +589,7 @@ Vendorrecruit:any
 
   }
   public AppliedReport(){
-    localStorage.setItem('Pagename', 'Applied')
+    localStorage.setItem('Pagename', 'APPLIED CANDIDATES REPORT')
     this.router.navigate(['/AppliedCandidatesReports']);
     this.appliedreport=true
     this.Jobrecruit=false
@@ -579,7 +618,7 @@ Vendorrecruit:any
   }
 
   public Shortlistedreport(){
-    localStorage.setItem('Pagename', 'Shortlisted')
+    localStorage.setItem('Pagename', 'SHORTLISTED CANDIDATES REPORT')
     this.router.navigate(['/ShortlistedCandidatesReports']);
     
     this.shortlistedreport=true
@@ -609,7 +648,7 @@ Vendorrecruit:any
   }
 
   public ScheduledReport(){
-    localStorage.setItem('Pagename', 'Scheduled')
+    localStorage.setItem('Pagename', 'SCHEDULED INTERVIEWS REPORT')
     this.router.navigate(['/ScheduledInterviewsReports']);
     this.scheduledreport=true
     this.Jobrecruit=false
@@ -638,7 +677,7 @@ Vendorrecruit:any
   }
 
   public SelectedReport(){
-    localStorage.setItem('Pagename', 'Selected')
+    localStorage.setItem('Pagename', 'SELECTED CANDIDATES REPORT')
     this.router.navigate(['/SelectedCandidatesReports']);
     this.selectedreport=true
     this.Jobrecruit=false
@@ -667,7 +706,7 @@ Vendorrecruit:any
   }
 
   public OfferedReport(){
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/OfferedCandidatesReports']);
     this.offeredreport=true
     this.Jobrecruit=false
@@ -696,7 +735,7 @@ Vendorrecruit:any
   }
 
   public JobRecruitReport(){
-    localStorage.setItem('Pagename', 'Job Recruitment')
+    localStorage.setItem('Pagename', 'OPEN POSITIONS')
     this.router.navigate(['/JobRecruitementReport']);
     this.Jobrecruitreport=true
     this.Jobrecruit=false
@@ -725,7 +764,7 @@ Vendorrecruit:any
   }
 
   public JoinedReport(){
-    localStorage.setItem('Pagename', 'Joined')
+    localStorage.setItem('Pagename', 'JOINED CANDIDATES REPORT')
     this.router.navigate(['/JoinedCandidatesReport']);
     this.joinedreport=true
     this.Jobrecruit=false
@@ -754,7 +793,7 @@ Vendorrecruit:any
   }
 
   public DroppedReport(){
-    localStorage.setItem('Pagename', 'Dropped')
+    localStorage.setItem('Pagename', 'DROPPED CANDIDATES REPORT')
     this.router.navigate(['/DroppedCandiadtesReports']);
     this.droppedreport=true
     this.Jobrecruit=false

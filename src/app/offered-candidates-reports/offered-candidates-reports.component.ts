@@ -14,7 +14,16 @@ export class OfferedCandidatesReportsComponent implements OnInit {
   count: any;
   term: any;
   loader:any;
+  roleid:any;
+  hrlist:any;
+  username:any;
   ngOnInit(): void {
+    this.hiringManager="";
+    this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName');
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
 
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       debugger
@@ -28,9 +37,17 @@ export class OfferedCandidatesReportsComponent implements OnInit {
   }
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
-      this.loader=false;
-      this.count = this.joblist.length;
+      if(this.roleid==2){
+        this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0 && x.hiringManager==this.username);
+        this.loader=false;
+        this.count = this.joblist.length;
+      }
+      else{
+        this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0);
+        this.loader=false;
+        this.count = this.joblist.length;
+      }
+     
     })
 
     
@@ -54,5 +71,21 @@ export class OfferedCandidatesReportsComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
     this.loader = false;
+  }
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => (x.offered == 1 && x.offerAcceptreject == 0) && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
   }
 }

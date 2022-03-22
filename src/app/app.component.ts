@@ -11,7 +11,7 @@ export class AppComponent {
   company_name: any;
   temp:any
   ngOnInit() {
-    this.temp=localStorage.getItem('temp')
+    this.temp=sessionStorage.getItem('temp')
     this.company_name = localStorage.getItem("company_name");
   }
 

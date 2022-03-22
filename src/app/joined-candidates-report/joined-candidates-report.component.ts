@@ -20,18 +20,37 @@ export class JoinedCandidatesReportComponent implements OnInit {
   count: any;
   term: any;
   loader:any;
+  hrlist:any;
+  jobListCopy:any;
+  p: any = 1;
+  count1: any = 5;
+  roleid:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
+    this.hiringManager="";
     this.GetCandidateReg()
+
+    
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
   }
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       this.joblist = data.filter(x => x.offerAcceptreject == 1);
+      this.jobListCopy=this.joblist
       this.loader=false;
       this.count = this.joblist.length;
     })
 
+  }
+
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.term.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
   }
 
   public GetOfferLetter(offer:any) {
@@ -52,5 +71,21 @@ export class JoinedCandidatesReportComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
     this.loader = false;
+  }
+  
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.offerAcceptreject == 1 && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
   }
 }

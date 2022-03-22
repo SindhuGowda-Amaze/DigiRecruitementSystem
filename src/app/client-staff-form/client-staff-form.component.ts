@@ -15,7 +15,9 @@ export class ClientStaffFormComponent implements OnInit {
 
     this.GetRoleType();
 
-    this.GetClientStaff();
+    this.GetClientMaster();
+
+
         this.ActivatedRoute.params.subscribe(params=>{
       debugger
      this.id=params["id"];
@@ -24,13 +26,13 @@ export class ClientStaffFormComponent implements OnInit {
      }
     })
   }
-
+  RoleList:any;
   public GetRoleType() {
     debugger
     this.RecruitmentServiceService.GetRoleType().subscribe(
       data => {
-      this.ClientList = data
-      this.count = this.ClientList.length;
+      this.RoleList = data
+      this.count = this.RoleList.length;
     })
 
   }
@@ -38,16 +40,17 @@ export class ClientStaffFormComponent implements OnInit {
 
 
   ClientStaffList:any;
-  public GetClientStaff() {
+  public GetClientMaster() {
     debugger
     this.RecruitmentServiceService.GetClientMaster().subscribe(data=>{
       debugger
-      this.StaffList=data ;
+      this.ClientList=data ;
      })
   }
 
   id:any;
   // Company_logo:any;
+  
   Name: any;
   PhoneNo: any;
   Email: any;
@@ -72,7 +75,7 @@ export class ClientStaffFormComponent implements OnInit {
       debugger
       this.result = data;
       this.result=this.result.filter((x: {id: any;})=>x.id==Number(this.id));
-      this.clientName=this.result[0].clientName;
+      this.client=this.result[0].clientName;
       this.Role=this.result[0].role_Id;
       this.Name=this.result[0].name;
       this.PhoneNo=this.result[0].phoneNo;
@@ -93,18 +96,18 @@ export class ClientStaffFormComponent implements OnInit {
     console.log("content", this.files);
   }
 
- 
+  client:any;
 
  Save() {
   debugger
-  if(this.Name==undefined||this.PhoneNo==undefined||this.Email==undefined||this.Address==undefined||this.Signature==undefined)
-  {
-    alert("Please Fill All Fields to Save!!!")
-  }
-  else{
+  // if(this.Staff==undefined||this.Role==undefined||this.Email==undefined||this.PhoneNo==undefined||this.Address==undefined||this.Signature==undefined)
+  // {
+  //   alert("Please Fill All Fields to Save!!!")
+  // }
+  // else{
    
     var json = {
-      "ClientID": this.Staff,
+      "ClientID": this.client,
       "Role_Id": this.Role,
       "Name": this.Name,
       "PhoneNo": this.PhoneNo,
@@ -119,7 +122,7 @@ export class ClientStaffFormComponent implements OnInit {
         Swal.fire("Successfully Submitted...!!");
         location.href = "#/ClientStaffDashBoard"
       })
-  }
+  // }
  
 }
 
@@ -141,17 +144,18 @@ this.files.splice(this.files.indexOf(event),1);
   }
 
 
-
+  Staff1:any
   Update() {
     debugger
     var json = {
-      "ClientID": this.Staff,
-      "Role": this.Role,
+      "ID":this.id,
+      "ClientID": this.client,
+      "Role_Id": this.Role,
       "Name": this.Name,
       "PhoneNo": this.PhoneNo,
       "Email": this.Email,
       "Address": this.Address,
-      "Signature": this.Signature,  
+      "Signature": this.Signature,
     };
 
     this.RecruitmentServiceService.UpdateClientStaff(json).subscribe(

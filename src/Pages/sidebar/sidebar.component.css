@@ -24,6 +24,32 @@
   color: #3247D5;
 }
 
+ 
+.Active1 {
+  display: inline-flex;
+  color: #3247D5;
+}
+.Active2 {
+  display: none;
+  color: #949393;
+}
+
+
+.Active3 {
+  color: #949393;
+}
+
+  
+  .iconblue{
+    font-size: 22px;
+    color: #3247D5;
+  }
+
+
+  .icon{
+    color: #3247D5;
+  }
+
 
 .sideblue a {
   padding: 10px 0px 5px 0px;

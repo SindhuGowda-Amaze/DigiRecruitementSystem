@@ -18,15 +18,37 @@ export class DroppedCandidatesComponent implements OnInit {
   term: any;
   search:any;
   loader:any;
+  jobListCopy:any;
+  p: any = 1;
+  count1: any = 5;
+  Date:any;
+  option:any;
+  roleid:any;
+  hrlist:any;
+  username:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName');
     this.loader=true;
+    this.hiringManager="";
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
     this.GetCandidateReg()
   }
 
 
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      this.joblist = data.filter(x => x.offerAcceptreject == 2);
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username && x.offerAcceptreject == 2);
+      }
+      else
+      {
+        this.joblist = data.filter(x => x.offerAcceptreject == 2);
+        this.jobListCopy = this.joblist
+      }
+     
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -37,7 +59,29 @@ export class DroppedCandidatesComponent implements OnInit {
     window.open(offer, "_blank")
   }
 
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
 
+  public changeAnniversary() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+  
+      this.joblist = data.filter(x => x.cdate == this.Date + "T00:00:00");
+    });
+  }
+
+  public changeoption() {
+    debugger;
+  
+    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+  
+      this.joblist = data.filter(x => x.vendorName == this.option);
+    });
+  }
 
 
 
@@ -102,6 +146,23 @@ export class DroppedCandidatesComponent implements OnInit {
     })
   }
 
+  hiringManager:any;
+  public GetJobRequirements(){
   
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
+  }
 
 }

@@ -38,7 +38,7 @@
                 </div><br>
                 <div class="col-lg-3">
                     <button class="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-primary"
-                        (click)="GetJobID(job.id)">Apply</button>&nbsp;
+                        (click)="GetJobID(job.id)">Upload</button>&nbsp;
                 </div>
 
 
@@ -175,6 +175,16 @@
                         </div>
 
                     </div><br>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label>Expected CTC : </label>
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" placeholder="Current CTC" [(ngModel)]="ctc"
+                                name="ctc">
+                        </div>
+
+                    </div><br>
 
                     <div class="row">
                         <div class="col-lg-3">
@@ -203,7 +213,7 @@
                         <div class="col-lg-4"></div>
                         <div class="col-lg-2">
                             <button type="button" class="Addbutton" style="background-color:#3247D5;" (click)="insertdetails()"
-                                data-dismiss="modal">Apply</button>
+                                data-dismiss="modal">Upload</button>
                         </div>
                         <div class="col-lg-5"></div>
                     </div><br>

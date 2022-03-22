@@ -18,6 +18,12 @@ export class VendorJobOpeningsComponent implements OnInit {
   term:any;
   userid:any;
   roleid:any;
+  jobListCopy:any;
+  p: any = 1;
+  count1: any = 5;
+  dropdownSettings1: any = {};
+  dropdownList1: any = [];
+  selectedItems1: any = [];
   ngOnInit(): void {
     debugger;
     this.userid=sessionStorage.getItem('userid')
@@ -35,10 +41,31 @@ export class VendorJobOpeningsComponent implements OnInit {
     else {
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
         this.joblist = data;
+        this.jobListCopy = this.joblist
         this.count = this.joblist.length;
       })
     }
+
+    this.dropdownSettings1 = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'vendor_Name',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 20,
+      allowSearchFilter: true,
+
+    };
+
+
+
     this.GetUserslist();
+
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
+      debugger
+      this.dropdownList1 = data;
+    })
+
   
 
   }
@@ -49,11 +76,16 @@ export class VendorJobOpeningsComponent implements OnInit {
   //     this.count = this.joblist.length;
   //   })
   // }
-
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
   GetId(id: any) {
     this.ID = id
     location.href = "#/JobVacancies/" + this.ID
   }
+
 
   GetId1(id: any) {
     this.ID = id
@@ -65,7 +97,10 @@ export class VendorJobOpeningsComponent implements OnInit {
   Notes:any;
   public UpdateVendor() {
     debugger
-
+  for (let i = 0; i < this.selectedItems1.length; i++) {
+    this.Vendor =  this.selectedItems1[i].vendor_Name;
+     
+    }
     var entity = {
       "ID": this.ID,
       "Vendor": this.Vendor,
@@ -87,6 +122,19 @@ export class VendorJobOpeningsComponent implements OnInit {
 
     })
   }
+
+
+  onItemSelect1(item: any) {
+    debugger
+    console.log(item);
+    this.vendorid = item.id;
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
+      debugger
+      this.selectedItems1 = data.filter(x=>x.id==this.vendorid);
+    })
+  }
+
+
 
   Getvendorid(even: any) {
     debugger

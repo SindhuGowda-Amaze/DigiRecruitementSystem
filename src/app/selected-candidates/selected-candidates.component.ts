@@ -20,18 +20,44 @@ export class SelectedCandidatesComponent implements OnInit {
   date: any;
   loader:any;
   dummjoblist:any;
+  jobListCopy:any;
+  joiningbonus: any;
+  Notes: any;
+  noticeperiodbythen: any;
+  searchbynotice:any;
+  option:any;
+  noticeperiodlist:any;
+  p: any = 1;
+  count1: any = 5;
+  offernotes: any;
+  Company_logo:any;
+  TentativeDate:any;
+  username:any;
   ngOnInit(): void {
+    this.searchbynotice="";
     this.GetCandidateReg()
     this.roleid = sessionStorage.getItem('roleid');
     this.loader=true;
+    this.username = sessionStorage.getItem('UserName');
   }
-
+  dummjoblist1:any;
   public GetCandidateReg() {
     debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username);
+      }
+      else
+      {
+        this.joblist = data;
+      }
+
+
        this.joblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
+       this.jobListCopy=this.joblist;
       this.dummjoblist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
-     
+      this.dummjoblist1 = data.filter(x => x.interviewSelected != 1 && x.offered != 0);
+      this.noticeperiodlist = data.filter(x => x.interviewSelected == 1 && x.offered == 0);
       this.loader=false;
       this.count = this.joblist.length;
     })
@@ -47,12 +73,18 @@ export class SelectedCandidatesComponent implements OnInit {
     this.candidatename = job.candidateName,
       this.email = job.email
   }
+  public GetOfferLetter(offer:any) {
+    window.open(offer, "_blank")
+  }
 
 
-  offernotes: any;
 
-  Company_logo:any;
-  TentativeDate:any;
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
+
 
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
@@ -108,10 +140,8 @@ this.files.splice(this.files.indexOf(event),1);
     
   }
 
-  joiningbonus: any;
-  Notes: any;
-  noticeperiodbythen: any;
-  searchbynotice:any
+
+ 
 
 
 
@@ -181,20 +211,38 @@ this.files.splice(this.files.indexOf(event),1);
     
   // }
 
-  public GetDate(event: any) {
-    if (this.Date == 0) {
-      debugger
-      this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-        this.joblist = data;
-        debugger
-        this.dummjoblist = data;
-        this.count = this.joblist.length;
-      })
-    }
-    else {
-      debugger
-      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
-      this.count = this.joblist.length;
-    }
-  }
+//   public GetDate(event: any) {
+//     if (this.Date == 0) {
+//       debugger
+//       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+//         this.joblist = data;
+//         debugger
+//         this.dummjoblist = data;
+//         this.count = this.joblist.length;
+//       })
+//     }
+//     else {
+//       debugger
+//       this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
+//       this.count = this.joblist.length;
+//     }
+//   }
+
+
+public changeAnniversary() {
+  debugger;
+
+  this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+
+    this.joblist = data.filter(x => x.cdate == this.Date + "T00:00:00");
+  });
+}
+
+public changeoption() {
+  debugger;
+
+  this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
+    this.joblist = data.filter(x => (x.interviewSelected == 1 && x.offered == 0) &&  (x.noticePeriod == this.searchbynotice));
+  });
+}
 }

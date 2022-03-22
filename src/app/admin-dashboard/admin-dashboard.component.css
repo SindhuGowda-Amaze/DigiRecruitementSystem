@@ -537,3 +537,7 @@ border-top-right-radius: 15px;
     padding: 5px;
 
 }
+.cardscroll{
+  height: 210px;
+  overflow-y: scroll;
+}

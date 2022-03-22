@@ -36,9 +36,9 @@
                             <div class="row leavereq">
                                 <div class="col-md-2">
                                     <div class="dropdown">
-                                        <select class="form-control" [(ngModel)]="Staff">
+                                        <select class="form-control"  name="client" id="client"  [(ngModel)]="client">
                                             <option value="">Select </option>
-                                            <option *ngFor="let Staff of StaffList" value={{Staff.id}}>{{Staff.name}}
+                                            <option *ngFor="let Client of ClientList" value="{{Client.id}}">{{Client.name}}
                                             </option>
                                         </select>
                                     </div>
@@ -47,22 +47,22 @@
                                     <div class="dropdown">
                                         <select class="form-control" name="Role" Id="Role" [(ngModel)]="Role">
                                             <option value="">Select </option>
-                                            <option *ngFor="let Client of ClientList" value={{Client.id}}>
-                                                {{Client.short}} </option>
+                                            <option *ngFor="let Role of RoleList" value={{Role.id}}>
+                                                {{Role.short}} </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control inputfield" [(ngModel)]="Name">
+                                    <input type="text" class="form-control inputfield" name="Name" id="Name" [(ngModel)]="Name">
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control inputfield" [(ngModel)]="Email">
+                                    <input type="text" class="form-control inputfield" name="Email" id="Email" [(ngModel)]="Email">
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control inputfield" [(ngModel)]="PhoneNo">
+                                    <input type="text" class="form-control inputfield" name="PhoneNo" id="PhoneNo" [(ngModel)]="PhoneNo">
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control inputfield" [(ngModel)]="Address">
+                                    <input type="text" class="form-control inputfield" name="Address" id="Address" [(ngModel)]="Address">
                                 </div>
                             </div>
                             <br>

@@ -9,42 +9,101 @@ import Swal from 'sweetalert2';
   styleUrls: ['./job-recruitements.component.css']
 })
 export class JobRecruitementsComponent implements OnInit {
+  jobListCopy: any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute, public router: Router,) { }
   joblist: any;
   search: any;
   count: any;
-  Date: any;
+  date: any;
   loader: any;
-
+  p: any = 1;
+  count1: any = 5;
+  dummjoblist1: any;
+  Userlist: any;
+  Hired: any;
+  hrlist:any;
+  roleid:any;
+  NoofpositionsHired: any;
+  dropdownSettings1: any = {};
+  dropdownList1: any = [];
+  username:any;
   ngOnInit(): void {
+    this.show=0;
+    this.hiringManager="";
+    this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName'); 
     this.loader = true;
+  
     this.GetRecruiterStaff();
     this.GetUserslist();
+    this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+      this.hrlist = data;
+    })
+
+    this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
+      debugger
+      this.dropdownList1 = data;
+    })
+
+
     this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-      this.joblist = data;
+      if(this.roleid==2){
+        this.joblist = data.filter(x=>x.hiringManager==this.username);
+      }
+      else
+      {
+        this.joblist = data;
+      }
+     
+      this.jobListCopy = this.joblist
       this.dummjoblist = data;
-      this.loader=false;
+      this.dummjoblist1 = data.filter(x => x.ID == this.ID);
+      this.loader = false;
       debugger
       this.count = this.joblist.length;
     })
 
 
+    this.dropdownSettings1 = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'vendor_Name',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 20,
+      allowSearchFilter: true,
+
+    };
+
+
+
   }
-  Userlist: any;
+
+  public Filterjobs() {
+    debugger
+    let searchCopy = this.search.toLowerCase();
+    this.joblist = this.jobListCopy.filter((x: { jobRefernceID: string,jobTitle: string; }) => x.jobRefernceID.toString().includes(searchCopy)||x.jobTitle.toLowerCase().includes(searchCopy));
+  }
+
+
   public GetUserslist() {
     this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {
       this.Userlist = data;
 
     })
   }
-
+  show:any;
+  
+  description:any;  
   GetId(id: any) {
     this.ID = id
+    debugger
+    this.description = this.joblist.filter((x: { ID: any; }) => x.ID == this.ID);
+    this.show=1;
   }
 
-  Hired: any;
-  NoofpositionsHired: any;
+
 
   UpdateJobPost() {
     debugger
@@ -121,24 +180,46 @@ export class JobRecruitementsComponent implements OnInit {
         this.stafflist = data
       })
   }
-  dummjoblist:any;
+  dummjoblist: any;
   public GetDate(event: any) {
-    if (this.Date == 0) {
+    if (this.date == 0) {
       debugger
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
         this.joblist = data;
         debugger
         this.dummjoblist = data;
-        
+
         this.count = this.joblist.length;
       })
     }
     else {
       debugger
-      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.Date);
+      this.joblist = this.dummjoblist.filter((x: { date: any; }) => x.date == this.date);
       this.count = this.joblist.length;
     }
 
   }
+
+
+  hiringManager:any;
+  public GetJobRequirements(){
+  
+  
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      debugger
+     
+      this.joblist = data.filter(x => x.vendor == null && x.hiringManager == this.hiringManager);
+     
+      this.count = this.joblist.length;
+   
+  
+    })
+  
+   
+  
+  
+  }
+
+
 
 }

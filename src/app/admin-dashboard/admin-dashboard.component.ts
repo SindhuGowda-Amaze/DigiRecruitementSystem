@@ -36,7 +36,7 @@ export class AdminDashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetClientMaster().subscribe(data => {
       debugger
       this.clientlist = data;
-      this.clientlist1 = this.clientlist.slice(0, 4);
+      // this.clientlist1 = this.clientlist.slice(0, 4);
       this.count = this.clientlist.length
       debugger
      
@@ -44,7 +44,7 @@ export class AdminDashboardComponent implements OnInit {
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       debugger
       this.clientstafflist = data;
-      this.clientstafflist1 = this.clientstafflist.slice(0, 4);
+      // this.clientstafflist1 = this.clientstafflist.slice(0, 4);
       this.count1 = this.clientstafflist.length
       debugger
      

@@ -48,6 +48,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NotificationComponent } from './notification/notification.component';
 import { JobDescriptionDashComponent } from './job-description-dash/job-description-dash.component';
 import { JobDescriptionFormComponent } from './job-description-form/job-description-form.component';
+import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
+import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -113,6 +115,8 @@ const routes: Routes = [
   { path: 'ClientStaffForm/:id', component: ClientStaffFormComponent, canActivate: [AuthGuard] },
   { path: 'AdminDashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'Notification', component: NotificationComponent, canActivate: [AuthGuard] },
+  { path: 'RejectedCadidates', component: RejectedCadidatesComponent, canActivate: [AuthGuard] },
+  { path: 'ScheduledInterviewCalender', component: ScheduledInterviewCalenderComponent, canActivate: [AuthGuard] },
 
 ];
 
