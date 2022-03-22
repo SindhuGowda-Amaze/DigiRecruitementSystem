@@ -49,6 +49,8 @@ import { NotificationComponent } from './notification/notification.component';
 import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
 import { AssignVendorDashboardComponent } from './assign-vendor-dashboard/assign-vendor-dashboard.component';
+import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
+import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -114,6 +116,8 @@ const routes: Routes = [
   { path: 'RejectedCadidates', component: RejectedCadidatesComponent, canActivate: [AuthGuard] },
   { path: 'ScheduledInterviewCalender', component: ScheduledInterviewCalenderComponent, canActivate: [AuthGuard] },
   { path: 'AssignVendorDashboard', component: AssignVendorDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'ManpowerPlanningandBudgeting', component: ManpowerPlanningandBudgetingComponent, canActivate: [AuthGuard]  },
+  { path: 'ManpowerPlanningandBudgetingdash', component: ManpowerPlanningandBudgetingdashboardComponent , canActivate: [AuthGuard] },
 ];
 
 @NgModule({

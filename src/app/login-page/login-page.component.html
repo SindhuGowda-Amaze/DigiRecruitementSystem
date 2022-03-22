@@ -1,7 +1,7 @@
 <!-- <div class="container-fluid fullscreen" > -->
-   
-    <!-- https://www.highreshdwallpapers.com/wp-content/uploads/2014/01/HD-Beautiful-Architecture-Wallpaper-1920x1080.jpg -->
-     <!-- <div class="row">
+
+<!-- https://www.highreshdwallpapers.com/wp-content/uploads/2014/01/HD-Beautiful-Architecture-Wallpaper-1920x1080.jpg -->
+<!-- <div class="row">
        <br>
         
         <div class="col-lg-4 card" style="text-align:center;background-color:lightblue;margin-top:0%;border-radius:20px;height:415px;margin-left: 1%;background: black;">
@@ -12,15 +12,15 @@
             background: white;
             border-radius: 12px;
         "> -->
-            <!-- <br>
+<!-- <br>
             <p style="font-size: 16px;font-weight: 500;">LOGIN</p> -->
-           <!-- <br>
+<!-- <br>
             <select class="form-control" (change)="getRoleID($event)" style="width:77%;margin-left: 66px;" >
         y      
                 <option selected disabled >Select</option> -->
-                <!-- <option *ngFor="let list of loginTypeList" value="{{list.id}}">{{list.loginType}}</option> -->
-                <!-- <option value="6">Admin</option> -->
-                <!-- <option value="1">Admin</option>               
+<!-- <option *ngFor="let list of loginTypeList" value="{{list.id}}">{{list.loginType}}</option> -->
+<!-- <option value="6">Admin</option> -->
+<!-- <option value="1">Admin</option>               
                 <option value="2">Staff</option>
                 <option value="3">Vendor</option>
                 <option value="4">Client</option>
@@ -101,14 +101,18 @@
                 <img src="assets/Images/Logo_digiOffice_Colored.png" style="width: 40%;margin-bottom: 5%;">
                 <div class="input-group ">
 
-                    <input type="text" class="inputclass" [(ngModel)]="companycode" (ngModelChange)="getcompanycode()"
-                        name="companycode">
-
+                    <select class="inputclass">
+                        <option selected>Select Company</option>
+                        <option value="1001">Ayala Land</option>
+                        <option value="1002">Avida Land Corp</option>
+                        <option value="1003">Avida Sales Corp</option>
+                        <option value="1004">Ayala Land Premier, Inc</option>
+                        <option value="1005">Ayala Land Sales Inc</option>
+                        <option value="1006">Ayala Land Offices, Inc</option>
+                    </select>
                     <span class="highlight"></span>
 
                     <span class="bar"></span>
-
-                    <label class="placeholder">Company Code</label>
 
                 </div>
 
@@ -116,7 +120,7 @@
 
                     <select class="inputclass inputclass1" (change)="getRoleID($event)">
                         <option selected>Select</option>
-                        <option value="1">Admin</option>               
+                        <option value="1">Admin</option>
                         <option value="2">Hiring Manager</option>
                         <option value="4">Client</option>
                         <option value="5">Interview Panel</option>
@@ -140,7 +144,7 @@
                 <div class="input-group ">
 
                     <input *ngIf="showpassword==0" type="password" class="inputclass" [(ngModel)]="password"
-                        name="password" /> 
+                        name="password" />
                     <input *ngIf="showpassword==1" type="text" class="inputclass" [(ngModel)]="password"
                         name="password" />
                     <span class="fa fa-fw fa-eye field-icon toggle-password" style="color: #3247D5;
@@ -170,7 +174,3 @@
         <div class="col-lg-1"></div>
     </div>
 </div>
-
-
-
-

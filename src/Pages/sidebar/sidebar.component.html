@@ -113,7 +113,8 @@
                 &nbsp; Dashboard
 
             </a>
-            <a *ngIf=" roleid=='6' || roleid=='3' ||roleid=='4' ||roleid=='2'" (click)="admin()" class="nonactive" (click)="openCity($event)">
+            <a *ngIf=" roleid=='6' || roleid=='3' ||roleid=='4' ||roleid=='2'" (click)="admin()" class="nonactive"
+                (click)="openCity($event)">
 
                 <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
             &nbsp; Dashboard -->
@@ -143,7 +144,7 @@
                     <img *ngIf="clientstaff" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Department Master.png"
                         style="width: 13%;    margin-right: 17px;" />
                     &nbsp; CLIENT
-                    STAFF 
+                    STAFF
                 </a>
                 <a class="nonactive" (click)="openCity($event)" (click)="Recruitstaff()">
                     <img *ngIf="recruitstaff" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Country_master.png"
@@ -169,14 +170,24 @@
                     &nbsp;VENDOR
                     STAFF
                 </a>
+                <a class="nonactive" (click)="openCity($event)" (click)="ManpowerPlanning()">
+                    <img *ngIf="ManpowerPlanning1"
+                        src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Shift Master Trainer.png "
+                        style="width: 13%;  margin-right: 17px;" />
+                    <img *ngIf="!ManpowerPlanning1"
+                        src="assets/Images/64/ATTENDANCE/Report/masters/Shift Master Trainer.png"
+                        style="width: 13%;  margin-right: 17px;" />
+
+                    &nbsp;Manpower Planning and Budgeting
+                </a>
             </div>
 
             <a *ngIf="roleid!=1 && roleid!=5 && roleid!=4" data-toggle="collapse" class="togglebtn button"
                 data-target="#userapplications1" class="nonactive" (click)="openCity($event)">
                 <img src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
-                    style="width: 13%;  margin-right: 17px;"  />
+                    style="width: 13%;  margin-right: 17px;" />
 
-                &nbsp; JOB REQUIREMENTS
+                &nbsp; Manpower Requisition
                 <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
             </a>
 
@@ -269,7 +280,8 @@
             </a>
 
             <div id="userapplications2" class="collapse" style="padding-left: 7%; ">
-                <a (click)="JobRecruitReport()" *ngIf="roleid=='4'||roleid=='2'" class="nonactive" (click)="openCity($event)">
+                <a (click)="JobRecruitReport()" *ngIf="roleid=='4'||roleid=='2'" class="nonactive"
+                    (click)="openCity($event)">
                     <img *ngIf="Jobrecruitreport" src="assets/Images/64 Blue/Staff.png"
                         style="width: 13%;  margin-right: 17px;" />
                     <img *ngIf="!Jobrecruitreport" src="assets/Images/64/Staff.png"
@@ -329,18 +341,18 @@
                 </a>
             </div>
 
-              
 
-                    <a *ngIf="roleid==5" (click)="ScheduledInterviews()" (click)="openCity($event)">
-                        <img src="assets/Images/64/ATTENDANCE/deadline.png"
-                            [ngClass]="active != 80 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
-                        <img src="assets/Images/64 Blue/ATTENDANCE/OVER TIME DETAILS.png"
-                            [ngClass]="active == 80 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
-                        <span [ngClass]="active == 80 ? 'Active1' : 'Active3'"> SCHEDULED
-                            INTERVIEWS </span>
-                    </a>
 
-                    <!-- <a *ngIf="roleid==5"   (click)="ScheduledInterviewCalender()" class="nonactive" (click)="openCity($event)">
+            <a *ngIf="roleid==5" (click)="ScheduledInterviews()" (click)="openCity($event)">
+                <img src="assets/Images/64/ATTENDANCE/deadline.png" [ngClass]="active != 80 ? 'Active1' : 'Active2'"
+                    style="width: 13%;  margin-right: 17px;" />
+                <img src="assets/Images/64 Blue/ATTENDANCE/OVER TIME DETAILS.png"
+                    [ngClass]="active == 80 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                <span [ngClass]="active == 80 ? 'Active1' : 'Active3'"> SCHEDULED
+                    INTERVIEWS </span>
+            </a>
+
+            <!-- <a *ngIf="roleid==5"   (click)="ScheduledInterviewCalender()" class="nonactive" (click)="openCity($event)">
 
                         <img src="assets/Images/64/ATTENDANCE/calendar.png"
                         [ngClass]="active != 83 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
@@ -352,42 +364,43 @@
                         
                     </a> -->
 
-                    <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SCHEDULED
+            <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SCHEDULED
                     INTERVIEWS -->
-              
-                <a *ngIf="roleid==5" routerLink="/SelectedCandidates"  (click)="SelectedCandidates()" class="nonactive" (click)="openCity($event)">
 
-                    <img src="assets/Images/64/ATTENDANCE/ATTENDANCE DETAILS.png"
-                            [ngClass]="active != 81 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
-                        <img src="assets/Images/64 Blue/ATTENDANCE/ATTENDANCE DETAILS.png"
-                            [ngClass]="active == 81 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
-                        <span [ngClass]="active == 81 ? 'Active1' : 'Active3'"> SELECTED
-                            CANDIDATES </span>
-<!-- 
+            <a *ngIf="roleid==5" routerLink="/SelectedCandidates" (click)="SelectedCandidates()" class="nonactive"
+                (click)="openCity($event)">
+
+                <img src="assets/Images/64/ATTENDANCE/ATTENDANCE DETAILS.png"
+                    [ngClass]="active != 81 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                <img src="assets/Images/64 Blue/ATTENDANCE/ATTENDANCE DETAILS.png"
+                    [ngClass]="active == 81 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
+                <span [ngClass]="active == 81 ? 'Active1' : 'Active3'"> SELECTED
+                    CANDIDATES </span>
+                <!-- 
                     <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; SELECTED
                     CANDIDATES -->
-                </a>
-                <a *ngIf="roleid==5"   (click)="RejectedCandidates()" class="nonactive" (click)="openCity($event)">
+            </a>
+            <a *ngIf="roleid==5" (click)="RejectedCandidates()" class="nonactive" (click)="openCity($event)">
 
-                    <img src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
+                <img src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
                     [ngClass]="active != 82 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
                 <img src="assets/Images/64 Blue/ATTENDANCE/Report/Employee Report.png"
                     [ngClass]="active == 82 ? 'Active1' : 'Active2'" style="width: 13%;  margin-right: 17px;" />
-                <span [ngClass]="active == 82 ? 'Active1' : 'Active3'"> REJECTED 
+                <span [ngClass]="active == 82 ? 'Active1' : 'Active3'"> REJECTED
                     CANDIDATES </span>
 
 
-                    <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; REJECTED 
+                <!-- <img src="assets/Images/Vector.png" style="width: 20px;    margin-right: 17px;" /> &nbsp; REJECTED 
                     CANDIDATES -->
-                </a>
+            </a>
 
 
 
 
-                
 
-               
-     
+
+
+
         </div>
     </div>
 </div>

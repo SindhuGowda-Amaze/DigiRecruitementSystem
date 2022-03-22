@@ -201,3 +201,30 @@ tr:nth-child(even) {
   font-size: 20px;
   color:#3247D5;
 }
+
+.AddButton {
+  text-transform: uppercase;
+  font-weight: initial;
+  text-shadow: initial;
+  letter-spacing: 0.5px;
+  background-color: #3247d5;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 40%;
+  float: right;
+  margin-right: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -10px;
+
+}
+.Heading1 {
+  padding-left: 5px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #3247d5;
+  font-style: normal;
+}

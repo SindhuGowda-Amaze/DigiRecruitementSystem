@@ -63,11 +63,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './notification/notification.component';
 import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
 import { DatePipe } from '@angular/common';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
+import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
 
 
 
@@ -121,8 +123,10 @@ import { CKEditorModule } from 'ckeditor4-angular';
     NotificationComponent,
     RejectedCadidatesComponent,
     ScheduledInterviewCalenderComponent,
+    ManpowerPlanningandBudgetingdashboardComponent,
+    ManpowerPlanningandBudgetingComponent,
 
-   
+
   ],
   imports: [
     BrowserModule,
@@ -141,12 +145,12 @@ import { CKEditorModule } from 'ckeditor4-angular';
     NgxPaginationModule,
     NgxFullCalendarModule,
     NgMultiSelectDropDownModule,
-    CKEditorModule
-    
+    //CKEditorModule
+
   ],
 
-  providers: [AuthGuard,DatePipe],
+  providers: [AuthGuard, DatePipe],
   bootstrap: [AppComponent],
-  
+
 })
 export class AppModule { }

@@ -10,8 +10,40 @@
           <p class="job"></p>
         </div>
       </div>
-<br>
+      <br>
       <div class="card">
+        <div class="row">
+          <div class="col-lg-3">
+            <p class="text"> Job Order No.<span style="color: red;">*</span></p>
+          </div>
+          <div class="col-lg-3">
+            <p class="text"> Department <span style="color: red;">*</span></p>
+          </div>
+          <div class="col-lg-3">
+            <p class="text"> Approved Count <span style="color: red;">*</span></p>
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <select class="form-control" id="jobno" name="jobno" [(ngModel)]="jobno" (change)="Getjobno($event)">
+              <option value="">Select Job Order No.</option>
+              <option value="{{item.id}}" *ngFor="let item of joblist">
+                {{item.joborder}}
+              </option>
+            </select>
+          </div>
+          <div class="col-lg-3">
+            <input class="form-control" placeholder="Department" id="Department" name="Department" disabled=""
+              [(ngModel)]="Department">
+          </div>
+          <div class="col-lg-3">
+            <input class="form-control" placeholder=" No of Positions" [(ngModel)]="noofpositions" disabled="">
+          </div>
+
+
+        </div> <br>
 
         <div class="row">
           <div class="col-lg-3">
@@ -43,9 +75,9 @@
           <div class="col-lg-3">
             <p class="text"> Years of Relavant Experience <span style="color: red;">*</span></p>
           </div>
-          <div class="col-lg-3">
+          <!-- <div class="col-lg-3">
             <p class="text">No of Positions <span style="color: red;">*</span></p>
-          </div>
+          </div> -->
           <!-- <div class="col-lg-3">
             <p class="text"> Company Name </p>
           </div> -->
@@ -61,9 +93,9 @@
           <div class="col-lg-3">
             <input class="form-control" placeholder="Years of Relavant Experience" [(ngModel)]="yearsofrelavantexp">
           </div>
-          <div class="col-lg-3">
+          <!-- <div class="col-lg-3">
             <input class="form-control" placeholder=" No of Positions" [(ngModel)]="noofpositions">
-          </div>
+          </div> -->
           <!-- <div class="col-lg-3">
             <textarea class="form-control" placeholder=" Company Name " [(ngModel)]="companyname"></textarea>
           </div> -->
@@ -77,7 +109,7 @@
             </select>
           </div> -->
         </div>
-<br>
+        <br>
         <div class="row">
           <div class="col-lg-6">
             <p class="text">Job Description <span style="color: red;">*</span></p>
@@ -94,30 +126,31 @@
         </div>
         <div class="row">
           <div class="col-lg-6">
-            <textarea class="form-control" placeholder="Job Description" [(ngModel)]="jobdescription" rows="6"></textarea>
+            <textarea class="form-control" placeholder="Job Description" [(ngModel)]="jobdescription"
+              rows="6"></textarea>
           </div>
           <div class="col-lg-3">
             <input class="form-control" placeholder=" Job Location" [(ngModel)]="joblocation">
           </div>
           <div class="col-lg-3">
-           
-             <input class="form-control" placeholder="Other Required Condition" [(ngModel)]="otherreqconditions"> 
+
+            <input class="form-control" placeholder="Other Required Condition" [(ngModel)]="otherreqconditions">
           </div>
           <!-- <div class="col-lg-3">
             <input class="form-control" placeholder=" Resource Manager" [(ngModel)]="resourcemanager">
           </div> -->
         </div> <br>
-       
+
         <div class="row">
           <div class="col-lg-3">
             <p class="text">Status<span style="color: red;">*</span></p>
-          </div>  
+          </div>
         </div>
 
         <div class="row">
-         
+
           <div class="col-lg-2">
-            <select class="form-control" >
+            <select class="form-control">
               <option value="">Select</option>
               <option value="">Request Raised</option>
               <option value="">Resume Submitted</option>
@@ -130,17 +163,17 @@
         </div>
         <div class="row">
           <div class="col-lg-10">
-           
+
           </div>
           <div class="col-lg-2">
-           <button (click)="insertdetails()" class="form-control Addbutton">Save</button>
+            <button (click)="insertdetails()" class="form-control Addbutton">Save</button>
           </div>
         </div>
       </div>
 
-      
+
 
     </div>
-      <div class="col-lg-1"></div>
-    </div>
+    <div class="col-lg-1"></div>
   </div>
+</div>
