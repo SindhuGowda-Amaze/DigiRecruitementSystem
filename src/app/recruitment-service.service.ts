@@ -403,11 +403,7 @@ export class RecruitmentServiceService {
   }
 
     
-  public GetJobDescriptionMaster() {
-    debugger
-    return this.http.get<any[]>(this.host + "/Vendor/GetJobDescriptionMaster");
-  }
-  
+
   public DeleteJobDescriptionMaster(ID:any) {
     debugger
     return this.http.get<any[]>(this.host + "/Master/DeleteJobDescriptionMaster?ID="+ID)
