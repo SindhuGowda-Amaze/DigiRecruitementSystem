@@ -53,9 +53,11 @@ import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calen
 import { AssignVendorDashboardComponent } from './assign-vendor-dashboard/assign-vendor-dashboard.component';
 import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
 import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
+import { JobApprovalConfigComponent } from './job-approval-config/job-approval-config.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  { path: "JobApprovalConfig", component: JobApprovalConfigComponent },
   { path: "Login", component: LoginPageComponent },
   { path: "JobDescriptionDash", component: JobDescriptionDashComponent },
   { path: "JobDescriptionForm", component: JobDescriptionFormComponent },

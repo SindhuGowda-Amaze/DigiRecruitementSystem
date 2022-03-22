@@ -75,6 +75,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
 import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
 import { NgxFullCalendarModule } from 'ngx-fullcalendar';
+import { JobApprovalConfigComponent } from './job-approval-config/job-approval-config.component';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import { NgxFullCalendarModule } from 'ngx-fullcalendar';
     ScheduledInterviewCalenderComponent,
     ManpowerPlanningandBudgetingdashboardComponent,
     ManpowerPlanningandBudgetingComponent,
+    JobApprovalConfigComponent,
 
 
   ],

@@ -364,6 +364,13 @@ export class SidebarComponent implements OnInit {
 
 
 
+  public JOBAPPROVAL(){
+    localStorage.setItem('Pagename', 'Job Approval')
+    this.router.navigate(['/JobApprovalConfig']);
+  }
+  
+
+
   public Description(){
     localStorage.setItem('Pagename', 'Job Description')
     this.router.navigate(['/JobDescriptionDash']);
