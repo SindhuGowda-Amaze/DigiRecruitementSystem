@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxFullCalendarModule } from 'ngx-fullcalendar';
+// import { NgxFullCalendarModule } from 'ngx-fullcalendar';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/Pages/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -62,6 +62,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './notification/notification.component';
+import { JobDescriptionFormComponent } from './job-description-form/job-description-form.component';
+import { JobDescriptionDashComponent } from './job-description-dash/job-description-dash.component';
+
+
 import { RejectedCadidatesComponent } from './rejected-cadidates/rejected-cadidates.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ScheduledInterviewCalenderComponent } from './scheduled-interview-calender/scheduled-interview-calender.component';
@@ -70,7 +74,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
 import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
-
+import { NgxFullCalendarModule } from 'ngx-fullcalendar';
 
 
 @NgModule({
@@ -121,6 +125,8 @@ import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-bu
     AdminDashboardComponent,
     SpinnerComponent,
     NotificationComponent,
+    JobDescriptionFormComponent,
+    JobDescriptionDashComponent,
     RejectedCadidatesComponent,
     ScheduledInterviewCalenderComponent,
     ManpowerPlanningandBudgetingdashboardComponent,
@@ -147,6 +153,10 @@ import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-bu
     NgMultiSelectDropDownModule,
     //CKEditorModule
 
+    // NgxFullCalendarModule,
+    NgMultiSelectDropDownModule,
+
+    
   ],
 
   providers: [AuthGuard, DatePipe],
