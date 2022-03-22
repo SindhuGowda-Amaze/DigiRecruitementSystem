@@ -157,6 +157,14 @@
               &nbsp;VENDOR
                 STAFF
             </a>
+
+            <a  class="nonactive" (click)="openCity($event)" (click)="Description()">
+                <img *ngIf="vendorstaf" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Shift Master Trainer.png " style="width: 13%;  margin-right: 17px;"/>
+                <img *ngIf="!vendorstaf" src="assets/Images/64/ATTENDANCE/Report/masters/Shift Master Trainer.png" style="width: 13%;  margin-right: 17px;"/>
+                
+              &nbsp;JOB DESCRIPTION
+                
+            </a>
         </div>
 
         <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button"

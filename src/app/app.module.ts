@@ -59,6 +59,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './notification/notification.component';
+import { JobDescriptionFormComponent } from './job-description-form/job-description-form.component';
+import { JobDescriptionDashComponent } from './job-description-dash/job-description-dash.component';
 
 
 
@@ -112,6 +114,8 @@ import { NotificationComponent } from './notification/notification.component';
     AdminDashboardComponent,
     SpinnerComponent,
     NotificationComponent,
+    JobDescriptionFormComponent,
+    JobDescriptionDashComponent,
    
   ],
   imports: [

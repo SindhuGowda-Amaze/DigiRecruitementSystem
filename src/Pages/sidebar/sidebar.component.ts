@@ -272,6 +272,11 @@ Vendorrecruit:any
 
   }
 
+  public Description(){
+    localStorage.setItem('Pagename', 'Job Description')
+    this.router.navigate(['/JobDescriptionDash']);
+  }
+
   public VendorRecruitment(){
     this.Vendorrecruit=true
     this.Jobrecruit=false
