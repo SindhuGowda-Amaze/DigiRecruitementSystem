@@ -54,6 +54,9 @@ import { AssignVendorDashboardComponent } from './assign-vendor-dashboard/assign
 import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
 import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-planningand-budgetingdashboard/manpower-planningand-budgetingdashboard.component';
 import { JobApprovalConfigComponent } from './job-approval-config/job-approval-config.component';
+import { HelpComponent } from './help/help.component';
+import { SupportTicketsComponent } from './support-tickets/support-tickets.component';
+import { SupportTicketDashboardComponent } from './support-ticket-dashboard/support-ticket-dashboard.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -125,6 +128,10 @@ const routes: Routes = [
   { path: 'AssignVendorDashboard', component: AssignVendorDashboardComponent, canActivate: [AuthGuard] },
   { path: 'ManpowerPlanningandBudgeting', component: ManpowerPlanningandBudgetingComponent, canActivate: [AuthGuard]  },
   { path: 'ManpowerPlanningandBudgetingdash', component: ManpowerPlanningandBudgetingdashboardComponent , canActivate: [AuthGuard] },
+  {path:'Help',component:HelpComponent},
+  {path:'SupportTickets',component:SupportTicketsComponent},
+  {path:'SupportTickets/:id',component:SupportTicketsComponent},
+  {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent}
 ];
 
 @NgModule({

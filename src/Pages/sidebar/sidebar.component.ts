@@ -39,6 +39,19 @@ export class SidebarComponent implements OnInit {
 
     evt.currentTarget.className += " active";
   }
+
+  public highlight(evt: any) {
+    debugger
+    var i, tablinks;
+    //  localStorage.setItem("clickname",name)
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    evt.currentTarget.className += " active";
+  }
+
   client: any
   public Client() {
     localStorage.setItem('Pagename', 'CLIENT')
@@ -880,6 +893,16 @@ export class SidebarComponent implements OnInit {
     this.joinedreport = false
 
 
+  }
+
+  help(){
+    this.active = 'help'
+    localStorage.setItem("clickname", "HELP")
+  }
+
+  SupportTickets(){
+    this.active = 'SupportTickets'
+    localStorage.setItem("clickname", "support tickets")
   }
 
 }

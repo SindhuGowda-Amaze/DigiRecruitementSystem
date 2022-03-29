@@ -33,8 +33,16 @@ input {
   font-size: 12px;
 }
 
-.Count {
-  color: #3247d5;
+.count{
+  height: 15px;
+left: 221px;
+top: 100px;
+font-style: normal;
+font-weight: bold;
+font-size: 19px;
+line-height: 15px;
+letter-spacing: 0.5px;
+color:#0C275A ;
 }
 
 /* th{
@@ -43,9 +51,36 @@ input {
     font-family: "DIN Bold";
 } */
 
+.Edit {
+  text-transform: uppercase;
+  font-weight: initial;
+  text-shadow: initial;
+  letter-spacing: 0.5px;
+  background-color: #3247d5;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  margin-right: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
 .poppinns {
   font-family: 'Poppins';
   font-size: 13px;
+}
+
+.cancel{
+  border: none;
+  background: #3247D5;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  margin-top: 6px;
+  padding: 5px;
+  font-weight: bold;
 }
 
 
@@ -91,6 +126,13 @@ html, body {
   font-weight: bold;
 }
 
+.Heading1 {
+  padding-left: 5px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #3247d5;
+  font-style: normal;
+}
 .dashboardicons {
   position: absolute;
   height: 20.01px;

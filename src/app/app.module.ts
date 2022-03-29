@@ -76,6 +76,9 @@ import { ManpowerPlanningandBudgetingdashboardComponent } from './manpower-plann
 import { ManpowerPlanningandBudgetingComponent } from './manpower-planningand-budgeting/manpower-planningand-budgeting.component';
 import { NgxFullCalendarModule } from 'ngx-fullcalendar';
 import { JobApprovalConfigComponent } from './job-approval-config/job-approval-config.component';
+import { HelpComponent } from './help/help.component';
+import { SupportTicketsComponent } from './support-tickets/support-tickets.component';
+import { SupportTicketDashboardComponent } from './support-ticket-dashboard/support-ticket-dashboard.component';
 
 
 @NgModule({
@@ -133,6 +136,9 @@ import { JobApprovalConfigComponent } from './job-approval-config/job-approval-c
     ManpowerPlanningandBudgetingdashboardComponent,
     ManpowerPlanningandBudgetingComponent,
     JobApprovalConfigComponent,
+    HelpComponent,
+    SupportTicketsComponent,
+    SupportTicketDashboardComponent,
 
 
   ],
