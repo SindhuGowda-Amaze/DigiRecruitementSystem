@@ -54,7 +54,7 @@
             <br>
 
 
-            <div class="row">
+            <div class="row" *ngIf="roleid==1">
                 <!-- <div class="col-md-8">
                     <p class="show3res">SHOWING <span style="color: #3247D5;"> </span>RESULTS</p>
                 </div> -->
@@ -81,22 +81,24 @@
                             <tr>
                                 <th>Subsidiary Name</th>
                                 <th>Department</th>
+                                <th>Role</th>
                                 <th>Job Order No</th>
                                 <th>Approved Count</th>
                                 <th>Year</th>
                                 <th>Remarks</th>
-                                <th>Action</th>
+                                <th *ngIf="roleid==8">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let holiday of awardlist1">
                                 <td>{{holiday.companyName}}</td>
                                 <td>{{holiday.department}}</td>
+                                <td>{{holiday.roletype}}</td>
                                 <td>{{holiday.joborder}}</td>
                                 <td>{{holiday.headCount}}</td>
                                 <td>{{holiday.year}}</td>
                                 <td>{{holiday.remarks}}</td>
-                                <td>
+                                <td *ngIf="roleid==8">
                                     <button style="height: fit-content;" type="button" class="upload"
                                         (click)="ApproveBudget(holiday)">
                                         Approve</button>

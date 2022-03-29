@@ -15,8 +15,10 @@ export class ManpowerPlanningandBudgetingdashboardComponent implements OnInit {
 
   awardlist1: any
   awardlist: any;
+  roleid: any;
   ngOnInit(): void {
 
+    this.roleid = sessionStorage.getItem('roleid');
 
     this.DigipayrollServiceService1.GetDepartment().subscribe(data => {
       debugger
@@ -161,7 +163,7 @@ export class ManpowerPlanningandBudgetingdashboardComponent implements OnInit {
     if (this.year == 0) {
       this.DigipayrollServiceService1.GetManpowerPlanningandBudgeting().subscribe(
         data => {
-          this.awardlist1 = data;
+          this.awardlist1 = data.filter(x => x.companyName == this.Subsidiary);
           let total: any = 0;
           this.awardlist1.forEach((element: { headCount: any; }) => {
             total += Number(element.headCount);
@@ -175,7 +177,7 @@ export class ManpowerPlanningandBudgetingdashboardComponent implements OnInit {
     } else {
       this.DigipayrollServiceService1.GetManpowerPlanningandBudgeting().subscribe(
         data => {
-          this.awardlist1 = data.filter(x => x.year == this.year);
+          this.awardlist1 = data.filter(x => x.year == this.year && x.companyName == this.Subsidiary);
           let total: any = 0;
           this.awardlist1.forEach((element: { headCount: any; }) => {
             total += Number(element.headCount);
@@ -226,6 +228,8 @@ export class ManpowerPlanningandBudgetingdashboardComponent implements OnInit {
   public ApproveBudget(holiday: any) {
     debugger
     Swal.fire('Approved Successfully');
+
+    
   }
 
 

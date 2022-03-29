@@ -117,11 +117,13 @@ export class JobRequisitionComponent implements OnInit {
     this.RecruitmentServiceService.GetManpowerPlanningandBudgeting().subscribe(data => {
       let temp: any = data.filter(x => x.id == event.target.value);
       this.Department = temp[0].department;
-      this.noofpositions = temp[0].headCount
+      this.noofpositions = temp[0].headCount;
+      this.jobtitile = temp[0].roletype;
     })
     this.RecruitmentServiceService.GetJobDescriptionMaster().subscribe(data => {
       let temp: any = data.filter(x => x.department == this.Department);
-      this.jobdescription = temp[0].description
+      this.jobdescription = temp[0].description;
+     
     })
 
 

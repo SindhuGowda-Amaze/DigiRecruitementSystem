@@ -55,7 +55,8 @@ export class ManpowerPlanningandBudgetingComponent implements OnInit {
       'Joborder': this.Joborder,
       'HeadCount': this.HeadCount,
       'Year': this.Year,
-      'Remarks': this.Remarks
+      'Remarks': this.Remarks,
+      'Role': this.Role,
     }
     this.DigipayrollServiceService.InsertManpowerPlanningandBudgeting(entity).subscribe(
       data => {
@@ -70,7 +71,7 @@ export class ManpowerPlanningandBudgetingComponent implements OnInit {
     location.href = "#/ManpowerPlanningandBudgetingdash";
   }
 
-  Role:any;
+  Role: any;
 
 
 }

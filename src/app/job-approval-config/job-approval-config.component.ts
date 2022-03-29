@@ -16,7 +16,7 @@ export class JobApprovalConfigComponent implements OnInit {
     this.AutoApproval1=true
   }
 
-
+  CompanyName:any;
   update(){
     Swal.fire('Updated Successfully')
   }
