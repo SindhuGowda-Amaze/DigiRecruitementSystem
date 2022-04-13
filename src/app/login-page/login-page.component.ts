@@ -511,6 +511,65 @@ export class LoginPageComponent implements OnInit {
 
     }
 
+    
+    else if (this.roleID == 11) {
+      this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable == false);
+        this.result = temp[0];
+        debugger;
+        // this.loader = true;
+        if (this.result != undefined || this.result != null) {
+          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('userid', this.result.id);
+          sessionStorage.setItem('temp', '1');
+          sessionStorage.setItem('role', 'Manager');
+          sessionStorage.setItem('Department', this.result.department);
+
+          sessionStorage.setItem('roleid', '11');
+          localStorage.setItem('Pagename', 'DASHBOARD')
+          location.href = "#/Dashboard";
+          location.reload();
+        }
+        else {
+          Swal.fire('Username or Password is Invalid or User is Disabled');
+          this.userName = "";
+          this.password = "";
+        }
+
+      })
+
+    }
+
+      
+    else if (this.roleID == 10) {
+      this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
+        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password && x.enable_Disable == false);
+        this.result = temp[0];
+        debugger;
+        // this.loader = true;
+        if (this.result != undefined || this.result != null) {
+          sessionStorage.setItem('UserName', this.result.name);
+          sessionStorage.setItem('userid', this.result.id);
+          sessionStorage.setItem('temp', '1');
+          sessionStorage.setItem('role', 'BU Head');
+          sessionStorage.setItem('Department', this.result.department);
+
+          sessionStorage.setItem('roleid', '10');
+          localStorage.setItem('Pagename', 'DASHBOARD')
+          location.href = "#/Dashboard";
+          location.reload();
+        }
+        else {
+          Swal.fire('Username or Password is Invalid or User is Disabled');
+          this.userName = "";
+          this.password = "";
+        }
+
+      })
+
+    }
+
+
 
 
 

@@ -10,77 +10,47 @@ import Swal from 'sweetalert2';
 })
 export class ManagerDashComponent implements OnInit {
 
- 
+  constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
+  joblist: any;
+  search: any;
   count: any;
-  search:any;
-  loader:any;
-
-  constructor( private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute:ActivatedRoute) { }
-
+  date: any;
+  loader: any;
+  p: any = 1;
+  count1: any = 5;
+  dummjoblist1: any;
+  Userlist: any;
+  Hired: any;
+  hrlist: any;
+  roleid: any;
+  NoofpositionsHired: any;
+  dropdownSettings1: any = {};
+  dropdownList1: any = [];
+  username: any;
+  jobListCopy: any;
+  dummjoblist: any;
+  ID: any;
   ngOnInit(): void {
-   this.GetClientStaff();
-   this.loader=true;
-  }
 
-  ClientStaffList:any
-  
-  public GetClientStaff() {
-    debugger
-    this.RecruitmentServiceService.GetClientStaff().subscribe(data=>{
+    this.roleid = sessionStorage.getItem('roleid');
+    this.username = sessionStorage.getItem('UserName'); 
+    this.loader = true;
+
+    
+    this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
+      if (this.roleid == 2) {
+        this.joblist = data.filter(x => x.hiringManager == this.username);
+      }
+      else {
+        this.joblist = data;
+      }
+
+      this.jobListCopy = this.joblist
+      this.dummjoblist = data;
+      this.dummjoblist1 = data.filter(x => x.ID == this.ID);
+      this.loader = false;
       debugger
-      this.ClientStaffList=data ;
-      this.loader=false;
-      this.count = this.ClientStaffList.length;
-     })
-  }
-
-  edit(details: any){
-    debugger
-    location.href="#/ClientStaffForm/"+ details;
-    }
-
- 
-  delete(details: any){
-    var json={
-      "ID":details.id
-    }
-    this.RecruitmentServiceService.DeleteClientStaff(details.id).subscribe(
-      data => {
-        debugger        
-     Swal.fire('Deleted Successfully')
-     location.reload();
+      this.count = this.joblist.length;
     })
-  }
-
-  public DisableStaff(id: any) {
-    var eb = {
-      'ID': id,
-      'Enable_Disable': 1
-    }
-
-    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
-      data => {
-        debugger
-        Swal.fire('Updated successfully.');
-        location.reload();
-      },
-    )
-  }
-
-  public DisableStaff1(id: any) {
-
-    var eb = {
-
-      'ID': id,
-      'Enable_Disable': 0
-    }
-
-    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
-      data => {
-        debugger
-        Swal.fire('Updated successfully.');
-        location.reload();
-      },
-    )
   }
 }

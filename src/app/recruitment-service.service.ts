@@ -460,7 +460,7 @@ export class RecruitmentServiceService {
 
   public UpdateJobRequirementStatus(data: any) {
     debugger;
-    this.url = this.host1 + '/User/UpdateJobRequirementStatus';
+    this.url = this.host + '/User/UpdateJobRequirementStatus';
     return this.http.post(this.url, data);
   }
 

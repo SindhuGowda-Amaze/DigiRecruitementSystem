@@ -51,6 +51,12 @@ export class JobRecruitementsComponent implements OnInit {
       if(this.roleid==2){
         this.joblist = data.filter(x=>x.hiringManager==this.username);
       }
+      else if(this.roleid==11){
+        this.joblist = data.filter(x=>x.status=='Manager Pending');
+      }
+      else if(this.roleid==10){
+        this.joblist = data.filter(x=>x.status=='Manager Approved BU Pending');
+      }
       else
       {
         this.joblist = data;
@@ -214,12 +220,74 @@ export class JobRecruitementsComponent implements OnInit {
    
   
     })
-  
-   
-  
-  
   }
 
+public ApproveId(data:any){
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You Want to Approve it.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, Approve it!',
+    cancelButtonText: 'No, keep it'
+  }).then((result) => {
+    if (result.value == true) {
+      if(this.roleid==11){
+        var entity = {
+          "ID": data,
+        
+          "Status": 'Manager Approved BU Pending',
+        
+        }
+        this.RecruitmentServiceService.UpdateJobRequirementStatus(entity).subscribe(data => {
+          debugger
+          Swal.fire('Approved Successfully')
+          location.reload();
+        })
+      }
+      else if(this.roleid==10){
+        var entity = {
+          "ID": data,
+          "Status": 'Manager Approved BU Approved',
+        
+        }
+        this.RecruitmentServiceService.UpdateJobRequirementStatus(entity).subscribe(data => {
+          debugger
+          Swal.fire('Approved Successfully')
+          location.reload();
+        })
+      }
+     
+    
+    }
+  })
+}
+
+
+  public Reject(ID: any) {
+    debugger
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Reject it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Reject it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        var entity = {
+          "ID": ID,
+          "Status": 'Manager Rejected',
+        
+        }
+        this.RecruitmentServiceService.UpdateJobRequirementStatus(entity).subscribe(data => {
+          debugger
+          Swal.fire('Rejected Successfully')
+          location.reload();
+        })
+      }
+    })
+  }
 
 
 }

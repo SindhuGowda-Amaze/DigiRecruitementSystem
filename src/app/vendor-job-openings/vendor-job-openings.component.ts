@@ -51,7 +51,7 @@ export class VendorJobOpeningsComponent implements OnInit {
     }
     else {
       this.RecruitmentServiceService.GetJob_Requirements().subscribe(data => {
-        this.joblist = data;
+        this.joblist = data.filter(x=>x.status=='Manager Approved BU Approved');
         this.jobListCopy = this.joblist
         this.count = this.joblist.length;
       })

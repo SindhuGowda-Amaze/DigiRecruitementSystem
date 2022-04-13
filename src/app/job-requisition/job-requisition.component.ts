@@ -97,7 +97,8 @@ export class JobRequisitionComponent implements OnInit {
         'package': this.package,
         'HiringManager': this.username,
         'OtherRequiredConditions': this.otherreqconditions,
-        'ResourceManager': this.resourcemanager
+        'ResourceManager': this.resourcemanager,
+        'Status':'Manager Pending'
       }
       this.RecruitmentServiceService.InsertJob_Requirements(entity).subscribe(data => {
         if (data != 0) {

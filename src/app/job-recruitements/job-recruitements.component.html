@@ -8,7 +8,7 @@
                     <p class="Heading">OPEN POSITIONS</p>
                 </div>
                 <div class="col-lg-2">
-                    <button class="Add" routerLink='/JobRequisition'>Add</button>
+                    <button class="Add" *ngIf="roleid==2" routerLink='/JobRequisition'>Add</button>
                 </div>
             </div>
        <BR>
@@ -71,7 +71,7 @@
                                 <th *ngIf="roleid==4">Hiring Manager</th>
                                  <th>Other Required Conditions</th>
                                  <th>Status</th>
-                                <th *ngIf="roleid==2">Actions </th>
+                                <th *ngIf="roleid==2||roleid==11||roleid==10 ">Actions </th>
                                 <!-- <th>Assigned Vendors</th> -->
                             </tr>
                         
@@ -100,6 +100,10 @@
                             <td>{{job.status}}</td>
                             <td *ngIf="roleid==2"> <button class="button form-control Add1" data-toggle="modal"
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
+
+                                <td *ngIf="roleid==11|| roleid==10"> <button class="button form-control Add1"  (click)="ApproveId(job.id)">Approve</button><br>
+                                    <button class="button form-control Add1"  (click)="Reject(job.id)">Reject</button>
+                                </td>
                                 <!-- <td>Monster</td> -->
                         </tr>
                     </table>

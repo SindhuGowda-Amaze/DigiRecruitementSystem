@@ -57,6 +57,8 @@ import { JobApprovalConfigComponent } from './job-approval-config/job-approval-c
 import { HelpComponent } from './help/help.component';
 import { SupportTicketsComponent } from './support-tickets/support-tickets.component';
 import { SupportTicketDashboardComponent } from './support-ticket-dashboard/support-ticket-dashboard.component';
+import { ManagerDashComponent } from './manager-dash/manager-dash.component';
+import { BUHeadDashComponent } from './buhead-dash/buhead-dash.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -131,7 +133,9 @@ const routes: Routes = [
   {path:'Help',component:HelpComponent},
   {path:'SupportTickets',component:SupportTicketsComponent},
   {path:'SupportTickets/:id',component:SupportTicketsComponent},
-  {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent}
+  {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent},
+  {path:'ManagerDash',component:ManagerDashComponent},
+  {path:'BUHeadDash',component:BUHeadDashComponent}
 ];
 
 @NgModule({
