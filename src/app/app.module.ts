@@ -79,6 +79,8 @@ import { JobApprovalConfigComponent } from './job-approval-config/job-approval-c
 import { HelpComponent } from './help/help.component';
 import { SupportTicketsComponent } from './support-tickets/support-tickets.component';
 import { SupportTicketDashboardComponent } from './support-ticket-dashboard/support-ticket-dashboard.component';
+import { ManagerDashComponent } from './manager-dash/manager-dash.component';
+import { BUHeadDashComponent } from './buhead-dash/buhead-dash.component';
 
 
 @NgModule({
@@ -139,6 +141,8 @@ import { SupportTicketDashboardComponent } from './support-ticket-dashboard/supp
     HelpComponent,
     SupportTicketsComponent,
     SupportTicketDashboardComponent,
+    ManagerDashComponent,
+    BUHeadDashComponent,
 
 
   ],
