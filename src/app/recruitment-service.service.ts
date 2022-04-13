@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class RecruitmentServiceService {
  
 
-  host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+  // host = "https://23.101.22.93/DigiOfficeBSINTAPI";
+  host = "http://103.133.214.197/CoreDigiRecuritmentAPI";
   // host="http://localhost:1807/"
   
   //DigiOfficeBSINTAPI
@@ -456,6 +457,13 @@ export class RecruitmentServiceService {
     this.url = this.host1 + '/Master/UpdateSupportTickets';
     return this.http.post(this.url, data);
   }
+
+  public UpdateJobRequirementStatus(data: any) {
+    debugger;
+    this.url = this.host1 + '/User/UpdateJobRequirementStatus';
+    return this.http.post(this.url, data);
+  }
+
 }
 
 

@@ -97,7 +97,7 @@
                                     <button class="button form-control Add1" data-toggle="modal"
                                     (click)="GetId(job.id)" data-target="#ScheduleInterview1">Assign Recruiter</button></td>
                             -->
-                            <td>Request Raised</td>
+                            <td>{{job.status}}</td>
                             <td *ngIf="roleid==2"> <button class="button form-control Add1" data-toggle="modal"
                                 data-target="#ScheduleInterview2" (click)="GetId(job.id)">UnPost</button></td>
                                 <!-- <td>Monster</td> -->
