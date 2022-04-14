@@ -905,4 +905,10 @@ export class SidebarComponent implements OnInit {
     localStorage.setItem("clickname", "support tickets")
   }
 
+  offermanage(){
+    this.active = 'offermanage'
+    localStorage.setItem("clickname", "offermanage")
+    this.router.navigate(['/OfferManagement']);
+  }
+
 }

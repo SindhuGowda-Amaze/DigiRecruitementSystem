@@ -462,6 +462,13 @@ export class RecruitmentServiceService {
     debugger;
     this.url = this.host + '/User/UpdateJobRequirementStatus';
     return this.http.post(this.url, data);
+  
+  }
+
+  public UpdateCanditateBudgetStatus(data: any) {
+    debugger;
+    this.url = this.host + '/Vendor/UpdateCanditateBudgetStatus';
+    return this.http.post(this.url, data);
   }
 
 }

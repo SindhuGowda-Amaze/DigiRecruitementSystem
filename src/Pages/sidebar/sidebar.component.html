@@ -105,7 +105,8 @@
     <div class="row">
         <div class="col-md-2 sidenav " style="height: 100vh;margin-top: 75px;position: fixed;">
 
-            <a *ngIf="roleid=='1' && roleid!='5' && roleid!='6'" (click)="admin()" class="nonactive" (click)="openCity($event)">
+            <a *ngIf="roleid=='1' && roleid!='5' && roleid!='6'" (click)="admin()" class="nonactive"
+                (click)="openCity($event)">
 
                 <img *ngIf="!home" src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;
                 <img *ngIf="home" src="assets/Images/64 Blue/home.png" style="width: 13%;  margin-right: 17px;" />
@@ -113,7 +114,7 @@
                 &nbsp; Dashboard
 
             </a>
-            
+
             <a *ngIf=" roleid=='6' || roleid=='3'" (click)="admin()" class="nonactive" (click)="openCity($event)">
 
                 <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;    margin-right: 17px;"></i>
@@ -280,7 +281,7 @@
 
                 </a>
             </div>
-            <a (click)="JobRecruitment()" *ngIf="roleid==11"  class="nonactive" (click)="openCity($event)">
+            <a (click)="JobRecruitment()" *ngIf="roleid==11" class="nonactive" (click)="openCity($event)">
                 <img src="assets/Images/64 Blue/Staff.png" style="width: 20px;    margin-right: 17px;" />
                 <!-- <img *ngIf="Jobrecruit==false" src="assets/Images/64/Staff.png"
                     style="width: 20px;    margin-right: 17px;" />  -->&nbsp; JOB RECRUITMENT
@@ -395,9 +396,28 @@
                 <span [ngClass]="active == 'SupportTickets' ? 'Active1' : 'Active3'">SUPPORT TICKETS</span>
                 &nbsp;
             </a>
+
+
+            <a *ngIf="roleid==10||roleid==11" class="tablinks" (click)="highlight($event)" (click)="offermanage()">
+                <img src="assets/Images/64 Blue/Staff.png" style="width:13% ;margin-right: 17px;"
+                    [ngClass]="active == 'offermanage' ? 'Active1' : 'Active2'" />
+                <img [ngClass]="active != 'offermanage' ? 'Active1' : 'Active2'" src="assets/Images/64/Staff.png"
+                    style="width:13%; margin-right: 17px;">
+                &nbsp;
+                <span [ngClass]="active == 'offermanage' ? 'Active1' : 'Active3'">Offer Management</span>
+                &nbsp;
+            </a>
+
+
+
+
+
+
+
+            
         </div>
 
-
+        
 
     </div>
 </div>

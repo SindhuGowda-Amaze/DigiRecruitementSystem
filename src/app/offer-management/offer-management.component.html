@@ -3,7 +3,7 @@
     <br>
     <div class="row">
         <div class="col-lg-12">
-            <p class="Heading"> SELECTED CANDIDATES DASHBOARD</p>
+            <p class="Heading"> OFFER MANAGEMENT DASHBOARD</p>
             <!-- <hr class="HrLine"> -->
         </div>
     </div> <br>
@@ -14,13 +14,12 @@
                 <p>Filter By</p>
             </div>
             <div class="col-lg-2">
-                <select *ngIf="roleid!=2" class="form-control form-select poppinns" [(ngModel)]="hiringManager"
-                    (change)="GetJobRequirements()">
+                <select  *ngIf="roleid!=2" class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
                     <option value="">Select Hiring Manager</option>
                     <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
-                </select>
-                <input *ngIf="roleid==2" type="date" style="color:#0C275A;" class="form-control poppinns"
-                    (change)="changeAnniversary()" name="Date" value="Date" [(ngModel)]="Date">
+                  </select>
+                <input  *ngIf="roleid==2" type="date" style="color:#0C275A;" class="form-control poppinns" (change)="changeAnniversary()"
+                    name="Date" value="Date" [(ngModel)]="Date">
             </div>
             <div class="col-lg-2">
                 <select name="Select" class="form-control poppinns" (change)="changeoption()"
@@ -50,9 +49,9 @@
                         <th>Job Reference ID</th>
                         <th>Interview Date</th>
                         <th>Source</th>
-                        <th *ngIf="roleid!=2">Hiring Manager</th>
+                        <th  *ngIf="roleid!=2">Hiring Manager</th>
                         <!-- <th>Time</th> -->
-                        <th *ngIf="roleid!=5">Interviewed By</th>
+                        <th  *ngIf="roleid!=5">Interviewed By</th>
                         <!-- <th>Tentitive Joining Date</th> -->
                         <th>Job Title</th>
                         <th>Candidate Name</th>
@@ -62,13 +61,13 @@
                         <th>Resume</th>
                         <!-- <th>Relevant Experience</th> -->
                         <!-- <th>CTC Budget</th> -->
-
                         <th>Notice Period</th>
                         <th>Interviewer Comments</th>
-
+                        <th>CTC</th>
+                        <th>Basic Salary</th>
                         <th>Budget Status</th>
                         <!-- <th>Interviewer Feedback</th> -->
-                        <th *ngIf="roleid!='4' && roleid=='6'|| roleid=='2'">Actions</th>
+                        <th *ngIf="roleid!='4' && roleid=='6' || roleid=='11'|| roleid=='10'">Actions</th>
                     </tr>
                     <tr *ngFor="let job of joblist | paginate: { itemsPerPage: count1, currentPage: p }">
                         <td>{{job.jobRefernceID}}</td>
@@ -76,13 +75,12 @@
                         <td>{{job.source}}</td>
                         <!-- <td>{{job.slotTime}}</td> -->
                         <td *ngIf="roleid!=5">{{job.staffname}}</td>
-                        <td *ngIf="roleid!=2">{{job.hiringManager}}</td>
+                        <td  *ngIf="roleid!=2">{{job.hiringManager}}</td>
                         <td>{{job.jobTitle}}</td>
                         <td>{{job.candidateName}}</td>
                         <td>{{job.phoneNo}}</td>
                         <td>{{job.email}}</td>
                         <td>{{job.yearsofExp}}</td>
-
                         <td>
                             <img src="assets/Images/pdf.png" style="width: 30px;"
                                 (click)="GetOfferLetter(job.resumeUrl)">
@@ -91,25 +89,25 @@
                         <!-- <td>{{job.ctc}}</td>  -->
                         <td>{{job.noticePeriod}}</td>
                         <td>{{job.interviewercomments}}</td>
-
+                        <td>{{job.basicsalary*12}}</td>
+                        <td>{{job.basicsalary}}</td>
+                        
                         <td>
-                            <p *ngIf="job.budgetStatus==null">Waiting for Approval</p>
-                            <p *ngIf="job.budgetStatus!=null">{{job.budgetStatus}}</p>
-                        </td>
-                        <td *ngIf="roleid!='4' && roleid=='6' || roleid=='2'">
-                            <button class="btn btn-danger" *ngIf="job.offered=='0' && job.budgetStatus=='Approved'"
-                                data-toggle="modal" data-target="#exampleModal"
-                                (click)="GetOfferID(job.id,job)">Offer</button>
-                            <button class="button form-control Add1" data-toggle="modal" data-target="#exampleModal10"
-                                (click)="getid(job.id)" *ngIf="job.offered=='0' && job.budgetStatus==null">Approve</button><br>
-                            <button class="button form-control Add1" (click)="Reject(job.id)"  *ngIf="job.offered=='0' && job.budgetStatus==null">Reject</button>
-                            <br><br>
-
+                            <p *ngIf="job.budgetstatus==null">Waiting for Approval</p>
+                            <p *ngIf="job.budgetstatus!=null">{{job.budgetstatus}}</p>
+                            <p *ngIf="job.budgetstatus!=null && roleid=='10'">{{job.budgetstatus}}</p>
+                       </td>
+                        <td *ngIf="roleid!='4' && roleid=='6'">
+                            <button class="btn btn-danger" *ngIf="job.offered=='0' && job.budgetstatus!=null" data-toggle="modal" 
+                                data-target="#exampleModal" (click)="GetOfferID(job.id,job)">Offer</button><br><br>
 
 
                             <!-- <button class="btn btn-danger" *ngIf="job.offered=='0'" data-toggle="modal"
                                 data-target="#exampleModal1" (click)="GetOfferID(job.id,job)">Notes</button> -->
 
+                        </td>
+                        <td *ngIf="roleid==11|| roleid==10"> <button class="button form-control "  (click)="ApproveId(job.id)">Approve</button><br>
+                            <button class="button form-control Add1"  (click)="Reject(job.id)">Reject</button>
                         </td>
                     </tr>
                 </thead>
@@ -267,103 +265,6 @@
                     <div class="col-lg-2">
                         <button type="button" class="btn btn-primary" (click)="updatedetails()"
                             data-dismiss="modal">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" style="width:700px">
-            <div class="modal-header">
-                <h5 class="modal-title Heading" id="exampleModalLabel">View Recommended Compensation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">Basic Salary : <span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <input type="text" [(ngModel)]="basicsalary" name="basicsalary" class="form-control" disabled
-                            placeholder="Basic Salary">
-                    </div>
-
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">Deminimis List : <span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <textarea type="text" [(ngModel)]="DeminimisList " name="DeminimisList" class="form-control"
-                            placeholder="Deminimis List " rows="3"disabled></textarea>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">Deminimis Amount : <span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <input type="text" [(ngModel)]="demenisamt " name="demenisamt" class="form-control"
-                            placeholder="Deminimis Amount" disabled>
-                    </div>
-                </div><br>
-
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">Net Salary/month : <span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-
-                        <input type="text" [(ngModel)]="netsalary" name="netsalary" class="form-control"
-                            placeholder="Net Salary/month " disabled>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">CTC : <span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-
-                        <input type="text" [(ngModel)]="ctc" name="ctc" class="form-control" placeholder="CTC" disabled>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">Current Level of Employee : <span style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <input type="text" [(ngModel)]="currentlevel" name="currentlevel" class="form-control"
-                            placeholder="Current Level of Employee" disabled>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <label class="Letter">Average Salary for Current Level: <span
-                                style="color: red;">*</span></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <input type="text" 
-                            class="form-control" placeholder="30000" disabled>
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-lg-5">
-
-                    </div>
-                    <div class="col-lg-2">
-                        <button type="button" class="btn btn-primary" (click)="ApproveId()"
-                            data-dismiss="modal">Approve</button>
                     </div>
                 </div>
             </div>

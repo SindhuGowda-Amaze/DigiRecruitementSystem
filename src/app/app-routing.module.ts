@@ -59,6 +59,7 @@ import { SupportTicketsComponent } from './support-tickets/support-tickets.compo
 import { SupportTicketDashboardComponent } from './support-ticket-dashboard/support-ticket-dashboard.component';
 import { ManagerDashComponent } from './manager-dash/manager-dash.component';
 import { BUHeadDashComponent } from './buhead-dash/buhead-dash.component';
+import { OfferManagementComponent } from './offer-management/offer-management.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -135,7 +136,8 @@ const routes: Routes = [
   {path:'SupportTickets/:id',component:SupportTicketsComponent},
   {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent},
   {path:'ManagerDash',component:ManagerDashComponent},
-  {path:'BUHeadDash',component:BUHeadDashComponent}
+  {path:'BUHeadDash',component:BUHeadDashComponent},
+  {path:'OfferManagement',component:OfferManagementComponent}
 ];
 
 @NgModule({

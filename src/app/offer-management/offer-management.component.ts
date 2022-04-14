@@ -3,17 +3,18 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-selected-candidates',
-  templateUrl: './selected-candidates.component.html',
-  styleUrls: ['./selected-candidates.component.css']
+  selector: 'app-offer-management',
+  templateUrl: './offer-management.component.html',
+  styleUrls: ['./offer-management.component.css']
 })
-export class SelectedCandidatesComponent implements OnInit {
+export class OfferManagementComponent implements OnInit {
+
   roleid: any
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
-  DeminimisList: any;
-  deminimis: any;
+
+
   joblist: any;
   count: any;
   search: any;
@@ -34,12 +35,6 @@ export class SelectedCandidatesComponent implements OnInit {
   TentativeDate: any;
   username: any;
   hrlist: any;
-  basicsalary: any;
-  avgsalofcurrentlevel: any
-  currentlevel: any;
-  ctc: any;
-  netsalary: any;
-
   ngOnInit(): void {
     this.searchbynotice = "";
     this.hiringManager = "";
@@ -100,13 +95,14 @@ export class SelectedCandidatesComponent implements OnInit {
   files: File[] = [];
   onSelect(event: { addedFiles: any; }) {
     debugger
-    if (event.addedFiles[0].type == "application/pdf") {
-      console.log(event);
-      this.files.push(event.addedFiles[0]);
-      this.uploadattachments();
-      console.log("content", this.files);
+    if(event.addedFiles[0].type=="application/pdf")
+    {
+    console.log(event);
+    this.files.push(event.addedFiles[0]);
+    this.uploadattachments();
+    console.log("content", this.files);
     }
-    else {
+    else{
       Swal.fire("Please Add Pdf Format");
     }
   }
@@ -275,36 +271,7 @@ export class SelectedCandidatesComponent implements OnInit {
 
   }
 
-  GetJobDeminimis() {
-
-  }
-  demenisamt:any;
-
-
-  getid(even: any) {
-    debugger
-    this.id = even;
-    this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
-      debugger
-
-      let temp: any = data.filter(x => x.id == this.id);
-      this.basicsalary = temp[0].basicsalary;
-      this.DeminimisList = temp[0].demenislist;
-      this.currentlevel = temp[0].level;
-      this.demenisamt = temp[0].demenisamt;
-      this.currentlevel = temp[0].level;
-      this.netsalary=this.basicsalary+this.demenisamt;
-      this.ctc=this.netsalary*12;
-      this.currentlevel= temp[0].level;
-     
-
-    })
-
-  }
-
-
-  id: any;
-  public ApproveId() {
+  public ApproveId(data:any){
     Swal.fire({
       title: 'Are you sure?',
       text: 'You Want to Approve it.',
@@ -314,44 +281,60 @@ export class SelectedCandidatesComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.value == true) {
-
-        var entity = {
-          "ID": this.id,
-          "BudgetStatus": 'Approved',
+        if(this.roleid==11){
+          var entity = {
+            "ID": data,
+          
+            "Status": 'Manager Approved BU Pending',
+          
+          }
+          this.RecruitmentServiceService.UpdateJobRequirementStatus(entity).subscribe(data => {
+            debugger
+            Swal.fire('Approved Successfully')
+            location.reload();
+          })
         }
-        this.RecruitmentServiceService.UpdateCanditateBudgetStatus(entity).subscribe(data => {
-          debugger
-          Swal.fire('Approved Successfully')
-          location.reload();
-        })
-
+        else if(this.roleid==10){
+          var entity = {
+            "ID": data,
+            "Status": 'Manager Approved BU Approved',
+          
+          }
+          // this.RecruitmentServiceService.UpdateJobRequirementStatus(entity).subscribe(data => {
+          //   debugger
+          //   Swal.fire('Approved Successfully')
+          //   location.reload();
+          // })
+        }
+       
+      
       }
     })
   }
-
-
-  public Reject(ID: any) {
-    debugger
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You Want to Reject it.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, Reject it!',
-      cancelButtonText: 'No, keep it'
-    }).then((result) => {
-      if (result.value == true) {
-        var entity = {
-          "ID": ID,
-          "BudgetStatus": 'Rejected',
-
+  
+  
+    public Reject(ID: any) {
+      debugger
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You Want to Reject it.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Reject it!',
+        cancelButtonText: 'No, keep it'
+      }).then((result) => {
+        if (result.value == true) {
+          var entity = {
+            "ID": ID,
+            "Status": 'Manager Rejected',
+          
+          }
+          // this.RecruitmentServiceService.UpdateJobRequirementStatus(entity).subscribe(data => {
+          //   debugger
+          //   Swal.fire('Rejected Successfully')
+          //   location.reload();
+          // })
         }
-        this.RecruitmentServiceService.UpdateCanditateBudgetStatus(entity).subscribe(data => {
-          debugger
-          Swal.fire('Approved Successfully')
-          location.reload();
-        })
-      }
-    })
-  }
+      })
+    }
 }
