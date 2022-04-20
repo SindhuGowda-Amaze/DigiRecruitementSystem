@@ -108,6 +108,16 @@ export class JobRecruitementsComponent implements OnInit {
     this.description = this.joblist.filter((x: { ID: any; }) => x.ID == this.ID);
     this.show=1;
   }
+  empcomments: any;
+  public GEtemployeecomments(job: any) {
+    this.description = job.jobDescription
+  }
+
+  skills: any;
+  public GEtskills(job: any) {
+    this.skills = job.skills
+  }
+
 
 
 

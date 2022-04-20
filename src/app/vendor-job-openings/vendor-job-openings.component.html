@@ -71,10 +71,14 @@
                     <td>{{job.jobRefernceID}}</td>
                     <td><span style="width: 10px;">{{job.date}}</span></td>
                     <td>{{job.jobTitle}}</td>
-                    <td>{{job.skills}}</td>
+                    <td>
+                        <button class="Button"  data-toggle="modal"
+                        (click)="GEtskills(job)" data-target="#viewempcomments1" >View</button>
+                      </td>
                     <td>{{job.totalExp}}</td>
                     <td>{{job.relaventExp}}</td>
-                    <td data-toggle="modal" data-target="#Assign1"><button class="Button">view</button></td>
+                    <td ><button class="Button"  data-toggle="modal"
+                        (click)="GEtemployeecomments(job)" data-target="#viewempcomments" >View</button></td>
                    
                     <td>{{job.joblocation}}</td>
                     <td>{{job.noofpositions}}</td>
@@ -104,33 +108,66 @@
     </div>
 </div>
 
-  
-<div id="Assign1" class="modal fade" role="dialog" *ngFor="let job of joblist">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+<div class="modal fade" id="viewempcomments" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 800px;">
             <div class="modal-header">
-                <h4 class="Heading">Job Description</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title Heading" id="exampleModalLabel">Job Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body scroll">
                 <div class="row">
-                    <div class="col-lg-2">
-                        <label class="Text">Description :</label>
+                    <div class="col-lg-3">
                     </div>
-                    <div class="col-lg-10">
-                        <td>{{job.jobDescription}}</td>
+                    <div class="col-lg-7 ">
+                        <p style="padding:5px" [innerHTML]="description">
+                        </p>
                     </div>
-                </div> <br>
+                    <div class="col-lg-3">
+
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <hr>
-                <div class="col-lg-2">
-                    <button class="Button" data-dismiss="modal">Close</button>
-                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="viewempcomments1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 800px;">
+            <div class="modal-header">
+                <h5 class="modal-title Heading" id="exampleModalLabel">Skillsets</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body scroll">
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-7 ">
+                        <p style="padding:5px" [innerHTML]="skills">
+                        </p>
+                    </div>
+                    <div class="col-lg-3">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 

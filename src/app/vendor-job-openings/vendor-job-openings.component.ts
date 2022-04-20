@@ -98,6 +98,16 @@ export class VendorJobOpeningsComponent implements OnInit {
   }
 
 
+  description: any;
+  public GEtemployeecomments(job: any) {
+    this.description = job.jobDescription
+  }
+
+  skills: any;
+  public GEtskills(job: any) {
+    this.skills = job.skills
+  }
+
   GetId1(id: any) {
     this.ID = id
     this.Getvendorid(this.ID);

@@ -218,7 +218,7 @@
             </a>
 
             <div id="userapplications1" class="collapse" style="padding-left: 7%;">
-                <a (click)="JobRecruitment()" class="nonactive" (click)="openCity($event)">
+                <a (click)="JobRecruitment()" class="nonactive" (click)="openCity($event)" *ngIf=" roleid=='2'">
                     <img src="assets/Images/64 Blue/Staff.png" style="width: 20px;    margin-right: 17px;" />
                     <!-- <img *ngIf="Jobrecruit==false" src="assets/Images/64/Staff.png"
                         style="width: 20px;    margin-right: 17px;" />  -->&nbsp; JOB RECRUITMENT
@@ -384,7 +384,7 @@
                 &nbsp;
                 <span [ngClass]="active == 'help' ? 'Active1' : 'Active3'">HELP</span>
                 &nbsp;
-            </a>
+            </a>    
 
             <a routerLink="/SupportTicketDashboard" class="tablinks" (click)="highlight($event)"
                 (click)="SupportTickets()">
