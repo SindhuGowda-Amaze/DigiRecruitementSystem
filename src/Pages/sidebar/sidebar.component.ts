@@ -209,6 +209,33 @@ export class SidebarComponent implements OnInit {
       this.joinedreport = false
       this.droppedreport = false
     }
+    else if (this.roleid == '11') {
+      localStorage.setItem('Pagename', 'DASHBOARD')
+      this.router.navigate(['/Dashboard']);
+      this.home = true
+      this.Jobrecruit = false
+      this.Vendorrecruit = false
+
+      this.applied = false
+      this.shortlist = false
+      this.scheduled = false
+      this.Vendorrecruit = false
+      this.applied = false
+      this.shortlist = false
+      this.scheduled = false
+      this.selected = false
+      this.offered = false
+      this.joined = false
+      this.dropped = false
+      this.vendorreport = false
+      this.appliedreport = false
+      this.shortlistedreport = false
+      this.selectedreport = false
+      this.offeredreport = false
+      this.Jobrecruitreport = false
+      this.joinedreport = false
+      this.droppedreport = false
+    }
     else if (this.roleid == '3') {
       localStorage.setItem('Pagename', 'DASHBOARD')
       this.router.navigate(['/Dashboard']);
@@ -384,10 +411,7 @@ export class SidebarComponent implements OnInit {
   
 
 
-  public Description(){
-    localStorage.setItem('Pagename', 'Job Description')
-    this.router.navigate(['/JobDescriptionDash']);
-  }
+
 
   public VendorRecruitment(){
     this.Vendorrecruit=true
@@ -909,6 +933,15 @@ export class SidebarComponent implements OnInit {
     this.active = 'offermanage'
     localStorage.setItem("clickname", "offermanage")
     this.router.navigate(['/OfferManagement']);
+  }
+
+  public Description(){
+    // localStorage.setItem('Pagename', 'Job Description')
+    // this.router.navigate(['/JobDescriptionDash']);
+
+    this.active = 'Description'
+    localStorage.setItem("clickname", "Description")
+    this.router.navigate(['/JobDescriptionDash']);
   }
 
   

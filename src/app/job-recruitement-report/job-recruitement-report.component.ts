@@ -62,6 +62,18 @@ export class JobRecruitementReportComponent implements OnInit {
     this.show=1;
   }
 
+  empcomments: any;
+  public GEtemployeecomments(job: any) {
+    this.description = job.jobDescription
+  }
+
+  skills: any;
+  public GEtskills(job: any) {
+    this.skills = job.skills
+  }
+
+
+
   fileName = 'JOB RECRCUITMENT REPORT.xlsx';
   exportexcel(): void {
     this.loader = false;

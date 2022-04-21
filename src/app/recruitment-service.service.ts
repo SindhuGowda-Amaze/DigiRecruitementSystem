@@ -414,7 +414,7 @@ export class RecruitmentServiceService {
 
   public GetJobDescriptionMaster() {
 
-    return this.http.get<any[]>(this.host + "/Master/GetJobDescriptionMaster");
+    return this.http.get<any[]>(this.host + "/Vendor/GetJobDescriptionMaster");
   }
 
   public DeleteJobDescriptionMaster(ID: any) {

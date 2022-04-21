@@ -20,8 +20,8 @@
                         <p>Filter By</p>
                     </div>
                    
-                    <div class="col-lg-3">
-                        <input  *ngIf="roleid==2" type="date" class="form-control poppinns" (change)="GetDate($event)" name="date" value="date"  [(ngModel)]="date">
+                    <div class="col-lg-3"  *ngIf="roleid==2" >
+                        <input type="date" class="form-control poppinns" (change)="GetDate($event)" name="date" value="date"  [(ngModel)]="date">
 
                     </div>
                     <div class="col-lg-3"  *ngIf="roleid!=2">
@@ -42,7 +42,7 @@
                     <div class="col-lg-3">
                         <input class="form-control poppinns" placeholder="Search..." [(ngModel)]="search" (ngModelChange)="Filterjobs()" name="search">
                     </div>
-                    <div *ngIf="roleid==2" class="col-lg-3">
+                    <div *ngIf="roleid!=2" class="col-lg-3">
                        
                     </div>
                   
