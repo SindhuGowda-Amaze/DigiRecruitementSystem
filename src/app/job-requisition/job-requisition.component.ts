@@ -72,7 +72,7 @@ export class JobRequisitionComponent implements OnInit {
       this.skills == null || this.skills == undefined || this.skills == 0 ||
       this.yearsofexp == null || this.yearsofexp == undefined || this.yearsofexp == 0 ||
       this.yearsofrelavantexp == null || this.yearsofrelavantexp == undefined || this.yearsofrelavantexp == 0 ||
-      this.jobdescription == null || this.jobdescription == undefined || this.jobdescription == 0 ||
+    
       this.joblocation == null || this.joblocation == undefined || this.joblocation == 0 ||
       this.noofpositions == null || this.noofpositions == undefined || this.noofpositions == 0 ||
       // this.companyname==null || this.companyname==undefined || this.companyname==0 ||
@@ -98,11 +98,27 @@ export class JobRequisitionComponent implements OnInit {
         'HiringManager': this.username,
         'OtherRequiredConditions': this.otherreqconditions,
         'ResourceManager': this.resourcemanager,
-        'Status':'Manager Pending'
+        'Status': 'Manager Pending'
       }
       this.RecruitmentServiceService.InsertJob_Requirements(entity).subscribe(data => {
         if (data != 0) {
-          swal.fire("Saved Successfully");
+          Swal.fire({
+            title: '<strong>Use this link to post in External site<br></strong>',
+            icon: 'info',
+            html:
+              // 'You can use <b>below link to Apply</b>, ' +
+              '<a target="_blank" href="//http://103.133.214.197/CoreDigiRecruitment/#/ExternalJobApply/:53">Apply</a> ' ,
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            // confirmButtonText:
+            //   '<i class="fa fa-thumbs-up"></i> Great!',
+            // confirmButtonAriaLabel: 'Thumbs up, great!',
+            // cancelButtonText:
+            //   '<i class="fa fa-thumbs-down"></i>',
+            // cancelButtonAriaLabel: 'Thumbs down'
+          })
+
           location.href = "#/JobRecruitements";
         }
 
@@ -124,7 +140,7 @@ export class JobRequisitionComponent implements OnInit {
     this.RecruitmentServiceService.GetJobDescriptionMaster().subscribe(data => {
       let temp: any = data.filter(x => x.department == this.Department);
       this.jobdescription = temp[0].description;
-     
+
     })
 
 

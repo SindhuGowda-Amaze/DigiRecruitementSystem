@@ -82,6 +82,7 @@ import { SupportTicketDashboardComponent } from './support-ticket-dashboard/supp
 import { ManagerDashComponent } from './manager-dash/manager-dash.component';
 import { BUHeadDashComponent } from './buhead-dash/buhead-dash.component';
 import { OfferManagementComponent } from './offer-management/offer-management.component';
+import { ExternalJobApplyComponent } from './external-job-apply/external-job-apply.component';
 
 
 @NgModule({
@@ -145,6 +146,7 @@ import { OfferManagementComponent } from './offer-management/offer-management.co
     ManagerDashComponent,
     BUHeadDashComponent,
     OfferManagementComponent,
+    ExternalJobApplyComponent,
 
 
   ],

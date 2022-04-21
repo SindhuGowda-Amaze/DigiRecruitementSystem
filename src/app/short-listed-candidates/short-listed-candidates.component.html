@@ -13,10 +13,12 @@
         <p>Filter By</p>
       </div>
       <div class="col-lg-3">
-        <input class="form-control poppinns" placeholder="Search for  Job Reference ID..." [(ngModel)]="search" (ngModelChange)="Filterjobs()">
+        <input class="form-control poppinns" placeholder="Search for  Job Reference ID..." [(ngModel)]="search"
+          (ngModelChange)="Filterjobs()">
       </div>
       <div class="col-lg-2">
-        <select *ngIf="roleid!=2"  class="form-control form-select poppinns" [(ngModel)]="hiringManager"  (change)="GetJobRequirements()" >
+        <select *ngIf="roleid!=2" class="form-control form-select poppinns" [(ngModel)]="hiringManager"
+          (change)="GetJobRequirements()">
           <option value="">Select Hiring Manager</option>
           <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
         </select>
@@ -25,13 +27,15 @@
           <option style="color:#0C275A" value="">Select CTC</option>
           <option style="color:#0C275A" *ngFor="let job of ctclist" value="{{job.ctc}}">{{job.ctc}}</option>
         </select> -->
-        <select *ngIf="roleid==2" name="Select" class="form-control poppinns"  (change)="changeoption()"  [(ngModel)]="searchbynotice">
+        <select *ngIf="roleid==2" name="Select" class="form-control poppinns" (change)="changeoption()"
+          [(ngModel)]="searchbynotice">
           <option style="color:#0C275A" value="">Select Notice Period</option>
-          <option style="color:#0C275A" *ngFor="let job of noticeperiodlist" value="{{job.noticePeriod}}">{{job.noticePeriod}}</option>
+          <option style="color:#0C275A" *ngFor="let job of noticeperiodlist" value="{{job.noticePeriod}}">
+            {{job.noticePeriod}}</option>
         </select>
       </div>
       <div *ngIf="roleid==2" class="col-lg-2">
-      
+
       </div>
       <div class="col-lg-2"></div>
       <div class="col-lg-2">
@@ -40,7 +44,7 @@
     </div>
   </div><br><br>
   <div class="row">
-    <div class="col-lg-12"  style="width: 50%; overflow-x: scroll;">
+    <div class="col-lg-12" style="width: 50%; overflow-x: scroll;">
       <table class="table">
         <thead>
           <tr>
@@ -61,8 +65,7 @@
             <th>Resume</th>
             <th *ngIf="roleid!='4' && roleid=='6'">Actions</th>
           </tr>
-          <tr
-            *ngFor="let job of joblist |paginate: { itemsPerPage: count1, currentPage: p }">
+          <tr *ngFor="let job of joblist |paginate: { itemsPerPage: count1, currentPage: p }">
             <td>{{job.jobRefernceID}}</td>
             <td> {{job.source}}</td>
             <td>{{job.jobTitle}}</td>
@@ -73,7 +76,7 @@
             <td>{{job.noticePeriod}}</td>
             <td>{{job.yearsofExp}}</td>
             <td>{{job.relavantExp}}</td>
-            <td  *ngIf="roleid!=2">{{job.hiringManager}}</td>
+            <td *ngIf="roleid!=2">{{job.hiringManager}}</td>
             <td>{{job.city}}</td>
             <td>{{job.shortlistionNotes}}</td>
             <td>
@@ -114,7 +117,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="width:700px">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Schedule Interview</h5>
+        <h5 class="modal-title Heading" id="exampleModalLabel">Schedule Interview</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -133,10 +136,10 @@
         </div><br>
         <div class="row">
           <div class="col-lg-3"></div>
-          <div class="col-lg-4">
+          <!-- <div class="col-lg-4">
             <button type="button" class="btn btn-primary"  (click)="checkschedule()"
             data-dismiss="modal">Check Interviwer Schedule</button>
-          </div>
+          </div> -->
         </div><br>
         <div class="row">
           <div class="col-lg-3">
@@ -166,6 +169,19 @@
           </div>
         </div><br>
         <div class="row">
+          <div class="col-lg-3">
+            <label>Interview Guid : <span style="color: red;">*</span></label>
+          </div>
+          <div class="col-lg-6">
+            <ngx-dropzone (change)="onSelect($event)" style="height: 60px;">
+              <ngx-dropzone-label>Drop it here!</ngx-dropzone-label>
+              <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-preview>
+            </ngx-dropzone>
+          </div>
+        </div><br>
+        <div class="row">
           <div class="col-lg-5">
 
           </div>
@@ -173,14 +189,19 @@
             <button type="button" class="btn btn-primary" (click)="UpdateInterviewSchedule()"
               data-dismiss="modal">Schedule</button>
           </div>
-
+          <br>
         </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="row">
+          <div class="col-lg-5">
 
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
       </div>
     </div>
   </div>
-</div>

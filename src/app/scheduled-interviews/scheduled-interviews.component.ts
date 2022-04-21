@@ -142,6 +142,11 @@ export class ScheduledInterviewsComponent implements OnInit {
     this.id = id
   }
 
+  public GetOfferLetter1(offer: any) {
+    window.open(offer, "_blank")
+  }
+
+
   public Accept(id: any, rinterview: any) {
     Swal.fire({
       title: 'Are you sure?',

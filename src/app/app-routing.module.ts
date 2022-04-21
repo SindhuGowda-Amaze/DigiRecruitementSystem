@@ -60,6 +60,7 @@ import { SupportTicketDashboardComponent } from './support-ticket-dashboard/supp
 import { ManagerDashComponent } from './manager-dash/manager-dash.component';
 import { BUHeadDashComponent } from './buhead-dash/buhead-dash.component';
 import { OfferManagementComponent } from './offer-management/offer-management.component';
+import { ExternalJobApplyComponent } from './external-job-apply/external-job-apply.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
@@ -137,7 +138,8 @@ const routes: Routes = [
   {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent},
   {path:'ManagerDash',component:ManagerDashComponent},
   {path:'BUHeadDash',component:BUHeadDashComponent},
-  {path:'OfferManagement',component:OfferManagementComponent}
+  {path:'OfferManagement',component:OfferManagementComponent},
+  {path:'ExternalJobApply/:id',component:ExternalJobApplyComponent}
 ];
 
 @NgModule({

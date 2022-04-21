@@ -65,6 +65,7 @@
                 <th>Relevant Experience</th>
                 <th>Resume</th>
                 <th>Comments</th>
+                <th>Interview Guid</th>
                 <th>Actions</th>
               </tr>
               <tr *ngFor="let job of joblist| paginate: { itemsPerPage: count1, currentPage: p }">
@@ -84,6 +85,9 @@
                 </td>
                 <!-- <td>{{job.comments}}</td> -->
                 <td>Select based on Relevant Experience</td>
+                <td>
+                  <img class="resume" src="assets/Images/pdf.png" (click)="GetOfferLetter1('https://www.robertwalters.co.nz/content/dam/robert-walters/global/files/complete-interview-guide/Interview-guide-web.pdf')">
+                </td>
                 <td>
                   <button class="btn btn-primary Button" data-toggle="modal" data-target="#exampleModal"
                     (click)="getid(job.id)">Selected</button> <br><br>
