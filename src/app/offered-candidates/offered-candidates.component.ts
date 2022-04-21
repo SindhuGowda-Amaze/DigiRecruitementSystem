@@ -117,7 +117,7 @@ export class OfferedCandidatesComponent implements OnInit {
   public GetCandidateReg() {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       if(this.roleid==2){
-        this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0 && x.hiringManager==this.username);
+        this.joblist = data.filter(x => x.offered == 1 && x.offerAcceptreject == 0 );
         this.buildcallender(this.joblist);
       }
       else

@@ -56,8 +56,8 @@ export class SelectedCandidatesComponent implements OnInit {
     debugger
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       if (this.roleid == 2) {
-        this.joblist = data.filter(x => x.hiringManager == this.username && x.interviewSelected == 1 && x.offered == 0);
-        this.noticeperiodlist = data.filter(x => x.interviewSelected == 1 && x.offered == 0 && x.hiringManager == this.username);
+        this.joblist = data.filter(x =>  x.interviewSelected == 1 && x.offered == 0);
+        this.noticeperiodlist = data.filter(x => x.interviewSelected == 1 && x.offered == 0 );
         this.count = this.joblist.length;
         this.loader = false;
       }

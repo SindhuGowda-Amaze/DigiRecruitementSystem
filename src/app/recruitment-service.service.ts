@@ -444,7 +444,7 @@ export class RecruitmentServiceService {
 
   public GetManpowerPlanningandBudgeting() {
 
-    return this.http.get<any[]>(this.host + "/Master/GetManpowerPlanningandBudgeting");
+    return this.http.get<any[]>(this.host + "/Announcement/GetManpowerPlanningandBudgeting");
   }
 
   public DeleteManpowerPlanningandBudgeting(ID: any) {

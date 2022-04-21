@@ -75,7 +75,7 @@ export class ShortlistedCandidatesReportsComponent implements OnInit {
     this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
       if (this.roleid == 2) {
         this.dummjoblist = data.filter(x => x.accept == 1 && x.scheduled == 0);
-        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 && x.hiringManager == this.username);
+        this.joblist = data.filter(x => x.accept == 1 && x.scheduled == 0 );
         this.noticeperiodlist = data.filter(x => x.accept == 1 && x.scheduled == 0);
         this.count = this.joblist.length;
       }

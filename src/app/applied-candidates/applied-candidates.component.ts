@@ -64,7 +64,7 @@ export class AppliedCandidatesComponent implements OnInit {
   
       this.RecruitmentServiceService.GetCandidateRegistration().subscribe(data => {
         this.dummjoblist = data.filter(x => x.accept == 0 && x.reject == 0 )
-        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 && x.hiringManager==this.username);
+        this.joblist = data.filter(x => x.accept == 0 && x.reject == 0 );
         this.noticeperiodlist = data.filter(x => x.accept == 0 && x.reject == 0  );
         this.ctclist= data.filter(x =>  x.accept == 0 && x.reject == 0 );
         this.count = this.joblist.length;
