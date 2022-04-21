@@ -68,7 +68,7 @@
 
                         <th>Budget Status</th>
                         <!-- <th>Interviewer Feedback</th> -->
-                        <th *ngIf="roleid!='4' && roleid=='6'|| roleid=='2'">Actions</th>
+                        <th *ngIf="roleid!='4' && (roleid=='6'|| roleid=='2')">Actions</th>
                     </tr>
                     <tr *ngFor="let job of joblist | paginate: { itemsPerPage: count1, currentPage: p }">
                         <td>{{job.jobRefernceID}}</td>
@@ -96,13 +96,18 @@
                             <p *ngIf="job.budgetStatus==null">Waiting for Approval</p>
                             <p *ngIf="job.budgetStatus!=null">{{job.budgetStatus}}</p>
                         </td>
-                        <td *ngIf="roleid!='4' && roleid=='6' || roleid=='2'">
-                            <button class="btn btn-danger" *ngIf="job.offered=='0' && job.budgetStatus=='Approved'"
+                        <td >
+
+                            <button class="btn btn-danger" *ngIf="job.offered=='0' && job.budgetStatus=='Approved' && roleid=='6'" 
                                 data-toggle="modal" data-target="#exampleModal"
-                                (click)="GetOfferID(job.id,job)">Offer</button>
+                                (click)="GetOfferID(job.id,job)" >Offer</button>
+
                             <button class="button form-control Add1" data-toggle="modal" data-target="#exampleModal10"
-                                (click)="getid(job.id)" *ngIf="job.offered=='0' && job.budgetStatus==null">Approve</button><br>
-                            <button class="button form-control Add1" (click)="Reject(job.id)"  *ngIf="job.offered=='0' && job.budgetStatus==null">Reject</button>
+                                (click)="getid(job.id)"
+                                *ngIf="job.offered=='0' && job.budgetStatus==null && roleid=='2'">Approve</button><br>
+
+                            <button class="button form-control Add1" (click)="Reject(job.id)"
+                                *ngIf="job.offered=='0' && job.budgetStatus==null && roleid=='2'">Reject</button>
                             <br><br>
 
 
@@ -306,7 +311,7 @@
                     </div>
                     <div class="col-lg-6">
                         <textarea type="text" [(ngModel)]="DeminimisList " name="DeminimisList" class="form-control"
-                            placeholder="Deminimis List " rows="3"disabled></textarea>
+                            placeholder="Deminimis List " rows="3" disabled></textarea>
                     </div>
                 </div><br>
                 <div class="row">
@@ -353,8 +358,7 @@
                                 style="color: red;">*</span></label>
                     </div>
                     <div class="col-lg-6">
-                        <input type="text" 
-                            class="form-control" placeholder="30000" disabled>
+                        <input type="text" class="form-control" placeholder="30000" disabled>
                     </div>
                 </div><br>
                 <div class="row">
