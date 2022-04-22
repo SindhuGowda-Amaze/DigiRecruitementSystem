@@ -107,7 +107,7 @@ export class JobRequisitionComponent implements OnInit {
             icon: 'info',
             html:
               // 'You can use <b>below link to Apply</b>, ' +
-              '<a target="_blank" href="//http://103.133.214.197/CoreDigiRecruitment/#/ExternalJobApply/:53">Apply</a> ' ,
+              '<a target="_blank" href="http://103.133.214.197/CoreDigiRecruitment/#/ExternalJobApply/53">Apply</a> ' ,
             showCloseButton: true,
             showCancelButton: true,
             focusConfirm: false,

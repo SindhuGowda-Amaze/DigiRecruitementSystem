@@ -95,7 +95,7 @@
                                     <!-- <td>
                                         <textarea class="form-control" row="4" [(ngModel)]="job.offerComments" name="job.offerComments" placeholder="Comments"></textarea>
                                     </td> -->
-                                    <td  *ngIf="roleid=='2' && roleid!='6'">
+                                    <td  *ngIf="(roleid=='2'||roleid=='8') && roleid!='6'">
                                         <button class="btn btn-primary Joined" *ngIf="job.offerAcceptreject=='0'"
                                             (click)="Accept(job.id,job.offerComments)">Joined</button><br><br>
                                         <button class="btn btn-danger" *ngIf="job.offerAcceptreject=='0'"
