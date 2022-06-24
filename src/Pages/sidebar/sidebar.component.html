@@ -207,17 +207,7 @@
                     &nbsp;JOB APPROVAL CONFIG
 
                 </a>
-                <a class="nonactive" (click)="openCity($event)" (click)="ManpowerPlanning()" *ngIf="roleid!=11">
-                    <img *ngIf="ManpowerPlanning1"
-                        src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Shift Master Trainer.png "
-                        style="width: 13%;  margin-right: 17px;" />
-                    <img *ngIf="!ManpowerPlanning1"
-                        src="assets/Images/64/ATTENDANCE/Report/masters/Shift Master Trainer.png"
-                        style="width: 13%;  margin-right: 17px;" />
-
-                    &nbsp; Manpower Planning
-
-                </a>
+               
 
             </div>
 
@@ -422,7 +412,17 @@
                 &nbsp;
             </a>
 
+            <a  class="nonactive" (click)="openCity($event)" (click)="ManpowerPlanning()" *ngIf="roleid==10">
+                <img *ngIf="ManpowerPlanning1"
+                    src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Shift Master Trainer.png "
+                    style="width: 13%;  margin-right: 17px;" />
+                <img *ngIf="!ManpowerPlanning1"
+                    src="assets/Images/64/ATTENDANCE/Report/masters/Shift Master Trainer.png"
+                    style="width: 13%;  margin-right: 17px;" />
 
+                &nbsp; Manpower Planning
+
+            </a>
 
 
 
