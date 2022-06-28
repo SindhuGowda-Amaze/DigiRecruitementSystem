@@ -37,14 +37,28 @@ search:any;
     })
   }
 
-  public Ondelete(id:any) {
-    this.RecruitmentServiceService.DeleteJobDescriptionMaster(id).subscribe(
-      data => {
-        debugger
-        this.GetJobDescriptionMaster();
-        Swal.fire('Deleted');
+
+  public Ondelete(id: any) {
+    debugger
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to delete it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.DeleteJobDescriptionMaster(id).subscribe(
+          data => {
+            debugger
+            this.GetJobDescriptionMaster();
+            Swal.fire('Deleted');
+          }
+        )
       }
-    )
+    })
   }
 
   edit(id: any) {

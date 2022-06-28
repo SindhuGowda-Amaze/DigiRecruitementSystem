@@ -38,48 +38,83 @@ export class ClientStaffDashboardComponent implements OnInit {
     location.href="#/ClientStaffForm/"+ details;
     }
 
- 
-  delete(details: any){
+
+  public delete(details: any) {
+    debugger
     var json={
       "ID":details.id
     }
-    this.RecruitmentServiceService.DeleteClientStaff(details.id).subscribe(
-      data => {
-        debugger        
-     Swal.fire('Deleted Successfully')
-     location.reload();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to delete it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.DeleteClientStaff(details.id).subscribe(
+          data => {
+            debugger        
+         Swal.fire('Deleted Successfully')
+         location.reload();
+        })
+      }
     })
   }
 
+
+
+
   public DisableStaff(id: any) {
+    debugger
     var eb = {
       'ID': id,
       'Enable_Disable': 1
     }
-
-    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
-      data => {
-        debugger
-        Swal.fire('Updated successfully.');
-        location.reload();
-      },
-    )
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Disable it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Disable it',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
+          data => {
+            debugger
+            Swal.fire('Disable successfully.');
+            location.reload();
+          },
+        )
+      }
+    })
   }
 
   public DisableStaff1(id: any) {
-
+    debugger
     var eb = {
-
       'ID': id,
       'Enable_Disable': 0
     }
-
-    this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
-      data => {
-        debugger
-        Swal.fire('Updated successfully.');
-        location.reload();
-      },
-    )
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Disable it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Disable it',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.EnableClientStaff(eb).subscribe(
+          data => {
+            debugger
+            Swal.fire('Updated successfully.');
+            location.reload();
+          },
+        )
+      }
+    })
   }
 }

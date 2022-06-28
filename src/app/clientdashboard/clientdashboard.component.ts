@@ -41,16 +41,28 @@ export class ClientdashboardComponent implements OnInit {
 
     }
 
-  delete(details: any){
-    var json={
-      "ID":details.id
-    }
-    this.RecruitmentServiceService.DeleteClientMaster(details.id).subscribe(
-      data => {
-        debugger        
-     Swal.fire('Deleted Successfully')
-     location.reload();
-    })
-  }
 
+    public delete(details: any) {
+      debugger
+      var json={
+        "ID":details.id
+      }
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You Want to delete it.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Delete it!',
+        cancelButtonText: 'No, keep it'
+      }).then((result) => {
+        if (result.value == true) {
+          this.RecruitmentServiceService.DeleteClientMaster(details.id).subscribe(
+            data => {
+              debugger        
+           Swal.fire('Deleted Successfully')
+           location.reload();
+          })
+        }
+      })
+    }
 }

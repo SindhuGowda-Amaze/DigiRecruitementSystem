@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { RecruitmentServiceService } from '../recruitment-service.service';
 import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -29,9 +30,7 @@ export class VendorDashboardComponent implements OnInit {
  
   }
 
-
   public GetVendor_Dasboard() {
-     
     this.RecruitmentServiceService.GetVendor_Dasboard().subscribe(data => {   
     this.vendordetails = data;
     this.loader=false;
@@ -44,14 +43,26 @@ export class VendorDashboardComponent implements OnInit {
   }
 
 
-  public Ondelete(id:any) {
-    this.RecruitmentServiceService.DeleteVendor_Dasboard(id).subscribe(
-      data => {
-        debugger
-        this. GetVendor_Dasboard();
-        swal.fire('Deleted');
+
+  public Ondelete(id: any) {
+    debugger
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to delete it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.DeleteVendor_Dasboard(id).subscribe(
+          data => {
+            debugger
+            this. GetVendor_Dasboard();
+            swal.fire('Deleted Sucessfully');
+          }
+        )
       }
-    )
-    
+    })
   }
 }

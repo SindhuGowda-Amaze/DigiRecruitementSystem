@@ -37,61 +37,89 @@ search:any;
     })
   }
 
-  public Ondelete(id:any) {
-    this.RecruitmentServiceService.DeleteVendor_Staff(id).subscribe(
+  edit(id: any) {
+    debugger
+    location.href = "#/VendorStaffForm/" + id;
+  }
+
+  
+  public Ondelete(id: any) {
+    debugger
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to delete it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+       this.RecruitmentServiceService.DeleteVendor_Staff(id).subscribe(
       data => {
         debugger
         this.GetVendor_Staff();
         Swal.fire('Deleted');
       }
     )
+      }
+    })
   }
 
-  edit(id: any) {
-    debugger
-    location.href = "#/VendorStaffForm/" + id;
-  }
+
 
 
   public DisableStaff(id: any) {
-
+    debugger
     var eb = {
-  
       'ID': id,
-  
       'Enable_Disable': 1
-  
     }
-  
-    this.RecruitmentServiceService.EnableVendorStaff(eb).subscribe(
-      data => {
-        debugger
-        Swal.fire('Updated successfully.');
-        location.reload();
-      },
-    )
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Disable it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Disable it',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.EnableVendorStaff(eb).subscribe(
+          data => {
+            debugger
+            Swal.fire('Updated successfully.');
+            location.reload();
+          },
+        )
+      }
+    })
   }
-  
+
   public DisableStaff1(id: any) {
-  
+    debugger
     var eb = {
-  
       'ID': id,
-  
       'Enable_Disable': 0
-  
     }
-  
-    this.RecruitmentServiceService.EnableVendorStaff(eb).subscribe(
-      data => {
-        debugger
-        Swal.fire('Updated successfully.');
-        location.reload();
-      },
-    )
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Disable it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Disable it',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.EnableVendorStaff(eb).subscribe(
+          data => {
+            debugger
+            Swal.fire('Updated successfully.');
+            location.reload();
+          },
+        )
+      }
+    })
   }
-
-
 
 
 

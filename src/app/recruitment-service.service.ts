@@ -9,8 +9,8 @@ export class RecruitmentServiceService {
  
 
   // host = "https://23.101.22.93/DigiOfficeBSINTAPI";
-  // host = "http://103.133.214.197/CoreDigiRecuritmentAPI";
-  host = "http://23.101.22.93/CoreDigiRecruitementAPI";
+ //  host = "http://103.133.214.197/CoreDigiRecuritmentAPI";
+   host = "http://23.101.22.93/CoreDigiRecruitementAPI";
   // host="http://localhost:1807/"
   
   //DigiOfficeBSINTAPI

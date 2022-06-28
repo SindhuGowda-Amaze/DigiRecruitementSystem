@@ -9,9 +9,9 @@ import { RecruitmentServiceService } from '../recruitment-service.service';
 export class RecruiterStaffDashboardComponent implements OnInit {
   stafflist: any;
   count: any;
-  search:any;
+  search: any;
 
-  constructor(private RecruitmentServiceService:RecruitmentServiceService) { }
+  constructor(private RecruitmentServiceService: RecruitmentServiceService) { }
 
   ngOnInit(): void {
     this.GetRecruiterStaff();
@@ -19,61 +19,91 @@ export class RecruiterStaffDashboardComponent implements OnInit {
   public GetRecruiterStaff() {
     this.RecruitmentServiceService.GetRecruiterStaff().subscribe(
       data => {
-      this.stafflist = data
-      this.count = this.stafflist.length;
+        this.stafflist = data
+        this.count = this.stafflist.length;
+      })
+  }
+
+
+
+
+  public delete(id: any) {
+    debugger
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to delete it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.DeleteRecruiterStaff(id).subscribe(
+          data => {
+            debugger
+            Swal.fire('Deleted');
+            this.GetRecruiterStaff();
+          })
+      }
     })
   }
 
-  delete(id:any){
-    this.RecruitmentServiceService.DeleteRecruiterStaff(id).subscribe(
-      data => {
-        debugger
-        Swal.fire('Deleted');
-        this.GetRecruiterStaff();
-  })
-}
 
-  
-
-Update(staff:any) {
-  location.href = "#/RecruiterStaff/" + staff.id
-}
-
-public DisableStaff(id: any) {
-
-  var eb = {
-
-    'ID': id,
-
-    'Enable_Disable': 1
-
+  Update(staff: any) {
+    location.href = "#/RecruiterStaff/" + staff.id
   }
 
-  this.RecruitmentServiceService.EnableCompanyStaff(eb).subscribe(
-    data => {
-      debugger
-      Swal.fire('Updated successfully.');
-      location.reload();
-    },
-  )
-}
 
-public DisableStaff1(id: any) {
-
-  var eb = {
-
-    'ID': id,
-
-    'Enable_Disable': 0
-
+  public DisableStaff(id: any) {
+    debugger
+    var eb = {
+      'ID': id,
+      'Enable_Disable': 1
+    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Disable it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Disable it',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.EnableCompanyStaff(eb).subscribe(
+          data => {
+            debugger
+            Swal.fire('Updated successfully.');
+            location.reload();
+          },
+        )
+      }
+    })
   }
 
-  this.RecruitmentServiceService.EnableCompanyStaff(eb).subscribe(
-    data => {
-      debugger
-      Swal.fire('Updated successfully.');
-      location.reload();
-    },
-  )
-}
+  public DisableStaff1(id: any) {
+    debugger
+    var eb = {
+      'ID': id,
+      'Enable_Disable': 0
+    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You Want to Disable it.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Disable it',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value == true) {
+        this.RecruitmentServiceService.EnableCompanyStaff(eb).subscribe(
+          data => {
+            debugger
+            Swal.fire('Updated successfully.');
+            location.reload();
+          },
+        )
+      }
+    })
+  }
 }
