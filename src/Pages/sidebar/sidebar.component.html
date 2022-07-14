@@ -120,6 +120,17 @@
                 <img *ngIf="!home" src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;
                 &nbsp; Dashboard
             </a> -->
+            
+
+            <a *ngIf="roleid=='8'" routerLink="/ManpowerPlanningandBudgetingdash" class="nonactive"
+            (click)="openCity($event)">
+
+            <img *ngIf="!home" src="assets/Images/64/home.png" style="width: 13%;  margin-right: 17px;">&nbsp;
+            <img *ngIf="home" src="assets/Images/64 Blue/home.png" style="width: 13%;  margin-right: 17px;" />
+            <!-- <i class="fa fa-dashcube" style="width: 20px; font-size: 20px;   margin-right: 17px;"></i>-->
+            &nbsp;Manpower Planning and Budgeting 
+
+        </a>
 
             <a *ngIf="roleid=='1'" data-toggle="collapse" class="togglebtn button nonactive"
                 data-target="#userapplications">
@@ -141,8 +152,7 @@
                         style="width: 13%;    margin-right: 17px;" />
                     <img *ngIf="clientstaff" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Department Master.png"
                         style="width: 13%;    margin-right: 17px;" />
-                    &nbsp; CLIENT
-                    STAFF `
+                    &nbsp; CLIENT STAFF `
                 </a>
                 <a class="nonactive" (click)="openCity($event)" (click)="Recruitstaff()">
                     <img *ngIf="recruitstaff" src="assets/Images/64 Blue/ATTENDANCE/Report/masters/Country_master.png"
@@ -211,7 +221,7 @@
             <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button"
                 data-target="#userapplications1" class="nonactive" (click)="openCity($event)">
                 <img src="assets/Images/64/ATTENDANCE/Report/Employee Report.png"
-                    style="width: 13%;  margin-right: 17px;" *ngIf="roleid!=8 " />
+                    style="width: 13%;  margin-right: 17px;" *ngIf="roleid!=5 " />
 
                 &nbsp; Manpower Requisition
                 <!-- <img src="assets/images/downarrow.png" style="width: 20px;margin-left: 104px;"> -->
@@ -291,7 +301,7 @@
 
             <a *ngIf="roleid!=1 && roleid!=5" data-toggle="collapse" class="togglebtn button nonactive"
                 data-target="#userapplications2">
-                <img src="assets/Images/64/ATTENDANCE/Report/Timesheet_repoorts.png" *ngIf="roleid!=8"
+                <img src="assets/Images/64/ATTENDANCE/Report/Timesheet_repoorts.png" *ngIf="roleid!=5"
                     style="width: 13%;  margin-right: 17px;" />
 
                 &nbsp; Reports

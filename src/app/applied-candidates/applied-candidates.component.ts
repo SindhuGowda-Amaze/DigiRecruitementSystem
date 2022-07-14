@@ -40,8 +40,6 @@ export class AppliedCandidatesComponent implements OnInit {
     this.userid=sessionStorage.getItem('userid')
     this.username = sessionStorage.getItem('UserName'); 
 
-    
-    
     this.RecruitmentServiceService.GetClientStaff().subscribe(data => {
       this.hrlist = data;
     })

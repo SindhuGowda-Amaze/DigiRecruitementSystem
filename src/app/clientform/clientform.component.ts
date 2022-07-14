@@ -25,6 +25,14 @@ export class ClientformComponent implements OnInit {
   count: any;
   recruiterlist: any;
   showButton:any;
+  id: any;
+  ID: any;
+  Company_logo: any;
+  Name: any;
+  PhoneNo: any;
+  Email: any;
+  Address: any;
+  result: any;
 
   constructor(private RecruitmentServiceService: RecruitmentServiceService, private ActivatedRoute: ActivatedRoute) { }
 
@@ -59,17 +67,6 @@ export class ClientformComponent implements OnInit {
         this.Address = this.result[0].address;
       })
   }
-
-
-  id: any;
-  ID: any;
-  Company_logo: any;
-  Name: any;
-  PhoneNo: any;
-  Email: any;
-  Address: any;
-  result: any;
-
 
 
 
